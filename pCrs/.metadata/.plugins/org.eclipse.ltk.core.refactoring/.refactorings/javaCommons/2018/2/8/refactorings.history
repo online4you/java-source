@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy 2 source folders to &apos;lib&apos;&#x0D;&#x0A;- Original project: &apos;javaCommons&apos;&#x0D;&#x0A;- Destination element: &apos;lib&apos;&#x0D;&#x0A;- Original elements:&#x0D;&#x0A;     javaCommons/lib/bcprov-jdk15on-1.56.jar&#x0D;&#x0A;     javaCommons/lib/json-20140107.jar" description="Copy source folders" element1="/lib\/bcprov-jdk15on-1.56.jar" element2="/lib\/json-20140107.jar" flags="6" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyRoots" roots="2" stamp="1519456000930" target="/PCRS/WebContent/WEB-INF/lib" version="1.0"/>
+</session>

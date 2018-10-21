@@ -1,0 +1,7 @@
+#Tomcat publish data
+#Sat Aug 11 11:43:34 BRT 2018
+org.eclipse.jst.j2ee.server\:javaCommonServices=WEB-INF/lib/javaCommonServices.jar
+org.eclipse.jst.j2ee.server\:javaGENModel=WEB-INF/lib/javaGENModel.jar
+org.eclipse.jst.j2ee.server\:javaBDLConnector=WEB-INF/lib/javaBDLConnector.jar
+org.eclipse.jst.j2ee.server\:javaPCRSModel=WEB-INF/lib/javaPCRSModel.jar
+org.eclipse.jst.j2ee.server\:javaHotelan=WEB-INF/lib/javaHotelan.jar

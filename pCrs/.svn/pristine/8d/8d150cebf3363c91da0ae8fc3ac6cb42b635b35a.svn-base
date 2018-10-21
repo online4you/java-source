@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.photel.data.gen.ddbb.hibernate.pojo">
+	<class
+		name="GenImagesSite"
+		table="GEN_IMAGES_SITE"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<composite-id name="Id" class="GenImagesSitePK">
+			<key-property
+				name="GenParam"
+				column="GEN_PARAM"
+				type="string"
+			/>
+			<key-property
+				name="GenIdi"
+				column="GEN_IDI"
+				type="string"
+			/>
+			<key-property
+				name="GenSite"
+				column="GEN_SITE"
+				type="string"
+			/>
+			
+		</composite-id>
+
+		<property
+			name="GenTitle"
+			column="GEN_TITLE"
+			type="string"
+			not-null="false"
+			length="200"
+		/>
+		<property
+			name="GenAlt"
+			column="GEN_ALT"
+			type="string"
+			not-null="false"
+			length="200"
+		/>
+		<property
+			name="GenValue"
+			column="GEN_VALUE"
+			type="string"
+			not-null="false"
+			length="200"
+		/>
+		<property
+			name="GenOrder"
+			column="GEN_ORDER"
+			type="integer"
+			not-null="false"
+			length="22"
+		/>
+		<property
+			name="GenVal"
+			column="GEN_VAL"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

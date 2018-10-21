@@ -1,0 +1,448 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<!-- listadoHoteles -->
+<s:if test='isDebug()'>
+	<s:set name="debug" value="%{'text'}" />
+</s:if>
+<s:else>
+	<s:set name="debug" value="%{'hidden'}" />
+</s:else>
+
+
+
+<!-- s:form id="detalleHotel" name="detalleHotel" action="detalleHotel"-->
+<form id="detalleHotel" name="detalleHotel" action="">
+	<input id="hotelSeleccionadoDetail" name="hotelSeleccionado" type="<s:property value='#debug'/>" value=""/>
+	<input id="idHotel" name="idHotel" type="<s:property value='#debug'/>" value=""/>
+</form>
+<s:form id="datosPasajeros" name="datosPasajeros" action="datosPasajeros">
+	<input id="distribucionesSeleccinada" name="distribucionesSeleccinada" type="<s:property value='#debug'/>" value=""/>
+	<input id="contratoSeleccinado" name="contratoSeleccinado" type="<s:property value='#debug'/>" value=""/>
+	<input id="hotelSeleccionado" name="hotelSeleccionado" type="<s:property value='#debug'/>" value=""/>
+	<input id="entrada" name="entrada" type="<s:property value='#debug'/>" value="<s:property value='entrada'/>"/>
+	<input id="salida" name="salida" type="<s:property value='#debug'/>" value="<s:property value='salida'/>"/>
+	<input id="noches" name="noches" type="<s:property value='#debug'/>" value="<s:property value='noches'/>"/>
+	<input id="zona" name="zona" type="<s:property value='#debug'/>" value="<s:property value='zona'/>"/>
+	<input id="idioma" name="idioma" type="<s:property value='#debug'/>" value="<s:property value='idioma'/>"/>
+</s:form>
+
+<s:form id="reloadForm" name="reloadForm" action="disponibilidad">
+	<s:iterator var="par" value="getParameters()" >
+		<s:if test="!#par.key.equals('todosLosResultados') && !#par.key.equals('paginas') && !#par.key.equals('sessionId')">
+			<input name="<s:property value='#par.key'/>" type="<s:property value='#debug'/>" value="<s:property value='#par.value'/>"/>
+		</s:if>	
+	</s:iterator>
+	<input name="todosLosResultados" type="<s:property value='#debug'/>" value="false"/>
+	<input name="paginas" type="<s:property value='#debug'/>" value="<s:property value='nextPaginas()'/>"/>
+	<input name="sessionId" type="<s:property value='#debug'/>" value="<s:property value='sessionId'/>"/>
+	
+</s:form>
+<s:if test='dispo.hoteles.size()==0'>
+	<div class="art-PostMetadataHeader">
+		<div class="textoCabeceraDestinos">
+			<s:text name="lang.gen.glo.noDisponibilidad"/>
+		</div>
+	</div>
+</s:if>
+<s:iterator var="hotel" value="dispo.hoteles" status="hotelesStat">
+	<s:if test='maxHoteles(#hotelesStat.index)'>
+		<div style="display:none" id="hotel_<s:property value="#hotel.servicioCodigo"/>">
+			<s:property value="getSerializedHotel(#hotel)"/>
+		</div>
+		<div style="position: relative; background: transparent; height: auto" class="titlebox">
+			<table cellspacing="0" cellpadding="4" border="0">
+				<tbody>
+				<tr>
+					<td>
+						<div style="position: relative;  width: 100px" class="leftcell">
+							<div class="inner">
+								<a href="javascript: openDetail('<s:property value='#hotel.servicioCodigo'/>','<s:property value='#hotel.nombre.toUpperCase().replace("\'", "")'/>','<s:property value='#hotel.localidad.replace("\'", "")'/>')" target="_self">
+									<img height="105px" width="105px" alt="<s:property value="#hotel.nombre.toUpperCase()"/>" title="<s:property value='#hotel.nombre.toUpperCase()'/>" src="<s:property value='getLogoHotel(#hotel)'/>" style="border-color:#DEDEDE" class="listimage">
+								</a>
+							</div>
+						</div>
+					</td>
+					<td>
+						<div style="position: relative; width: 445px; top: 10; left:0" class="centercell">
+							<div class="inner">
+								<table width="100%" cellspacing="0" cellpadding="0" border="0">
+									<tbody>
+									<tr>
+										<td width="300px" style="text-align: left;">
+											<a href="javascript: openDetail('<s:property value='#hotel.servicioCodigo'/>','<s:property value='#hotel.nombre.toUpperCase().replace("\'", "")'/>','<s:property value='#hotel.localidad.replace("\'", "")'/>')" class="textoListados" target="_self">
+												<s:property value="#hotel.nombre.toUpperCase()"/></a>&nbsp;</td><td style="text-align: left;">
+											<div class="subtitle">&nbsp;&nbsp;&nbsp;<img alt="Star Rate" src="<s:property value='getLinkCategoria(#hotel)'/>"></div>
+										</td>
+										<td style="text-align: right;">
+											<span style="padding-left:10px;" class="small">&nbsp;</span>
+										</td>
+									</tr>
+									</tbody>
+								</table>
+								<p class="cat">
+								<spam style="color: #000000">
+								<strong><s:text name="lang.gen.glo.zona"/>:&nbsp;<s:property value="#hotel.localidad"/></strong></spam><br>
+								<s:property value='recortaDescipcion(#hotel)'/>
+								....
+								
+								<a href="javascript: openDetail('<s:property value='#hotel.servicioCodigo'/>','<s:property value='#hotel.nombre.toUpperCase().replace("\'", "")'/>','<s:property value='#hotel.localidad.replace("\'", "")'/>')" style="color: #F38A12;" class="textoListados" target="_self">
+									<s:text name="lang.gen.glo.masinfirmacion"/>
+								</a>
+								 
+								</p>
+								</div></div>
+					</td>
+					<td>
+						<div style="width: 75px; vertical-align: middle;" class="rightcell">
+							<div class="inner"/>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="3">
+						<div id="principalFrame"> 
+			  				<div id="contenidoFrame"> 
+			    				<div id="tipoHabi"> 
+			        				<div style="height: auto; display: block;" class="lahabi" id="habita_1"> 
+										<div class="listaPhotel" style="border-bottom:0 solid #919191">
+												<s:iterator var="contrato" value="#hotel.contratos" status="contratosStat">
+													<div <s:if test="#ultimoHotel==#hotel.servicioCodigo">style="display:none"</s:if> id="<s:property value="#hotel.servicioCodigo"/>_<s:property value="#contrato.codigoClasificacion.replace(' ','_')"/>">
+													<s:set name="ultimoHotel" value="#hotel.servicioCodigo"/>
+													<table width="100%" cellspacing="0" cellpadding="0" border="0">
+													<tbody>
+														<tr>
+															<td class="PhotelCeldaCabecera" colspan="2"><div class="PhotelTexxtoFila">
+																<div style="padding:8px; color:#F38A12; text-decoration:underline">
+																	<s:text name="lang.gen.glo.desde"/>:&nbsp;
+																	<s:property value="twoDecimalFormat(getPrecioDescuento(#contrato.precioMin))"/>
+																	&nbsp;EUR
+																</div>
+															</div></td>
+															<s:set name="promo" value="getPromotion(#contrato)"/>
+															<s:if test='#promo!=null'>
+
+																<td class="PhotelCeldaCabecera" colspan="4" style="height: 0px;">
+																	<div style="float:right">
+																		<div class="PhotelTextoCabecera" style="float:left">
+																			<img src="<s:property value="getContextPath()"/>/static/crs/images/Promo_<s:property value="getLocale().getLanguage()"/>.png"/ 
+																			title="<s:property value="#promo.code"/>-<s:property value="#promo.name"/>">	
+																		</div>
+																		<div class="PhotelTextoCabecera" style="margin-top: 10px;float:right">
+																			<s:property value="#promo.name"/>
+																		</div>
+																	</div>
+																</td>
+															</s:if>									
+															<s:else>						
+																<td class="PhotelCeldaCabecera" colspan="2"><div class="PhotelTextoCabecera">&nbsp;<div style="display:none"><s:property value="#contrato.codigoClasificacion"/></div></div></td>
+																<td class="PhotelCeldaCabecera" colspan="2"><div class="PhotelTextoCabecera"><s:property value="#contrato.clasificacion"/></div></td>
+															</s:else>
+														</tr>
+														<tr>
+															<td class="PhotelCeldaCabecera"><div class="PhotelTextoCabecera">&nbsp;</div></td>
+															<td class="PhotelCeldaCabecera"><div class="PhotelTextoCabecera"><s:text name="lang.gen.crs.i_tipohab"/></div></td>
+															<td class="PhotelCeldaCabecera"><div class="PhotelTextoCabecera"><s:text name="lang.gen.crs.i_suplemento"/> </div></td>
+															<td class="PhotelCeldaCabecera"><div class="PhotelTextoCabecera"><s:text name="lang.gen.crs.i_precioNoche"/></div></td>
+															<td class="PhotelCeldaCabecera"><div class="PhotelTextoCabecera"><s:text name="lang.gen.crs.i_totalreserva"/></div></td>
+															<td align="center" class="PhotelCeldaCabecera"><div class="PhotelTextoCabecera"><s:text name="lang.gen.crs.i_seleccione"/></div></td>
+														</tr>
+														<s:iterator var="distribucion" value="#contrato.distribuciones" status="distribucionesStat">
+															<tr>
+																<td colspan="6">
+																	<div>
+																		<br>
+																		<span style="color: #919191;font-size: 13px;"><b>
+																		<b><s:text name="lang.gen.glo.habitacion"/>&nbsp;<s:property value="#distribucionesStat.index+1"/>:&nbsp;</b>
+																		<s:property value="#distribucion.adultos"/>&nbsp;
+																		<s:if test="#distribucion.adultos==1"><s:text name="lang.gen.glo.Adulto"/></s:if>
+																		<s:else><s:text name="lang.gen.glo.Adultos"/></s:else>
+																		<s:if test="#distribucion.ninos!=0">
+																			<s:property value="#distribucion.ninos"/>&nbsp;
+																			<s:if test="#distribucion.ninos==1"><s:text name="lang.gen.glo.nino"/></s:if>
+																			<s:else><s:text name="lang.gen.glo.ninos"/></s:else>
+																		</s:if>
+																		
+																		
+																		</span>
+																	</div>
+																	<br>
+																	<!--s:property value="twoDecimalFormat(#distribucion.precioMin)"/-->
+																</td>
+															</tr>
+															<s:iterator var="room" value="#distribucion.rooms" status="roomsStat">
+																<s:if test="#roomsStat.index==0">
+																	<s:set name="primeraHabitacion" value="#room" />
+																</s:if>
+																<tr>
+																	<!-- Promos-->
+																	<td style="border-bottom: 1px solid #919191;">
+																		<div style="text-align: center;" class="PhotelTexxtoFila">
+																			<table cellspacing="0" cellpadding="0" border="0">
+																			<tbody>
+																				<tr>
+																					<td>
+																						<div style="display:none; float: right; width: 50px; height: 33px;/*background-image: url('css/img/Promo_en.png');*/ background-position: right top; background-repeat: no-repeat;" id="Promo_1_0">&nbsp;</div>
+																						<div style="display:block; float: right; width: 50px; height: 33px; background-position: right top; background-repeat: no-repeat;" id="Promo_1_0_blank">&nbsp;</div>
+																					</td>
+																					<td>
+																						<span tyle="font-size: 11px;">&nbsp;</span>	
+																					</td>
+																				</tr>
+																			</tbody>
+																			</table>
+							
+																		</div>
+																	</td>
+																	<td  style="border-bottom: 1px solid #919191;">
+																		<div style="width: 150px;" class="PhotelTexxtoFila" >
+																			<span style="font-size: 11px;">
+																				<s:property value="formatCapitalizeAllWords(#room.habitacion)"/>
+																			</span>
+																		</div>
+																	</td>	  
+																	<td style="border-bottom: 1px solid #919191;">
+														  				<s:set name="idIndex" value="#hotelesStat.index+'_'+#contratosStat.index+'_'+#distribucionesStat.index+'_'+#roomsStat.index"/>
+														  				
+														  				<select onchange="javascript:cambioRegimen(this)" id="regimen_<s:property value='#idIndex'/>" style="width:165px">
+															  				<s:set name="unaVez" value="false"/>
+															  				<s:iterator var="regimen" value="#room.regimenesAlimentarios" status="regimenesStat">
+															  					<s:set name="seleccionado" value="isRegimenSelected(#regimen)"/>
+															  					<s:if test="#regimenesStat.index==0 || (#seleccionado && !#unaVez)">
+															  						<s:set name="masBarato" value="#regimen"/>
+															  					</s:if>
+															  					<option value="<s:property value="getRegimenValue(#regimen)"/>" <s:if test="#seleccionado && !#unaVez">selected="selected"</s:if>>
+															  						<s:property value="#regimen.descripcion"/>
+															  					</option>
+															  					<s:if test="#seleccionado">
+																						<s:set name="unaVez" value="true"/>
+																				</s:if>
+															  				</s:iterator>
+		
+														  				</select>
+																	</td>
+																	<td style="border-bottom: 1px solid #919191;">					
+																		<div class="PhotelTexxtoFila">
+																			<span id="pornoche_<s:property value="#hotelesStat.index"/>_<s:property value="#contratosStat.index"/>_<s:property value="#distribucionesStat.index"/>_<s:property value="#roomsStat.index"/>" style="font-size: 11px">
+																			<s:property value="getRegimenValueXNoche(getPrecioDescuento(#masBarato.precio))"/> EUR
+																			</span>
+																		</div>
+																	</td>
+																	<td style="border-bottom: 1px solid #919191;">
+								 										<div class="PhotelTexxtoFila">
+																			<img width="16" height="16" class="espera" src="img/espera.gif" style="display: none" id="espera_1_0">
+																			<span id="importe_<s:property value="#hotelesStat.index"/>_<s:property value="#contratosStat.index"/>_<s:property value="#distribucionesStat.index"/>_<s:property value="#roomsStat.index"/>" tyle="font-size: 11px">
+																			<s:property value="twoDecimalFormat(getPrecioDescuento(#masBarato.precio))"/> EUR
+																			</span>
+																		</div>
+																	</td>
+																	<td align="center" style="border-bottom: 1px solid #919191;">
+																		<table cellspacing="0" cellpadding="0" border="0">
+																			<tbody>
+																			<tr>
+																				<td>&nbsp;</td>
+																				<td>
+																					<s:set name="idIndex2" value="#hotelesStat.index+'_'+#contratosStat.index+'_'+#distribucionesStat.index"/>
+																					<input type="radio" class="styled" title="javascript:cambioHabitacion('<s:property value='#distribucionesStat.index'/>___<s:property value='#room.habitacionCodigo'/>__<s:property value='#room.habitacionCaracteristica'/>','<s:property value="#idIndex"/>','<s:property value="#idIndex2"/>')" name="radio_<s:property value="#idIndex2"/>" id="radio_<s:property value="#idIndex"/>" <s:if test="#roomsStat.index==0">checked</s:if>/>
+																				</td>
+																			</tr>
+																			</tbody>
+																		</table>
+																	</td>
+																	</tr>
+																	<!-- Repetir tr por habitación -->
+																</s:iterator>
+																<tr>
+																<td colspan="6">
+																	<div>
+	
+																		<input id="distribucion_<s:property value='#idIndex2'/>" name="distribucion_<s:property value='#idIndex2'/>" type="<s:property value='#debug'/>" value="<s:property value='#distribucionesStat.index'/>___<s:property value='#primeraHabitacion.habitacionCodigo'/>__<s:property value='#primeraHabitacion.habitacionCaracteristica'/>__<s:property value='#masBarato.codigo'/>"/>
+																		
+																	</div>
+																	
+																</td>
+															</tr>
+															</s:iterator>
+													</tbody>
+													</table>
+															  			<input name="contrato" type="<s:property value='#debug'/>" value="<s:property value='#contrato.codigoClasificacion'/>"/>
+															  			<div style="border: 0px; border-bottom: 2px solid #F38A12;" class="listaPhotel" id="pieReserva"> 
+															  			<br>
+															  			*&nbsp;<s:text name="lang.gen.crs.i_impuestos"/>
+															    			<div style="float: right"> 
+															      				<button onclick="javascript: reservar('<s:property value="#hotel.servicioCodigo"/>','<s:property value="#contrato.codigoClasificacion.replace(' ','_')"/>');" class="botonReserva" type="button"><s:text name="lang.gen.glo.reservar"/></button>
+															    			</div>
+															    		<br>
+															    		<s:set name="contratosAMostrarOcultar" value="getContratosAMostrarOcultar(#hotel)"/>
+																		<s:if test="!#contratosAMostrarOcultar.equals('') && #contratosStat.index==0">
+																			<a style="font-size: 20px;" id="mostrarOcultarLink_<s:property value='#hotel.servicioCodigo'/>" href="javascript:mostrarOcultarContratos('<s:property value="#hotel.nombre"/>','<s:property value="#hotel.servicioCodigo"/>','<s:property value="#contratosAMostrarOcultar"/>')"><s:text name="lang.gen.glo.masTarifas"/> <s:property value='#hotel.nombre'/></a>
+																			<br>
+																			<br>
+																		</s:if>
+															  			</div>
+															      		
+	
+																		<br class="clear">
+													</div>
+												
+												</s:iterator>
+												
+											
+				  						</div>
+									</div>
+								</div>
+								<!-- tipoHabi -->
+				  
+	
+			      			</div>
+			  				<!--contenido-->
+						</div>
+						<!-- principalFrame -->
+					</td>
+				</tr>
+				</tbody>
+			</table>
+		</div>
+	</s:if>
+</s:iterator>
+<s:if test='mostrarMasResultados()'>
+	<button style="width: 134px;background-color: #F38A12;"onclick="javascript: masResultados();" class="botonReserva" type="button">+&nbsp;<s:text name="lang.gen.crs.i_resultados"/></button>
+</s:if>
+<script type="text/javascript">
+	function masResultados(){
+		$j('#reloadForm').submit();
+	}
+	function mostrarOcultarContratos(nombreHotel, codigoHotel, contratos){
+		con=contratos.split("##");
+		var seleccion;
+		for (var i=0;i<con.length;i++){
+			seleccion=codigoHotel+'_'+con[i];
+			seleccion=seleccion.replace(/\//g,'\\/');
+			if($j('#'+seleccion).is(':visible')) {
+				$j('#'+seleccion).hide();
+				$j('#mostrarOcultarLink_'+codigoHotel).text('<s:text name="lang.gen.glo.masTarifas"/> '+nombreHotel);
+			}
+			else {
+				$j('#'+seleccion).show();
+				$j('#mostrarOcultarLink_'+codigoHotel).text('<s:text name="lang.gen.glo.menosTarifas"/> '+nombreHotel);
+			}
+			if (parent.location != window.location) {
+				eval("parent.autoResize('iframeResultados');");
+			}
+			
+		}
+		
+		
+	}
+	function cambioRegimen(obj){
+		var val=obj.value;
+		var data=val.split("##"); 
+
+		
+		var id=obj.id.replace("regimen","");
+		var porNoche="pornoche"+id;
+		var importe="importe"+id;
+		
+		$j('#'+importe).html(data[0]+"&nbsp;EUR");
+		$j('#'+porNoche).html(data[1]+"&nbsp;EUR");
+		
+		if($j('#radio'+id).is(':checked')==true){
+			//$j('#radio'+id).trigger('change');
+			var obj=document.getElementById('radio'+id);
+			eval(obj.title);
+		}
+		
+		
+		
+	}
+	function openDetail(codigoHotel,title,localidad){
+			title=title + " - " + localidad + " - <s:property value='getDestinationDescription()'/>";
+			var url=".com/index.php?tt="+title+"&action=detail&url=/apps/bdl/detalleHotel.html?idHotel="+codigoHotel
+			var location=window.location.href;
+			url=location.split(".com")[0]+url;
+			url=encodeURI(url);
+			//$j('#detalleHotel').attr("action", url)		
+			//$j('#detalleHotel').submit()
+			/*
+			if (parent.location != window.location) {
+				parent.location.href=url;
+			}else{
+				window.location.href=url;
+			}
+			*/
+			var str = "<form name='f1' method='post' target='_self' action='"+url+"'>";
+			str += "</form>";
+
+			var vent=window.open("", '_blank', 'toolbar=yes,location=yes,directories=yes,resizable=yes,scrollbars=yes');
+			vent.document.write(str);
+			vent.document.f1.submit();
+			
+	}
+	/*
+	function openDetail2(codigoHotel,title){
+			title=title+" - <s:property value='getDestinationDescription()'/>";
+			var url="/PCRS/apps/bdl/detalleHotel.html?idHotel="+codigoHotel+"&tt="+title;
+			url=encodeURI(url);
+			var str = "<form name='f1' method='post' target='_self' action='"+url+"'>";
+			str += "</form>";
+
+			var vent=window.open("", '_blank', 'toolbar=yes,location=yes,directories=yes,resizable=yes,scrollbars=yes');
+			vent.document.write(str);
+			vent.document.f1.submit();
+			
+	}
+	*/
+	function reservar(hotel,codigoContrato){
+		var seleccion=hotel+'_'+codigoContrato;
+		var distribuciones="";
+		
+		seleccion=seleccion.replace(/\//g,'\\/');
+		seleccion=seleccion.replace(/#/g,'\\\\#');
+		
+		var separador="DISTRIBUCION";
+		$j('#'+seleccion+" input:<s:property value='#debug'/>").each(function() { 
+				var index=this.name.indexOf("distribucion");
+				if (this.name!="contrato" && this.name.indexOf("distribucion")!=-1){
+					distribuciones=distribuciones+this.value+separador;
+				}else if(this.name=="contrato"){
+					$j('#contratoSeleccinado').val(this.value);
+				}
+		   }); 
+		if(distribuciones!=""){
+			distribuciones=distribuciones.substring(0,distribuciones.length-separador.length);
+			$j('#distribucionesSeleccinada').val(distribuciones);
+			$j('#hotelSeleccionado').val($j('#hotel_'+hotel).html());
+		}
+		$j('#datosPasajeros').submit();
+	}
+
+	
+	function cambioHabitacion(habitacion_caracteristica, idIndex, idIndex2){
+		var regCode=$j('#regimen_'+idIndex).val().split("##")[2]; 
+		$j('#distribucion_'+idIndex2).val(habitacion_caracteristica+"__"+regCode);
+	}
+	
+	$j().ready(function() {
+		if (parent.location != window.location) {
+			eval("parent.autoResize('iframeResultados');");
+		}
+	});
+	
+	$j(function(){
+		// Bind the event.
+		$j(window).hashchange( function(){
+			$j('select').each(function(){
+				cambioRegimen(this);
+			});
+
+		});
+		// Trigger the event (useful on page load).
+		//setTimeout('doHashCange()',1);
+		$j(window).hashchange();
+	});
+	
+	function doHashCange(){
+		$j(window).hashchange();
+	}
+	
+</script>
+

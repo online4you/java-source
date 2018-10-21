@@ -1,0 +1,1086 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+<!-- datosPasajeros -->
+<s:form id="datosPasajeros" name="datosPasajeros" >
+	<table border="0" align="center" width="100%" cellspacing="1" cellpadding="0" style="text-align: left; border: 2px solid #B5D5DC;" id="datosPersonales">
+    <tbody>
+    	<tr> 
+        	<td align="left" class="textoDatosPago" colspan="2">
+				<div style="overflow:auto; font-size: 15px; padding: 15px;">
+					<s:text name="lang.gen.crs.i_datosPersonales"/>
+					<a href="javascript: verDesglose()" style="float:right;color:#F38A12"><s:text name="lang.gen.crs.i_verDesglose"/></a>
+				</div>
+				
+			</td>
+        </tr>
+	    <tr> 
+          	<td align="left" class="colu1" colspan="2"><span></span></td>
+        </tr>
+        <tr> 
+          	<td height="5" colspan="2"></td>
+        </tr>
+        <tr> 
+          	<td colspan="2">
+				<table border="0" align="center" width="100%" cellspacing="1" cellpadding="0" style="text-align: left;">
+				<tbody>
+					<tr> 
+         				<td align="right" style="width: 225px;" class="colu1"><s:text name="lang.gen.crs.i_apellidos"/>*:</td>
+          				<td> <input type="text" class="combo5" maxlength="50" style="width:240px;" id="ape" name="ape" value="<s:property value='getRandomParam()'/>" /></td>
+        			</tr>
+        			<tr> 
+          				<td align="right" class="colu1"><s:text name="lang.gen.crs.i_nombre"/>*:</td>
+         				<td> <input type="text" class="combo5" maxlength="50" style="width:240px;" id="nom" name="nom" value="<s:property value='getRandomParam()'/>" /> </td>
+        			</tr>
+					<tr> 
+		  				<td align="right" class="colu1"><s:text name="lang.gen.crs.i_tipoDocu"/>*:</td>
+		 			 	<td> 
+							<div style="width: 100px;" class="capa_lista" id="tipoDocuDiv"> <span style="color: #000000;" class="titulo_listaNaranja" id="cifNif"><s:text name="lang.gen.crs.i_nif"/></span> 
+								<div class="lista" id="listaRegis_tipoDocu"> <a href="javascript:cambiaCifNif(&quot;1&quot;,&quot;<s:text name="lang.gen.crs.i_nif"/>&quot;)"><s:text name="lang.gen.crs.i_nif"/></a> 
+								  <a href="javascript:cambiaCifNif(&quot;2&quot;,&quot;<s:text name="lang.gen.crs.i_namePasaporte"/>&quot;)"><s:text name="lang.gen.crs.i_namePasaporte"/></a> 
+								  <a href="javascript:cambiaCifNif(&quot;3&quot;,&quot;<s:text name="lang.gen.crs.i_otros"/>&quot;)"><s:text name="lang.gen.crs.i_otros"/></a> 
+								</div>
+								<input type="hidden" value="NIF" id="tipoDocu" name="tipoDocu">
+								<input type="hidden" value="1" id="tipoDocuId" name="tipoDocuId">
+							  </div>
+		  				</td>
+					</tr>
+					<tr> 
+		  				<td align="right" class="colu1"><s:text name="lang.gen.crs.i_documento"/>*:</td>
+		  				<td> <input type="text" onblur="chaeckNIF(this);" class="combo5" maxlength="50" style="width:240px;" id="documento" name="documento" value="<s:property value='getNIF()'/>" /> </td>
+					</tr>
+			        <tr> 
+			          <td align="right" class="colu1"><s:text name="lang.gen.crs.i_telefono"/>*:</td>
+			          <td> <input type="text" class="combo5" maxlength="25" style="width:240px;" id="tel" name="tel" value="<s:property value='getTlf()'/>" />
+			          </td>
+			        </tr>
+			        <tr> 
+			          <td align="right" class="colu1"><s:text name="lang.gen.crs.i_email"/>*:</td>
+			          <td> <input type="text" onblur="isEmailOK(this);"  class="combo5" maxlength="50" style="width:240px;" id="email" name="email" value="<s:property value='getEmail()'/>" /></td>
+			        </tr>
+			        <tr> 
+			          <td align="right" class="colu1"><s:text name="lang.gen.crs.i_confirmaemail"/>*:</td>
+			          <td> <input type="text" onblur="isEmailOK(this);"  class="combo5" maxlength="50" style="width:240px;" id="email2" name="email2" value="<s:property value='getEmail()'/>" /></td>
+			        </tr>
+			        <tr> 
+			          <td align="right" valign="top" class="colu1"><s:text name="lang.gen.crs.i_comentarios"/>:</td>
+			          <td valign="top"> 
+					  	<textarea  class="combo5" style="width:240px; height:80px;" id="coments" name="coments"><s:property value='getRandomParam()'/></textarea> 
+			          </td>
+			        </tr>
+					<tr> 
+		  				<td colspan="2">
+							<!--
+							<table>
+								 
+						         
+						        <s:iterator var="distribucion" value="getContratoSeleccionado().distribuciones" status="distribucionesStat">
+						        <s:set name="habitacion" value="getHabitacionSeleccionada(#distribucionesStat.index)"/>
+								<s:set name="regimen" value="getRegimenSeleccionado(#distribucionesStat.index)"/>
+									<tr>
+										<td colspan="4">
+											<div>
+												<span style="color: #919191;font-size: 13px;"><b><s:text name="lang.gen.glo.habitacion"/> <s:property value="#distribucion.numDistribucion"/>: </b><s:property value="#distribucion.adultos"/> Adults <s:property value="#distribucion.ninos"/> Children</span>
+												-- <s:property value="formatCapitalizeAllWords(#habitacion.habitacion)"/>
+												-- <s:property value="formatCapitalizeAllWords(#regimen.descripcion)"/>
+											</div>
+										</td>
+									</tr>
+									
+									<tr>
+										<td colspan="4">
+											<s:property value="formatCapitalizeAllWords(#habitacion.habitacion)"/>
+											-- <s:property value="formatCapitalizeAllWords(#regimen.descripcion)"/>
+										</td>
+										
+									</tr>
+								    
+								    <tr> 
+								    	<td class="colu1">&nbsp;</td>
+							          	<td class="colu1"><s:text name="lang.gen.crs.i_nombre"/>*</td>
+							          	<td class="colu1"><s:text name="lang.gen.crs.i_apellidos"/>*</td> 
+							          	<td class="colu1"><s:text name="lang.gen.crs.i_fechanac"/>*</td>
+						        	</tr>
+								         
+								         <s:iterator var="pax" value="getAdultos(#distribucionesStat.index)" status="paxesStat">
+									        <s:set name="paxIndex" value="#distribucionesStat.index+'_'+#paxesStat.index"/>
+									        <tr> 
+									        
+								        		<td> <s:text name="lang.gen.glo.Adulto"/> <s:property value="#paxesStat.index+1"/>*:</td> 
+								        		<td> <input type="text" class="combo5" maxlength="25" id="pax_<s:property value='#paxIndex'/>_ADT_nom" name="pax_<s:property value='#paxIndex'/>_ADT_nom" value="<s:property value='getRandomParam()'/>" /> </td> 
+								          		<td> <input type="text" class="combo5" maxlength="25" id="pax_<s:property value='#paxIndex'/>_ADT_ape" name="pax_<s:property value='#paxIndex'/>_ADT_ape" value="<s:property value='getRandomParam()'/>" /> </td>
+								          		<td> <input type="text" class="combo5" maxlength="25" id="pax_<s:property value='#paxIndex'/>_ADT_data" name="pax_<s:property value='#paxIndex'/>_ADT_data" value="<s:property value='getAdultDate()'/>" />  </td>
+									        </tr>
+								         </s:iterator>
+								         <s:iterator var="pax" value="getNinos(#distribucionesStat.index)" status="paxesStat">
+								          <s:set name="paxIndex" value="#distribucionesStat.index+'_'+#paxesStat.index"/>
+									        <tr> 
+									          	<td> <s:text name="lang.gen.glo.nino"/> <s:property value="#paxesStat.index+1"/>*:</td> 
+									          	<td> <input type="text" class="combo5" maxlength="25" id="pax_<s:property value='#paxIndex'/>_NIN_nom" name="pax_<s:property value='#paxIndex'/>_NIN_nom" value="<s:property value='getRandomParam()'/>" /> </td> 
+									          	<td> <input type="text" class="combo5" maxlength="25" id="pax_<s:property value='#paxIndex'/>_NIN_ape" name="pax_<s:property value='#paxIndex'/>_NIN_ape" value="<s:property value='getRandomParam()'/>" /> </td>
+									          	<td> <input type="text" class="combo5" maxlength="25"  id="pax_<s:property value='#paxIndex'/>_NIN_data" name="pax_<s:property value='#paxIndex'/>_NIN_data" value="<s:property value='getChildDate()'/>" /> Edad: <s:property value="#pax.edad"/> </td>
+									        </tr>
+								         </s:iterator>
+								         
+						        </s:iterator>
+							</table>
+							 -->
+		  				</td>
+					</tr>
+			</tbody>
+			</table>
+		</td>
+	</tr>
+ 	<tr>
+		<td colspan="2">
+			<input type="hidden" style="width: 70px;" class="combo5" readonly="" maxlength="8" size="10" value="786,50" name="totalres">
+			<input type="hidden" style="width: 70px;" class="combo5" readonly="" maxlength="8" size="10" value="71,49" name="prepago">
+		</td>
+    </tr>
+    <tr> 
+    	<td colspan="2" class="colu1">
+			<input type="checkbox" style="border:none" value="1" name="checkFacturaS" id="checkFacturaS" class="styled" title="muestraOcultaFactura();setCheck(document.getElementById('checkFacturaS'),document.getElementById('checkFactura'));">
+		  	<input type="hidden" value="0" name="checkFactura" id="checkFactura">
+		  	<s:text name="lang.gen.crs.i_deseoFactura"/>
+		</td>
+    </tr>
+        <tr> 
+          <td colspan="2">
+			  <div style="visibility: hidden; position: absolute; top: 0px; height: 200px; display: none;" id="factura"> 
+				  <table border="0" align="center" width="100%" cellspacing="1" cellpadding="0" style="text-align: left;">
+					<tbody><tr> 
+					  <td align="right" style="width: 225px;" class="colu1"><s:text name="lang.gen.crs.i_razonSocial"/>*:</td>
+					  <td> <input type="text" class="combo5" maxlength="50" style="width:240px;" id="factNombre" name="factNombre" value="<s:property value='getRandomParam()'/>" /> 
+					  </td>
+					</tr>
+					<tr> 
+					  <td align="right" class="colu1"><s:text name="lang.gen.crs.i_documento"/>*:</td>
+					  <td> <input type="text" class="combo5" maxlength="50" style="width:240px;" id="factCifNif" name="factCifNif" value="<s:property value='getNIF()'/>" /> 
+					  </td>
+					</tr>
+					<tr> 
+					  <td align="right" class="colu1"><s:text name="lang.gen.crs.i_cp"/>*:</td>
+					  <td> <input type="text"  class="combo5" maxlength="5" style="width:70px;" id="factCP" name="factCP" value="<s:property value='getRandomParam()'/>" /> 
+					  </td>
+					</tr>
+					<tr> 
+					  <td align="right" class="colu1"><s:text name="lang.gen.crs.i_direccion"/>*:</td>
+					  <td> <input type="text"  class="combo5" maxlength="50" style="width:240px;" id="factDir" name="factDir" value="<s:property value='getRandomParam()'/>" /> 
+					  </td>
+					</tr>
+					<tr> 
+					  <td align="right" class="colu1"><s:text name="lang.gen.crs.i_localidad"/>*:</td>
+					  <td> <input type="text"  class="combo5" maxlength="50" style="width:240px;" id="factLoc" name="factLoc" value="<s:property value='getRandomParam()'/>" /> 
+					  </td>
+					</tr>
+					<tr> 
+					  <td align="right" class="colu1"><s:text name="lang.gen.glo.paisprovincia"/>*:</td>
+					  <td> <input type="text"  class="combo5" maxlength="50" style="width:240px;" id="factPais" name="factPais" value="<s:property value='getRandomParam()'/>" /> 
+					  </td>
+					</tr>
+					<tr> 
+					  <td align="right" class="colu1"><s:text name="lang.gen.crs.i_emailFactura"/>*:</td>
+					  <td> <input type="text" onblur="isEmailOK(this);" class="combo5" maxlength="50" style="width:240px;" id="factEmail" name="factEmail" value="<s:property value='getEmail()'/>" /> 
+					  </td>
+					</tr>
+				</tbody></table>
+			</div>
+			&nbsp;
+		</td>
+	</tr>
+    <tr> 
+    	<td colspan="2" class="colu1">
+			<input type="checkbox" style="border:none" value="1" name="checkPersonaContactoS" id="checkPersonaContactoS" class="styled" title="muestraPersonaDecontacto();setCheck(document.getElementById('checkPersonaContactoS'),document.getElementById('checkPersonaContacto'));">
+		  	<input type="hidden" value="0" name="checkPersonaContacto" id="checkPersonaContacto">
+		  	<s:text name="lang.gen.crs.i_personaContacto"/>  
+		</td>
+	</tr>
+	<tr> 
+		<td colspan="2">
+		  	<div style="visibility: hidden; position: absolute; top: 0px; height: 100px; display: none;" id="personaContacto"> 
+				  <table border="0" align="center" width="100%" cellspacing="1" cellpadding="0" style="text-align: left;">
+					<tbody><tr> 
+					  <td align="right" style="width: 225px;" class="colu1"><s:text name="lang.gen.crs.i_apellidos"/>*:</td>
+					  <td> <input type="text" class="combo5" maxlength="50" style="width:240px;" id="apeContact" name="apeContact" value="<s:property value='getRandomParam()'/>" /> 
+					  </td>
+					</tr>
+					<tr> 
+					  <td align="right" class="colu1"><s:text name="lang.gen.crs.i_nombre"/>*:</td>
+					  <td> <input type="text" class="combo5" maxlength="50" style="width:240px;" id="nomContact" name="nomContact" value="<s:property value='getRandomParam()'/>" /> 
+					  </td>
+					</tr>
+					<tr> 
+					  <td align="right" class="colu1"><s:text name="lang.gen.crs.i_telefono"/>*:</td>
+					  <td> <input type="text"  class="combo5" maxlength="25" style="width:240px;" id="telContact" name="telContact" value="<s:property value='getTlf()'/>" /> 
+					  </td>
+					</tr>
+				</tbody></table>
+			</div>
+		</td>
+	</tr>
+	<tr> 
+    	<td colspan="2" class="colu1">
+			<input type="checkbox" checked="" style="border:none" value="1" name="deseoRecibirOfertasS" id="deseoRecibirOfertasS" class="styled" title="setCheck(document.getElementById('deseoRecibirOfertasS'),document.getElementById('deseoRecibirOfertas'))">
+			<input type="hidden" value="1" name="deseoRecibirOfertas" id="deseoRecibirOfertas">
+		  	<s:text name="lang.gen.crs.i_deseoRecibirOfertas"/>
+		</td>
+	</tr>
+    <tr> 
+		<td style="line-height: 24px;" colspan="2" class="colu1">
+			<input type="checkbox" checked="" style="border:none" value="1" id="informacionS" name="informacionS" class="styled" title="setCheck(document.getElementById('informacionS'),document.getElementById('informacion'))"> 
+		  	<input type="hidden" value="1" name="informacion" id="informacion">
+			<a target="_blank" href="http://www.book-villa.com/index2.php?option=com_content&amp;view=article&amp;id=2&amp;lang=en"><s:text name="lang.gen.crs.i_acepto"/></a>
+            <br> 
+			<input type="checkbox" style="border:none" value="1" id="aceptoS" name="aceptoS" class="styled" title="setCheck(document.getElementById('aceptoS'),document.getElementById('acepto'))"> 
+			<input type="hidden" value="0" name="acepto" id="acepto">
+            <a target="_blank" href="http://www.book-villa.com/index2.php?option=com_content&amp;view=article&amp;id=6&amp;lang=en"><s:text name="lang.gen.crs.i_aceptoprivacidad"/></a> 
+        </td>
+     </tr>
+     <tr> 
+     	<td style="line-height: 24px;" colspan="2" class="colu1">
+		  	<s:text name="lang.gen.crs.i_formapago"/>:
+		</td>
+     </tr>
+     <tr> 
+     	<td style="line-height: 24px;" colspan="2" class="colu1">
+		  	<input type="radio" checked="" style="border:none" value="1" id="credit" name="typeOfPayment" class="styled"> 
+			<s:text name="lang.gen.crs.i_tarjetacredito"/>
+			</td>
+     </tr>
+     <tr> 
+     	<td style="line-height: 24px;" colspan="2" class="colu1">
+  		<input type="radio" style="border:none" value="2" id="transfer" name="typeOfPayment" class="styled"> 
+		<s:text name="lang.gen.crs.i_transferencia"/>
+		<input type="hidden" value="1" id="typeOfPaymentID" name="typeOfPaymentID">
+		</td>
+     </tr>
+     <tr> 
+     	<td colspan="2" class="colu1">
+			<b><s:text name="lang.gen.crs.i_obliga"/></b>
+		</td>
+     </tr>
+     <tr> 
+     	<td height="10" colspan="2"></td>
+     </tr>
+     <tr> 
+     	<td height="10" colspan="2" align="center">
+     		 <button id="botonReserva" onclick="javascript:doPago('true');" class="botonReserva" type="button"><s:text name="lang.gen.glo.reservar"/></button>
+     	</td>
+     </tr>
+</tbody>
+</table>
+</s:form>
+<div id="lightBanner" class="preloading_white_content"></div>
+<div id="preloadingFade" class="preloading_black_overlay"></div>
+<div id="desglosePrecios" class="preloading_white_content" >
+
+<div class="art-Post-body">
+<div class="art-Post-inner">
+<table style="width:100%">
+		
+
+		<tr>
+			<td colspan="4">
+				<div class="art-PostMetadataHeader">
+					<h2 class="art-PostHeader" style="text-align:center"><s:property value="hotel.name"/></h2>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="4">&nbsp;</td>
+		</tr>
+		
+	<tr>
+		<td colspan="4"><hr></td>
+	</tr>
+<tr>
+			<td colspan="1">
+				<span style="color:#178EB6;font-weight:bolder"><s:text name="lang.gen.glo.llegada"/>:</span><span style="color:#000000">&nbsp;<s:property value="entrada"/></span>
+			</td>
+			<td colspan="1">
+				<span style="color:#178EB6;font-weight:bolder"><s:text name="lang.gen.glo.salida"/>:</span><span style="color:#000000">&nbsp;<s:property value="salida"/></span>
+			</td>
+			<td colspan="1">
+				<span style="color:#178EB6;font-weight:bolder"><s:text name="lang.gen.glo.noches"/>:</span><span style="color:#000000">&nbsp;<s:property value="noches"/></span>
+			</td>
+			<td colspan="1">&nbsp;</td>
+		</tr>
+		
+		
+		<tr>
+			<td colspan="4"><hr></td>
+		</tr>
+		<tr>
+			<td colspan="1">
+				<span style="color:#178EB6;font-weight:bolder"><s:text name="lang.gen.glo.llegada"/>:</span><span style="color:#000000">&nbsp;<s:property value="entrada"/></span>
+			</td>
+			<td colspan="1">
+				<span style="color:#178EB6;font-weight:bolder"><s:text name="lang.gen.glo.salida"/>:</span><span style="color:#000000">&nbsp;<s:property value="salida"/></span>
+			</td>
+			<td colspan="1">
+				<span style="color:#178EB6;font-weight:bolder"><s:text name="lang.gen.glo.noches"/>:</span><span style="color:#000000">&nbsp;<s:property value="noches"/></span>
+			</td>
+			<td colspan="1">&nbsp;</td>
+		</tr>
+		
+		
+		<tr>
+			<td colspan="4"><hr></td>
+		</tr>
+	<tr>
+		<td colspan="3"><span style="color:#178EB6;font-weight:bolder"><s:text name="lang.gen.crs.i_gastosCancelacion"/>:</span></td>
+		<td colspan="1" style="text-align:right">
+			<span style="color:#000000"><s:property value="twoDecimalFormat(getGastosTotalesCancelacion(hotelBloqueado))"/>&nbsp;EUR</span>
+		</td>
+	</tr>
+	<tr>
+		<td colspan="1"><span style="color:#178EB6;font-weight:bolder"><s:text name="lang.gen.crs.i_fechaGastos"/>*:</span></td>
+		<td colspan="1">
+			<span style="color:#000000"><s:property value="formatDate(getPrimeraFechaCancelacionFicticia(hotelBloqueado))"/></span>
+		</td>
+		<td colspan="2">&nbsp;</td>
+	</tr>
+	<tr>
+		<td colspan="4"><hr></td>
+	</tr>
+	<tr>
+		<td colspan="3"><span style="color:#178EB6;font-weight:bolder"><s:text name="lang.gen.crs.i_importetotal"/>:</span></td>
+		<td colspan="1" style="text-align:right">
+			<span style="color:#000000"><s:property value="twoDecimalFormat(getPrecioDescuento(hotelBloqueado.purchase.totalPrice))"/>&nbsp;EUR</span>
+		</td>
+	</tr>
+	
+	<tr>
+		<td colspan="3"><span style="color:#178EB6;font-weight:bolder"><s:text name="lang.gen.crs.i_ImporteAPagar"/>:</span></td>
+		<td colspan="1" style="text-align:right">
+			<span style="color:#000000;font-weight:bolder"><s:property value="twoDecimalFormat(hotelBloqueado.purchase.toPay)"/>&nbsp;EUR</span>
+		</td>
+	</tr>
+	<s:if test='toPayBefore!=null'>
+		<tr>
+			<td colspan="3"><span style="color:#178EB6;font-weight:bolder"><s:text name="lang.gen.crs.i_aPagarAntesDe"/>&nbsp;<s:property value="formatDate(getPrimeraFechaCancelacion(hotelBloqueado))"/>:</span></td>
+			<td colspan="1" style="text-align:right">
+				<span style="color:#000000;font-weight:bolder"><s:property value="twoDecimalFormat(toPayBefore)"/>&nbsp;EUR</span>
+			</td>
+		</tr>
+	</s:if>
+	<tr>
+		<td colspan="4"><hr></td>
+	</tr>
+			<tr>
+				<td colspan="4" >
+					<span style="color:#000000"><s:text name="lang.gen.crs.i_aceptoGastos"/></span> <input type="checkbox" style="border:none" value="1" id="aceptoPago" name="aceptoPago" class="styled" />
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4" align="center">
+					<button id="botonReserva" onclick="javascript:doPasarelaDePago();" class="botonReserva" type="button"><s:text name="lang.gen.glo.reservar"/></button>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="4"><hr></td>
+			</tr>
+	
+	<tr>
+		<td colspan="4">* <s:text name="lang.gen.crs.i_explicacionGastos"/></td>
+	</tr>
+	<tr>
+		<td colspan="4">&nbsp;</td>
+	</tr>
+	
+	<s:set name="comments" value="getComentarios()"/>
+	<s:if test="!#comments.equals('')">
+		<tr>
+			<td colspan="4"><strong><s:text name="lang.gen.crs.i_comentarios"/>:</strong></td>
+		</tr>
+		
+		<tr>
+			<td colspan="4"><div id="comentarios"><s:property value="#comments"/></div></td>
+		</tr>
+		<tr>
+			<td colspan="4">&nbsp;</td>
+		</tr>
+	</s:if>
+	<tr>
+		<td colspan="4" align="center">
+				<button id="botonCancelar" onclick="javascript:cierraDesglose();" class="botonReserva" type="button"><s:text name="lang.gen.crs.i_cerrar"/></button>
+		</td>
+	</tr>
+</table>
+</div>
+</div>
+
+
+</div>
+<div id="preloading" class="preloading_white_content" ></div>
+<img id="espera" style="display:none; position:absolute" src="<s:property value='getContextPath()'/>/static/crs/images/wait3.gif" />
+<s:set name="debug" value="%{'hidden'}" />
+<s:form id="processForm" name="processForm" >
+	<input id="distribucionesSeleccinada" name="distribucionesSeleccinada" type="<s:property value='#debug'/>" value="<s:property value='distribucionesSeleccinada'/>"/>
+	<input id="contratoSeleccinado" name="contratoSeleccinado" type="<s:property value='#debug'/>" value="<s:property value='contratoSeleccinado'/>"/>
+	<input id="hotelSeleccionado" name="hotelSeleccionado" type="<s:property value='#debug'/>" value="<s:property value='hotelSeleccionado'/>"/>
+	<input id="entrada" name="entrada" type="<s:property value='#debug'/>" value="<s:property value='entrada'/>"/>
+	<input id="salida" name="salida" type="<s:property value='#debug'/>" value="<s:property value='salida'/>"/>
+	<input id="noches" name="noches" type="<s:property value='#debug'/>" value="<s:property value='noches'/>"/>
+	<input id="zona" name="zona" type="<s:property value='#debug'/>" value="<s:property value='zona'/>"/>
+	<input id="idioma" name="idioma" type="<s:property value='#debug'/>" value="<s:property value='idioma'/>"/>
+	<input id="process_paxes" name="paxes" type="<s:property value='#debug'/>" value=""/>
+	
+	<input id="process_ape" name="ape" type="<s:property value='#debug'/>" value=""/>
+	<input id="process_nom" name="nom" type="<s:property value='#debug'/>" value=""/>
+	<input id="process_tipoDocu" name="tipoDocu" type="<s:property value='#debug'/>" value=""/>
+	<input id="process_tipoDocuId" name="tipoDocuId" type="<s:property value='#debug'/>" value=""/>
+	<input id="process_documento" name="documento" type="<s:property value='#debug'/>" value=""/>
+	<input id="process_tel" name="tel" type="<s:property value='#debug'/>" value=""/>
+	<input id="process_email" name="email" type="<s:property value='#debug'/>" value=""/>
+	<input id="process_coments" name="coments" type="<s:property value='#debug'/>" value=""/>
+	<input id="process_checkFactura" name="checkFactura" type="<s:property value='#debug'/>" value=""/>
+		<input id="process_factNombre" name="factNombre" type="<s:property value='#debug'/>" value=""/>
+		<input id="process_factCifNif" name="factCifNif" type="<s:property value='#debug'/>" value=""/>
+		<input id="process_factCP" name="factCP" type="<s:property value='#debug'/>" value=""/>
+		<input id="process_factDir" name="factDir" type="<s:property value='#debug'/>" value=""/>
+		<input id="process_factLoc" name="factLoc" type="<s:property value='#debug'/>" value=""/>
+		<input id="process_factPais" name="factPais" type="<s:property value='#debug'/>" value=""/>
+		<input id="process_factEmail" name="factEmail" type="<s:property value='#debug'/>" value=""/>
+	<input id="process_checkPersonaContacto" name="checkPersonaContacto" type="<s:property value='#debug'/>" value=""/>
+		<input id="process_apeContact" name="apeContact" type="<s:property value='#debug'/>" value=""/>
+		<input id="process_nomContact" name="nomContact" type="<s:property value='#debug'/>" value=""/>
+		<input id="process_telContact" name="telContact" type="<s:property value='#debug'/>" value=""/>
+	<input id="process_deseoRecibirOfertas" name="deseoRecibirOfertas" type="<s:property value='#debug'/>" value=""/>
+	<input id="process_informacion" name="informacion" type="<s:property value='#debug'/>" value=""/>
+	<input id="process_acepto" name="acepto" type="<s:property value='#debug'/>" value=""/>
+	<input id="process_typeOfPaymentID" name="typeOfPaymentID" type="<s:property value='#debug'/>" value=""/>
+</s:form>
+    
+ <script type="text/javascript">
+ 	var textoRequerido='<s:text name="lang.gen.crs.i_camporequerido"/>';
+ 	var textoFechaAdulto="<s:text name="lang.gen.crs.i_fechaNoValida"/>";
+ 	var textoFechaNino="<s:text name="lang.gen.crs.i_fechaNoValidaNino"/>";
+ 	var textoAceptaCondiciones="<s:text name="lang.gen.crs.i_condicionesNoAceptadas"/>";
+	var validator;
+	
+	
+	
+	$j(document).ready(function() {
+		montarSelect();
+		muestraOcultaFactura();
+		
+	});
+	function verDesglose(){
+		$j('#desglosePrecios').show();
+		var pos=$j('#factura').offset();
+    	var oWith=$j("#desglosePrecios").outerWidth();	
+    	var oHeight=$j("#desglosePrecios").outerHeight();
+    	var left=pos.left;
+    	var top=pos.top;
+    	
+    	left=100;
+    	
+ 		$j("#desglosePrecios").css( { "left":(left) + "px", "top":(top) + "px" } ); 
+ 		$j('#espera').hide();
+		$j('#desglosePrecios').show();
+	}
+	
+	function setFadeOn(){
+		//$j('#preloading').center();
+    	var pos=$j('#factura').offset();
+    	var oWith=$j("#preloading").outerWidth();	
+    	var oHeight=$j("#preloading").outerHeight();
+    	var left=pos.left;
+    	var top=pos.top;
+    	
+    	left=100;
+    	
+ 		$j("#preloading").css( { "left":(left) + "px", "top":(top) + "px" } ); 
+ 		$j('#espera').hide();
+		$j('#preloading').show();
+		//$j('#preloadingFade').show();
+	} 
+	function setFadeOff(){
+		$j('#preloading').hide();
+		$j('#espera').hide();
+		//$j('#preloadingFade').hide();
+	} 
+	
+	function esperaGif(){
+		//$j('#preloading').center();
+    	var pos=$j('#factura').offset();
+    	var left=pos.left;
+    	var top=pos.top;
+    	
+    	left=195;
+    	
+ 		$j("#espera").css( { "left":(left) + "px", "top":(top) + "px" } ); 
+		$j('#espera').show();
+	} 
+	
+	function doPago(mostrarReservar){
+		//var a=validator;
+		if(mostrarReservar=='true'){
+			if($j("#datosPasajeros").valid()==false){
+				alert('<s:text name="lang.gen.crs.i_faltanDatos"/>');
+				return;
+			}
+		}
+		
+		var allInputs = $j('#datosPasajeros :input');
+		if ($j('#credit').is(':checked')){
+			$j('#typeOfPaymentID').val('1');
+		}else if ($j('#transfer').is(':checked')){
+			$j('#typeOfPaymentID').val('2');
+		}
+		
+		
+		if($j('#nom').val()==''){
+			$j('#nom').val('o4u');
+		}
+		if($j('#ape').val()==''){
+			$j('#ape').val('o4u');
+		}
+		
+		for (var i=0;i<allInputs.length;i++){
+			$j('#process_'+allInputs[i].id).val(allInputs[i].value);
+		}
+		if($j('#nom').val()=='o4u'){
+			$j('#nom').val('');
+		}
+		if($j('#ape').val()=='o4u'){
+			$j('#ape').val('');
+		}
+		var serialPaxes=serializePaxes();
+		$j('#process_paxes').val(serialPaxes);
+		
+		
+		var serializedData = $j('#processForm').serialize();
+		serializedData+="&mostrarReservar="+mostrarReservar;
+		callPreReserva(serializedData,mostrarReservar);
+
+	} 
+
+	function serializePaxes(){
+		/*Para recoger los campos
+		var allInputs = $j('#datosPasajeros :input[id^="pax_"]');
+		var serialized="";
+		//pax_0_0_ad_nom
+		//pax_0_0_nin_nom
+		//pax_distribucion_idPax_campo
+		for (var i=0;i<allInputs.length;i++){
+			if(allInputs[i].id.indexOf("_data")==-1){
+				serialized+="###"+allInputs[i].id+"##"+allInputs[i].value;
+			}else{
+				var val=allInputs[i].value.split('/');
+				var anyo=val[2];
+    			var mes=val[1];
+    			var dia=val[0];
+    			serialized+="###"+allInputs[i].id+"##"+anyo+mes+dia;
+			}
+		}
+		*/
+		var serialized="";
+				 <s:iterator var="distribucion" value="getContratoSeleccionado().distribuciones" status="distribucionesStat">
+				 	  <s:iterator var="pax" value="getAdultos(#distribucionesStat.index)" status="paxesStat">
+				      <s:set name="paxIndex" value="#distribucionesStat.index+'_'+#paxesStat.index"/>
+				        	serialized+="###pax_<s:property value='#paxIndex'/>_ADT_nom##void";
+				        	serialized+="###pax_<s:property value='#paxIndex'/>_ADT_ape##void";
+				        	serialized+="###pax_<s:property value='#paxIndex'/>_ADT_data##void";
+				        	serialized+="###pax_<s:property value='#paxIndex'/>_ADT_edad##void";
+			         </s:iterator>
+			         <s:iterator var="pax" value="getNinos(#distribucionesStat.index)" status="paxesStat">
+			         <s:set name="paxIndex" value="#distribucionesStat.index+'_'+#paxesStat.index"/>
+			         	serialized+="###pax_<s:property value='#paxIndex'/>_NIN_nom##void";
+			        	serialized+="###pax_<s:property value='#paxIndex'/>_NIN_ape##void";
+			        	serialized+="###pax_<s:property value='#paxIndex'/>_NIN_data##void";
+			        	serialized+="###pax_<s:property value='#paxIndex'/>_NIN_edad##<s:property value='#pax.edad'/>";
+			         </s:iterator>
+			     </s:iterator>
+		
+		return serialized;
+	}
+function callPreReserva(serializedData,mostrarReservar){
+	/*
+	esperaGif();
+	
+	$j.ajax({ 
+        url: "<s:property value='getContextPath()'/>/apps/bdl/preReserva.html", 
+        type: "post", 
+        data: serializedData, 
+        // callback handler that will be called on success 
+        success: function(response, textStatus, jqXHR){ 
+        	if (response.length>500){
+        		if (mostrarReservar=='true'){
+        			$j("#preloading").html(response);
+        			setFadeOn();
+        		}else{
+        			$j("#desglosePrecios").html(response);
+        			verDesglose();
+        			cierraDesglose();
+        			verDesglose();
+        			if (parent.location != window.location) {
+        				eval("parent.autoResize('iframeResultados');");
+        			}
+        		}
+        	   	
+        	}else{
+        		setFadeOff();
+        		alert($j.trim($j("#preloading").html(response).text()));
+        	}
+        	
+        }, 
+        // callback handler that will be called on error 
+        error: function(jqXHR, textStatus, errorThrown){ 
+           setFadeOff();
+           alert('<s:text name="lang.gen.crs.i_KoReserva"/>'); 
+        }, 
+        // callback handler that will be called on completion 
+        // which means, either on success or error 
+        complete: function(){ 
+        	 //setFadeOff();
+        } 
+    }); 
+	*/
+	
+}
+	
+	//Custom.init;
+ function validateEmail(email) {
+	   var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+	   var address = email;
+	   if(reg.test(address) == false) {
+	     return false;
+	   } else {
+	   	return true;
+	   }
+	}
+	function nifOK(dni) {
+	  numero = dni.substr(0,dni.length-1);
+	  let = dni.substr(dni.length-1,1);
+	  let=let.toUpperCase();
+	  numero = numero % 23;
+	  letra='TRWAGMYFPDXBNJZSQVHLCKET';
+	  letra=letra.substring(numero,numero+1);
+	   if(letra!=let) {
+	     return false;
+	   } else {
+	   	return true;
+	   }
+	}
+	
+
+
+	/*funcion para controlar capas DIV como select HTML */
+
+	
+	
+	function quitaLista(esa){
+		$j(esa).css("display",'none');
+	}
+
+	var idReloj;
+	var listaActual="";
+	function montarSelect() 
+	{
+		var lista_select=$j("div.capa_lista");
+		for(x=0; x < lista_select.length; x++)
+		{
+			$j("#" + lista_select[x].id).click(function()
+			{	  
+				//alert("click")
+				var lista=$j("#"+this.id+" div.lista");
+				//alert(lista.length)
+				for (i = 0; i < lista.length; i++) 
+				{
+					if (lista[i].style.display == "none" || lista[i].style.display == "") 
+					{ 
+						//alert(lista[i].id + " - " + lista[i].style.display);
+						//alert("NO ESTA VISIBLE")
+						//no estÃ¡ visible
+						lista[i].style.display = "block";
+						//$j("#" + lista[i].id).css("display", "block");
+						//$j("#" + lista[i].id).css("position", "");
+						
+						//$j("#" + lista[i].id).css("display", "block");
+						//alert(lista[i].style.display)
+						listaActual=this.id; //para controlar el cierre
+						//esto es por culpa del IE
+						//ancho=this.offsetWidth-4; //lista[i].offsetWidth-4;
+						//var enlaces=$j("#"+lista[i].id+" a");
+						//for (x=0;x<enlaces.length;x++) 
+							//enlaces[x].style.width = ancho+"px";
+							
+					}
+					else
+					{ 
+						//alert("YA ESTA VISIBLE")
+						//ya estÃ¡ visible
+						lista[i].style.display = "none";
+						listaActual="";
+					}
+				}
+			});
+			//$j("#"+lista_select[x].id).hover(function()
+			//{
+				//if (listaActual==this.id)
+				//	clearTimeout(idReloj); //detiene el reloj si hay un mouseout
+			//}, function()
+			//{
+				//var lista=$j("#"+this.id+" div.lista");
+				//idReloj=setTimeout("quitaLista('#"+lista[0].id+"')",200);
+			//});
+		} //for
+	}
+	
+	function setCheck(checkObj,hiddenObj){
+		if (checkObj.checked==true){
+			hiddenObj.value='1';}
+		else {
+			hiddenObj.value='0';}
+	}
+	function muestraOcultaFactura(){
+		 if (document.getElementById('checkFacturaS').checked==true){
+		 	 document.getElementById('factura').style.position="relative";
+			 document.getElementById('factura').style.visibility="visible";
+			 document.getElementById('factura').style.display="block";
+		} else {
+			 document.getElementById('factura').style.visibility="hidden";
+			 document.getElementById('factura').style.display="none";
+			 document.getElementById('factura').style.position="absolute";
+		}
+		if (parent.location != window.location) {
+			eval("parent.autoResize('iframeResultados');");
+		}
+
+		 
+	}
+
+	function muestraPersonaDecontacto(){
+		 if (document.getElementById('checkPersonaContactoS').checked==true){
+			document.getElementById('personaContacto').style.position="relative";
+			 document.getElementById('personaContacto').style.visibility="visible";
+			 document.getElementById('personaContacto').style.display="block";
+		} else {
+			 document.getElementById('personaContacto').style.visibility="hidden";
+			 document.getElementById('personaContacto').style.display="none";
+			 document.getElementById('personaContacto').style.position="absolute";
+		}
+		if (parent.location != window.location) {
+			eval("parent.autoResize('iframeResultados');");
+		}
+	 
+	}
+muestraPersonaDecontacto();
+	function cambiaCifNif(idTxt, txt){
+		 setText(document.getElementById('cifNif'), txt);
+		 document.getElementById('tipoDocu').value=txt;
+		 document.getElementById('tipoDocuId').value=idTxt;
+		 chaeckNIF(document.getElementById('documento'));
+	 
+	}
+function setText(n,txt)
+{
+  if('textContent' in n) {
+    n.textContent=txt;
+  } else if('innerText' in n) {
+    n.innerText=txt;
+  } else {
+    // Call a custom collecting function, throw an error, something like that.
+  }
+}
+function isEmailOK(email){
+	if (validateEmail(email.value)==false){
+		if (email.value!=''){
+			alert('<s:text name="lang.gen.crs.i_mailIncorrecto"/>');
+			}
+		email.value='';
+	}
+	if(email.id=='email2'){
+		if (email.value!=$j('#email').val()){
+			alert('<s:text name="lang.gen.crs.i_mailIncorrecto"/>');
+			email.value='';
+		}
+		
+	}
+}
+function chaeckNIF(nif){
+	if ( document.getElementById('tipoDocuId').value=='1' && '<s:property value="getLocale().getLanguage()"/>'=='es'){
+		if (nif.value!=''){
+			if (nifOK(nif.value)==false){
+				if (nif.value!=''){
+					alert('<s:text name="lang.gen.crs.I_NIFIncorrecto"/>');
+				}
+				nif.value='';
+			}
+		}
+	}
+}
+
+	function OpenDesglose(action){
+		if (parent.location != window.location) {
+			eval("parent.goToDetais('" + action + "');");
+		}
+	}
+	
+	
+	function validarFecha(dia, mes, anyo){
+		if (dia!='' && mes!='' && anyo!=''){
+			if (!isNaN(dia/1) && !isNaN(mes/1) && !isNaN(anyo)){
+				if(mes>12||mes<1){return false;}
+				if(anyo<1900){return false;}
+				if(dia>31 || dia<1){return false;}
+				var days=new Array();
+				days[1]=31;
+				days[2]=29;
+				days[3]=31;
+				days[4]=30;
+				days[5]=31;
+				days[6]=30;
+				days[7]=30;
+				days[8]=30;
+				days[9]=30;
+				days[0]=31;
+				days[11]=30;
+				days[12]=31;
+				dia=dia/1;
+				mes=mes/1;
+
+				if (dia>days[mes]){
+					return false;
+				}else{
+				return true;}
+			}
+			else{
+				
+				return false;
+				}
+		}else{
+		
+		return false;
+		}
+		
+	}	
+	
+	
+	
+	$j().ready(function() {
+		
+		
+		$j("#datosPasajeros :input").blur(function() {
+			$j(this.form).validate().element(this);
+		});
+		
+		<s:set name="distribucionesList" value="getContratoSeleccionado().distribuciones"/>
+		<s:iterator var="distribucion" value="getContratoSeleccionado().distribuciones" status="distribucionesStat">
+        <s:set name="adultosList" value="getAdultos(#distribucionesStat.index)"/>
+		<s:set name="ninosList" value="getNinos(#distribucionesStat.index)"/>
+			<s:iterator var="pax" value="#adultosList" status="paxesStat">
+			<s:set name="paxIndex" value="#distribucionesStat.index+'_'+#paxesStat.index"/>
+				$j( "#pax_<s:property value='#paxIndex'/>_ADT_data" ).datepicker(
+						{
+					        onClose: function(date) {
+					        	$j('#datosPasajeros').validate().element(this);
+					        }}		
+				);
+		    </s:iterator>
+         	<s:iterator var="pax" value="#ninosList" status="paxesStat">
+          	<s:set name="paxIndex" value="#distribucionesStat.index+'_'+#paxesStat.index"/>
+          		$j( "#pax_<s:property value='#paxIndex'/>_NIN_data" ).datepicker({
+			        onClose: function(date) {
+			        	$j('#datosPasajeros').validate().element(this);
+			        }}		
+				);
+          		$j.validator.addMethod('fechaNino_pax_<s:property value='#paxIndex'/>_NIN_data', function(value,element) {
+        			var anyo=value.split('/')[2];
+        			var mes=value.split('/')[1];
+        			var dia=value.split('/')[0];
+
+        			var retorno=validarFecha(dia, mes, anyo);
+        			if(retorno){
+        				var fecha=anyo+mes+dia;
+        				var fechaMax=<s:property value='getMaxDateChild(#pax.edad)'/>;
+        				var fechaMin=<s:property value='getMinDateChild(#pax.edad)'/>;
+        				if((fecha*1)<(fechaMin*1) || fecha>(fechaMax*1)){
+        					retorno=false;
+        				}
+        				//alert(fecha+" " + fechaMin+" " + fechaMax);
+        			}
+        			
+        			return retorno;
+        			});
+         	</s:iterator>
+		</s:iterator>
+		
+		
+		$j.validator.addMethod('fechaAdulto', function(value,element) {
+			var anyo=value.split('/')[2];
+			var mes=value.split('/')[1];
+			var dia=value.split('/')[0];
+
+			var retorno=validarFecha(dia, mes, anyo);
+			return retorno;
+			});
+		$j.validator.addMethod('factura', function(value,element) {
+				if($j('#checkFactura').val()==0){
+					return true;
+				}else{
+					if(value==''){
+						return false;
+					}else{
+						return true;
+					}
+				}
+			});
+		$j.validator.addMethod('personaContacto', function(value,element) {
+			if($j('#checkPersonaContacto').val()==0){
+				return true;
+			}else{
+				if(value==''){
+					return false;
+				}else{
+					return true;
+				}
+			}
+		});
+		$j.validator.addMethod('condiciones', function(value,element) {
+			if($j('#informacion').val()==0){
+				return false;
+			}
+			return true;
+		});
+		$j.validator.addMethod('politica', function(value,element) {
+			if($j('#acepto').val()==0){
+				return false;
+			}
+			return true;
+		});
+		validator=$j('#datosPasajeros').validate({
+			   rules: {
+				ape:{required: true},
+				nom:{required: true},
+				documento:{required: true},
+				tel:{required: true},
+				email:{required: true},
+				email2:{required: true},
+				factNombre:{factura: true},
+				factCifNif:{factura: true},
+				factCP:{factura: true},
+				factDir:{factura: true},
+				factLoc:{factura: true},
+				factPais:{factura: true},
+				factEmail:{factura: true},
+				apeContact:{personaContacto: true},
+				nomContact:{personaContacto: true},
+				telContact:{personaContacto: true},
+				informacion:{condiciones:true},
+				acepto:{politica:true},
+				/*
+				<s:set name="distribucionesList" value="getContratoSeleccionado().distribuciones"/>
+				<s:iterator var="distribucion" value="getContratoSeleccionado().distribuciones" status="distribucionesStat">
+		        <s:set name="adultosList" value="getAdultos(#distribucionesStat.index)"/>
+				<s:set name="ninosList" value="getNinos(#distribucionesStat.index)"/>
+					<s:iterator var="pax" value="#adultosList" status="paxesStat">
+					<s:set name="paxIndex" value="#distribucionesStat.index+'_'+#paxesStat.index"/>
+						pax_<s:property value='#paxIndex'/>_ADT_nom: {required: true},
+  						pax_<s:property value='#paxIndex'/>_ADT_ape: {required: true},
+  						pax_<s:property value='#paxIndex'/>_ADT_data: {required: true,fechaAdulto:true}<s:if test="!#paxesStat.last || #ninosList.size()==0">,</s:if>
+				    </s:iterator>
+		         	<s:iterator var="pax" value="#ninosList" status="paxesStat">
+		          	<s:set name="paxIndex" value="#distribucionesStat.index+'_'+#paxesStat.index"/>
+						pax_<s:property value='#paxIndex'/>_NIN_nom: {required: true},
+						pax_<s:property value='#paxIndex'/>_NIN_ape: {required: true},
+						pax_<s:property value='#paxIndex'/>_NIN_data: {required: true,fechaNino_pax_<s:property value='#paxIndex'/>_NIN_data: true}<s:if test="!#paxesStat.last || !#distribucionesStat.last">,</s:if>
+		         	</s:iterator>
+        		</s:iterator>
+        		*/
+			   },
+			   messages: {  
+				   	ape: {required: textoRequerido},
+				   	nom:{required: textoRequerido},
+				   	documento:{required: textoRequerido},
+					tel:{required: textoRequerido},
+					email:{required: textoRequerido},
+					email2:{required: textoRequerido},
+					factNombre:{factura: textoRequerido},
+					factCifNif:{factura: textoRequerido},
+					factCP:{factura: textoRequerido},
+					factDir:{factura: textoRequerido},
+					factLoc:{factura: textoRequerido},
+					factPais:{factura: textoRequerido},
+					factEmail:{factura: textoRequerido},
+					apeContact:{personaContacto: textoRequerido},
+					nomContact:{personaContacto: textoRequerido},
+					telContact:{personaContacto: textoRequerido},
+					informacion:{condiciones:textoAceptaCondiciones},
+					acepto:{politica:textoAceptaCondiciones},
+					
+					/*
+				   <s:set name="distribucionesList" value="getContratoSeleccionado().distribuciones"/>
+					<s:iterator var="distribucion" value="getContratoSeleccionado().distribuciones" status="distribucionesStat">
+			        <s:set name="adultosList" value="getAdultos(#distribucionesStat.index)"/>
+					<s:set name="ninosList" value="getNinos(#distribucionesStat.index)"/>
+						<s:iterator var="pax" value="#adultosList" status="paxesStat">
+						<s:set name="paxIndex" value="#distribucionesStat.index+'_'+#paxesStat.index"/>
+	  						pax_<s:property value='#paxIndex'/>_ADT_nom: {required: textoRequerido},
+	  						pax_<s:property value='#paxIndex'/>_ADT_ape: {required: textoRequerido},
+	  						pax_<s:property value='#paxIndex'/>_ADT_data: {required: textoRequerido, fechaAdulto: textoFechaAdulto}<s:if test="!#paxesStat.last || #ninosList.size()==0">,</s:if>
+					    </s:iterator>
+			         	<s:iterator var="pax" value="#ninosList" status="paxesStat">
+			          	<s:set name="paxIndex" value="#distribucionesStat.index+'_'+#paxesStat.index"/>
+							pax_<s:property value='#paxIndex'/>_NIN_nom: {required: textoRequerido},
+							pax_<s:property value='#paxIndex'/>_NIN_ape: {required: textoRequerido},
+							pax_<s:property value='#paxIndex'/>_NIN_data: {required: textoRequerido, fechaNino_pax_<s:property value='#paxIndex'/>_NIN_data: textoFechaNino}<s:if test="!#paxesStat.last || !#distribucionesStat.last">,</s:if>
+			         	</s:iterator>
+	        		</s:iterator>
+	        		*/
+			   }} );
+		
+		
+		if (parent.location != window.location) {
+			eval("parent.autoResize('iframeResultados');");
+		}
+		doPago("false");
+
+});
+
+	function goToPago(idReserva){
+		var str = "<form name='f1' method='post' target='_self' action='<s:property value="urlPago"/>'>";
+		
+		str += "<input type='hidden' ";
+		str += "name='idReserva' ";
+		str += "value='" + idReserva + "'>";
+		str += "<br>\n";
+		
+		str += "</form>";
+
+		var vent=window.open("", '_blank', 'toolbar=no,location=no,directories=no,resizable=yes,scrollbars=yes');
+		vent.document.write(str);
+		vent.document.f1.submit();
+	} 
+	function doPasarelaDePago(){
+		if ($j('#aceptoPago').is(':checked')){
+			goToPago('<s:property value="idReserva"/>');
+		}else{
+			alert('<s:text name="lang.gen.crs.i_debeAceptar"/>');
+		}
+			
+		
+	}
+
+	function doCancelarPago(){
+		$j('#preloading').hide();
+		$j('#preloading').html('');
+	}
+	style1Item("aceptoPago");
+
+	function cierraDesglose(){
+		$j('#desglosePrecios').hide();
+		if (parent.location != window.location) {
+			eval("parent.autoResize('iframeResultados');");
+		}
+	}
+
+
+
+ </script>
+<!--
+
+//-->
+</script>     
+<!-- End datosPasajeros -->

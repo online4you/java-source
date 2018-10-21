@@ -1,0 +1,1243 @@
+﻿/* GENÉRICAS */
+body{font:62.5% Arial,sans-serif;background:none repeat scroll 0 0 #fff;margin:0;padding:0;}
+#main{margin:0 auto;width:994px;}
+
+/* ENCABEZADOS */
+h1{color:#FFF;font-size:1.5em;}
+h2{color:#565656;font-size:2em;}
+h2.titular-1{font-size:1.4em;margin:0 0 20px 20px;}
+h3{}
+h4{font-size:1em;}
+h5{}
+h6{}
+
+.smartbox h4{font-size:1em;}
+
+/* HEADER */
+#header{overflow:hidden;background:#D93102;}
+#header #logo{float:left;width:375px;}
+#header #banner{float:right;width:450px;}
+#header #banner .informacion{background:transparent url(../../images/HAL1024/telefono-informacion.jpg) no-repeat scroll 0 0;color:#FFF;float:right;font-size:1.3em;font-weight:700;height:56px;padding:25px 10px 10px 55px;text-align:right;width:235px;}
+#header #banner .informacion h1{font-size:.7em;}
+#header #banner .informacion .texto{font-size:2em;}
+#header .cabecera-izquierda{background:transparent url(../../images/HAL1024/cabecera-izquierda-1.jpg) no-repeat scroll 0 0;height:27px;width:6px;float:left;}
+#header .cabecera-derecha{background:transparent url(../../images/HAL1024/cabecera-derecha-1.jpg) no-repeat scroll 0 0;height:27px;width:5px;float:left;}
+#header .navbar{width:994px;clear:both;overflow:hidden;}
+html > body .navbar ul ul li a{width:auto;}
+.navbar ul{background:#D93102 url(../../images/HAL1024/cabecera-fondo-1.jpg) repeat-x scroll 0 0;height:27px;float:left;width:98.8%;}
+.navbar ul li{float:left;font-size:1.2em;border-right:1px solid #FED404;margin-top:5px;}
+.navbar ul li a{color:#FFF;background:transparent url(../../images/HAL1024/cabecera-triangulo.gif) no-repeat scroll right center;padding:0 12px 0 8px;margin:0 5px 0 0;display:block;}
+.navbar ul li a#activo, .navbar ul li a:hover{color:#000;font-weight:700;}
+.navbar ul ul{background:#d42d12;height:auto;width:130px;border:1px solid #fff;border-bottom:none;}
+.navbar ul ul li{float:none;border:none;border-bottom:1px solid #fff;margin:0;}
+.navbar ul ul li a{padding:3px 10px;background:none;font-size:.9em;margin:0;display:block;width:130px;}
+.navbar ul ul li a:hover{background:#EEAF01;margin:0;}
+.titulo-banner h1{color:#7D7D7D;font-size:.7em;text-align:center;}
+
+/* FOOTER */
+#footer{margin:40px 0;font-size:1.1em;color:#a8a8a8;overflow:hidden;clear:both;}
+#footer .footer-izd{width:360px;float:left;}
+#footer .newsletter-box,#footer .info-box{border-top:1px solid #a8a8a8;padding:5px;margin-bottom:5px;}
+#footer .newsletter-box div{float:left;padding:5px 10px 0 0;}
+#footer .footer-submit{background:none;border:none;color:#a8a8a8;font-size:1.1em;float:left;text-decoration:underline;cursor:pointer;}
+#footer .footer-input-box{background:#D1D1D1;border:none;color:#666;width:190px;}
+#footer .info-box{background:transparent url(../../images/common1024/info-gris.gif) no-repeat scroll 0 27px;font-size:1.2em;padding:20px 0 0 53px;float:left;}
+#footer ul{float:left;border-top:1px solid #a8a8a8;padding-top:5px;margin-left:20px;width:135px;}
+#footer ul li a{color:#a8a8a8;}
+#footer ul li a:hover{color:#D42D12;}
+#footer .footer-links{width:630px;overflow:hidden;}
+#footer .footer-links .bloque-links-imagen{width:140px;padding-left:20px;float:left;}
+#footer .footer-links .bloque-links-imagen ul{margin-left:0;}
+#footer .footer-links .social-links{margin-top:10px;}
+#footer .footer-inferior{border-top:1px solid #a8a8a8;clear:both;padding-top:10px;margin-top:10px;}
+#footer .footer-inferior a{float:left;}
+#footer .footer-inferior .datos-empresa{float:left;width:825px;text-align:center;padding-left:10px;line-height:2.2em;}
+
+/* CONTENT */
+#content{overflow:hidden;margin-top:10px;}
+
+/*MIGA DE PAN*/
+.bread{margin-bottom:10px;font-size:1.1em;color:#4B4B4B;}
+.bread a{text-decoration:none;color:#4B4B4B;}
+.bread .actual{font-weight:700;}
+
+/* Plantilla 2 columnas */ 
+.contenedor-general{background:#EDEDED url(../../images/HAL1024/fondo-superior.jpg) no-repeat scroll 0 0;width:994px;padding-bottom:20px;overflow:hidden;}
+.contenedor-general .zona-izda{background:#EDEDED;width:685px;float:left;margin-top:15px;padding-left:15px;}
+.contenedor-general .zona-dcha{background:#EDEDED;width:245px;float:left;margin-top:35px;padding-left:21px;font-size:1.2em;}
+.caja-contenido{background:#fff url(../../images/HAL1024/caja-contenido-superior.jpg) no-repeat scroll 0 0;width:679px;overflow:hidden;}
+.caja-contenido .cabecera{padding:10px 5px 5px 20px;margin:5px 1px 0 1px;overflow:hidden;width:652px;background:#fff;clear:both;}
+.caja-contenido .cabecera2{padding:5px 5px 5px 20px;margin:0 1px;overflow:hidden;width:652px;background:#fff;clear:both;}
+.caja-contenido .cabecera3 {background:#FFF;clear:both;margin:5px 1px 0;overflow:hidden;padding:10px 5px 10px 20px;width:450px;}
+.caja-contenido .cabecera4{padding:0 10px 10px 10px;overflow:hidden;width:670px;background:#fff;clear:both;height:88px;}
+.caja-contenido .cabecera4 .caja{background:url("../../images/HAL1024/icono-horarios.png") no-repeat scroll 0 0 transparent;padding-left:55px;width:330px;height:49px;font-size:1.4em;}
+.zona-izda .titulo1{float:left;}
+.zona-izda .titulo2 {color:#565656;float:left;font-size:2em;}
+.zona-dcha h2{font-size:1.5em;}
+.zona-dcha .titulo1{background:#EDEDED url(../../images/HAL1024/lateral-maleta.jpg) no-repeat scroll 0 0;text-align:right;margin-bottom:10px;float:left;}
+.zona-dcha .titulo2{background:#EDEDED url(../../images/HAL1024/lateral-carrito.jpg) no-repeat scroll 0 0;text-align:right;margin-bottom:10px;float:left;}
+.zona-dcha .titulo3{background:transparent url(../../images/HAL1024/lateral-embudo.gif) no-repeat scroll 0 0;text-align:right;margin-bottom:10px;float:left;}
+.zona-dcha .titulo4{background:#EDEDED url(../../images/HAL1024/lateral-regalo.jpg) no-repeat scroll 0 0;text-align:right;margin-bottom:10px;float:left;}
+.zona-dcha .subtitulo1{font-size:.9em;font-weight:700;float:left;}
+.zona-dcha .subtitulo2{float:left;}
+.zona-dcha .subtitulo3{text-align:right;width:200px;font-weight:normal;float:right;font-size:0.6em;color:#646463;padding-top:5px;}
+.caja-contenido .subtitulo1{float:left;font-size:1.4em;line-height:2.5em;padding-left:30px;background:transparent url(../../images/HAL1024/icono-exclamacion.gif) no-repeat scroll 0 6px;}
+.caja-contenido .subtitulo2{font-size:1.8em;font-weight:700;color:#D42D12;line-height:1.8em;}
+.caja-contenido .subtitulo3{font-weight:700;color:#D42D12;line-height:1.5em;}
+.caja-contenido .subtitulo4{float:left;font-size:1.4em;line-height:2em;padding-left:30px;background:transparent url(../../images/HAL1024/icono-exclamacion.gif) no-repeat scroll 0 0;margin-left:10px;}
+.caja-contenido .subtitulo5{clear:both;font-size:1.4em;line-height:2.5em;}
+.caja-contenido .subtitulo6{color:#00BA4A;font-size:2em;font-weight:700;}
+.caja-contenido .subtitulo7{background: url(../../images/HAL1024/icono-alarma.png) no-repeat scroll 0 0 transparent;float:left;font-size:2em;line-height:2em;padding-left:60px;font-weight:700;color:#D42D12;height:49px;}
+.caja-contenido .subtitulo8{background: url(../../images/HAL1024/icono-economico.png) no-repeat scroll 0 0 transparent;float:left;font-size:2em;line-height:2em;padding-left:60px;font-weight:700;color:#D42D12;height:49px;}
+.caja-contenido .subtitulo9{background: url(../../images/HAL1024/icono-horarios.png) no-repeat scroll 0 0 transparent;float:left;font-size:2em;line-height:2em;padding-left:60px;font-weight:700;color:#D42D12;height:49px;}
+.caja-contenido .subtitulo10{font-size:1.5em;padding-left:10px;}
+.caja-contenido .subtitulo11{float:left;font-size:2em;font-weight:700;color:#D42D12;padding-bottom:15px;}
+.caja-contenido .subtitulo11 span{font-size:0.7em; font-weight:lighter;}
+.caja-contenido-2 .subtitulo1{float:left;font-size:1.4em;line-height:3.3em;margin-left:10px;}
+.caja-contenido .separador-contenido{background:#EDEDED url(../../images/HAL1024/separador-contenido.gif) no-repeat scroll 0 0;width:677px;height:11px;overflow:hidden;margin-left:1px;}
+.caja-contenido .separador-contenido-2{width:677px;height:11px;overflow:hidden;margin-left:1px;}
+.caja-contenido .area-contenido{padding:15px 15px 15px 20px;margin:0 1px;font-size:1.2em;overflow:hidden;background:#fff;height:100%;}
+.caja-contenido .area-contenido-2{padding:15px 5px;margin:0 1px;font-size:1.2em;overflow:hidden;background:#fff;height:100%;}
+.caja-contenido .area-contenido-3{float:left;margin-bottom:20px;padding:10px 20px 0;width:635px;font-size:1.2em;}
+.caja-contenido .area-contenido-3 .titulo2{color:#565656;font-size:1.1em;font-weight:700;font-style:italic;}
+.caja-contenido .area-contenido-3 .titulo-seccion{color:#565656;font-size:1.2em;font-weight:700;margin:5px 0;}
+.caja-contenido .area-contenido-3 .titulo-seccion-2{color:#C6032F;font-size:0.8em;font-weight:normal;margin-left:85px;}
+.caja-contenido .area-contenido-3 .dato1{color:#5D5D5D;}
+.caja-contenido .area-contenido-3 .dato1-1{width:450px;}
+.caja-contenido .area-contenido-3 .caja{float:left;padding:10px 5px;width:630px;}
+.caja-contenido .area-contenido-3 .caja .dato1{color:#000000;float:left;padding:8px 10px 0 0;width:274px;}
+.caja-contenido .area-contenido-3 .caja .dato1-1{color:#5D5D5D;width:auto;float:none;}
+.caja-contenido .area-contenido-3 .caja .dato2{color:#D42D12;float:left;font-size:2.2em;font-weight:700;text-align:right;padding:0 50px;}
+.caja-contenido .area-contenido-3 .caja .dato2-1{font-size:0.8em;}
+.caja-contenido .area-contenido-3 .caja .img1{float:left;margin-right:7px;padding:8px 10px 0 0;border:0;}
+.caja-contenido .area-contenido-3 .pestana a{background:transparent url(../../images/HAL1024/pestana-gris.gif) no-repeat scroll 0 0;width:89px;height:22px;float:left;text-align:center;padding-top:10px;margin-right:5px;color:#957700;}
+.caja-contenido .area-contenido-3 .pestana a:hover,.caja-contenido .area-contenido-3 .activa a{background:transparent url(../../images/HAL1024/pestana-blanca.gif) no-repeat scroll 0 0;color:#000000;}
+#detalle-vuelo{width:460px;float:left;}
+.caja-contenido .area-contenido-3 .destacado{border:1px solid #E1E5E8;background-color:#FFF8DC;text-align:left;margin:0;float:left;}
+.caja-contenido .area-contenido-3 .destacado .dato1{float:left;padding-right:5px;width:65px;}
+.caja-contenido .area-contenido-3 .destacado .dato2{float:left;padding-right:5px;width:100px;}
+.caja-contenido .area-contenido-3 .destacado .dato3{float:left;line-height:1.2em;padding-right:5px;width:70px;}
+.caja-contenido .area-contenido-3 .destacado .dato4{float:left;font-size:0.9em;padding-right:5px;text-align:center;width:55px;}
+.caja-contenido .area-contenido-3 .destacado .img1{float:left;margin-right:7px;border:0;}
+.caja-contenido .area-contenido-3 .destacado .foto1{border:3px solid #FFFFFF;height:187px;width:255px;float:left;}
+.caja-contenido .area-contenido-3 .destacado .foto2{border:3px solid #FFFFFF;height:62px;width:83px;float:left;}
+.caja-contenido .area-contenido-3 .destacado .foto2:hover{opacity:0.4;filter:alpha(opacity=40);}
+.caja-contenido .area-contenido-3 .destacado .foto2-actual{border:3px solid #FFFFFF;height:62px;width:83px;float:left;}
+.caja-contenido .area-contenido-3 .destacado-2{float:right;width:150px;padding:5px;background:#EDEDED;margin:0;clear:none;}
+.caja-contenido .area-contenido-3 .destacado-2 .dato1{font-size:0.9em;width:150px;}
+.caja-contenido .area-contenido-3 .destacado-2 .dato1-1{color:#5D5D5D;width:110px;float:left;}
+.caja-contenido .area-contenido-3 .destacado-2 .dato2{color:#C6032F;padding:5px 0;font-size:1em;width:150px;}
+.caja-contenido .area-contenido-3 .destacado-2 .dato2-1{width:110px;float:left;}
+.caja-contenido .area-contenido-3 .destacado-3{background-color:#FFECFF;clear:none;float:right;margin:0;padding:5px;width:150px;}
+.caja-contenido .area-contenido-3 .destacado-3 .dato1{color:#C6032F;width:150px;text-align:center;}
+.caja-contenido .area-contenido-3 .destacado-3 .dato2{color:#C6032F;width:50px;font-size:2em;float:left;}
+.caja-contenido .area-contenido-3 .destacado-3 .dato3{color:#5D5D5D;width:50px;font-size:0.9em;padding-right:50px;float:left;}
+.caja-contenido .area-contenido-3 .destacado-4{background-color:#FFF8DC;border:1px solid #E1E5E8;float:left;height:320px;margin:0;text-align:left;width:620px;padding:5px;color:#5D5D5D;}
+.caja-contenido .area-contenido-3 .destacado-4 .dato1{float:left;width:175px;text-align:left;font-size:1em;font-weight:normal;margin-left:20px;}
+.caja-contenido .area-contenido-3 .destacado-4 .dato1-1{border-bottom:1px dotted #BDBDBD;padding:2px;width:175px;}
+.caja-contenido .area-contenido-3 .boton-ofertas{float:left;font-size:1.2em;line-height:20px;margin-left:10px;text-align:center;width:157px;}
+.caja-contenido .area-contenido-3 .bocadillo{background:url(../../images/HAL1024/bocadillo.gif) no-repeat scroll 0 0 #D42D12;color:#FFFFFF;float:rigth;height:36px;line-height:2.7em;margin:0 0 5px 0;padding:4px 5px 0 0;text-align:right;width:160px;}
+.caja-contenido .area-contenido-3 .bocadillo-2{background:url(../../images/HAL1024/fondo-precio-2.gif) no-repeat scroll 0 0 #D42D12;color:#FFFFFF;float:rigth;height:40px;line-height:3em;margin:0 0 5px 0;padding:0 5px 0 0;text-align:right;width:174px;float:right;}
+.caja-contenido .area-contenido-3 .bocadillo .dato1,.caja-contenido .area-contenido-3 .bocadillo-2 .dato1{font-size:2em;font-weight:700;color:#FFFFFF;}
+.caja-contenido .area-contenido-3 .bocadillo .dato2,.caja-contenido .area-contenido-3 .bocadillo-2 .dato2{font-size:1.5em;}
+.caja-contenido .area-contenido-3 .bocadillo .dato3,.caja-contenido .area-contenido-3 .bocadillo-2 .dato3{font-size:0.9em;font-weight:none;}
+.caja-contenido .area-contenido-3 #descripcion-hotel .dato2-1{float:left;position:relative;}
+.caja-contenido .area-contenido-3 #descripcion-hotel .img1{border:1px solid #FFBB00;float:left;}
+.caja-contenido .area-contenido-3 #descripcion-hotel .dato2-2{overflow:hidden;padding:0 5px 10px 10px;color:#565656;}
+.caja-contenido .area-contenido-3 #descripcion-hotel .dato2-2 .dato2-2-1{float:left;font-weight:700;font-size:2em;padding-right:5px;}
+.caja-contenido .area-contenido-3 #descripcion-hotel .dato2-2 .dato2-2-2{float:left;font-weight:700;font-size:1.1em;font-style:italic;}
+.caja-contenido .area-contenido-3 #descripcion-hotel .dato2-3{float:left;padding:10px 0;width:450px;color:#5D5D5D;}
+.caja-contenido-inferior{background:#EDEDED url(../../images/HAL1024/caja-contenido-inferior.jpg) no-repeat scroll 0 0;width:680px;height:10px;margin-bottom:15px;}
+.buscador-lateral{background:transparent url(../../images/HAL1024/buscador-lateral-superior.gif) no-repeat scroll 0 0;width:245px;overflow:hidden;}
+.buscador-lateral-contenido{padding:10px 8px;margin-top:2px;float:left;background:#fff;width:229px;overflow:hidden;}
+.buscador-lateral-contenido legend{padding-bottom:5px;}
+.buscador-lateral-contenido .fila-formulario{width:219px;padding:6px 8px;}
+.buscador-lateral-contenido .contenedor-boton{padding:8px 0 0 40px;float:left;}
+.buscador-lateral-inferior{background:transparent url(../../images/HAL1024/buscador-lateral-inferior.gif) no-repeat scroll 0 0;width:245px;height:8px;}
+.buscador-lateral-contenido .separador{border-top:2px solid #EDEDED;left:-8px;margin:10px 0;position:relative;width:245px;clear:both;height:0;overflow:hidden;}
+.separador-lateral{border-top:1px solid #fff;border-bottom:1px solid #dcdcdc;margin:5px 0;clear:both;}
+.zona-dcha .area-contenido{overflow:hidden;margin-bottom:30px;clear:both;}
+.zona-dcha .agrupa-datos-1{overflow:hidden;padding:0;line-height:1.1em;width:245px;padding:5px 0;}
+.zona-dcha .agrupa-datos-1 .dato1{width:45px;padding-left:5px;float:left;}
+.zona-dcha .agrupa-datos-1 .dato2{color:#787878;width:55px;padding-left:5px;float:left;}
+.zona-dcha .agrupa-datos-1 .dato3{color:#000;width:65px;padding-left:5px;float:left;}
+.zona-dcha .agrupa-datos-1 .dato4{text-align:right;color:#787878;width:60px;padding-left:5px;float:left;}
+.zona-dcha .agrupa-datos-1 .dato5{float:right;font-size:1.2em;line-height:.9em;}
+.zona-dcha .agrupa-datos-1 .dato6{padding-left:5px;float:left;color:#787878;width:177px;}
+.zona-dcha .agrupa-datos-1 .dato7{float:right;font-weight:700;}
+.zona-dcha .agrupa-datos-1 .dato8{float:right;}
+.zona-dcha .agrupa-datos-1 .dato9{float:right;font-size:1.4em;font-weight:700;}
+.zona-dcha .agrupa-datos-1 .dato10{width:190px;padding-left:5px;float:left;font-weight:700;}
+.zona-dcha .agrupa-datos-1 .dato10-1{padding-bottom:5px;}
+.zona-dcha .agrupa-datos-1 .dato11{color:#69D373;width:125px;padding:5px 0 0 5px;float:left;font-weight:normal;}
+.zona-dcha .agrupa-datos-1 .dato12{color:#D3AE35;width:180px;padding:5px 0 0 5px;float:left;font-weight:normal;}
+.zona-dcha .agrupa-datos-1 .bus{background:transparent url(../../images/HAL1024/lateral-bus.gif) no-repeat scroll 0 0;height:18px;width:45px;padding-left:5px;float:left;}
+.zona-dcha .agrupa-datos-1 .opcionales{background:transparent url(../../images/HAL1024/lateral-opcionales.gif) no-repeat scroll 0 0;height:29px;width:45px;padding-left:5px;float:left;}
+.zona-dcha .agrupa-datos-1 .tren{background:transparent url(../../images/HAL1024/lateral-tren.gif) no-repeat scroll 0 0;height:25px;width:45px;padding-left:5px;float:left;}
+.zona-dcha .agrupa-datos-1 .vuelo-ida{background:transparent url(../../images/HAL1024/lateral-avion-ida.gif) no-repeat scroll 0 0;height:25px;width:45px;padding-left:5px;float:left;}
+.zona-dcha .agrupa-datos-1 .vuelo-vuelta{background:transparent url(../../images/HAL1024/lateral-avion-vuelta.gif) no-repeat scroll 0 0;height:25px;width:45px;padding-left:5px;float:left;}
+.zona-dcha .agrupa-datos-1 .traslados{background:transparent url(../../images/HAL1024/lateral-traslados.gif) no-repeat scroll 0 0;height:18px;width:45px;padding-left:5px;float:left;}
+.zona-dcha .agrupa-datos-1 .hotel{background:transparent url(../../images/HAL1024/lateral-hotel.gif) no-repeat scroll 0 0;height:16px;width:45px;padding-left:5px;float:left;}
+.zona-dcha .agrupa-datos-2{float:right;width:212px;}
+.zona-dcha .agrupa-datos-2 .dato1{float:left;padding:0 10px 5px 0;color:#000;font-size:.9em;}
+.agrupa-datos-1#seleccion-viaje .dato1{float:left;font-size:1.4em;padding-top:14px;}
+.agrupa-datos-1#seleccion-viaje .dato1-1{color:#D42D12;font-size:.8em;}
+.agrupa-datos-1#seleccion-viaje .dato1-2{color:#D42D12;font-weight:700;font-size:2em;line-height:1.1em;}
+.agrupa-datos-1#seleccion-viaje .dato1-3{font-size:2em;}
+.agrupa-datos-1#seleccion-viaje .dato1-4{float:left;line-height:2.2em;}
+.agrupa-datos-1#seleccion-viaje .dato1-5{float:left;width:50px;line-height:1em;padding:0 5px;}
+.agrupa-datos-1#seleccion-viaje .dato2{float:right;width:256px;}
+.agrupa-datos-1#seleccion-viaje .dato2-1{color:#FFFFFF;font-size:2.6em;font-weight:700;left:207px;position:relative;top:-48px;}
+.agrupa-datos-1#seleccion-viaje .dato2-2{width:48px;height:48px;float:left;padding-right:3px;}
+.agrupa-datos-11{background:#3D3D3D;float:left;width:667px;margin-bottom:20px;}
+.agrupa-datos-11 .dato1{color:#fff;float:left;width:128px;padding:5px 6px;text-align:right;font-weight:700;position:relative;}
+.agrupa-datos-11 .dato1-1{font-size:1.2em;color:#fff;padding-top:8px;}
+.agrupa-datos-11 .dato1-2{position:absolute;bottom:5px;left:20px;}
+.agrupa-datos-11 .dato1-3{font-size:1.5em;padding:5px 0 0 34px;float:left;}
+.agrupa-datos-11 .dato2{float:left;width:522px;border-left:5px solid #fff;background:#f1f1f1;}
+.agrupa-datos-11 .dato2-1{width:510px;padding:12px 2px 12px 10px;overflow:hidden;border-bottom:1px solid #B8B8B8;}
+.agrupa-datos-11 .dato2-1-1{width:70px;float:left;padding-top:7px;}
+.agrupa-datos-11 .dato2-1-2{width:305px;float:left;padding:7px 7px 0 0;}
+.agrupa-datos-11 .dato2-1-3{width:60px;float:left;padding-top:7px;}
+.agrupa-datos-11 .dato2-1-4{width:260px;float:left;}
+.agrupa-datos-11 .dato2-1-5{width:150px;float:left;}
+.agrupa-datos-11 .dato2-1-6{width:100px;float:left;color:#36AE01;}
+.agrupa-datos-11 .dato3{float:left;width:522px;border-left:5px solid #fff;background:#f1f1f1;border-bottom:1px solid #B8B8B8;}
+.agrupa-datos-11 .dato3-1{float:left;border-right:3px solid #fff;margin-right:10px;position:relative;}
+.agrupa-datos-11 .dato3-2{float:left;width:380px;padding:5px 0 10px;line-height:1.8em;}
+.agrupa-datos-11 .dato3-2-1{float:left;font-weight:700;width:280px;padding-right:5px;}
+.agrupa-datos-11 .img1{float:left;}
+.agrupa-datos-11 .img2{float:left;border:1px solid #ffbb00;}
+.bloque-1{height:90px;background:#3d3d3d url(../../images/HAL1024/icono-vuelo-ida.jpg) no-repeat scroll 0 0;}
+.bloque-2{background:#3d3d3d url(../../images/HAL1024/icono-bus.jpg) no-repeat scroll 0 0;}
+.bloque-3{height:90px;background:#3d3d3d url(../../images/HAL1024/icono-vuelo-vuelta.jpg) no-repeat scroll 0 0;}
+.bloque-4{height:95px;background:#3d3d3d url(../../images/HAL1024/icono-hotel.jpg) no-repeat scroll 0 0;}
+.bloque-5{height:10px;background:#3d3d3d url(../../images/HAL1024/icono-vuelo-ida.jpg) no-repeat scroll 0 0;}
+.bloque-6{height:10px;background:#3d3d3d url(../../images/HAL1024/icono-vuelo-vuelta.jpg) no-repeat scroll 0 0;}
+.bloque-7{background:#3d3d3d url(../../images/HAL1024/icono-hotel.jpg) no-repeat scroll 0 0;}
+.bloque-8{background:#3d3d3d url(../../images/HAL1024/icono-opcionales.gif) no-repeat scroll 13px 6px;}
+.bloque-9{background:url(../../images/HAL1024/icono-tren.jpg) no-repeat scroll -5px -5px transparent;float:left;height:70px;width:35px;}
+.separador-1{border-bottom:2px solid #FFF;clear:both;}
+.pie-contenido{width:667px;overflow:hidden;margin-bottom:20px;clear:both;}
+.pie-contenido .dato1{float:left;background:#6D6D6D;width:270px;height:40px;color:#fff;padding-left:5px;line-height:1.6em;font-weight:700;}
+.pie-contenido .dato2{width:232px;float:left;} 
+.pie-contenido .dato2-1{float:left;background:#D42D12 url(../../images/HAL1024/fondo-precio-peq.gif) no-repeat scroll 0 0;width:232px;height:36px;color:#fff;padding:4px 10px 0 0;text-align:right;line-height:3.5em;margin-bottom:5px;overflow:hidden;}
+.pie-contenido .dato2-1-1{font-size:1.6em;}
+.pie-contenido .dato2-2{float:left;background:#D42D12 url(../../images/HAL1024/fondo-precio-mini.gif) no-repeat scroll 0 0;width:140px;height:36px;color:#fff;padding:4px 10px 0 0;text-align:right;line-height:2.7em;margin-bottom:5px;}
+.pie-contenido .dato2-2-1{font-size:2.4em;font-weight:700;}
+.agrupa-datos-12{background:#3D3D3D;float:left;width:667px;margin-bottom:5px;}
+.agrupa-datos-12 .dato1{color:#fff;float:left;width:40px;height:auto;padding:38px 5px 0 5px;text-align:center;font-weight:700;}
+.agrupa-datos-12 .dato1-1{font-size:.9em;color:#fff;}
+.agrupa-datos-12 .dato2{float:left;width:612px;border-left:5px solid #fff;background:#FFF8DC;}
+.agrupa-datos-12 .dato2-1{width:604px;padding:5px 2px 5px 5px;overflow:hidden;border-bottom:1px solid #B8B8B8;line-height:1.8em;}
+.agrupa-datos-12 .dato2-1-1{float:left;width:20px;padding-top:14px;}
+.agrupa-datos-12 .dato2-1-2{width:65px;float:left;padding-right:5px;}
+.agrupa-datos-12 .dato2-1-3{width:150px;padding-right:5px;float:left;}
+.agrupa-datos-12 .dato2-1-4{width:70px;float:left;padding-right:5px;line-height:1.2em;}
+.agrupa-datos-12 .dato2-1-5{width:55px;float:left;font-size:.9em;text-align:center;padding-right:5px;}
+.agrupa-datos-12 .dato2-1-6{width:40px;float:left;padding-right:5px;text-align:center;color:#697B7B;}
+.agrupa-datos-12 .dato2-1-7{width:40px;float:left;padding-right:5px;text-align:center;color:#FF0000;}
+.agrupa-datos-12 .dato3{color:#fff;float:left;padding:10px 5px;font-weight:700;width:657px;}
+.agrupa-datos-12 .dato3-1{color:#fff;font-size:1.4em;padding-left:60px;float:left;}
+.agrupa-datos-12 .dato3-2{float:right;}
+.agrupa-datos-12 .dato4{background:#FFF8DC;float:left;width:667px;border-top:3px solid #fff;}
+.agrupa-datos-12 .dato4-1{border-right:3px solid #FFF;float:left;position:relative;}
+.agrupa-datos-12 .img1{float:left;}
+.agrupa-datos-12 .img2{float:left;border:1px solid #ffbb00;}
+.agrupa-datos-12 .img3{float:left;padding:5px}
+.agrupa-datos-12 .dato4-2{padding:10px;overflow:hidden;border-bottom:1px solid #B8B8B8;height:86px;float:left;}
+.agrupa-datos-12 .dato4-2-1{float:left;font-weight:700;}
+.agrupa-datos-12 .dato4-2-3{clear:both;padding-top:10px;width:520px;}
+.agrupa-datos-12 .dato5{background:#FFF8DC;float:left;width:657px;padding:10px 5px;border-top:2px solid #fff;border-bottom:1px solid #B8B8B8;}
+.agrupa-datos-12 .dato5#select{background:#FFE969;}
+.agrupa-datos-12 .dato5-1{width:205px;float:left;padding:8px 10px 0 0;}
+.agrupa-datos-12 .dato5-2{width:95px;float:left;padding-right:10px;color:#D42D12;}
+.agrupa-datos-12 .dato5-3{width:120px;float:left;color:#D42D12;font-size:2.2em;font-weight:700;text-align:right;}
+.agrupa-datos-12 .dato5-3-1{font-size:.8em;}
+.agrupa-datos-12 .dato5-4{width:400px;float:left;padding:0 10px;}
+.agrupa-datos-12 .dato5-4-1 {color:#D42D12;font-weight:700;margin-left:5px;}
+.agrupa-datos-12 .dato5-4-2 {display:block;margin:5px 0 0 28px;}
+.agrupa-datos-12 .dato5-5{float:left;padding-right:10px;}
+.agrupa-datos-12 .dato5-6{width:140px;float:right;padding-right:5px;color:#D42D12;text-align:right;font-weight:700;font-size:1.4em;}
+.agrupa-datos-12 .dato5-7{margin-top:10px;float:left;clear:both;width:660px;overflow:hidden;}
+.agrupa-datos-12 .dato5-7-1{float:left;padding-left:40px;}
+.agrupa-datos-12 .dato5-7-1-1{font-weight:700;padding:5px 0;width:250px;}
+.agrupa-datos-12 .dato5-7-1-1-1{font-weight:normal;}
+.agrupa-datos-12 .dato5-7-2{float:left;padding-top:55px;}
+.agrupa-datos-12 .dato6{clear:both;font-weight:700;padding:5px 10px;background:#fff;}
+.agrupa-datos-12 .dato7{background:#fff;float:left;width:657px;padding:10px 5px;border-top:2px solid #fff;border-bottom:1px solid #B8B8B8;}
+.agrupa-datos-12 .dato8{background:#FFF8DC;float:left;width:667px;border-top:3px solid #fff;font-size:1.2em;}
+.agrupa-datos-12.no-separa{margin-bottom:0;}
+.separador-2{border-top:1px dotted #000;float:right;width:610px;margin-bottom:5px;height:0;overflow:hidden;}
+.separador-3{height:20px;clear:both;}
+.separador-4{height:10px;clear:both;}
+.zona-dcha .agrupa-datos-3{background:#F4F4F4 url(../../images/HAL1024/ventajas-halcon-cabecera.png) no-repeat scroll 105px 10px;width:240px;margin-top:20px;padding:87px 0 0;float:none;}
+.zona-dcha .agrupa-datos-3 .dato1{background:#f4f4f4;width:220px;padding:0 10px 40px;}
+.zona-dcha .agrupa-datos-3 .dato1-1{text-align:right;padding:5px 15px;}
+ul.paginacion{float:right;margin:10px 0;}
+ul.paginacion li{float:left;margin-right:5px;text-align:center;}
+ul.paginacion li a{color:#697B7B;border:1px solid #FFBB00;font-size:1.2em;display:block;width:20px;}
+ul.paginacion li a#actual, ul.paginacion li a:hover{background:#FDF0C6;border:1px solid #FDF0C6;}
+ul.paginacion li.dato1{float:left;font-size:1.5em;padding:0 10px 0 5px;color:#697B7B;}
+ul.paginacion li a.retrocede-paginacion{background:transparent url(../../images/HAL1024/paginacion-atras.gif) no-repeat scroll 0 0;width:25px;height:17px;border:0;padding:0;}
+ul.paginacion li a.retrocede-paginacion-on{background:transparent url(../../images/HAL1024/paginacion-atras.gif) no-repeat scroll -25px 0;width:25px;height:17px;border:0;padding:0;}
+ul.paginacion li a.avanza-paginacion{background:transparent url(../../images/HAL1024/paginacion-avance.gif) no-repeat scroll 0 0;width:25px;height:17px;border:0;padding:0;}
+ul.paginacion li a.avanza-paginacion-off{background:transparent url(../../images/HAL1024/paginacion-avance.gif) no-repeat scroll -25px 0;width:25px;height:17px;border:0;padding:0;}
+ul.paginacion2{float:right;margin-top: 37px;}
+ul.paginacion2 li{float:left;margin-right:5px;text-align:center;}
+ul.paginacion2 li a{color:#697B7B;border:1px solid #FFBB00;font-size:1.2em;display:block;width:20px;}
+ul.paginacion2 li a#actual, ul.paginacion li a:hover{background:#FDF0C6;border:1px solid #FDF0C6;}
+ul.paginacion2 li.dato1{float:left;font-size:1.5em;padding:0 10px 0 5px;color:#697B7B;}
+ul.paginacion2 li a.retrocede-paginacion{background:transparent url(../../images/HAL1024/paginacion-atras.gif) no-repeat scroll 0 0;width:25px;height:17px;border:0;padding:0;}
+ul.paginacion2 li a.retrocede-paginacion-on{background:transparent url(../../images/HAL1024/paginacion-atras.gif) no-repeat scroll -25px 0;width:25px;height:17px;border:0;padding:0;}
+ul.paginacion2 li a.avanza-paginacion{background:transparent url(../../images/HAL1024/paginacion-avance.gif) no-repeat scroll 0 0;width:25px;height:17px;border:0;padding:0;}
+ul.paginacion2 li a.avanza-paginacion-off{background:transparent url(../../images/HAL1024/paginacion-avance.gif) no-repeat scroll -25px 0;width:25px;height:17px;border:0;padding:0;}
+.agrupa-datos-15{border:3px solid #ABAC9E;margin-top:100px;}
+.agrupa-datos-15 .dato1{padding:0 25px 15px;}
+.agrupa-datos-15 .dato1-1{color:#AA1E36;font-size:1.6em;font-weight:700;text-align:right;}
+.agrupa-datos-15 .dato1-2{font-weight:700;padding:10px 0;}
+.agrupa-datos-15 .dato1-3{line-height:1.4em;padding:5px 0;}
+.agrupa-datos-18{background:#3D3D3D;float:left;width:737px;margin-bottom:5px;}
+.agrupa-datos-18 .dato3{color:#fff;float:left;padding:10px 5px;font-weight:700;width:727px;}
+.agrupa-datos-18 .dato3-1{color:#fff;font-size:1.4em;padding-left:60px;float:left;}
+.agrupa-datos-18 .dato3-2{float:right;}
+.agrupa-datos-18 .dato3-3{color:#fff;font-size:1.4em;padding-left:10px;float:left;}
+.agrupa-datos-18 .dato4{background:#FFF8DC;float:left;width:667px;border-top:3px solid #fff;}
+.agrupa-datos-18 .dato4-1{border-right:3px solid #FFF;float:left;position:relative;}
+.agrupa-datos-18 .dato4-2{padding:10px;overflow:hidden;border-bottom:1px solid #B8B8B8;height:86px;float:left;}
+.agrupa-datos-18 .dato4-2-1{float:left;font-weight:700;}
+.agrupa-datos-18 .dato4-2-3{clear:both;padding-top:10px;width:590px;}
+.agrupa-datos-18 .dato5{background:#FFF8DC;float:left;width:727px;padding:10px 5px;border-top:2px solid #fff;border-bottom:1px solid #B8B8B8;}
+.agrupa-datos-18 .dato5#select{background:#FFE969;}
+.agrupa-datos-18 .dato5-3{width:120px;float:left;color:#D42D12;font-size:2.2em;font-weight:700;text-align:right;}
+.agrupa-datos-18 .dato5-3-1{font-size:.8em;}
+.agrupa-datos-18 .dato8{background:#FFF8DC;float:left;width:737px;border-top:3px solid #fff;font-size:1.2em;}
+.agrupa-datos-19{border:1px solid #EDEDED;float:left;width:667px;}
+.agrupa-datos-19 .img1{float:left;border:1px solid #ffbb00;}
+.agrupa-datos-19 .dato1{color:#fff;float:left;padding:5px 10px 5px 40px;font-weight:700;width:618px;background-color:#3D3D3D;}
+.agrupa-datos-19 .dato1-1{color:#fff;font-size:1.4em;padding-left:60px;float:left;}
+.agrupa-datos-19 .dato2{background:#FFF8DC;float:left;width:495px;padding:10px 0 0 5px;}
+.agrupa-datos-19 .dato2-1{border-right:3px solid #FFF;float:left;position:relative;}
+.agrupa-datos-19 .dato2-2{padding:0 5px 10px 10px;overflow:hidden;}
+.agrupa-datos-19 .dato2-2-1{float:left;font-weight:700;}
+.agrupa-datos-19 .dato2-3{padding:5px 10px;width:340px;float:left;}
+.agrupa-datos-19 .dato3{background-color:#FFEEA9;color:#5D5D5D;float:right;width:490px;padding:10px 5px 5px;}
+.agrupa-datos-19 .dato3 .img1{float:left;border:0;margin:0 5px 0 5px;}
+.agrupa-datos-19 .dato4{color:#5D5D5D;font-size:0.9em;background-color:#FFFFFF;float:right;width:486px;padding:7px;}
+.agrupa-datos-19 .dato4-1{float:left;width:210px;}
+.agrupa-datos-19 .dato4-2{float:left;width:185px;}
+.agrupa-datos-19 .dato4-3{float:left;width:100px;}
+.agrupa-datos-19 .dato4-3-1{float:left;text-decoration:line-through;padding-top:2px;padding-right:5px;}
+.agrupa-datos-19 .dato4-3-2{float:left;color:#C6032F;font-size:1.5em;font-size:1.4em;}
+.agrupa-datos-19 .dato5{color:#5D5D5D;font-size:0.9em;background-color:#FFFFFF;float:right;width:486px;padding:7px;}
+.agrupa-datos-19 .dato6{margin:10px 0;}
+.agrupa-datos-19 .dato6-1{float:left;width:60px;margin:0 10px;}
+.agrupa-datos-19 .dato6-2{float:left;width:120px;}
+.agrupa-datos-19 .dato6-3{float:left;width:80px;}
+.agrupa-datos-19 .dato6-4{float:left;width:45px;}
+.agrupa-datos-19 .dato7{background:#FFFFFF;float:left;padding:10px 0;}
+.agrupa-datos-19 .dato7-1{margin-left:5px;}
+.agrupa-datos-19 .dato7-2{float:right;width:150px;padding:5px;margin:0;clear:none;}
+.agrupa-datos-19 .dato7-2-1{font-size:0.9em;width:150px;}
+.agrupa-datos-19 .dato7-2-1-1{color:#5D5D5D;width:110px;float:left;}
+.agrupa-datos-19 .dato7-2-2{color:#C6032F;padding:5px 0;font-size:1em;width:150px;}
+.agrupa-datos-19 .dato7-2-2-1{width:110px;float:left;}
+.agrupa-datos-19 .dato7-3{background:url(../../images/HAL1024/bocadillo.gif) no-repeat scroll 0 0 #D42D12;color:#FFFFFF;height: 36px;margin-bottom:5px;padding:4px 5px 0 0;text-align:center;width:160px;}
+.agrupa-datos-19 .dato7-3-1{font-weight:700;font-size:1.5em;}
+.agrupa-datos-19 .dato7-4{color:#697B7B;font-size:0.9em;text-align:center;}
+.agrupa-datos-19 .dato7 .contenedor-boton-1{margin-left:20px;}
+.agrupa-datos-19 .dato8{background:#FFF8DC;float:left;width:655px;padding:10px 7px 10px 5px;font-size:1.2em;}
+.agrupa-datos-19 .dato8-1{font-size:0.8em;color:#3E3E3E;font-weight:700;padding-top:3px;float:left;}
+.agrupa-datos-19 .dato9{color:#3E3E3E;float:left;width:500px;}
+.agrupa-datos-19 .dato9-1{float:left;width:500px;padding:5px 0 5px 5px;}
+.agrupa-datos-19 .dato9-1-1{color:#D42D12;font-weight:700;float:left;}
+.agrupa-datos-19 .dato9-1-2{padding-left:10px;font-size:0.8em;color:#3E3E3E;float:left;width:320px;}
+.agrupa-datos-19 .dato9-1-3{padding-left:10px;font-size:0.8em;color:#3E3E3E;float:left;width:150px;}
+.agrupa-datos-19 .dato9-2{float:left;width:500px;font-weight:700;background-color:#FFFFFF;padding:5px 0 5px 5px;}
+.agrupa-datos-20{float:left;font-size:0.85em;}
+.agrupa-datos-20 .img-info1,.agrupa-datos-21 .img-info1{float:left;border:1px solid #ffbb00;}
+.agrupa-datos-20 .dato-bocadillo1{background:#FFF8DC;float:left;padding:5px;margin-right:5px;width:299px;}
+.agrupa-datos-21 .dato-bocadillo1{width:310px;height:110px;background:#FFF8DC;float:left;padding:10px 5px;margin:5px;}
+.agrupa-datos-20 .dato-info1-1,.agrupa-datos-21 .dato-info1-1{border-right:3px solid #FFF;float:left;position:relative;}
+.agrupa-datos-20 .dato-info1-2{padding:0 0 5px 5px;overflow:hidden;float:left;width:192px;}
+.agrupa-datos-20 .dato-info1-2-1,.agrupa-datos-21 .dato-info1-2-1{float:left;font-weight:700;color:#3d3737;}
+.agrupa-datos-20 .dato-info1-3{float:left;padding:0 0 5px 5px;width:192px;height:50px;overflow:hidden;color:#5d5d5d;}
+.agrupa-datos-20 .dato-info2{margin-left:15px;float:left;}
+.agrupa-datos-20 .dato-info2-3{background:url(../../images/HAL1024/bocadillo.gif) no-repeat scroll 0 0 transparent;color:#FFFFFF;height:42px;margin-bottom:5px;padding:9px 5px 0 0;text-align:center;width:160px;float:right;margin:0 5px;}
+.agrupa-datos-20 .dato-info2-3-1{font-weight:700;font-size:1.5em;}
+.agrupa-datos-21{float:left;font-size:1em;}
+#final{margin-right:0;}
+.encabezado-confirmacion{background:transparent url(../../images/HAL1024/encabezado-halcon.jpg) no-repeat scroll 0 0;width:541px;height:145px;margin:-100px 0 20px 100px;float:right;}
+.encabezado-confirmacion .dato1{font-size:1.4em;font-weight:700;margin:0 0 0 75px;padding:55px 0 0 28px;}
+.encabezado-confirmacion .dato2{color:#AA1E36;font-size:1.8em;margin:5px 0 0 95px;width:350px;}
+.contenido-superior{padding:20px 0 17px;width:683px;overflow:hidden;}
+.contenido-superior .bloque-1{font-size:1.8em;font-weight:700;float:left;background:none;height:auto;width:200px;padding:0 20px;}
+.contenido-superior .bloque-1 .dato1{color:#ffbb00;font-size:.7em;font-weight:normal;}
+.contenido-superior .bloque-1 .dato2{color:#646463;font-size:.7em;font-weight:normal;}
+.contenido-superior .bloque-1 .dato3{color:#D42D12;}
+.contenido-superior .bloque-2{font-size:1.8em;font-weight:700;float:left;background:none;padding:0 20px;width:643px;text-align:center;}
+.contenido-superior .bloque-2 .dato1{font-size:0.9em;font-weight:normal;}
+.contenido-superior .bloque-3{color:#626262;font-size:1.4em;float:left;width:680px;background:none;height:auto;}
+.contenido-superior .bloque-3 .dato1{font-weight:700;width:130px;float:left;}
+.contenido-superior .bloque-3 .dato2{width:300px;float:left;}
+.contenido-superior .bloque-3 .pestana a{background:url(../../images/HAL1024/pestaña-amarilla.png) no-repeat scroll 0 0 transparent;float:left;margin-right:5px;text-align:center;width:147px;height:60px;color:#000000;font-size:1.3em;font-weight:700;}
+.contenido-superior .bloque-3 .pestana .dato-1,.contenido-superior .bloque-3 .activa  .dato-1{font-size:0.6em;font-weight:normal;}
+.contenido-superior .bloque-3 .activa a,.contenido-superior .bloque-3 .pestana a:hover{background:url(../../images/HAL1024/pestaña-gris.png) no-repeat scroll 0 0 transparent;float:left;margin-right:5px;text-align:center;width:147px;height:60px;color:#000000;font-size:1.3em;font-weight:700;}
+.contenido-superior .bloque-3 .pestana-2 a{background:url(../../images/HAL1024/pestaña-azul.png) no-repeat scroll 0 0 transparent;float:right;padding:10px 5px 0;text-align:center;width:121px;height:48px;color:#000000;font-size:1.2em;font-weight:700;}
+.contenido-superior .bloque-3 .pestana-2 a:hover{color:#D42D12;}
+ul.doble-lista{float:left}
+ul.doble-lista#derecha{float:right;}
+ul.doble-lista li{padding:5px 0;}
+ul.doble-lista li.cabecera-lista{font-size:1.2em;font-weight:700;border-bottom:1px dotted #000;padding-bottom:5px;}
+
+/* Home Vacacional */
+#content .fondo-vacacional{background:transparent url(../../images/HAL1024/fondo-vacacional-superior-2.jpg) no-repeat scroll 0 0;width:994px;padding-top:100px;}
+.cabecera-vacacional{color:#FFFFFF;font-size:1.7em;font-weight:700;padding:20px 0 5px;text-align:center;float:right;width:650px;}
+.fila-ofertas-vacacional{background:transparent url(../../images/HAL1024/fondo-vacacional-nuevo.jpg) repeat-y scroll 0 0;width:964px;padding:7px 0 7px 30px;overflow:hidden;}
+.fila-ofertas-vacacional#fila1{background:none;}
+.fila-ofertas-vacacional#fila1 .datos-izquierda{width:290px;height:110px;float:left;margin-right:30px;padding-top:10px;}
+.datos-derecha{width:440px;height:110px;float:right;}
+.datos-derecha .dato1{font-size:1.2em;width:420px;color:#000;float:left;padding-top:10px;}
+.datos-derecha .dato1 ul.lista-2{width:180px;list-style:circle;color:#957700;padding-left:20px;}
+.datos-derecha .dato1 ul.lista-2 li{padding:2px 0;}
+.fila-ofertas-vacacional#fila1 .datos-izquierda .dato1{font-size:2.5em;padding-top:35px;text-align:center;width:257px;color:#FFFFFF;float:left;}
+.ofertas-vacacional-box{background:transparent url(../../images/HAL1024/ofertas-vacacional-box-nuevo.jpg) no-repeat scroll 0 0;width:290px;height:216px;float:left;margin-right:30px;color:#000;cursor:pointer;}
+/*.ofertas-vacacional-box .dato1{font-size:1.5em;font-weight:700;padding:5px 0 0 7px;width:50px;float:left;}
+.ofertas-vacacional-box .dato1-1{font-size:.6em;}
+.ofertas-vacacional-box .dato1-2{font-size:.7em;text-transform:uppercase;}*/
+.ofertas-vacacional-box .dato2{font-size:3em;font-weight:700;width:290px;float:left;text-align:center;padding-top:10px;}
+.ofertas-vacacional-box .img1{margin:28px 25px 30px 22px;float:left;}
+.ofertas-vacacional-box .dato3{font-size:1.4em;color:#D42D12;float:left;width:110px;padding:5px 0 0 15px;text-align:center;font-weight:700;}
+.ofertas-vacacional-box .dato4{float:left;font-size:3.5em;font-weight:700;line-height:1.1em;padding-left:5px;}
+.ofertas-vacacional-box .dato4-1{font-size:1.5em;font-weight:700;left:-9px;position:relative;top:47px;}
+.ofertas-vacacional-box .dato5{float:left;width:120px;padding-bottom:10px;text-align:right;font-size:1.2em;height:27px;}
+.fondo-vacacional-inferior{background:transparent url(../../images/HAL1024/fondo-vacacional-inferior-nuevo.jpg) no-repeat scroll 0 0;width:994px;height:30px;}
+.boton-1-izda{background:transparent url(../../images/HAL1024/boton-1-izda.gif) no-repeat scroll 0 0;width:3px;height:33px;float:left;}
+.boton-1-dcha{background:transparent url(../../images/HAL1024/boton-1-dcha.gif) no-repeat scroll 0 0;width:3px;height:33px;float:left;}
+.boton-3-izda{background:transparent url(../../images/HAL1024/boton-3-izda.gif) no-repeat scroll 0 0;width:3px;height:23px;float:left;}
+.boton-3-dcha{background:transparent url(../../images/HAL1024/boton-3-dcha.gif) no-repeat scroll 0 0;width:3px;height:23px;float:left;}
+button.boton-1{background:#FFBB00;border:none;height:33px;color:#fff;font-weight:700;font-size:1.2em;font-family:Arial, Helvetica, sans-serif;cursor:pointer;float:left;margin:0;padding:0;width:115px;}
+button.boton-2{background:#FFBB00;border:none;height:33px;color:#fff;font-weight:700;font-size:1.2em;font-family:Arial, Helvetica, sans-serif;cursor:pointer;float:left;margin:0;padding:0;width:125px;}
+button.boton-3{background:#FFBB00;border:1px solid #fff;color:#000;overflow:hidden;text-align:center;float:right;margin:10px 130px 0 0;cursor:pointer;}
+button.boton-4{background:#FFBB00;border:1px solid #fff;color:#000;cursor:pointer;width:auto;overflow:visible;padding:0 5px;font-size:.9em;}
+button.boton-5{background:#FFBB00;border:1px solid #fff;color:#000;cursor:pointer;width:auto;overflow:visible;padding:0 5px;font-size:.9em;float:right;}
+button.boton-6{background:#FFBB00;border:1px solid #fff;color:#000;cursor:pointer;width:50px;overflow:visible;padding:0 5px;font-size:.9em;display:block;left:74px;position:absolute;top:90px;}
+button.boton-7{background:#FFBB00;border:1px solid #fff;color:#000;cursor:pointer;width:55px;overflow:visible;padding:0 5px;font-size:.9em;display:block;left:67px;position:absolute;top:86px;}
+button.boton-8{background:#FFBB00;border: medium none;color:#FFFFFF;cursor:pointer;float:left;font-family: Arial,Helvetica,sans-serif;font-size:1.2em;font-weight:700;height:33px;margin:0;padding:0;width:90px;}
+button.boton-9{background:none repeat scroll 0 0 #FFBB00;border:1px solid #FFBB00;color:#000000;cursor:pointer;display:block;font-size:0.9em;left:33px;overflow:visible;padding:0 5px;position:absolute;top:90px;width:90px;}
+button.boton-10{background:#FFBB00;border: medium none;color:#FFFFFF;cursor:pointer;float:left;font-family: Arial,Helvetica,sans-serif;font-size:1em;font-weight:700;height:23px;margin:0;padding:0;width:90px;}
+button.boton-11{background:transparent url(../../images/HAL1024/boton-imprimir.gif) no-repeat scroll 0 0;width:109px;height:20px;float:left;color:#fff;cursor:pointer;border:none;font-size:1.2em;font-weight:700;font-family:Arial,Helvetica,sans-serif;padding-left:15px;margin-right:5px;}
+button.boton-12{background:transparent url(../../images/HAL1024/boton-busqueda.gif) no-repeat scroll 0 0;width:109px;height:20px;float:left;color:#fff;cursor:pointer;border:none;font-size:1.2em;font-size:1.2em;font-weight:700;font-family:Arial,Helvetica,sans-serif;padding-left:15px;margin-right:5px;}
+button.boton-1:hover, button.boton-2:hover,button.boton-8:hover,button.boton-10:hover,button.boton-11:hover,button.boton-12:hover{color:#000;}
+button.boton-3:hover, button.boton-4:hover, button.boton-5:hover, button.boton-6:hover, button.boton-7:hover, button.boton-9:hover{color:#fff;}
+.icono-info{background:transparent url(../../images/HAL1024/info.png) no-repeat scroll 0 0;width:22px;height:21px;position:relative;top:-130px;left:200px;display:block;}
+.icono-info-2{background:transparent url(../../images/HAL1024/info.png) no-repeat scroll 0 0;width:22px;height:21px;float:right;margin-left:10px;left:-75px;position:relative;float:right;display:block;}
+.icono-info-3{background:transparent url(../../images/HAL1024/info.png) no-repeat scroll 0 0;width:22px;height:21px;float:left;margin-left:10px;display:block;}
+.icono-info-4{background:transparent url(../../images/HAL1024/info.png) no-repeat scroll 0 0;width:22px;height:21px;float:left;display:block;position:relative;top:10px;}
+.icono-info:hover,.icono-info-2:hover,.icono-info-3:hover,.icono-info-4:hover{background-position:-22px 0;}
+.datos-derecha .dato1 ul.lista-2{width:180px;list-style:circle;color:#957700;padding-left:20px;}
+.datos-derecha .dato1 ul.lista-2 li{padding:2px 0;}
+#content #anticipada.fondo-vacacional{background:transparent url(../../images/HAL1024/fondo-vacacional-superior-anticipada.jpg) no-repeat scroll 0 0;width:994px;padding-top:100px;}
+#anticipada .fila-ofertas-vacacional{background:transparent url(../../images/HAL1024/fondo-vacacional-anticipada.jpg) repeat-y scroll 0 0;width:964px;padding:30px 0 7px 30px;overflow:hidden;}
+#anticipada .fondo-vacacional-inferior{background:transparent url(../../images/HAL1024/fondo-vacacional-inferior-anticipada.jpg) no-repeat scroll 0 0;width:994px;height:30px;}
+#anticipada .fila-ofertas-vacacional#fila1{background:none;padding-top:60px;}
+.ofertas-vacacional-box{background:transparent url(../../images/HAL1024/ofertas-vacacional-box-anticipada.gif) no-repeat scroll 0 0;width:290px;height:216px;float:left;margin-right:30px;color:#000;cursor:pointer;}
+
+/* Calendario Vacacional */
+.banner1{background:transparent url(../../images/HAL1024/banda-playa.jpg) no-repeat scroll 0 0;width:984px;height:45px;margin-bottom:20px;text-align:right;padding:5px 10px 0 0;color:#fff;font-size:3em;letter-spacing:-0.03em;}
+.banner1 .dato-1{float:left;padding:0 10px 0 20px;}
+.banner1 .dato-2{font-size:.5em;line-height:3em;float:left;}
+.caja-mes{border:1px solid #FFBB00;float:left;padding:8px 0;width:110px;}
+.atras{background:transparent url(../../images/HAL1024/boton-flecha-izda.gif) no-repeat scroll 0 0;width:27px;height:33px;float:left;}
+.avance{background:transparent url(../../images/HAL1024/boton-flecha-dcha.gif) no-repeat scroll 0 0;width:27px;height:33px;float:left;}
+.atras:hover, .avance:hover{background-position:-27px 0;}
+.atras-off{background:transparent url(../../images/HAL1024/boton-flecha-izda-off.gif) no-repeat scroll 0 0;width:27px;height:33px;float:left;}
+.avance-off{background:transparent url(../../images/HAL1024/boton-flecha-dcha-off.gif) no-repeat scroll 0 0;width:27px;height:33px;float:left;}
+.fila-calendario-vacacional{clear:both;overflow:hidden;padding-top:10px;}
+.fila-calendario-vacacional .dia-inactivo{background:transparent url(../../images/HAL1024/dia-calendario-inactivo.gif) no-repeat scroll 0 0;width:77px;height:76px;float:left;margin-right:7px;color:#848484;padding:7px 0 0 8px;font-size:1.4em;}
+.fila-calendario-vacacional .dia-activo{background:transparent url(../../images/HAL1024/dia-calendario-cifra.gif) no-repeat scroll 0 0;width:77px;height:76px;float:left;margin-right:7px;padding:7px 0 0 8px;font-size:1.4em;color:#000;cursor:pointer;}
+.dia-activo:hover{background:transparent url(../../images/HAL1024/dia-calendario-cifra-hover.gif) no-repeat scroll 0 0;}
+.fila-calendario-vacacional.importe .dia-activo{background:transparent url(../../images/HAL1024/dia-calendario-importe.gif) no-repeat scroll 0 0;width:77px;height:76px;float:left;margin-right:7px;padding:7px 0 0 8px;font-size:1.4em;color:#000;}
+.fila-calendario-vacacional.importe .dia-activo:hover{background:transparent url(../../images/HAL1024/dia-calendario-importe-hover.gif) no-repeat scroll 0 0;}
+.dia-activo .dato1{float:left;}
+.dia-activo .dato2{float:right;font-size:.7em;padding-right:11px;width:42px;text-align:center;}
+.dia-activo .dato3{color:#fff;font-size:.8em;padding:7px 15px 0 0;float:right;text-decoration:line-through;}
+.dia-activo .dato4{color:#fff;font-size:1.1em;padding-right:15px;float:right;line-height:.9em;}
+.dia-activo .dato4 span{font-size:.7em;}
+.importe .dia-activo .dato2{color:#fff;}
+.importe .dia-activo .dato3{color:#000;}
+.importe .dia-activo .dato4{color:#000;}
+.fila-calendario-vacacional .dia-activo.dcha, .fila-calendario-vacacional .dia-inactivo.dcha{margin-right:0;}
+.fila-calendario-vacacional .encabezado{padding:0 22px;font-weight:700;}
+.hoteles-premium{background:transparent url(../../images/HAL1024/hoteles-premium.gif) no-repeat scroll 0 0;width:155px;height:153px;margin:30px 0 0 40px;display:block;}
+.hoteles-general{background:transparent url(../../images/HAL1024/hoteles-general.gif) no-repeat scroll 0 0;width:155px;height:153px;margin:30px 0 0 40px;display:block;}
+.hoteles-premium:hover, .hoteles-general:hover{background-position:-155px 0;}
+
+/* Formularios y Datos */
+.icono-ventajas {background: url("../../images/HAL1024/ventajas.gif") no-repeat scroll 0 0 transparent;display:block;float:left;height:21px;margin-left:5px;position:relative;top:2px;width:60px;}
+.icono-ventajas:hover {background-position: -61px 0;}
+.campo-texto-1{margin-left:10px;border:1px solid #E1E5E8;}
+.campo-texto-2{width:190px;border:1px solid #E1E5E8;}
+.grupo-formulario-1{float:left;padding-right:40px;width:320px;}
+.grupo-formulario-2{float:right;width:230px;}
+.grupo-formulario-3{line-height:1.8em;padding-bottom:10px;overflow:hidden;}
+.grupo-formulario-4{float:right;width:270px;}
+.grupo-formulario-5{float:left;width:220px;}
+.grupo-formulario-6{float:left;width:195px;}
+.grupo-formulario-7{float:left;width:90px;}
+.grupo-formulario-8{float:left;width:150px;}
+.grupo-formulario-9{float:left;width:130px;}
+.grupo-formulario-10{overflow:hidden;width:230px;margin-bottom:10px;color:#5D5D5D;}
+.grupo-formulario-10 .dato1{float:left;padding-top:20px;}
+.grupo-formulario-10 .dato2{float:left;}
+.grupo-formulario-10 .dato3{color:#000000;font-size: 1.2em;}
+.grupo-formulario-11{float:left;line-height:2em;overflow:hidden;}
+.grupo-formulario-12{float:left;width:60px;}
+.grupo-formulario-13{padding-bottom:10px;overflow:hidden;clear:both;}
+.grupo-formulario-13 .dato1{font-weight:100;color:#000;display:inline;}
+.grupo-formulario-14{color:#5D5D5D;float:right;font-size:0.8em;}
+.radio-1{border:none;margin:0 5px;}
+.radio-2{border:none;margin:5px;float:left;}
+.agrupa-datos-1{line-height:1.8em;padding:5px 0 5px 0;overflow:hidden;}
+.agrupa-datos-2{float:left;margin-left:5px;}
+.agrupa-datos-2 .dato1{color:#D42D12;font-weight:700;font-size:1.2em;}
+.agrupa-datos-2 .dato2{font-size:1.2em;}
+.agrupa-datos-2 .dato3{color:#D42D12;}
+.agrupa-datos-3{float:right;padding:0 5px 10px 0;width:400px;}
+.etiqueta-1{font-size:1.1em;font-weight:700;color:#697B7B;float:left;}
+.etiqueta-2{font-size:1.1em;float:left;}
+.etiqueta-3{font-size:1.4em;color:#393939;font-weight:700;}
+.seleccionable-1{display:block;border:1px solid #E1E5E8;width:192px;}
+.info-adicional{color:#697B7B;}
+.agrupa-datos-4{border-bottom:1px dotted #A5A5A5;padding-bottom:10px;margin:10px 0 15px;overflow:hidden;width:930px;}
+.etiqueta-4{float:left;padding-right:10px;}
+.seleccionable-2{border:1px solid #E1E5E8;width:40px;margin-left:5px;}
+.seleccionable-3{border:1px solid #E1E5E8;width:140px;margin-left:5px;}
+.seleccionable-4{border:1px solid #E1E5E8;width:80px;display:block;}
+.seleccionable-5{border:1px solid #E1E5E8;width:192px;}
+.seleccionable-6{border:1px solid #E1E5E8;width:192px;margin-left:53px;}
+.seleccionable-7{border:1px solid #E1E5E8;width:40px;display:block;}
+.seleccionable-8{border:1px solid #E1E5E8;width:220px;margin-top:2px;}
+.seleccionable-9{border:1px solid #E1E5E8;width:40px;margin-left:40px;}
+.seleccionable-10{border:1px solid #E1E5E8;width:80px;margin-left:5px;}
+.seleccionable-11{width:75px;border:1px solid #E1E5E8;}
+.seleccionable-12{width:148px;border:1px solid #E1E5E8;font-size:1.11em;height:17px}
+.seleccionable-13{float:left;margin:5px 5px 0 0;border:1px solid #E 1E5E8;display:block;width:40px;}
+.seleccionable-14{border:1px solid #E1E5E8;width:190px;float:right;}
+.seleccionable-15{border:1px solid #E1E5E8;width:255px;}
+.agrupa-datos-5{width:290px;float:left;}
+.agrupa-datos-6{overflow:hidden;width:490px;}
+.agrupa-datos-7{padding-top:10px;overflow:hidden;clear:both;}
+.agrupa-datos-7 .fila-1{background:#ddd;overflow:hidden;width:435px;} 
+.agrupa-datos-7 .fila-1.par{background:#eee;} 
+.agrupa-datos-7 .fila-1.cabecera{background:none;}
+.agrupa-datos-7 .fila-1.cabecera .dato1, .agrupa-datos-7 .fila-1.cabecera .dato5, .agrupa-datos-7 .fila-1.cabecera .dato6{font-weight:700;font-size:1.2em;}
+.agrupa-datos-7 .fila-1 .dato1{width:190px;float:left;padding:5px 0;border-right:1px solid #fff;padding-left:5px;}
+.agrupa-datos-7 .fila-1 .dato2{width:20px;float:left;padding:5px 0;border-right:1px solid #fff;text-align:center;}
+.agrupa-datos-7 .fila-1 .dato3{width:60px;float:left;padding:5px 0;border-right:1px solid #fff;text-align:center;text-decoration:line-through;color:#D42D12;}
+.agrupa-datos-7 .fila-1 .dato4{width:60px;float:left;padding:5px 0;border-right:1px solid #fff;text-align:center;}
+.agrupa-datos-7 .fila-1 .dato5{width:80px;float:left;padding:5px 0;text-align:right;padding-right:10px;color:#D42D12;}
+.agrupa-datos-7 .fila-1 .dato6{float:right;padding:5px 0;text-align:right;padding-right:10px;color:#909090;}
+.agrupa-datos-7 .fila-1 .dato7{width:130px;float:left;padding:5px 0;border-right:1px solid #fff;text-align:center;color:#909090;}
+.agrupa-datos-7 .fila-1 .dato8{float:left;padding:5px;}
+.formulario-1{width:930px;}
+.etiqueta-5{text-align:right;margin-left:72px;float:left;}
+.campo-texto-3{width:50px;border:1px solid #E1E5E8;margin-left:10px;}
+.campo-texto-4{width:50px;margin-left:12px;border:1px solid #E1E5E8;}
+.campo-texto-5{width:190px;border:1px solid #E1E5E8;margin-left:25px;}
+.campo-texto-6{width:30px;border:1px solid #E1E5E8;}
+.campo-texto-7{width:50px;border:1px solid #E1E5E8;}
+.campo-texto-8{width:100px;border:1px solid #E1E5E8;display:block;}
+.campo-texto-9{margin-left:10px;border:1px solid #E1E5E8;width:250px;}
+.campo-texto-10{width:190px;float:left;border:1px solid #E1E5E8;margin:2px 10px 0 0;}
+.campo-texto-11{width:125px;border:1px solid #E1E5E8;}
+.campo-texto-12{width:60px;border:1px solid #E1E5E8;}
+.campo-texto-13{float:left;margin-right:5px;margin-top:9px;}
+.campo-texto-14{width:225px;height:18px;float:left;border:1px solid #CECECE;background-color:#FFF8DB;color:#484848;font-size:0.8em;font-style:italic;}
+.campo-texto-17{width:225px;height:18px;float:left;border:1px solid #CECECE;background-color:#FFF8DB;color:#484848;font-size:0.8em;font-style:italic;}
+.campo-texto-18{width:190px;height:18px;float:left;border:1px solid #FFBB00;background-color:#FFFFFF;color:#484848;font-size:0.8em;font-style:italic;margin-left:10px;}
+.agrupa-datos-8{float:right;padding-bottom:15px;width:540px;font-size:1.1em;}
+.contenedor-boton-1{font-size:1.2em;float:left;padding-top:5px;}
+.contenedor-boton-2{font-size:1.2em;float:right;padding-top:5px;}
+.contenedor-boton-3{font-size:1.2em;}
+.contenedor-boton-4{margin-left:20px;float:right;font-size:1.2em;padding-top:5px;}
+.contenedor-boton-5{font-size:1.2em;float:left;}
+.contenedor-boton-6{margin-left:20px;float:right;font-size:1.2em;}
+.contenedor-boton-7{cursor:pointer;color:#000;position:relative;float:left;}
+.contenedor-boton-7:hover{display:inline;top:1px;color:#ffbb00;float:left;}
+.contenedor-boton-8{position:relative;top:0;left:0;float:right;}
+.check-1{margin:0 5px;}
+.area-texto-1{border:1px solid #E1E5E8;vertical-align:top;margin-left:74px;width:192px;font-size:1.12em;font-family:Arial,sans-serif;}
+.area-texto-2{border:1px solid #ffbb00;vertical-align:top;margin-left:74px;width:700px;font-size:1.12em;font-family:Arial,sans-serif;}
+.agrupa-datos-9{float:left;margin:10px 0;height:100px;width:430px;overflow-x:hidden;overflow-y:auto;}
+.agrupa-datos-9 #cabecera{background:#ededed;font-weight:700;}
+.agrupa-datos-9 .fila-1{padding:5px 0;float:left;}
+.agrupa-datos-9 .fila-1 .dato1{float:left;width:20px;padding-bottom:0;}
+.agrupa-datos-9 .fila-1 .dato2{float:left;width:160px;padding-right:5px;}
+.agrupa-datos-9 .fila-1 .dato3{float:left;width:40px;padding-right:5px;}
+.agrupa-datos-9 .fila-1 .dato4{float:left;width:95px;padding-right:5px;}
+.agrupa-datos-9 .fila-1 .dato5{float:left;width:72px;padding-right:5px;}
+.agrupa-datos-10{float:left;width:280px;padding-left:20px;}
+.etiqueta-6{float:left;margin-left:10px;}
+.etiqueta-7{margin-left:10px;padding:5px 0;display:block;}
+.etiqueta-8{width:305px;float:left;line-height:1.7em}
+.etiqueta-9{padding:5px 0;display:block;}
+.etiqueta-9 p{padding-right:15px;font-size:1.4em;}
+.agrupa-datos-13{overflow-x:hidden;overflow-y:auto;height:300px;}
+.agrupa-datos-13 .fila-1{padding:10px;}
+.agrupa-datos-13 .fila-1 .dato1{font-weight:700;padding-bottom:5px;float:none;}
+.agrupa-datos-13 .fila-1 .dato2{padding-bottom:15px;}
+.agrupa-datos-13 .fila-1 .titulo-1{color:#ffbb00;font-size:1.5em;overflow:hidden;padding:5px 0;}
+.agrupa-datos-13 .fila-1 .titulo-2{font-weight:700;overflow:hidden;padding:5px 0 15px 0;}
+.agrupa-datos-13 .fila-1 .subtitulo-1{color:#ffbb00;font-weight:700;text-decoration:underline;overflow:hidden;padding:10px 0;}
+.agrupa-datos-16{float:left;margin-left:111px;}
+.agrupa-datos-16-pt{float:left;margin-left:157px;}
+.boton-2-izda{background:transparent url(../../images/HAL1024/lateral-izda.jpg) no-repeat scroll 0 0;float:left;height:37px;width:5px;}
+.boton-2-dcha{background:transparent url(../../images/HAL1024/lateral-dcha.jpg) no-repeat scroll 0 0;float:left;height:37px;width:5px;margin-right:4px;}
+.boton-2-fondo{background:transparent url(../../images/HAL1024/fondo.jpg) repeat scroll 0 0;float:left;height:29px;line-height:1em;padding:8px 5px 0;text-align:center;}
+.pago-1{background:transparent url(../../images/HAL1024/visa.jpg) no-repeat scroll 0 0;float:left;height:37px;width:26px;}
+.pago-2{background:transparent url(../../images/HAL1024/transferencia.jpg) no-repeat scroll 0 0;float:left;height:37px;width:26px;}
+.pago-3{background:transparent url(../../images/HAL1024/oficina.jpg) no-repeat scroll 0 0;float:left;height:37px;width:26px;}
+.pago-4{background:transparent url(../../images/HAL1024/telephono.jpg) no-repeat scroll 0 0;float:left;height:37px;width:26px;}
+#final{margin-right:0;}
+
+/* Plantilla 1 columna */ 
+.zona-unica{width:967px;margin:15px 0;padding:0 14px;}
+.zona-unica .titulo1{float:left;}
+.zona-unica .titulo2{float:left;margin:20px 0 20px 15px;}
+.zona-unica .dato1{font-size:1.1em;}
+.zona-unica .caja-contenido{background:transparent url(../../images/HAL1024/caja-ancha-contenido-superior.gif) no-repeat scroll 0 0;width:967px;}
+.zona-unica .caja-contenido-2{width:967px;}
+.zona-unica .caja-contenido-inferior{background:transparent url(../../images/HAL1024/caja-ancha-contenido-inferior.gif) no-repeat scroll 0 0;width:967px;}
+.zona-unica .caja-contenido .cabecera{width:940px;margin-top:18px;background:#fff;}
+.zona-unica .caja-contenido-2 .cabecera{width:940px;margin-top:18px;background:#fff;}
+.zona-unica .caja-contenido-2 .cabecera .titulo1{color:#D42D12;font-size:3em;}
+.zona-unica .caja-contenido .cabecera .img1{float:left;}
+.zona-unica .caja-contenido .cabecera .dato2{font-size:1.4em;margin-left:15px;float:left;width:760px;}
+.zona-unica .separador-contenido{background:transparent url(../../images/HAL1024/separador-ancho-contenido.gif) no-repeat scroll 0 0;width:967px;height:8px;}
+.zona-unica .caja-contenido .area-contenido{background:#fff;padding:0 6px;font-size:1.07em;}
+.marco-superior-contenido{background:#fff url(../../images/HAL1024/superior-contenido-ancho.gif) no-repeat scroll 0 0;overflow:hidden;height:70px;margin-top:20px;width:953px;}
+.marco-superior-contenido-1{background:url(../../images/HAL1024/superior-contenido-ancho-3.gif) no-repeat scroll 0 0 #FFF;height:30px;margin-top:20px;overflow:hidden;width:933px;float:left;font-size:1.6em;font-weight:700;padding:10px;color:#000;}
+.marco-fondo-contenido{background:transparent url(../../images/HAL1024/fondo-contenido-ancho.gif) repeat-y scroll 0 0;overflow:hidden;padding:0 10px;font-size:1.1em;}
+.marco-inferior-contenido{background:transparent url(../../images/HAL1024/inferior-contenido-ancho.gif) no-repeat scroll 0 0;width:953px;height:12px;}
+.marco-superior-contenido .dato1, .marco-superior-contenido-3 .dato1{font-size:2em;padding:5px 0 0 7px;width:50px;float:left;overflow:hidden;}
+.marco-superior-contenido .dato1-1{font-size:0.6em;}
+.marco-superior-contenido .dato1-2{font-size:0.5em;}
+.marco-superior-contenido .dato2{float:left;font-size:4em;padding:5px 0 0 120px;} 
+.marco-superior-contenido-3 .dato2{float:left;font-size:4em;padding:5px 0 0 0;} 
+.marco-superior-contenido .dato3{float:right;padding:15px 15px 10px 0;width:258px;}
+.marco-superior-contenido .dato3-1{color:#FFF;font-size:2.7em;font-weight:700;left:207px;position:relative;top:-52px;}
+.marco-superior-contenido .dato3-2{width:48px;height:48px;float:left;padding-right:3px;}
+.marco-superior-contenido-3 .dato3{float:right;padding:15px 15px 10px 0;width:258px;}
+.marco-superior-contenido-3 .dato3-1{color:#FFF;font-size:2.7em;font-weight:700;left:207px;position:relative;top:-52px;}
+.marco-superior-contenido-3 .dato3-2{width:48px;height:48px;float:left;padding-right:3px;}
+.zona-unica .caja-contenido-2 .marco-superior-contenido-3 .dato3{float:right;padding:10px 30px 10px 0;width:258px;text-align:right;color:#8A8A8A;font-size:1.2em;}
+.zona-unica .caja-contenido-2 .marco-superior-contenido-3 .dato3-1-1{color:#D42D12;font-size:1.5em;}
+.zona-unica .caja-contenido-2 .marco-superior-contenido-3 .dato3-2-2{color:#D42D12;font-size:2em;font-weight:700;}
+.marco-fondo-contenido .dato1{float:left;background:#DDD;width:764px;margin-bottom:20px;}
+.zona-unica .caja-contenido-2 .marco-fondo-contenido .dato1{float:left;background:#DDD;width:auto;margin:0 0 20px 45px;}
+.marco-fondo-contenido .dato1-1{background:#fff;font-style:italic;}
+.marco-fondo-contenido .dato1-2{background:#EEE;}
+.marco-fondo-contenido .dato1 p{padding:4px 10px;}
+.marco-fondo-contenido .img1{float:left;padding-right:10px;}
+.dato-destacado{color:#D42D12;float:left;padding-left:20px;line-height:1.9em;}
+.icono-calendario{background:transparent url(../../images/HAL1024/icono-calendario.gif) no-repeat scroll 0 0;width:25px;height:26px;float:left;}
+.marco-fondo-contenido .dato2{float:left;background:#6D6D6D;width:500px;height:40px;color:#fff;padding-left:5px;font-size:1.1em;line-height:1.5em;}
+.marco-fondo-contenido .dato3{float:left;background:#D42D12 url(../../images/HAL1024/fondo-precio.gif) no-repeat scroll 0 0;width:264px;height:36px;color:#fff;padding:4px 10px 0 0;text-align:right;line-height:2.7em;}
+.marco-fondo-contenido .dato3-1{font-size:1.6em;}
+.marco-fondo-contenido .dato3-2{font-size:3.4em;font-weight:700;}
+.marco-fondo-contenido .dato4{padding-bottom:5px;float:left;}
+.marco-fondo-contenido .dato5{overflow:hidden;padding-top:10px;clear:both;}
+.marco-fondo-contenido .dato5-1{float:left;padding:4px 10px 0 0;}
+.marco-fondo-contenido .dato6{font-weight:700;padding:5px 0;}
+
+/* Calendario */ 
+.fila-calendario#superior{border:none;border-top:1px solid #E1E2E6;border-bottom:1px solid #C7C9CE;font-size:.9em;text-align:center;padding:5px 0;clear:both;width:324px;}
+.cabecera-calendario{float:left;font-size:1.5em;text-align:center;width:290px;}
+.fila-calendario .encabezado{float:left;margin:0 2px;text-align:center;width:41px;}
+.fila-calendario{border:1px solid #C7C9CE;border-top:none;text-align:center;width:322px;overflow:hidden;}
+.fila-calendario div, .fila-calendario a{border-right:1px solid #C7C9CE;float:left;width:45px;display:inline;}
+.fila-calendario div span, .fila-calendario a span{float:left;display:block;height:30px;width:41px;padding-top:11px;background:#bbb;border:2px solid #fff;font-size:1.4em;font-weight:700;}
+.fila-calendario div.dcha, .fila-calendario a.dcha{border-right:none;}
+.fila-calendario .dia-inactivo span{background:#fff;color:#D2D2D2;}
+.fila-calendario .dia-activo span{background:#FFE6A3;color:#6F6F6F;cursor:pointer;}
+.fila-calendario a.dia-activo span:hover{background:#FFBB00;}
+.fila-calendario .dia-actual span{background:#bbb;color:#fff;cursor:pointer;}
+.fila-calendario .dia-seleccionado span{background:#FFBB00;color:#fff;cursor:pointer;}
+.leyenda-calendario{background:#ededed;padding:10px 0 10px 10px;line-height:1.7em;clear:both;float:left;width:314px;}
+.icono-leyenda{height:15px;width:15px;background:#bbb;border:2px solid #fff;float:left;margin-right:10px;}
+.icono-leyenda.disponible{background:#FFE6A3;}
+.icono-leyenda.seleccionado{background:#FFBB00;}
+.item-leyenda-calendario{padding-right:25px;float:left;}
+
+/* Comunes */ 
+.zona-centrada{overflow:hidden;width:170px;margin:0 auto;padding:15px 0 5px;text-align:center;}
+.zona-centrada-1{overflow:hidden;margin:0 auto;padding:15px 0 5px;text-align:center;}
+.zona-centrada-2{margin:0 auto;padding:15px 0 5px;text-align:left;width:365px;}
+.zona-centrada-2 .dato-1{padding:5px 0 0 5px;width:260px; float:left;}
+.zona-centrada-3{overflow:hidden;margin:0 auto;padding:15px 0 5px;text-align:center;width:125px;}
+.zona-centrada-4{overflow:hidden;margin:0 auto;padding:15px 0 5px;}
+.cerrar{background:transparent url(../../images/HAL1024/cerrar.jpg) no-repeat 0 0;height:31px;width:31px;float:right;}
+.cerrar:hover{background-position:-31px 0;}
+.capa-flotante{overflow:hidden;font-size:1.2em;background:#fff;z-index:1003;position:absolute;left:300px;top:100px;padding:10px;border:1px solid #ffbb00;box-shadow:3px 3px 15px #C6C6C6;-moz-box-shadow:3px 3px 15px #C6C6C6;-webkit-box-shadow:3px 3px 15px #C6C6C6;}
+.capa-flotante-1{width:460px;}
+.capa-flotante-1 .encabezado-1{font-size:1.5em;padding:7px 0 0 50px;overflow:hidden;width:365px;float:left;text-align:center;}
+.capa-flotante-1 .encabezado-2{padding-top:11px;float:left;}
+.capa-flotante-1 .titulo-1{padding-right:10px;float:left;width:275px;}
+.capa-flotante-1 .titulo-2{float:left;width:335px;}
+.capa-flotante-1 .titulo-3{float:left;width:40px;color:#FFF;padding:35px 5px 5px;font-weight:700;font-size:.9em;text-align:center;}
+.capa-flotante-1 .titulo-4{float:left;width:350px;color:#FFF;font-size:1.3em;padding:10px 5px;font-weight:700;background:#3d3d3d;margin-left:5px;}
+.contenido-flotante{clear:both;padding:10px;overflow:hidden;border:2px solid #ffbb00;} 	
+.contenido-flotante .dato1{padding-bottom:10px;}
+.contenido-flotante .dato1 .dato1-1{float:left;}
+.contenido-flotante .dato1 .dato1-2{float:left;padding:0 0 10px 10px;width:230px;}
+.contenido-flotante ul.lista-1{list-style:circle;margin-left:20px;}
+.contenido-flotante ul.lista-1 li{padding:10px 0;}
+.capa-flotante .img1{border:2px solid #ffbb00;}
+.capa-flotante .img2{border:1px solid #ffbb00;}
+.capa-flotante-2{width:630px;}
+.capa-flotante-2 .encabezado-1{font-size:1.5em;padding:7px 0 0 100px;overflow:hidden;width:480px;float:left;text-align:center;}
+.capa-flotante-2 .encabezado-2{padding-top:4px;float:right;}
+.capa-flotante-2 .titulo-1{padding-right:10px;float:left;width:380px;}
+.capa-flotante-3{width:323px;}
+.capa-flotante-3 .encabezado-1{font-size:1.5em;padding:7px 0 0 50px;overflow:hidden;width:235px;float:left;text-align:center;}
+.capa-flotante-3 .titulo-2{float:left;width:215px;}
+.capa-flotante-3 .contenedor-boton{float:left;margin-left:90px;margin-top:10px;}
+.capa-flotante-4{width:220px;}
+.capa-flotante-4 .encabezado-1{overflow:hidden;width:170px;font-size:1.5em;float:left;}
+.capa-flotante-4 .titulo-1{padding-top:7px;text-align:center;}
+.capa-flotante-5{width:660px;}
+.capa-flotante-5 .encabezado-1{font-size:1.5em;padding:7px 0 0 50px;overflow:hidden;width:550px;float:left;text-align:center;}
+.capa-flotante-6{width:690px;}
+.capa-flotante-6 .encabezado-1{font-size:1.5em;padding:7px 0 0 100px;overflow:hidden;width:480px;float:left;text-align:center;}
+.capa-flotante-7{width:400px;overflow:hidden;font-size:1.3em;background:#fff;z-index:1003;position:absolute;left:300px;top:100px;padding:10px;border:3px solid #ffe400;}
+.capa-flotante-7 .encabezado-1{font-size:1.5em;color:#36AE01;overflow:hidden;width:auto;height:auto;text-align:center;margin-top:30px;}
+.capa-flotante-7 .encabezado-2{font-size:1.5em;color:#5D5D5D;overflow:hidden;width:auto;height:auto;text-align:center;}
+.capa-flotante-7 .encabezado-3{font-size:1.5em;color:#E13300;overflow:hidden;width:auto;height:auto;text-align:center;}
+.capa-flotante-7 .dato-1{width:auto;height:auto;text-align:justify;}
+.estrella-1{background:transparent url(../../images/HAL1024/estrellas-hotel.gif) no-repeat 0 0;height:15px;width:16px;float:left;}
+.estrella-2{background:transparent url(../../images/HAL1024/estrellas-hotel.gif) no-repeat 0 -15px;height:15px;width:32px;float:left;}
+.estrella-3{background:transparent url(../../images/HAL1024/estrellas-hotel.gif) no-repeat 0 -30px;height:15px;width:48px;float:left;}
+.estrella-4{background:transparent url(../../images/HAL1024/estrellas-hotel.gif) no-repeat 0 -45px;height:15px;width:64px;float:left;}
+.estrella-5{background:transparent url(../../images/HAL1024/estrellas-hotel.gif) no-repeat 0 -60px;height:15px;width:80px;float:left;}
+.estrella-gris-1{background:transparent url(../../images/HAL1024/estrellas-hotel-gris.jpg) no-repeat 0 0;height:15px;width:16px;float:left;}
+.estrella-gris-2{background:transparent url(../../images/HAL1024/estrellas-hotel-gris.jpg) no-repeat 0 -15px;height:15px;width:32px;float:left;}
+.estrella-gris-3{background:transparent url(../../images/HAL1024/estrellas-hotel-gris.jpg) no-repeat 0 -30px;height:15px;width:48px;float:left;}
+.estrella-gris-4{background:transparent url(../../images/HAL1024/estrellas-hotel-gris.jpg) no-repeat 0 -45px;height:15px;width:64px;float:left;}
+.estrella-gris-5{background:transparent url(../../images/HAL1024/estrellas-hotel-gris.jpg) no-repeat 0 -60px;height:15px;width:80px;float:left;}
+.mas-foto{background:url(../../images/HAL1024/amplia-foto.gif) no-repeat scroll 0 0 transparent;display:block;height:18px;left:104px;position:absolute;top:1px;width:19px;}
+.seleccionado{font-weight:700;}
+.destacado{clear:both;background:#FDF0C6;padding:5px;margin:10px 0;text-align:center;}
+.destacado-2{clear:both;background:#FDF0C6;padding:5px 10px;margin:10px 0;}
+.destacado-2 .dato1{padding:5px 0;}
+.destacado-2 .dato1-1{color:#D42D12;}
+.destacado-2 .dato2{padding-top:15px;font-size:.9em;}
+#informacion-residente.destacado-2{height:240px;overflow:auto;}
+.destacado-3{clear:both;background:#FDF0C6;padding:5px 10px;margin:10px 0;float:right;text-align:right;}
+.destacado-3 .dato1{color:#D42D12;padding-bottom:0;}
+.destacado-3 .dato2{font-size:1.3em;color:#D42D12;font-weight:700;}
+.destacado-4{background:#D42D12;color:#fff;clear:both;padding:0 5px;text-align:center;}
+.destacado-4 .dato1{font-weight:700;font-size:1.5em;text-align:right;padding-bottom:0;}
+.destacado-5{background:#3D3D3D;color:#fff;clear:both;padding:0 5px;text-align:center;}
+.destacado-5 .dato1{font-weight:700;font-size:1.3em;text-align:right;padding-bottom:0;}
+.destacado-6{background:#D5D5D5;padding:10px 0;}
+.destacado-6 .dato1{margin:0;padding:0 25px;}
+.destacado-6 .dato1-1{color:#AA1E36;font-size:1.6em;font-weight:normal;}
+.destacado-7{font-size:1.8em;color:#ffbb00;}
+.destacado-8{background:#FDF0C6;float:right;padding:10px;width:375px;}
+.destacado-8 .dato1{color:#D42D12;font-size:1.2em;}
+.destacado-9{background:#FDF0C6;float:left;padding:5px;width:560px;}
+.destacado-9 .dato1{padding:0 0 0 10px;float:left;}
+.destacado-10{background:#C7ECFF;float:right;font-size:0.8em;line-height:1.5em;font-weight:100;}
+.destacado-11{border:1px solid #FFBB00;background:#FFFFFF;float:left;color:#3E3E3E;font-size:0.8em;line-height:1.5em;padding:5px 10px;width:632px;}
+.destacado-12{background:#EDEDED;padding:12px 10px;}
+.enlace-1{color:#6D6D6D;display:block;padding-bottom:10px;}
+.enlace-2{color:#957700;font-size:.9em;text-decoration:underline;}/*enlace marron*/
+.enlace-2:hover, .enlace-2#selected{text-shadow:1px 1px 5px #ededed;}
+.enlace-3{color:#000000;text-decoration:underline;font-weight:700;}
+.enlace-3:hover{text-decoration:none;}
+.enlace-4{color:#fff;text-decoration:underline;font-weight:700;}
+.enlace-5{color:#BA9739;text-decoration:underline;font-weight:700;font-size:1em;float:right;}
+.enlace-5:hover{text-decoration:none;}
+.icono-seleccion{background:transparent url(../../images/HAL1024/icono-seleccion.gif) no-repeat scroll 0 0;width:43px;height:47px;float:left;}
+.flota-dcha{float:right;}
+.flota-izq{float:left;}
+.opacidad{display:none;position:absolute;top:373px;width:677px;background-color:#fff;z-index:4999;-moz-opacity:0.8;opacity:.80;filter:alpha(opacity=80);}
+
+/* Lightbox */
+.sombra{display:none;position:fixed;top:0%;left:0%;width:100%;height:100%;background-color:#fff;z-index:1001;-moz-opacity:0.8;opacity:.80;filter:alpha(opacity=80);}
+.contenido-box{display:none;position:absolute;z-index:1002;overflow:auto;}
+
+/* Capa cargando, antigua */
+.borde_arriba{background-color:#C9C9C9;border-bottom:10px solid #DDD;}
+.borde_abajos_arriba,.borde_fondo_abajo{background-color:#E8E8E8;padding:30px 0;}
+.ocultar{display:none;}
+.limpiar{clear:both;overflow:hidden;height:0;width:0;font-size:0;margin:0;padding:0;}
+.puntos_abajo{border-bottom:1px dotted #989797;}
+.puntos_centro{border-right:1px dotted #989797;height:16em;width:1em;}
+.contflash{width:44%;text-align:right;padding:10px 35px;}
+.cont_ventajas{width:46%;text-align:left;vertical-align:middle;}
+.cont_centro{width:10%;text-align:center;vertical-align:middle;}
+.check{background:transparent url(../../images/HAL/lazo1.gif) no-repeat 0 0;height:50px;width:51px;float:left;}
+.contenido_texto{float:left;font-family:arial,Helvetica,sans-serif;padding:30px 0;width:44em;}
+.lista_ventajas{padding-left:10px;margin:10px 0 0;}
+.pago_ad{float:right;position:relative;margin:-100px 133px 0 0;}
+.cargando_izquierda{float:left;width:100%;margin:0 auto;padding:2em 0;}
+.cargando_derecha{float:left;width:50em;padding-left:3em;margin:0 auto;}
+table#loading{height:100%;width:100%;border-collapse:collapse;}
+ul#ventajas{list-style-image:url(../../images/common1024/flecha1.gif);line-height:1.9em;font-size:1.2em;}
+.texto_21{font-size:17px;color:#6e6e6e;font-weight:700;}
+label.error {width:250px;display:block;float:left;color:red;padding-left:10px;}
+
+/* Capa cargando */
+.fondo-cargando{background:url(../../images/HAL1024/fondo-cargando.gif) no-repeat 0 0;width:840px;height:610px;margin:40px auto 0;}
+.fondo-cargando .area-1{width:270px;font-size:2.2em;text-align:center;font-weight:700;padding:95px 0 0 255px;}
+.fondo-cargando .area-1 .dato1{color:#ffbb00;}
+.fondo-cargando .area-1 .dato2{font-style:oblique;padding-top:10px;}
+.fondo-cargando .area-1 .dato3{color:#D42D12;margin-top:10px;}
+.fondo-cargando .area-1 .dato4{font-size:.75em;padding:40px 0 20px;}
+.fondo-cargando .area-2{width:315px;padding:70px 0 0 15px;float:left;}
+.fondo-cargando .area-2 .dato1{font-size:2em;color:#D42D12;font-weight:700;padding-bottom:30px;}
+.fondo-cargando .area-2 ul{list-style:square;color:#D42D12;font-size:1.1em;}
+.fondo-cargando .area-2 ul li{padding:8px 0;margin-left:15px;}
+.fondo-cargando .area-2 ul li span{color:#000;}
+.fondo-cargando .area-3{background:#EFEFEF;border:1px solid #D5D6D6;margin-top:15px;padding:13px;width:300px;margin-top:74px;float:right;}
+
+/*Home*/
+.contenedor-izq{height:auto;float:left;width:327px;}
+.contenedor-izq .cabecera-buscador{background:url(../../images/HAL1024/sup.buscador.jpg) no-repeat 0 0;text-align:center;padding:5px 0 5px 0;color:#FFF;font-size:1.7em;font-weight:700;}
+.buscador-principal{border:1px solid #D42D12;padding-bottom:10px;width:325px;background:#FAE073;}
+.buscador-principal .contenedor-boton{margin-top:10px;margin-left:90px;}
+.buscador-principal .contenedor-boton .boton-1{width:150px;font-size:1.7em;}
+#banner2{background-color:#EFEFEF;border:1px solid #D5D6D6;margin-top:15px;padding:13px 13px 13px 12px;}
+#banner3{background-color:#EFEFEF;border:1px solid #D5D6D6;margin-top:15px;padding:13px 13px 13px 12px;}
+.banner-boletin{background:url(../../images/HAL1024/fondo-boletin.jpg);height:80px;width:327px;float:left;margin-top:4px;}
+.banner-boletin .contenedor-banner{float:right;padding:20px 10px 0;width:180px;color:#FFF;font-size:1.1em;}
+.boton-suscrip-boletin{background:#FAE073;margin:5px 0 0 94px;padding:2px 0;text-align:center;}
+.boton-suscrip-boletin a{color:#000000;font-size:1.1em;text-decoration:none;}
+.boton-suscrip-boletin a:hover{color:#D42D12;}
+.contenedor-central{float:left;margin-left:20px;}
+#banner5{float:left;;width:120px;padding:0 0 12px 50px;}
+#banner6{background:url(../../images/HAL1024/publicidad.gif) no-repeat left top #E5E5E5;float:left;;width:765px;margin-top:15px;padding:12px 0 12px 30px;}
+.caja-selectores{margin-top:0;padding:8px 0 2px 10px;}
+.caja-selectores-izq{float:left;margin-top:8px;width:153px;}
+.caja-selectores-dch{border-left:1px solid #FFF;float:left;margin-top:8px;padding-left:5px;width:153px;}
+.producto-seleccionado{background-image:url(../../images/common1024/seleccion-fondo-1.gif);float:left;height:auto;padding:2px 0 0 4px;width:120px;margin:0 0 2px 5px;}
+.producto-seleccionado a{color:#000000;font-weight:700;font-size:1.06em;line-height:1.3em;text-decoration:none;}
+.producto{float:left;height:14px;margin:2px 0 2px 5px;padding:2px 0 0 4px;width:120px;font-size:1.1em;}
+.producto a{color:#000;text-decoration:none;}
+.caja-selectores input{margin-top:3px;}
+.caja-buscador{height:auto;margin-top:0;padding:4px 0 0 4px;z-index:500;}
+.caja-buscador .titulo-buscador{color:#D42D12;font-size:1.2em;padding:8px 0 4px 10px;width:290px;font-weight:700;}
+.caja-buscador .separador{border-bottom:1px solid #FFF;clear:both;font-size:0;height:1px;margin:0 10px;overflow:hidden;padding:0;width:auto;}
+.fila-buscador{float:left;margin-top:3px;padding-left:10px;}
+.fila-buscador-2{float:left;margin-top:1px;padding:11px 0 0;}
+.espacio_vertical{height:5px;}
+.banner-guia{background-image:url(../../images/HAL1024/fondo-guia.gif);height:90px;width:421px;float:right;}
+.banner-guia .contenedor-banner{float:right;padding:30px 110px 0 0;width:140px;color:#7D7D7D;}
+.banner-guia .contenedor-banner a{color:#D42D12;text-decoration:underline;}
+.contenedor-central .area-contenido-3{float:left;margin-top:20px;width:465px;}
+.cabecera-ofertas-izq{float:left;line-height:18px;width:220px;}
+.cabecera-ofertas-izq .titulo-3{color:#000;font-size:1.7em;font-weight:700;letter-spacing:-0.03em;line-height:1.2em;}
+.cabecera-ofetas-dch .titulo-3{color:#000;font-size:1.7em;font-weight:700;letter-spacing:-0.03em;line-height:1.2em;}
+.titulo-4{color:#D42D12;font-size:1.7em;font-weight:700;letter-spacing:-0.03em;line-height:1.2em;}
+.titulo-5{color:#6F6F6F;font-size:1em;letter-spacing:-0.06em;line-height:1.1em;float:right;}
+.titulo-6{color:#000000;font-size:1.4em;font-weight:700;line-height:1em;text-decoration:none;float:right;}
+.titulo-7{color:#000000;font-size:1.1em;line-height:1em;text-decoration:none;}
+.cabecera-ofetas-dch{float:right;line-height:18px;width:210px;}
+.separador-ofertas{background:url(../../images/HAL1024/separador-ofertas.gif) repeat-y scroll 230px 50% transparent;width:450px;float:left;}
+.bloque-ofertas{float:left;width:220px;padding-left:5px;}
+.bloque-ofertas .fila{margin:5px 0 0 10px;width:200px;}
+.bloque-ofertas .fila .datos{float:left;line-height:1em;width:150px;}
+.bloque-ofertas .fila .datos .caja{width:150px;float:left;}
+.bloque-ofertas .fila .datos .caja .titulo-2{color:#7B7B7B;font-family:Arial,Helvetica,sans-serif;font-size:1em;line-height:1.5em;text-decoration:none;}
+.linea-separacion{border-bottom:1px dotted #BDBDBD;margin-bottom:3px;margin-left:22px;margin-top:4px;}
+.linea-separacion-2{border-bottom:1px dotted #000000;margin:20px 70px;}
+.linea-separacion-3{border-bottom:1px dotted #BDBDBD;margin-bottom:3px;margin-top:4px;}
+.linea-separacion-4{border-bottom:1px dashed #D7D7D7;margin-bottom:3px;margin-top:4px;}
+.pie-ofertas{padding:5px 0 0 0;text-align:left;color:#D42D12;font-size:1.1em;line-height:1em;text-decoration:none;}
+.cuadro_servicios{border:1px solid #D5D6D6;/*margin-top:15px;*/overflow:hidden;padding-bottom:0;}
+.cabecera_servicios{background-image:url("../../images/common1024/fondo-degradado-superior.jpg");background-repeat:repeat-x;border-color:#CACACA;border-style:solid;border-width:0 0 1px;float:left;margin-bottom:1px;padding-bottom:4px;text-align:left;width:328px;}
+#servicios_img{margin:5px 0 0 15px;color:#747474;font-size:1.1em;font-weight:bold;text-decoration:underline;}
+.icono_texto{float:left;height:80px;margin-top:14px;text-align:center;/*width:25%;*/width:74px;}
+.texto_icono{color:#000000;font-size:1em;text-decoration:none;}
+.texto_texto{float:left;height:80px;margin-top:14px;text-align:center;/*width:25%;*/width:74px;}
+.cabecera-izda{background: url(../../images/HAL1024/cabecera-izda.jpg) no-repeat scroll 0 0 transparent;float:left;height:32px;width:10px;}
+.cabecera-fondo{background: url(../../images/HAL1024/cabecera-fondo.jpg) repeat-x scroll 0 0 transparent;float:left;height:22px;width:445px; color: #FFFFFF;font-size:1.7em;font-weight:700;padding:5px 0;}
+.cabecera-dcha{background: url(../../images/HAL1024/cabecera-dcha.jpg) no-repeat scroll 0 0 transparent;float:left;height:32px;width:10px;}
+.cuadro-ofertas{background:#E6E6E6;border:1px solid #D5D6D6;overflow:hidden;padding:5px;font-size:1.1em;}
+.cuadro-ofertas .caja-oferta{background:url(../../images/HAL1024/cuadro-individual-oferta-canarias.jpg) no-repeat scroll 0 0 transparent;float:left;height:179px;margin-top:5px;width:226px;}
+.cuadro-ofertas .caja-oferta-1{background:url(../../images/HAL1024/cuadro-individual-oferta-baleares.jpg) no-repeat scroll 0 0 transparent;float:left;height:179px;margin-top:5px;width:226px;}
+.cuadro-ofertas .caja-oferta-2{background:url(../../images/HAL1024/cuadro-individual-oferta-caribe.jpg) no-repeat scroll 0 0 transparent;float:left;height:179px;margin-top:5px;width:226px;}
+.cuadro-ofertas .caja-oferta-3{background:url(../../images/HAL1024/cuadro-individual-oferta-europa.jpg) no-repeat scroll 0 0 transparent;float:left;height:179px;margin-top:5px;width:226px;}
+.bocadillo{float:right;height:47px;padding:88px 15px 8px 5px;width:73px;}
+.caja-titulo{width:185px;text-align:center;padding:0 20px 5px;}
+.caja-titulo .titulo{color:#FFF;font-size:1.8em;font-weight:700;}
+.caja-titulo .titulo:hover{color:#FFF;}
+.detalle{float:right;color:#000000;font-size:1em;text-align:right;}
+.cantidad{color:#D42D12;float:right;text-align:center;}
+.cantidad .cifra{float:left;font-size:2.1em;font-weight:700;}
+.cantidad .unidad{float:left;font-size:1.2em;padding-top:8px;}
+.boton-ofertas{background:url(../../images/HAL1024/ver-todos-los-destinos.jpg) no-repeat;width:167px;height:21px;font-size:1.5em;color:#000000;margin-right:10px;text-align:center;float:right;}
+.boton-ofertas:hover{color:#FFF;}
+
+/*MASSIVEGOOD*/
+.caja_donacion{border:1px solid #B8B8B8;margin-bottom:15px;}
+.caja_donacion h1{background-color:#3D3D3D;color:#FFFFFF;font-weight:700;padding:10px 5px;text-transform:uppercase;margin:0;height:20px;}
+.caja_donacion h1 a{color:#FFFFFF;font-weight:700;font-size:0.7em;text-decoration:underline;}
+.caja_donacion .fondo{background-color:#FFF8DC;font-size:1.2em;cursor:pointer;}
+.caja_donacion .fondo li{background-color:#FFF8DC;font-size:1.2em;cursor:pointer;}
+.caja_donacion .fondo .resaltar{color:#FFBB00;font-weight:700;cursor:pointer;}
+
+/*PLANTILLA HOTEL*/
+.marco-superior-contenido-2{background:url("../../images/HAL1024/superior-contenido-ancho-2.gif") no-repeat scroll 0 0 #FFFFFF;height:10px;margin-top:20px;overflow:hidden;width:953px;}
+.espacio-vertical-2{height:10px;clear:both;}
+.caja-contenido .area-contenido .area-contenido-2 .dato4-3{float:left;overflow:hidden;padding:0 10px;}
+.caja-contenido .area-contenido .area-contenido-2 .dato4-3 .dato4-3-1{float:left;font-weight:700;}
+.caja-contenido .area-contenido .area-contenido-2 .dato4-3 .dato4-3-3{clear:both;padding-top:10px;width:750px;float:left;text-align:justify;}
+.caja-contenido .area-contenido .area-contenido-2 .img1{float:left;padding-right:10px;}
+.caja-contenido .area-contenido-2 .agrupa-datos-14{width:auto;background:none repeat scroll 0 0 #3D3D3D;float:left;margin-bottom:5px;}
+.agrupa-datos-14 .dato4-1{border-right:3px solid #FFFFFF;float:left;position:relative;}
+.caja-contenido .area-contenido-2 .agrupa-datos-14 .dato3{width:930px;color:#FFFFFF;float:left;font-weight:700;padding:10px 5px;}
+.caja-contenido .area-contenido-2 .agrupa-datos-14 .dato4{width:auto;background:#FFF8DC;border-top:3px solid #FFFFFF;float:left;}
+.caja-contenido .area-contenido-2 .agrupa-datos-14 .dato4-3{float:left;overflow:hidden;padding:10px;width:796px;}
+.caja-contenido .area-contenido-2 .agrupa-datos-14 .dato10{width:931px;background:#FFF8DC;border-bottom:1px solid #B8B8B8;border-top:2px solid #FFFFFF;float:left;padding:10px 5px;}
+.caja-contenido .area-contenido-2 .agrupa-datos-14 .dato5-2{color:#D42D12;float:left;padding-right:10px;width:95px;}
+.caja-contenido .area-contenido-2 .agrupa-datos-14 .dato5-3{color:#D42D12;float:left;font-size:2.2em;font-weight:700;text-align:right;width:120px;}
+.caja-contenido .area-contenido-2 .agrupa-datos-14 .dato3-1{color:#FFFFFF;float:left;font-size:1.4em;padding-left:60px;}
+.caja-contenido .area-contenido-2 .agrupa-datos-14 .dato3-2{float:right;}
+.caja-contenido .area-contenido-2 .agrupa-datos-14 .dato4-2-2{color:#FFBB00;font-weight:700;text-decoration:underline;text-shadow:1px 1px 0 #FFFFFF;}
+.listado{color:#A8A8A8;font-size:1.1em;margin:40px 0;float:left;width:auto;}
+.listado#var01{color:#A8A8A8;font-size:1.1em;margin:40px 0 0;float:left;width:auto;}
+.listado ul{float:left;border-top:1px solid #a8a8a8;padding-top:5px;margin-left:20px;width:135px;}
+.listado ul li a,.listado-2 ul li a{color:#a8a8a8;}
+.listado ul li a:hover,.listado-2 ul li a:hover{color:#D93102;}
+.listado ul h2,.listado-2 ul h2{padding:5px 0;border-bottom:1px dotted #ededed;margin-bottom:10px;font-size:1.2em;text-transform:uppercase;}
+.listado ul li h2 a,.listado-2 ul li h2 a{color:#D93102;}
+.listado .listado-izd{width:360px;float:left;}
+.listado .listado-2{width:290px;float:left;}
+.listado .listado-3{float:left;width:215px;}
+.listado .titulo-1,.listado-2 .titulo-1{margin-left:20px;}
+.listado .listado-links,.listado-2 .listado-links{width:auto;overflow:hidden;}
+.listado .listado-links .social-links{margin-top:10px;}
+.listado ul.lista-1{width:300px;margin:0 50px 0 20px;float:left;display:inline;}
+.listado ul.lista-1 li{margin:5px 0;}
+.listado ul.lista-1 li .dato1{float:right;color:#D93102;font-weight:700;}	
+.listado ul.lista-2{width:245px;margin:0 50px 0 20px;float:left;display:inline;}
+.listado ul.lista-3{width:175px;margin:0 50px 20px 20px;float:left;display:inline;}
+.listado-2{color:#A8A8A8;font-size:1.1em;margin:40px 0;float:left;width:auto;}
+.listado-2 ul{float:left;border-top:1px solid #a8a8a8;padding-top:5px;margin-left:20px;width:185px;}
+.tabladetalles08 {height:auto;margin-bottom:10px;margin-left:10px;margin-top:10px;width:740px;}
+.tabladetalles08 .contcolunma02{color:#666666;float:left;margin-top:10px;text-decoration:none;width:185px;}
+.tabladetalles08 .contcolunma02 .foto01{border:2px solid #FFBB00;height:126px;margin-bottom:10px;padding:4px;width:170px;}
+.tabladetalles08 .contcolunma02 .foto02actual{border:1px solid #FFBB00;color:#666666;float:left;height:37px;margin:0 3px 3px 0;padding:2px;text-decoration:none;width:52px;}
+.tabladetalles08 .contcolunma02 .foto02 a:link, .tabladetalles08 .contcolunma02 .foto02 a:visited{border:1px solid #999999;color:#666666;float:left;height:37px;margin:0 3px 3px 0;padding:2px;text-decoration:none;width:52px;}
+.tabladetalles08 .contcolunma03{float:left;margin-bottom:10px;margin-right:5px;margin-top:10px;padding-right:12px;width:535px;border-left:2px solid #FFBB00;}
+.tabladetalles08 .contcolunma03 .bloque01{margin-left:20px;}
+.tabladetalles08 .contcolunma03 .bloque01 img{margin-bottom:-3px;}
+.tabladetalles08 .contcolunma03 .titulo01puntos{border-bottom:2px solid #FFBB00;float:left;height:10px;margin-right:5px;width:15px;}
+.tabladetalles08 .contcolunma03 .titulo01{float:left;width:400px;margin-bottom:5px;margin-top:3px;font-size:1.2em;}
+.tabladetalles08 .contcolunma03 .bloque01 p{margin-bottom:5px;font-size:1.2em;}
+
+/*HOME 2x1*/
+.fondo-escaparate{background:transparent url(../../images/HAL1024/fondo-escaparate.gif) no-repeat scroll 0 0;width:994px;padding-top:40px;}
+.fondo-escaparate .fila-ofertas-vacacional{background:none;}
+.fondo-escaparate .texto-anuncio{color:#FFF;font-size:1.2em;width:250px;margin-bottom:40px;padding-right:23px;float:right;}
+.fondo-escaparate .ofertas-vacacional-box .dato3{text-transform:none;text-align:left;}
+.fondo-escaparate .ofertas-vacacional-box .dato4{font-size:2.3em;padding-left:35px;}
+.fondo-escaparate .ofertas-vacacional-box .dato4-1{font-weight:normal;left:0;top:0;}
+
+
+/* Índice geográfico */
+.contenedor-indice-geografico{width:600px;overflow:hidden;padding-bottom:10px;}
+.cabecera-indice-geografico{float:left;color:#ffbb00;font-weight:700;padding-right:100px;}
+ul.bloque-destinos{float:left;padding:0 52px 10px 0;}
+ul.bloque-destinos li a{color:#000;}
+ul.bloque-destinos li a:hover{color:#ffbb00;}
+ul.bloque-alfabeto{overflow:hidden;;margin:5px 10px 10px 0;background:#ddd;width:610px;}
+ul.bloque-alfabeto li{float:left;padding:5px;width:13px;}
+ul.bloque-alfabeto li#primero{padding-left:13px;}
+.indice-destino{color:#000;font-size:1.4em;font-weight:700;padding:5px 0 15px;}
+
+/*Landing Vuelos y compañias*/
+#cabecera-izq{float:left;}
+#cabecera-izq .bloque-1{width:570px;padding-top:12px;}
+.icono-vuelos{background:transparent url(../../images/HAL1024/icono-vuelos.gif) no-repeat scroll 0 0;width:68px;height:68px;float:left;}
+.caja-telefono{background:transparent url(../../images/HAL1024/cuadro-telefono.gif) no-repeat scroll 0 0;width:220px;height:100px;float:right;padding:0 10px 0 45px;font-size:1.8em;}
+.caja-telefono p{font-size:0.6em;margin-top:15px;}
+.fondo-compania{background:url(../../images/HAL1024/fondo-compania.jpg) no-repeat scroll 0 0 transparent;height:284px;margin-top:10px;padding-top:60px;width:946px;}
+.fondo-compania-2{background:url(../../images/HAL1024/fondo-compania-2.jpg) no-repeat scroll 0 0 transparent;height:284px;margin-top:10px;padding-top:60px;width:946px;}
+
+/*PLANTILLA ZONA*/
+.marco-superior-contenido-3{background:url("../../images/HAL1024/superior-contenido-ancho-2.gif") no-repeat scroll 0 0 #FFFFFF;height:70px;margin-top:20px;overflow:hidden;width:953px;}
+.marco-fondo-contenido .area-contenido-2 {padding:0;}
+.filtro{background:none repeat scroll 0 0 #FFF8DC;clear:both;margin:0 0 10px;padding:5px;}
+
+/*PLANTILLAS*/
+.cabecera-fondo-2{background:url(../../images/HAL1024/cabecera-fondo.jpg) repeat-x scroll 0 0 transparent;float:left;height:22px;width:325px;color:#FFF;font-size:1.5em;font-weight:700;padding:0px 0;}
+.marco-fondo-contenido-2{background:#FAE073;overflow:hidden;font-size:1.1em;width:343px;border:1px solid #D42D12;padding-bottom:10px;}
+.marco-fondo-contenido-3{background:transparent url(../../images/HAL1024/fondo-contenido-ancho.gif) repeat-y scroll 0 0;overflow:hidden;padding:0 25px 5px;font-size:1.1em;width:903px;}
+.marco-fondo-contenido-4{background: url("../../images/HAL1024/fondo-contenido-ancho.gif") repeat-y scroll 0 0 transparent;float:left;font-size:1.1em;padding:0 25px 5px;width:903px;}
+.marco-superior-contenido-4{background:url("../../images/HAL1024/superior-contenido-ancho-3.gif") no-repeat scroll 0 0 #FFFFFF;height:30px;margin-top:20px;overflow:hidden;width:933px;float:left;font-size:1.6em;font-weight:700;padding:10px;}
+.formulario-2{width:330px;}
+.formulario-2 .contenedor-boton-1{margin-left:110px;}
+.agrupa-datos-22{border-bottom:1px dotted #A5A5A5;padding:0 0 10px 15px;margin:10px 0 15px;overflow:hidden;width:330px;}
+.agrupa-datos-22 .grupo-formulario-1{padding:0;margin-top:10px;}
+.agrupa-datos-22 .agrupa-datos-5{margin-top:10px;}
+.agrupa-datos-22 .agrupa-datos-5 .dato4{float:left;padding:5px 0;}
+.agrupa-datos-22 .agrupa-datos-5 .dato5-1{float:left;padding:5px 0;}
+.agrupa-datos-23{position:relative;float:rigth;width:617px;margin:-10px 0 0 35px;font-size:1.15em;}
+.agrupa-datos-23 .dato-1{color:#36AE01;float:right;}
+.agrupa-datos-23 .dato-2{color:#5D5D5D;float:right;}
+.agrupa-datos-23 .dato-3{color:#E13300;float:right;}
+.agrupa-datos-24{position:relative;width:667px;margin:-10px 0 0 0;font-size:1.15em;}
+.agrupa-datos-24  .dato-1 {color: #E13300;font-size: 2em;font-weight: 700;width:667px;}
+.agrupa-datos-24  .dato-2 {color: #5D5D5D;}
+.agrupa-datos-24  .dato-3 {color: #5D5D5D;font-size: 0.4em;font-weight: normal;}
+.agrupa-datos-24  .dato-4 {font-size: 0.7em;font-weight: bold;}
+.banner2{background:transparent url(../../images/HAL1024/cabecera.esqui.gif) no-repeat scroll 0 0;width:984px;height:45px;margin-bottom:20px;text-align:right;padding:5px 10px 0 0;color:#fff;font-size:2.6em;letter-spacing:-0.03em;}
+.caja-superior{width:229px;padding:10px 2px;float:left;margin-left:5px;}
+.caja-superior .titulo-1{font-size:1.6em;font-weight:700;}
+.caja-superior .caja-buscador1{background-color:#6C6C6C;width:199px;height:130px;padding:15px;margin:2px 2px 0 0;}
+.caja-superior .caja-buscador1 .link,.caja-superior .caja-buscador3 .link {color:#FFBB00;font-weight:700;text-decoration:underline;font-size:1.2em;}
+.caja-superior .caja-buscador2{background-color:#DEDEDE;width:199px;height:130px;padding:15px;margin:2px 2px 0 0;}
+.caja-superior .caja-buscador3{background-color:#405398;width:199px;height:242px;padding:15px;margin:2px 2px 0 0;}
+.caja-superior .caja-buscador2 .contenedor-boton{float:left;padding:8px 0 0 40px;}
+.caja-texto-izq{float:left;width:345px;height:auto;padding:25px  15px 0 15px;}
+.caja-texto-izq .titulo-1{font-size:1.6em;font-weight:700;}
+.caja-texto-izq .titulo-2{font-size:1em;font-weight:700;color:#2B2B2B;}
+.caja-texto-dcha{float:left;width:545px;height:auto;padding:25px 15px 0 15px;}
+.caja-texto-dcha .titulo-1{font-size:1.6em;font-weight:700;}
+.caja-texto-dcha .titulo-2{font-size:1em;font-weight:700;color:#2B2B2B;}
+.caja-texto-dcha .caja{width:450px;}
+.caja-texto-dcha .dato1{padding:5px 0;}
+.mapa{border:2px solid #FFBB00;float:left;margin-left:20px;margin-top:10px;}
+.imagen{border:2px solid #FFBB00;float:left;}
+.cabecera-nieve-1{background-color:#405398;color:#FFF;font-weight:700;;font-size:1.6em;padding:10px;}
+.cabecera-nieve-1-2{background-color:#304388;color:#FFF;font-weight:700;;font-size:1.6em;padding:5px;}
+.cabecera-nieve-2{background-color:#696969;color:#FFF;font-weight:700;;font-size:1.6em;padding:5px;}
+.listado-caracteristicas-1{background-color:#7C7C7C;width:525px;height:auto;overflow:hidden;padding:10px;}
+.listado-caracteristicas-1 ul{float:left;margin-left:20px;width:490px;}
+.listado-caracteristicas-1 ul li{color:#FFFFFF;}
+.listado-caracteristicas-2{background-color:#405398;width:525px;height:auto;overflow:hidden;padding:10px;}
+.listado-caracteristicas-2 ul{float:left;margin-left:20px;width:490px;}
+.listado-caracteristicas-2 ul li{color:#FFFFFF;}
+.fondo-esqui{background:transparent url(../../images/HAL1024/fondo-esqui.jpg) no-repeat;width:946px;height:324px;margin-top:10px;}
+.fondo-esqui .titulo{color:#FFFFFF;font-size:2.6em;padding:20px;}
+.fondo-esqui .eslogan{color:#FFBB00;font-size:2.6em;font-weight:700;padding:20px;float:right;margin-top:140px;}
+
+/*SMARTBOX*/
+.contenedor-izq-2{height:auto;float:left;width:225px;}
+.contenedor-izq-2 .cabecera-buscador{background:url(../../images/HAL1024/sup.buscador2.jpg) no-repeat 0 0;text-align:center;padding:5px 0 5px 0;color:#FFFFFF;font-size:1.7em;font-weight:700;}
+.buscador-principal-2{border:1px solid #D42D12;padding-bottom:10px;padding-left:30px;font-size:1.2em;}
+.buscador-principal-2 .contenedor-boton{margin-top:10px;margin-left:12px;}
+.buscador-principal-2 .contenedor-boton .boton-1{width:150px;font-size:1.7em;}
+.fila-buscador .titulo1{color:#000;font-size:1.2em;text-decoration:none;}
+.fila-buscador .titulo2{color:#000;font-size:0.9em;line-height:1em;text-decoration:none;}
+.fila-buscador .titulo3 {color:#3DBD4C;font-size:0.8em;font-weight:700;line-height:2em;text-decoration:none;}
+.texto_85{color:#000;font-size:1em;font-weight:700;}
+.smart_1_texto{background:#78C1EC;color:#FFF;font-size:0.85em;letter-spacing:0.05em;}
+.smart_2_texto{background:#E5688A;color:#FFF;font-size:0.85em;letter-spacing:0.05em;}
+.smart_3_texto{background:#BF2A16;color:#FFF;font-size:0.85em;letter-spacing:0.05em;}
+.smart_4_texto{background:#DEB600;color:#FFF;font-size:0.85em;letter-spacing:0.05em;}
+.smart_5_texto{background:#3DBD4C;color:#FFF;font-size:0.85em;letter-spacing:0.05em;}
+.box_1{background:#FFF;border:1px solid #78C1EC;float:left;font-size:1px;height:10px;line-height:1px;margin:0 5px 0 0;width:10px;}
+.box_2{background:#FFF;border:1px solid #E5688A;float:left;font-size:1px;height:10px;line-height:1px;margin:0 5px 0 0;width:10px;}
+.box_3{background:#FFF;border:1px solid #BF2A16;float:left;font-size:1px;height:10px;line-height:1px;margin:0 5px 0 0;width:10px;}
+.box_4{background:#FFF;border:1px solid #DEB600;float:left;font-size:1px;height:10px;line-height:1px;margin:0 5px 0 0;width:10px;}
+.box_5{background:#FFF;border:1px solid #3DBD4C;float:left;font-size:1px;height:10px;line-height:1px;margin:0 5px 0 0;width:10px;}
+.smb1,.smb2,.smb3,.smb4,.smb5{background:#F0EEEF none repeat scroll 0 0;display:block;margin-bottom:3px;padding:5px;text-decoration:none;width:200px;}
+.smb5 .box{background:#FFF none repeat scroll 0 0;border:1px solid #3DBD4C;float:left;font-size:1px;height:10px;line-height:1px;margin:5px 5px 0 0;width:10px;}
+a.smb1:hover{background:#78C1EC none repeat scroll 0 0;display:block;padding:5px;text-decoration:none;width:200px;}
+a.smb2:hover{background:#E5688A none repeat scroll 0 0;display:block;padding:5px;text-decoration:none;width:200px;}
+a.smb3:hover{background:#BF2A16 none repeat scroll 0 0;display:block;padding:5px;text-decoration:none;width:200px;}
+a.smb4:hover{background:#DEB600 none repeat scroll 0 0;display:block;padding:5px;text-decoration:none;width:200px;}
+a.smb5:hover{background:#3DBD4C none repeat scroll 0 0;display:block;padding:5px;text-decoration:none;width:200px;}
+.smart_productos{float:left;margin-left:20px;padding:10px 0;width:700px;}
+.smart_ficha{border-bottom:1px dotted #999;float:left;padding:10px 0;width:700px;}
+.smart-ficha-2{border-bottom:1px dotted #999;float:left;padding:10px 0;width:600px;}
+.smart-ficha-3{float:left;padding:10px 0 0;width:600px;}
+.smart_ficha .img1{float:left;}
+.smart_ficha_contenido{float:left;padding-left:10px;width:490px;}
+.smart_ficha_contenido_m{float:right;margin-bottom:20px;width:450px;}
+.smart-ficha-contenido-2{float:right;margin-bottom:20px;width:350px;}
+.smart-ficha-contenido-3{float:right;margin-bottom:20px;width:540px;}
+.smart_ficha_contenido .grupo-formulario-5{float:left;width:300px;}
+.smart_links_productos{float:left;margin-top:15px;width:420px;}
+.smart_footer_contenido{float:left;padding:0 0 10px 40px;width:520px;}
+.smart_logo{float:left;left:20px;position:relative;top:-20px;}
+.caja-buscador ul#1_lateral li a:hover{background:#78C1EC;}
+.caja-buscador ul#2_lateral li a:hover{background:#E5688A;}
+.caja-buscador ul#3_lateral li a:hover{background:#BF2A16;}
+.caja-buscador ul#4_lateral li a:hover{background:#DEB600;}
+.caja-buscador ul#WK50_lateral li a:hover{background:#3DBD4C;}
+.caja-buscador ul#WK60_lateral li a:hover{background:#8B603F;}
+.caja-buscador ul#WK75_lateral li a:hover{background:#DEB600;}
+.caja-buscador ul#WK90_lateral li a:hover{background:#C0C0C0;}
+.caja-buscador ul#WK05_lateral li a:hover{background:#808040;}
+.caja-buscador ul#WK10_lateral li a:hover{background:#BF2A16;}
+.caja-buscador h3{font-size:1em;font-weight:400;line-height:1em;margin:0;padding:0;}
+.smart_links_productos ul{clear:both;margin:0;padding:0;}
+.smart_links_productos ul li{display:block;float:left;line-height:1.6em;list-style-type:none;padding:2px 0 0 15px;width:auto;}
+.fila-buscador a.smb5:hover span{color:#FFFFFF;}
+.smart_links_productos#cuadro1 ul li{background:transparent url(../../images/common/flecha_azul.gif) no-repeat left 6px;}
+.smart_links_productos#cuadro2 ul li{background:transparent url(../../images/common/flecha_rosa.gif) no-repeat left 6px;}
+.smart_links_productos#cuadro3 ul li{background:transparent url(../../images/common/flecha_roja.gif) no-repeat left 6px;}
+.smart_links_productos#cuadro4 ul li{background:transparent url(../../images/common/flecha_naranja.gif) no-repeat left 6px;}
+.smart_links_productos#cuadro5 ul li{background:transparent url(../../images/common/flecha_verde.gif) no-repeat left 6px;}
+.smart_links_productos#cuadroWK50 ul li{background:transparent url(../../images/common/flecha_verde.gif) no-repeat left 6px;}
+.smart_links_productos#cuadroWK60 ul li{background:transparent url(../../images/common/flecha_marron.gif) no-repeat left 6px;}
+.smart_links_productos#cuadroWK75 ul li{background:transparent url(../../images/common/flecha_naranja.gif) no-repeat left 6px;}
+.smart_links_productos#cuadroWK90 ul li{background:transparent url(../../images/common/flecha_gris.gif) no-repeat left 6px;}
+.smart_links_productos#cuadroWK05 ul li{background:transparent url(../../images/common/flecha_verdeOscuro.gif) no-repeat left 6px;}
+.smart_links_productos#cuadroWK10 ul li{background:transparent url(../../images/common/flecha_roja.gif) no-repeat left 6px;}
+.smartbox_item{background:#F0EEEF;display:block;margin-bottom:3px;padding:0 5px 3px;text-decoration:none;width:170px;}
+.caja-compra{float:left;margin-bottom:10px;width:340px;margin-left:10px;}
+.caja-compra .cabecera{text-align:center;}
+.caja-compra .imagen{margin-left:90px;border:0;}
+.caja-compra .precio{margin-right:90px;text-align:right;}
+.caja-compra .cantidad .etiqueta-4{margin-top:10px;margin-left:50px;margin-right:15px;}
+.combo-smartbox{float:left;margin:10px 0;}
+#imagen-smartbox{height:250px;margin:20px;}
+#resumen-smartbox .caja-detalle{height:auto;}
+.tabla-detalle{border-collapse:collapse;font-size:1.2em;margin:20px;text-align:left;width:720px;}
+.tabla-detalle th{border-bottom:2px solid #FFBB00;font-size:1.2em;font-weight:700;padding:10px 8px;text-align:left;}
+.tabla-detalle td{border-bottom:1px solid #CCCCCC;padding:6px 8px;}
+.tabla-detalle .dato1{color:#D42D12;font-weight:700;}
+.tabla-detalle .dato2{color:#D42D12;font-weight:700;font-size:2em;text-align:center;}
+.caja-detalle p.dato1{color:#646463;font-size:1.2em;}
+
+/*PANTALLA ERROR*/
+#cabecera-error{height:auto;margin-top:15px;padding-left:8px;}
+.cabecera-informacion{background:url("../../images/HAL1024/sup.buscador2.jpg") no-repeat scroll 0 0 transparent;border-bottom:2px solid #FFBB00;color:#FFFFFF;font-size:1.8em;font-weight:700;padding:5px 0 5px 10px;}
+.caja-detalle{border:2px solid #FFBB00;float:left;height:132px;width:990px;}
+.caja-detalle .cabecera{background-color:#EFEFEF;color:#000000;font-size:1.2em;height:14px;line-height:14px;padding:5px;text-align:left;vertical-align:middle;}
+.caja-detalle .cabecera-2{background-color:#FFFFFF;width:500px;color:#000000;font-size:1.2em;height:14px;line-height:14px;padding:5px;text-align:center;margin-left:auto;margin-right:auto;}
+.caja-detalle .fila-1{padding-top:5px;height:35px;}
+.caja-detalle .fila-1 .titulo-1{color:#D42D12;font-family:Arial,Helvetica,sans-serif;font-size:1.2em;font-weight:700;line-height:1.2em;border:none;padding:0;}
+.caja-detalle .fila-1 .titulo-2{color:#000;font-size:1.2em;float:left;}
+.caja-detalle .columna-1{float:left;padding:5px 0 7px 30px;width:200px;}
+.caja-detalle .columna-1 .campo-texto-11{font-size:1.2em;}
+.caja-detalle .columna-1 .etiqueta-1{float:left;padding:2px 4px 0 0;font-size:1.2em;}
+.caja-detalle .columna-1 .etiqueta-2{padding-left:54px;font-size:1.2em;width:100%;}
+.caja-detalle .columna-2{float:left;padding:7px 10px 6px 0;width:340px;}
+.caja-detalle .columna-2 .campo-texto-11{height:18px;font-size:1.2em;}
+.caja-detalle .columna-2 .etiqueta-1{font-size:1.2em;padding-top:2px;}
+.caja-detalle .columna-3 {height:auto;margin:auto;width:500px;padding-top:25px;}
+.caja-detalle p.dato1{color:#646463;font-size:1.2em;}
+#pie-error{color:#A8A8A8;font-size:1.2em;float:right;}
+.boton-inferior{float:right;margin:5px 35px 5px 0;}
+.boton-inferior .boton-1{font-size:1.5em;width:115px;}
+.boton-inferior-2 {margin-left: auto;margin-right: auto;width: 121px;}
+.boton-inferior-2 .boton-1{font-size:1.5em;width:115px;}
+.marco-imagen{margin-right:10px;border-right:2px solid #FFBB00;}
+#contenedor #contenido #detallesviaje{height:auto;margin-top:15px;padding-left:8px;}
+
+/*PROMOCIONES*/
+.contenedor-ancho{width:100%;float:left;margin-top:15px;}
+.contenedor-ancho .cabecera-ofertas-izq{width:300px;}
+.contenedor-ancho .bloque-ofertas{width:300px;padding:0;}
+.contenedor-ancho .bloque-ofertas .fila{width:300px;margin:0;}
+.contenedor-ancho .bloque-ofertas .fila .datos .caja{width:250px;}
+.espacio-horizontal{width:20px;}
+
+/* Calendario Vuelos */
+.contenedor-calendario-vuelos{width:640px;overflow:hidden;margin-top:20px;}
+.contenedor-calendario-vuelos .cabecera-1{background:#DCD8D9;text-align:center;clear:both;float:right;font-weight:700;margin:0 1px 1px 0;padding:3px 0;width:549px;}
+.contenedor-calendario-vuelos .cabecera-2{background:#DCD8D9;text-align:center;clear:both;float:left;font-weight:700;margin-right:1px;width:100px;}
+.contenedor-calendario-vuelos .cabecera-2 .titulo-1{float:left;padding:150px 0 0 8px;}
+.contenedor-calendario-vuelos .fila-calendario-vuelos{overflow:hidden;width:640px;}
+.contenedor-calendario-vuelos .fila-calendario-vuelos-2{overflow:hidden;width:539px;float:right;margin-bottom:1px;}
+.contenedor-calendario-vuelos .dia-cabecera{background:#6C6A6B;color:#fff;float:left;width:70px;border:1px solid #fff;border-left:none;border-top:none;text-align:center;padding:12px 2px;font-weight:100;height:30px;}
+.contenedor-calendario-vuelos .cabecera-2 .dia-cabecera{float:right;}
+.contenedor-calendario-vuelos .dia-cabecera .dato1{font-weight:700;}
+.contenedor-calendario-vuelos .fila-calendario-vuelos-2 .dato1{color:#D42D12;float:left;width:67px;border:1px solid #ffbb00;text-align:center;padding:16px 2px;margin:0 1px;font-size:1.4em;font-weight:700;line-height:1.19em;}
+.contenedor-calendario-vuelos .fila-calendario-vuelos-2 .dato1:hover{background:#ffbb00;color:#000;}
+.contenedor-calendario-vuelos .fila-calendario-vuelos-2 .dato2{background:#D42D12;color:#fff;font-weight:700;}
+.contenedor-calendario-vuelos .fila-calendario-vuelos-2 .dato3{background:#DCD8D9;}
+.contenedor-calendario-vuelos .fila-calendario-vuelos-2 .dato3:hover{background:#DCD8D9;}
+.contenedor-calendario-vuelos .esquina-1-cabecera{background:transparent url("../../images/HAL1024/flecha-arriba-vuelos.gif") no-repeat scroll 26px 42px;width:89px;height:54px;margin:2px 0 1px 0;float:left;display:block;}
+.contenedor-calendario-vuelos .esquina-2-cabecera{background:transparent url("../../images/HAL1024/flecha-izda-vuelos.gif") no-repeat scroll right 0;width:12px;height:54px;margin-right:1px;float:left;display:block;}
+.contenedor-calendario-vuelos .esquina-3-cabecera{background:transparent url("../../images/HAL1024/flecha-dcha-vuelos.gif") no-repeat scroll 0 0;width:12px;height:54px;float:left;display:block;}
+.contenedor-calendario-vuelos .esquina-4-cabecera{background:#fff url("../../images/HAL1024/flecha-abajo-vuelos.gif") no-repeat scroll 25px 0;width:100px;height:12px;float:left;display:block;}
+.leyenda-calendario-vuelos{width:525px;text-align:center;overflow:hidden;font-size:.9em;padding:10px 0;}
+.leyenda-calendario-vuelos .bloque-leyenda-1{width:320px;float:left;text-align:left;}
+.leyenda-calendario-vuelos .bloque-leyenda-2{width:200px;float:left;text-align:left;}
+.leyenda-calendario-vuelos .icono-leyenda-vuelo{height:12px;width:12px;background:#D42D12;float:left;margin:3px 5px 0 0;}
+.leyenda-calendario-vuelos .icono-1{background:transparent url("../../images/HAL1024/flecha-leyenda.gif") no-repeat scroll 0 0;width:12px;height:12px;float:left;}
+.leyenda-calendario-vuelos .icono-2{background:#ffbb00;}
+.leyenda-calendario-vuelos .icono-3{background:#DCD8D9;}
+.leyenda-calendario-vuelos .texto-leyenda-vuelo{color:#5d5d5d;display:block;padding:2px 0;}
+#ida.contenedor-calendario-vuelos{width:550px;overflow:hidden;margin-top:20px;padding:0 45px;}
+#ida.contenedor-calendario-vuelos .fila-calendario-vuelos{width:550px;}
+#ida.contenedor-calendario-vuelos .fila-calendario-vuelos-2{width:525px;float:left;padding-left:12px;}
+#ida.contenedor-calendario-vuelos .fila-calendario-vuelos-2 .dato1{float:left;text-align:right;padding:0 2px 0;}
+#ida.contenedor-calendario-vuelos .fila-calendario-vuelos-2 .dato3{padding:14px 2px;}
+#ida.contenedor-calendario-vuelos .fila-calendario-vuelos-2 .dato4{color:#000;font-weight:100;display:block;text-align:left;font-size:.7em;padding-bottom:8px;}
+#ida.contenedor-calendario-vuelos .fila-calendario-vuelos-2 .dato2 .dato4{color:#fff;}
+#ida .leyenda-calendario-vuelos{padding:10px 0 10px 30px;clear:both;}`
+
+/* + info coches antiguo */
+.capaflotante01{left:9px;top:239px;position:absolute;z-index:9999;float:left;width:444px;height:245px;}
+#capaflotante01contenido{width:763px;height:470px;z-index:999;position:absolute;left:-3px;top:-3px;border:1px solid #CCC;background-color:#FFF;}
+#capaflotante01sombra{width:763px;height:470px;position:absolute;top:5px;filter:alpha(opacity =   40);opacity:0.4px;-moz-opacity:0.4px;z-index:0;left:5px;background-color:#A0A0A0;margin:2px;}
+.capaflotante01 .linea01{height:2px;font-size:1px;background-color:#D42D12;}
+.capaflotante01 .cabecera01{height:22px;margin-top:5px;margin-bottom:2px;background-color:#989697;}
+.capaflotante01 .linea02{height:2px;font-size:1px;background-color:#E0E0E0;}
+.modcapa{width:763px;height:470px;position:absolute;left:-3px;top:-3px;border:0;}
+.capaflotante01 .cont01, .cont01{float:left;padding-top:4px;padding-left:10px;}
+.texto_11{color:#FFF;font-size:10px;font-weight:700;}
+.texto_12{color:#7d7d7d;font-size:9px;text-decoration:none;}
+.texto_15{color:#FFF;font-size:9px;font-weight:700;text-decoration:none;}
+.capaflotante01 .cont02, .cont02{float:right;width:100px;height:auto;}
+.capaflotante01 .linea02{height:2px;font-size:1px;background-color:#E0E0E0;}
+.botonera06 li{float:left;width:141px;text-align:center;height:16px;padding-right:30px;color:#585858;font-size:10px;font-weight:700;text-decoration:none;}
+.botonera06barra .activo{float:left;width:141px;height:6px;margin-right:30px;background-color:#B6122B;}
+.botonera06barra .noactivo{float:left;width:141px;height:6px;margin-right:30px;background-color:#989898;}
+.botonera06 .actual a,.botonera06 .actual a:visited,.botonera06 .actual a:active{font-size:10px;color:#FFF;font-weight:700;height:16px;width:141px;padding-top:4px;background:url(../../images/HAL/cuadro_prodcto_rojo.gif) no-repeat;}
+.tabladetalles08{width:740px;height:auto;margin-left:10px;scrollbar-face-color:#FFF;scrollbar-arrow-color:#D42D12;scrollbar-track-color:#FFF;scrollbar-shadow-color:#D42D12;scrollbar-highlight-color:#D42D12;scrollbar-3dlight-color:#E0E0E0;scrollbar-darkshadow-color:#E0E0E0;margin-top:10px;margin-bottom:10px;}
+.tabladetalles08 .contcolunma01{overflow:auto;margin-right:5px;padding-right:12px;height:270px;margin-bottom:10px;}
+.tabladetalles08 .contcolunma01 .bloque01{height:102px;width:145px;border:1px solid #C2BEBF;float:left;}
+.tabladetalles08 .contcolunma01 .bloque02{width:530px;float:left;padding-left:20px;padding-top:5px;}
+.textfondoresaltado02{padding-left:20px;margin-top:15px;margin-bottom:10px;background-color:#CCC;}
+.recuadro01contenedor{height:46px;width:740px;margin-left:10px;}
+.recuadro01_0{height:46px;width:3px;float:left;background:url(../../images/HAL/recua01_0.gif);}
+.recuadro01_bg{width:734px;height:46px;float:left;background:url(../../images/HAL/recua01_bg.gif);}
+.recuadro01_1{height:46px;width:3px;float:left;background:url(../../images/HAL/recua01_1.gif);}
+#capaflotante01sombra{width:763px;height:470px;position:absolute;top:5px;filter:alpha(opacity =   40);opacity:0.4px;-moz-opacity:0.4px;z-index:0;left:5px;background-color:#A0A0A0;margin:2px;}
+#botonera03, .botonera03, #botonera05, .botonera05 {height: 20px;list-style: none outside none;margin: 0;padding: 0;}
+#botonera03barra, .botonera03barra {background-color: #989898;font-size: 1px;height: 6px;margin: 2px 0;width: 766px;}
+#botonera03 .actual a, #botonera03 .actual a:visited, #botonera03 .actual a:active, .botonera03 .actual a, .botonera03 .actual a:visited, .botonera03 .actual a:active, .botonera03 .actual, .botonera04 .actual a, .botonera04 .actual a:visited, .botonera04 .actual a:active, .botonera06 .actual a, .botonera06 .actual a:visited, .botonera06 .actual a:active {background: url("../../images/HAL1024/cuadro_prodcto_rojo.gif") no-repeat scroll 0 0 transparent;color: #FFFFFF;font-size: 10px;font-weight: 700;height: 16px;padding-top: 4px;width: 141px;}
+.activo {background-color: #B6122B;float: left;height: 6px;margin-right: 15px;width: 141px;}
+.tabladetalles16 {border: 1px solid #BDBDBD;background-color:#FFF;float: left;height: auto;width: 623px;}
+.tabdetalleviajecabecera {background-color: #EDEDED;color: #FFFFFF;font-size: 10px;height: 14px;line-height: 14px;padding-bottom: 1px;padding-left: 6px;padding-right: 1px;text-align: left;vertical-align: middle;}
+.tabladetalles16 .columna02 {float: right;padding: 7px 10px 5px 0;width: 340px;}
+.texto_2 {color: #747474;font-size: 9px;font-weight: 700;text-decoration: none;}
+.tabladetalles16 .columna02 .etiqueta1 {float: left;padding: 0;}
+.tabladetalles16 .columna02 .botonInferior {float: right;padding: 8px 0 2px;}
+.texto_16 {color: #6E6E6E;font-size: 10px;text-decoration: none;}
+.bot03 {height: 18px;line-height: 15px;width: 67px;}
+.bot03 p, .bot03 a:hover {background-position: -67px 0;margin: 0;padding: 0;text-decoration: none;}
+.bot03 a {background: url("../../images/HAL1024/bot03_bg.gif") no-repeat scroll 0 0 transparent;display: block;height: 18px;text-align: center;text-decoration: none;width: 67px;}
+.bot03 p, .bot03 a:hover {background-position: -67px 0;margin: 0;padding: 0;text-decoration: none;}
+.pieDerecho {float: right;padding-top: 2px;}
+.caja-promocion {
+    background: url("../../images/HAL1024/visa_halcon.png") no-repeat scroll 10px 5px #EDEDED;
+    border: 1px solid #A7A7A7;
+    border-radius: 0 10px 10px 10px;
+    margin-left: 15px;
+    padding: 10px;
+}
+.agrupa-datos-2 .dato3 {
+    color: #D42D12;
+}
+.caja-promocion span {
+    display: block;
+    float: left;
+    font-weight: bold;
+    padding-left: 35px;
+    width: 140px;
+}
+.margen_2 {
+    margin-top: 20px;
+}

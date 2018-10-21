@@ -1,0 +1,382 @@
+package com.photel.webserviceClient.BDL244;
+
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.net.InetAddress;
+import java.rmi.RemoteException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Hashtable;
+import java.util.List;
+import java.util.Map.Entry;
+
+import org.apache.log4j.Logger;
+
+import com.photel.commonServices.util.AppModelProperties;
+import com.photel.data.BDL.facade.BdlDataFacade;
+import com.photel.interfaces.BDL244.IBDLCategoria;
+import com.photel.interfaces.BDL244.IBDLContrato;
+import com.photel.interfaces.BDL244.IBDLDisponibilidad;
+import com.photel.interfaces.BDL244.IBDLDistribucion;
+import com.photel.interfaces.BDL244.IBDLFactory244;
+import com.photel.interfaces.BDL244.IBDLHotel;
+import com.photel.interfaces.BDL244.IBDLLocalidad;
+import com.photel.interfaces.BDL244.IBDLRegimen;
+import com.photel.interfaces.BDL244.IBDLRoom;
+import com.photel.interfaces.data.BDL.IBdlCountries;
+import com.photel.interfaces.data.BDL.IBdlDestinations;
+import com.photel.interfaces.data.BDL.IBdlHotelDescriptions;
+import com.photel.interfaces.data.BDL.IBdlHotelDestinations;
+import com.photel.interfaces.data.BDL.IBdlHotels;
+import com.photel.interfaces.data.BDL.IBdlReservas;
+import com.photel.interfaces.data.BDL.IBdlReservasMails;
+import com.photel.interfaces.data.BDL.IBdlvHdetailFacilities;
+import com.photel.webserviceClient.BDL244.comparators.BDLLocalidadesComparator;
+import com.photel.webserviceClient.BDL244.comparators.BDLRegimenesComparator;
+import com.photel.webserviceClient.BDL244.pojo.BDLCategoria;
+import com.photel.webserviceClient.BDL244.pojo.BDLHotel;
+import com.photel.webserviceClient.BDL244.pojo.BDLLocalidad;
+
+/**
+ * <p>Title: DBLFactory244</p>
+ * <p>Description: Clase que implementa la versi�n 2.2.4 de los WS de BDL</p>
+ * <p>Copyright: Copyright (c) 2011</p>
+ * <p>Company: HalconViajes.com</p>
+ * @author: GPG
+ * @version 1.0
+ */
+public class BDLFactory244 implements IBDLFactory244 {
+	Logger  log = Logger.getLogger("DBL");
+
+	public static String endpoint;
+	public static String user;
+	public static String password;
+	private BDLFactory244Dispo dispoHelper;
+	private BDLFactory244ServiceAdd serviceAddHelper;
+	private BDLFactory244Purchase purchaseHelper;
+	private BDLFactory244Cancel cancelHelper;
+	private BDLFactory244BBDD details;
+	
+	
+	
+	
+	private BdlDataFacade data;
+	
+	/**
+	 * Constructor por defecto
+	 * @throws IOException 
+	 */
+    static{
+    	AppModelProperties prop;
+		try {
+			prop = new AppModelProperties();
+			
+			//get the ip form dns
+			//String dns =prop.getProperty("com.photel.dns");
+			InetAddress address = InetAddress.getByName("api.interface-xml.com");
+			String ip = address.getHostAddress();
+			endpoint="http://" + ip + "/appservices/ws/FrontendService";
+			//endpoint=prop.getProperty("com.photel.BDLEndpoint");
+			//endpoint = endpoint.replace("$ip", ip);
+			
+			user=prop.getProperty("com.photel.BDLUser");
+			password=prop.getProperty("com.photel.BDLPassword");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+	public BDLFactory244(String site) throws Exception {
+		super();
+		if (endpoint!=null && user!=null && password!=null){
+			log.info("endpoint="+endpoint);
+			log.info("user="+user);
+			log.info("password="+password);
+			dispoHelper=new BDLFactory244Dispo(endpoint, user, password);
+			data = new BdlDataFacade(site);
+			serviceAddHelper=new BDLFactory244ServiceAdd(endpoint, user, password);
+			purchaseHelper=new BDLFactory244Purchase(endpoint, user, password);
+			cancelHelper=new BDLFactory244Cancel(endpoint, user, password);
+
+			details=new BDLFactory244BBDD(data);
+		}else{
+			throw new Exception("Endpoint, user or password no inicializados");
+		}
+	} 
+	public Calendar getDateTime(){
+		String DATE_FORMAT_NOW = "yyyy-MM-dd HH:mm:ss:SSS";
+	    Calendar cal = Calendar.getInstance();
+	    SimpleDateFormat sdf = new SimpleDateFormat(DATE_FORMAT_NOW);
+	    return cal;
+	}
+
+	public IBDLDisponibilidad loadHotelDetails(IBDLDisponibilidad dispo,String idi){
+		List<IBDLHotel> hoteles = dispo.getHoteles();
+		ArrayList<String> codes=new ArrayList<String>();
+		if(hoteles!=null && hoteles.size()>0){
+			for (int h=0;h<hoteles.size();h++){
+				IBDLHotel hotel = hoteles.get(h);
+				IBdlHotelDescriptions description = data.getHotelDescription(hoteles.get(h).getServicioCodigo(),idi);
+				if (description!=null && description.getBdlDescription()!=null){
+					hotel.setDescripcion(description.getBdlDescription());
+				}else{
+					hotel.setDescripcion("");
+				}
+				hoteles.set(h,hotel);
+			}
+		}
+		dispo.setHoteles(hoteles);
+		return dispo;
+	}
+	
+	private IBDLDisponibilidad rellenarFiltros(IBDLDisponibilidad dispo,String LanguageCode) throws Exception{
+		List<IBDLHotel> hoteles = dispo.getHoteles();
+		Hashtable<String, ArrayList<String>> fac=new Hashtable<String, ArrayList<String>>();
+		IBDLCategoria cat;
+		IBDLLocalidad loc;
+		
+		Hashtable<String, String> categoriasTmp=new Hashtable<String, String>();
+		Hashtable<String, String> contratos=new Hashtable<String, String>();
+		Hashtable<String, String> localidadTmp=new Hashtable<String, String>();
+		Hashtable<String, IBDLRegimen> regimenesTmp=new Hashtable<String, IBDLRegimen>();
+		BigDecimal precioMin=BigDecimal.ZERO;
+		BigDecimal precioMax=BigDecimal.ZERO;
+		ArrayList<String> hotelCodes=new ArrayList<String>();
+		
+		for (int h=0;h<hoteles.size();h++){
+			IBDLHotel hotel = hoteles.get(h);
+			hotelCodes.add(hotel.getServicioCodigo());
+			hotel=getHDetailFacilitesGrouped(hotel, LanguageCode);
+			hoteles.set(h, hotel);
+			/*
+			Hashtable<String, ArrayList<IBdlvHdetailFacilities>> hotelFacilities = hotel.getFacilities();
+			if (hotelFacilities!=null){
+				for (Entry<String, ArrayList<IBdlvHdetailFacilities>> faci:hotelFacilities.entrySet()){
+					ArrayList<IBdlvHdetailFacilities> obj = fac.get(faci.getKey());
+					if(obj!=null){
+						obj.addAll(faci.getValue());
+					}else{
+						obj=faci.getValue();
+					}
+					fac.put(faci.getKey(), obj);
+				}
+			}
+			*/
+			if(!hotel.getCategoriaCodigo().equals("")){
+				categoriasTmp.put(hotel.getCategoriaCodigo(), hotel.getCategoria());
+			}
+			if (!hotel.getLocalidadCodigo().equals("0")){
+				localidadTmp.put(hotel.getLocalidadCodigo(), hotel.getLocalidad());
+			}
+			for (IBDLContrato con:hotel.getContratos()){
+				contratos.put(con.getCodigoClasificacion(),con.getClasificacion());
+				
+				for (IBDLDistribucion dis:con.getDistribuciones()){
+					for (IBDLRoom room:dis.getRooms()){
+						for (IBDLRegimen reg:room.getRegimenesAlimentarios()){
+							regimenesTmp.put(reg.getCodigo(), reg);
+						}
+					}
+				}
+			}
+			
+			if (precioMin.equals(BigDecimal.ZERO) || precioMin.compareTo(hotel.getPrecioMin())>0){
+				precioMin=hotel.getPrecioMin();
+			}
+			if (precioMax.equals(BigDecimal.ZERO) || precioMax.compareTo(hotel.getPrecioMax())<0){
+				precioMax=hotel.getPrecioMax();
+			}
+			
+		}
+		dispo.setHoteles(hoteles);
+		dispo.setPrecioMin(precioMin);
+		dispo.setPrecioMax(precioMax);
+		
+		List<IBDLRegimen> regimenes=new ArrayList<IBDLRegimen>();
+		for(Entry<String, IBDLRegimen> reg:regimenesTmp.entrySet()){
+			regimenes.add(reg.getValue());
+		}
+		dispo.setRegimenesAlimentarios(regimenes);
+		
+		List<IBDLLocalidad> localidades=new ArrayList<IBDLLocalidad>();
+		for(Entry<String, String> loca:localidadTmp.entrySet()){
+			loc=new BDLLocalidad(loca.getKey(),loca.getValue());
+			localidades.add(loc);
+		}
+		Collections.sort(localidades, new BDLLocalidadesComparator(BDLLocalidadesComparator.ASC));
+		dispo.setLocalidades(localidades);
+		
+		
+		List<IBDLCategoria> categorias=new ArrayList<IBDLCategoria>();
+		for(Entry<String, String> cate:categoriasTmp.entrySet()){
+			cat=new BDLCategoria(cate.getKey(),cate.getValue());
+			categorias.add(cat);
+		}
+		dispo.setCategorias(categorias);
+		dispo.setContratos(contratos);
+		
+		fac=getHDetailFacilitesDispoGrouped(hotelCodes,LanguageCode);
+		dispo.setFacilities(fac);
+		return dispo;
+	}
+	public IBDLDisponibilidad  getDisponibilidad (
+			List<List<String>> distribuciones,
+			List<String> roomCount,
+			Calendar fechaIni, 
+			Calendar fechaFin, 
+            String idSesion,
+            String numero_pagina, 
+            String codIdioma,
+            String codZgeSup,
+            boolean multihilo,
+            String codigosDeHotel //1234##2345##3456
+            ) throws Exception{
+		
+		IBDLDisponibilidad dispo;
+		dispo=dispoHelper.getDisponibilidad(distribuciones, roomCount, fechaIni, fechaFin, idSesion, numero_pagina, codIdioma, codZgeSup, multihilo, codigosDeHotel);
+		if (dispo!=null && dispo.getHoteles()!=null && dispo.getHoteles().size()>0){
+			dispo=loadHotelDetails(dispo,codIdioma);
+			dispo=rellenarFiltros(dispo, codIdioma);
+		}
+		return dispo;
+		
+	}
+	public IBDLDisponibilidad ordenaHotelesASC(IBDLDisponibilidad dispo)
+			throws Exception {
+		return dispoHelper.ordenaHotelesASC(dispo);
+	}
+	public IBDLDisponibilidad ordenaHotelesDESC(IBDLDisponibilidad dispo)
+			throws Exception {
+		return dispoHelper.ordenaHotelesDESC(dispo);
+	}
+	
+
+	public IBDLHotel bloquearReserva(IBDLHotel hotel, Calendar fechaEntrada,
+			Calendar fechaSalida, List<List<String>> distribuciones, int ofi,
+			String nombreContrato, String idi, String codigoHotel,
+			String codigoZona, String codigoClasificacion,
+			List<String> seleccion, String tokenDeDispo) throws Exception {
+		
+		IBDLHotel pHotel = serviceAddHelper.bloquearReserva(hotel, fechaEntrada, fechaSalida,
+				distribuciones, ofi, nombreContrato, idi, codigoHotel,
+				codigoZona, codigoClasificacion, seleccion, tokenDeDispo);
+		
+		
+		return pHotel;
+		
+		
+	}
+	public IBDLHotel confirmarReserva(String idi, String idReserva,
+			List<List<String>> distribuciones, IBDLHotel pHotel)
+			throws Exception {
+		return purchaseHelper.confirmarReserva(idi, idReserva, distribuciones, pHotel);
+	}
+	public IBdlCountries getCountry(String code, String idi) {
+		return data.getCountry(code, idi);
+	}
+	public IBdlDestinations getDestination(String code, String idi) {
+		return data.getDestination(code, idi);
+	}
+	public IBdlHotelDescriptions getHotelDescription(String code, String idi) {
+		return data.getHotelDescription(code, idi);
+	}
+	public IBdlHotelDestinations getHotelDestination(String countryCode,
+			String destinationCode) {
+		return data.getHotelDestination(countryCode, destinationCode);
+	}
+	public boolean delReserva(IBdlReservas res) {
+		return data.delReserva(res);
+	}
+	public IBdlReservas getReserva(int idReserva) {
+		return data.getReserva(idReserva);
+	}
+	public ArrayList<IBdlReservas> getReservas() {
+		return data.getReservas();
+	}
+	public IBdlReservas getUltimaFactura() {
+		return data.getUltimaFactura();
+	}
+	public IBdlReservas setReserva(IBdlReservas res) {
+		return data.setReserva(res);
+	}
+	public IBdlReservasMails getReservaMail(int idReservaMail) {
+		return data.getReservaMail(idReservaMail);
+	}
+	public ArrayList getReservasMails() {
+		return data.getReservasMails();
+	}
+	public ArrayList getReservasMails(int idReserva) {
+		return data.getReservasMails(idReserva);
+	}
+	public IBdlReservasMails setReservaMails(IBdlReservasMails res) {
+		return data.setReservaMails(res);
+	}
+	
+	public void clearSession() {
+		data.clearSession();
+	}
+	public void closeSession() {
+		data.closeSession();
+	}
+	public IBDLHotel getHotelDetails(String languageCode) {
+		return details.getHotelDetails(languageCode);
+	}
+	public IBDLHotel getHotelDetails(IBDLHotel hotel, String languageCode) {
+		return details.getHotelDetails(hotel, languageCode);
+	}
+	public IBDLHotel cancelValuation(IBDLHotel hotel,String language, String locata,int officeCode)
+			throws Exception {
+		return cancelHelper.cancelValuation(hotel,language, locata,officeCode);
+	}
+	public IBDLHotel cancelConfirm(IBDLHotel hotel,String language, String locata,int officeCode)
+			throws Exception {
+		return cancelHelper.cancelConfirm(hotel,language, locata,officeCode);
+	}
+	public IBDLHotel getHDetailFacilitesGrouped(IBDLHotel hotel,
+			String LanguageCode) {
+		return details.getHDetailFacilitesGrouped(hotel, LanguageCode);
+	}
+	public IBDLHotel getHotelImages(IBDLHotel hotel, String languageCode) {
+		return details.getHotelImages(hotel, languageCode);
+	}
+	public IBDLHotel getHDetailImagesGrouped(IBDLHotel hotel,
+			String LanguageCode) {
+		return details.getHDetailImagesGrouped(hotel, LanguageCode);
+	}
+	public Hashtable<String, ArrayList<String>> getHDetailFacilitesDispoGrouped(
+			ArrayList<String> hotelCodes, String LanguageCode) {
+				return details
+				.getHDetailFacilitesDispoGrouped(hotelCodes, LanguageCode);
+	}
+	
+
+
+	public IBDLHotel getHotel(String code,String languageCode) {
+		IBDLHotel hotel = details.getHotel(code);
+		IBdlDestinations destination = details.getDestination(hotel.getDestinoCodigo(), languageCode);
+		IBdlHotelDescriptions description = details.getHotelDescription(hotel.getServicioCodigo(),languageCode);
+		if (description!=null && description.getBdlDescription()!=null){
+			hotel.setDescripcion(description.getBdlDescription());
+		}else{
+			hotel.setDescripcion("");
+		}
+		hotel.setDestino(destination.getBdlDescription());
+		hotel=this.getHotelDetails(hotel,languageCode);
+		hotel=this.getHDetailImagesGrouped(hotel, languageCode);
+		hotel=this.getHotelImages(hotel, languageCode);
+		hotel=this.getHDetailFacilitesGrouped(hotel, languageCode);
+		return hotel;
+	}
+	public IBDLHotel getHotel(String code) {
+		return details.getHotel(code);
+	}
+	public ArrayList<IBdlDestinations> getDestinations(String languageCode) {
+		return details.getDestinations(languageCode);
+	}
+	public ArrayList<IBDLHotel> getDestinationHotels(String destination) {
+		return details.getDestinationHotels(destination);
+	}
+
+}

@@ -1,0 +1,150 @@
+package com.photel.interfaces.model;
+
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.Hashtable;
+import java.util.List;
+import java.util.Map;
+
+import com.photel.commonServices.thread.ThreadException;
+import com.photel.data.hotelan.ddbb.hibernate.pojo.HibernateReservas;
+import com.photel.data.hotelan.ddbb.hibernate.pojo.HibernateReservasMails;
+import com.photel.hotelan.client.IrqDestinationList.IrqDestinationListResponse;
+import com.photel.hotelan.client.IrqDestinationZoneList.IrqDestinationZoneListResponse;
+import com.photel.hotelan.client.IrqVillaAvailablePrice.IrqVillaAvailablePriceResponse;
+import com.photel.hotelan.client.IrqVillaAvailablePrice.Villa;
+import com.photel.hotelan.client.IrqVillaConfirmReservation.IrqVillaConfirmReservationResponse;
+import com.photel.hotelan.client.IrqVillaPreReservation.IrqVillaPreReservationResponse;
+import com.photel.interfaces.BDL244.IBDLDisponibilidad;
+import com.photel.interfaces.BDL244.IBDLHotel;
+import com.photel.interfaces.data.BDL.IBdlCountries;
+import com.photel.interfaces.data.BDL.IBdlDestinations;
+import com.photel.interfaces.data.BDL.IBdlHotelDescriptions;
+import com.photel.interfaces.data.BDL.IBdlHotelDestinations;
+import com.photel.interfaces.data.BDL.IBdlReservas;
+import com.photel.interfaces.data.gen.IGenBanners01;
+import com.photel.interfaces.data.gen.IGenCache;
+import com.photel.interfaces.data.gen.IGenErrores;
+import com.photel.interfaces.data.gen.IGenImages;
+import com.photel.interfaces.data.gen.IGenMenus;
+import com.photel.interfaces.data.gen.IGenMetas;
+import com.photel.interfaces.data.gen.IGenMonitor;
+import com.photel.interfaces.data.gen.IGenScripts;
+import com.photel.interfaces.data.gen.IGenStyles;
+import com.photel.interfaces.data.gen.IGenTracking;
+import com.photel.interfaces.data.gen.IMenu;
+import com.photel.interfaces.model.gen.sesion.ISesion;
+
+public interface IPCRSModel extends Remote {
+
+	public abstract Hashtable<String, String> getGenConfig() throws RemoteException;
+	public abstract String getProperty(String param)throws RemoteException;
+	public abstract Hashtable<String, StringBuffer> getAllResources()throws SQLException, Exception, RemoteException;
+	public IGenMonitor setMonitor(int id, String url, String urlFrom, String headers, String params, String session, String ip,String host, String action, String toString) throws RemoteException;
+	public ISesion getGenSesion(String idSesion)throws Exception, RemoteException;
+	public void setGenSesion(String idSesion, Hashtable<String, Object> sesion)throws Exception, RemoteException;
+	public IGenCache getCacheById(String id)throws RemoteException;
+	public IGenCache setCache(String id, String toLob, GregorianCalendar cal) throws SQLException, Exception, RemoteException ;
+	public void setThreadTracking(String nivelTracking, String gtrIdeses,
+			String gtrTmpven, String gtrIdven, String gtrNumexp,
+			String gtrOricla, String gtrOrimet, String gtrDesgtr,
+			String gtrTipgtr, Object gtrDatos, String gtrMaquina,
+			String gtrSite, String gtrLine) throws InterruptedException,
+			ThreadException, RemoteException;
+	public IGenTracking setTracking(String nivelTracking, String gtrIdeses,
+			String gtrTmpven, String gtrIdven, String gtrNumexp,
+			String gtrOricla, String gtrOrimet, String gtrDesgtr,
+			String gtrTipgtr, String gtrDatos, String gtrMaquina,
+			String gtrSite, String gtrLine) throws SQLException, Exception, RemoteException;
+	public IGenErrores setErrorToDDBB(Hashtable<String,String> env, Exception e)throws RemoteException;
+	public ArrayList<IGenImages> getGenImages() throws Exception, SQLException, RemoteException;
+	public ArrayList<IGenMenus> getGenMenus(int idClase) throws Exception,SQLException, RemoteException ;
+	public ArrayList<IGenMetas> getGenMetas() throws Exception, SQLException, RemoteException;
+	public ArrayList<IGenScripts> getGenScripts() throws Exception,SQLException, RemoteException;
+	public ArrayList<IGenStyles> getGenStyles() throws Exception, SQLException, RemoteException;
+	public ArrayList<IMenu> getMenus(String idi, String codMenu)throws RemoteException;
+	public String getProperty(String file, String param)throws RemoteException;
+	public IBDLDisponibilidad getDisponibilidad(List<List<String>> distribuciones,List<String> roomCount, Calendar fechaIni,
+			Calendar fechaFin, String idSesion, String numero_pagina,
+			String codIdioma, String codZgeSup, boolean multihilo, String codigosDeHotel, String sessionId) throws Exception, RemoteException;
+
+	public IBDLHotel bloquearReserva(IBDLHotel hotel, Calendar fechaEntrada,
+			Calendar fechaSalida, List<List<String>> distribuciones, int ofi,
+			String nombreContrato, String idi, String codigoHotel,
+			String codigoZona, String codigoClasificacion,
+			List<String> seleccion, String tokenDeDispo) throws Exception ;
+
+
+	public IBDLHotel confirmarReserva(String idi,String idReserva,
+			List<List<String>> distribuciones, IBDLHotel pHotel) throws Exception ;
+	public IBdlCountries getCountry(String code, String idi) throws Exception ;
+	public IBdlDestinations getDestination(String code, String idi) throws Exception ;
+	public IBdlHotelDescriptions getHotelDescription(String code, String idi) throws Exception ;
+	public IBdlHotelDestinations getHotelDestination(String countryCode, String destinationCode) throws Exception ;
+	public boolean delReserva(IBdlReservas res) throws Exception ;
+	public IBdlReservas getReserva(int idReserva) throws Exception ;
+	public ArrayList<IBdlReservas> getReservas() throws Exception ;
+	public IBdlReservas getUltimaFactura()  throws Exception ;
+	public IBdlReservas setReserva(IBdlReservas res)  throws Exception ;
+	public String sendTemplate(String images, String template, String lang,
+			Hashtable<String, Object> att, String asuntoMensaje,
+			String destinoMensaje, String destinoMensajeCC,
+			String destinoMensajeCCO, String from) throws Exception ;
+	public String renderTemplate(String template, String lang,
+			Hashtable<String, Object> att) throws Exception ;
+	public Hashtable<String, String> getHashResources(String idioma)
+			throws SQLException, Exception;
+	public String getVoucher(String idi, String numCuenta, int IdReserva) throws Exception;
+	public String sendVoucher(String idi, String numCuenta, int IdReserva, String cc,String cco,String template,boolean cancelacion)throws Exception;
+	public String sendVoucher(String idi, String numCuenta, int IdReserva)throws Exception;
+	public String sendCancelVoucher(String idi, String numCuenta, int IdReserva)throws Exception;
+	public String reSendVoucher(String idi, String numCuenta, int IdReserva)throws Exception;
+	public ArrayList<IGenBanners01> getBanners01(String idi) throws SQLException, Exception;
+	public void clearSession() throws Exception;
+	public void closeSession() throws Exception;
+	public IBDLHotel getHotelDetails(IBDLHotel hotel, String languageCode)throws Exception;
+	public IBDLHotel getHotelDetails(String languageCode)throws Exception;
+	public IBDLHotel cancelValuation(IBDLHotel hotel, String language,String locata, int officeCode) throws Exception;
+	public IBDLHotel cancelConfirm(IBDLHotel hotel, String language, String locata, int officeCode) throws Exception;
+	public IBDLHotel getHDetailFacilitesGrouped(IBDLHotel hotel,String LanguageCode) throws Exception;
+	public IBDLHotel getHotelImages(IBDLHotel hotel, String languageCode) throws Exception;
+	public IBDLHotel getHDetailImagesGrouped(IBDLHotel hotel, String LanguageCode)  throws Exception;
+	public IBDLHotel getHotel(String code, String languageCode) throws Exception;
+	public ArrayList<IBdlDestinations> getDestinations(String languageCode)throws Exception;
+	public ArrayList<IBDLHotel> getDestinationHotels(String destination)throws Exception;
+	public IrqVillaAvailablePriceResponse getVillaAvailableRich(String idioma,
+			String hotelId, String destinationId, String zoneId,
+			Calendar arrival, Integer nights, Integer adults, Integer children,
+			Integer infants,String sessionId) throws Exception;
+
+	public IrqDestinationListResponse getDestinationList(String idioma)
+			throws Exception;
+
+	public IrqDestinationZoneListResponse getDestinationZoneList(String idioma,
+			String destinationId) throws Exception;
+	
+	public Map<String,String> getFacilities(String lang) throws Exception;
+	public Map<String,String> getHotelTypes(String lang) throws Exception;
+	public Villa getVilla(Villa vill, String lang) throws Exception;
+	public Villa getVilla(String vill, String lang) throws Exception;
+	public IrqVillaPreReservationResponse getIrqVillaPreReservation(
+			String idioma, String hotelId, Calendar arrival, Integer nights,
+			Integer roomId, Integer boardId, Integer adults, Integer children,
+			Integer infants, String clientName, String clientSurname,
+			String clientDocument, String clientAddress, String clientZipCode,
+			String clientCity, String clientRegion, String clientCountry,
+			String clientEmail, String clientTelephone, String remarks)
+			throws Exception;
+	
+	public IrqVillaConfirmReservationResponse getIrqVillaConfirmReservation(
+			String hotelId, String year, String countryId) throws Exception;
+	public HibernateReservas getReservaHotelan(int idReserva) throws Exception;
+	public HibernateReservas setReservaHotelan(HibernateReservas res) throws Exception;
+	public HibernateReservasMails getReservaMailHotelan(int idReservaMail) throws Exception;
+	public HibernateReservasMails setReservaMailsHotelan(HibernateReservasMails res) throws Exception;
+	public String sendVoucherHotelan(String idi, String numCuenta, int IdReserva)throws Exception;
+}

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ITEMS>
+ <LABELS>
+  <LABEL>Language</LABEL>
+  <LABEL>Terms and Conditions</LABEL>
+  <LABEL>Database</LABEL>
+  <LABEL>Connection</LABEL>
+  <LABEL>User</LABEL>
+  <LABEL>Password</LABEL>
+  <LABEL>Server</LABEL>
+  <LABEL>Port</LABEL>
+  <LABEL>Database Name</LABEL>
+  <LABEL>File</LABEL>
+  <LABEL>Files</LABEL>
+  <LABEL>Tables load</LABEL>
+  <LABEL>Load type</LABEL>
+  <LABEL>Table list to process</LABEL>
+  <LABEL>Storage directory</LABEL>
+  <LABEL>Select storage directory</LABEL>
+  <LABEL>Select Access database</LABEL>
+  <LABEL>Importing records</LABEL>
+  <LABEL>Updating records</LABEL>
+  <LABEL>Downloading from FTP server</LABEL>
+  <LABEL>Date of modify</LABEL>
+  <!-- index=21 Change Log -->
+  <LABEL>Change Log</LABEL>
+  <LABEL><![CDATA[
+  <html>  
+  <h3>August 2008</h3>
+  <div style="color: #a00;">Value of fields <strong>Latitude</strong> and <strong>Longitude</strong> from <strong>Hotels</strong> table is provided to <i>Basic</i> users.</div>      
+  <h3>October 2008</h3>
+  <div style="color: #a00;">A new console execution mode has been implemented.  This modification allows the users to schedule the execution of application.</div>
+  <h3>April 2009</h3>
+  <div style="color: #a00;">All records have been inserted after a failure in a batch for Oracle and Access drivers. Double foreign keys were added in Access. More information was added to the log.</div>  
+  <h3>July 2009</h3>
+  <div style="color: #a00;">For SQL Server database, case sensitive columns are accepted.</div>
+  </html>
+  ]]></LABEL>
+ </LABELS>
+ <BUTTONS>
+  <BUTTON>Accept</BUTTON>
+  <BUTTON>Cancel</BUTTON>
+  <BUTTON>Download files</BUTTON>
+  <BUTTON>Full</BUTTON>
+  <BUTTON>Updates</BUTTON>
+  <BUTTON>Process all tables</BUTTON>
+ </BUTTONS>
+ <DIALOGS>
+  <DIALOG>Please enter database user</DIALOG>
+  <DIALOG>Please enter database password</DIALOG>
+  <DIALOG>Please enter database server</DIALOG>
+  <DIALOG>Please enter database name</DIALOG>
+  <DIALOG>Invalid Access file</DIALOG>
+  <DIALOG>Please enter connection port</DIALOG>
+  <DIALOG>Please select at least one file to process</DIALOG>
+  <DIALOG>A fatal error has ocurred, please consult the logs file for details</DIALOG>
+  <DIALOG>Invalid storage directory</DIALOG>
+  <DIALOG>Operation completed successfully</DIALOG>
+  <DIALOG>Operation completed with errors, please consult the logs file for
+          details</DIALOG>
+  <DIALOG>Application could not open a connection to database, please correct
+          the parameters entered</DIALOG>
+  <DIALOG>Operation canceled by user</DIALOG>
+  <!-- index=13 Datos acerca de... -->
+  <DIALOG>
+   <![CDATA[PULoader
+   Version 1.2.4
+   
+   Hotelbeds Spain, S.L.U
+   2008.
+   ]]>
+  </DIALOG>
+  <!-- index=14 Error fecha del proceso incremental -->
+  <DIALOG>Please check the date of update process.</DIALOG> 
+   <!-- index=15 Titulo dialogo de confirmación de salida -->
+  <DIALOG>Confirmation.</DIALOG> 
+  <!-- index=16 Dialogo de confirmación de salida -->
+  <DIALOG>Are you sure you want to exit</DIALOG>
+   <!-- index=17 (Parte 1)Relaciones entre fichero de la carga total. -->
+  <DIALOG><![CDATA[Some of the following files contain data which does not allow the full load:]]>
+  </DIALOG>
+  <!-- index=18 (Parte 2)Relaciones entre fichero de la carga total. -->
+  <DIALOG><![CDATA[Please select files to be imported or delete related tables from your database.]]>   
+  </DIALOG>
+ </DIALOGS>
+ <TOOLTIPS>
+  <!-- index=0 Tipo de base de BDs -->
+  <TOOLTIP>Database type.</TOOLTIP>
+  <!-- index=1 Nombre de la BD -->
+  <TOOLTIP>Database name.</TOOLTIP>
+  <!-- index=2 Usuario de base de la BD -->
+  <TOOLTIP>Database user.</TOOLTIP>
+  <!-- index=3 Contrase?a de base de la base de datos -->
+  <TOOLTIP>Database password</TOOLTIP>
+  <!-- index=4 Nombre del servidor de BD -->
+  <TOOLTIP>Database server name.</TOOLTIP>
+  <!-- index=5 Puerto del servidor de BD -->
+  <TOOLTIP>Database port.</TOOLTIP>
+  <!-- index=6 Ruta del fichero .mdb de Access -->
+  <TOOLTIP>.mdb Access file path.</TOOLTIP>
+  <!-- index=7 Descarga FTP -->
+  <TOOLTIP>Download files from ftp server.</TOOLTIP>
+  <!-- index=8 Ruta fichero .zip -->
+  <TOOLTIP>.zip file path.</TOOLTIP>
+  <!-- index=9 Tipo de proceso -->
+  <TOOLTIP>Load type.</TOOLTIP>
+  <!-- index=10 Fecha proceso incremental-->
+  <TOOLTIP>Update process initial date.</TOOLTIP>  
+  <!-- index=11 Lista de ficheros-->
+  <TOOLTIP>Select all files/tables available.</TOOLTIP>
+ </TOOLTIPS>
+</ITEMS>

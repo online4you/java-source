@@ -1,0 +1,32 @@
+<html>
+<link rel="stylesheet" type="text/css" href="../style.css"/>
+<head>
+<title>Carga de tablas</title>
+</head>
+<body>
+<h1>Carga de tablas</h1>
+<h2>Tipo de carga</h2>
+<center>
+<img src="./images/loadTablesA.png" border="1">
+</center>
+<br>
+Existen dos tipos de carga diferentes:<br><br>
+- <strong>Total</strong>: Todos los registros de las tablas son importados.<br>
+- <strong>Updates*</strong>: Sólo se actualizan los registros que han sido modificados.<br>
+<br>
+<i>* No disponible en esta versión.</i>
+<br><br>
+<h2>Lista de tablas a procesar</h2>
+<center>
+<img src="./images/loadTablesB.png" border="1">
+</center>
+<br>
+Pueden ser elegidas las tablas que se desean cargar en la base de datos.  Todas aquellas otras tablas de las que dependan las tablas indicadas serán seleccionadas para la carga.  Ejemplo:
+<br><br>
+Si elegimos la tabla <i>HotelDescriptions</i> entonces las tablas <i>Languages</i>, <i>Categories</i>, <i>Hotels</i>, <i>Countries</i>, <i>Destinations</i>, <i>Chains</i> y <i>Zones</i> se activarán automáticamente. 
+<br><br>
+Si se quieren cargar todas las tablas entonces podemos utilizar directamente la opción <strong>Procesar todas las tablas</strong>.
+<br><br>
+<center><a href="index.html">Volver</a></center>
+</body>
+</html>

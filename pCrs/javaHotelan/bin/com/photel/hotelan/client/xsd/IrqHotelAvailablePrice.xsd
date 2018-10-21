@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Hotel"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Hotel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Type"/>
+        <xs:element ref="Cathegory"/>
+        <xs:element ref="Destination"/>
+        <xs:element ref="Zone"/>
+        <xs:element ref="Room1"/>
+        <xs:element ref="Room2"/>
+        <xs:element ref="Room3"/>
+        <xs:element ref="Room4"/>
+      </xs:sequence>
+      <xs:attribute name="Description" use="required"/>
+      <xs:attribute name="Id" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Type">
+    <xs:complexType>
+      <xs:attribute name="Description" use="required"/>
+      <xs:attribute name="Id" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Cathegory">
+    <xs:complexType>
+      <xs:attribute name="Description" use="required"/>
+      <xs:attribute name="Id" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Destination">
+    <xs:complexType>
+      <xs:attribute name="Description" use="required"/>
+      <xs:attribute name="Id" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Zone">
+    <xs:complexType>
+      <xs:attribute name="Description" use="required"/>
+      <xs:attribute name="Id" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Room1">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="RoomType">
+          <xs:attribute name="Adults" use="required"/>
+          <xs:attribute name="Children" use="required"/>
+          <xs:attribute name="Infants" use="required"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Room2">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="RoomType">
+          <xs:attribute name="Adults" use="required"/>
+          <xs:attribute name="Children" use="required"/>
+          <xs:attribute name="Infants" use="required"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Room3">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="RoomType">
+          <xs:attribute name="Adults" use="required"/>
+          <xs:attribute name="Children" use="required"/>
+          <xs:attribute name="Infants" use="required"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Room4">
+    <xs:complexType>
+      <xs:complexContent>
+        <xs:extension base="RoomType">
+          <xs:attribute name="Adults" use="required"/>
+          <xs:attribute name="Children" use="required"/>
+          <xs:attribute name="Infants" use="required"/>
+        </xs:extension>
+      </xs:complexContent>
+    </xs:complexType>
+  </xs:element>
+
+    <xs:complexType name="RoomType">
+      <xs:attribute name="Board" use="required"/>
+      <xs:attribute name="Description" use="required"/>
+      <xs:attribute name="Free" use="required"/>
+      <xs:attribute name="Id" use="required"/>
+      <xs:attribute name="Price" use="required"/>
+    </xs:complexType>
+
+</xs:schema>

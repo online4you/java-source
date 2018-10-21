@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.photel.data.gen.ddbb.hibernate.pojo">
+	<class
+		name="GenMenus"
+		table="GEN_MENUS"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="GMN_ID"
+		>
+			<generator class="increment" />
+		</id>
+
+		<property
+			name="GmnEtiqueta"
+			column="GMN_ETIQUETA"
+			type="string"
+			not-null="false"
+			length="200"
+		/>
+		<property
+			name="GmnDes"
+			column="GMN_DES"
+			type="string"
+			not-null="false"
+			length="200"
+		/>
+		<property
+			name="GmnTitle"
+			column="GMN_TITLE"
+			type="string"
+			not-null="false"
+			length="200"
+		/>
+		<property
+			name="GmnUrl"
+			column="GMN_URL"
+			type="string"
+			not-null="false"
+			length="500"
+		/>
+		<property
+			name="GmnVal"
+			column="GMN_VAL"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+		<property
+			name="GmnOrder"
+			column="GMN_ORDER"
+			type="integer"
+			not-null="false"
+			length="22"
+		/>
+		<many-to-one
+			name="GmnSup"
+			column="GMN_SUP"
+			class="GenMenus"
+			not-null="false"
+		>
+		</many-to-one>
+		<many-to-one
+			name="GmnClase"
+			column="GMN_CLASE"
+			class="GenClasesMenu"
+			not-null="true"
+		>
+		</many-to-one>
+	
+
+
+	</class>	
+</hibernate-mapping>

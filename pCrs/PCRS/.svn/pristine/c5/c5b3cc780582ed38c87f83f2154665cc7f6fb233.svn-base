@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<project name="Deploy" default="mainDeploy" basedir=".">
+	<target name="initProperties" >
+        <property name="rootDir" value="${basedir}"/>
+        <property name="src" value="${rootDir}/src"/>
+		<property name="classes" value="${rootDir}/build/classes"/>
+		<property name="srcLibs" value="${rootDir}/../appModelAll/src"/>
+		<property name="libs" value="${rootDir}/WebContent/WEB-INF/lib"/>
+		<property name="serverLibs" value="C:\dev\ProgramFiles\Tomcat55\common\lib"/>
+		<property name="WebContent" value="${rootDir}/WebContent"/>
+		<property name="deploymentDir" value="C:\dev\workspaces\halconApp\DEPLOY\trenesApp\trenesApp"/>
+		
+		   <echo message="########################################################################################################################################" />
+		   <echo message="###################################################### DEPLOY ##########################################################################" />
+		   <echo message="########################################################################################################################################" />
+		   
+		   
+    </target>
+	
+	<target name="mainDeploy" depends="initProperties, build">
+		
+		
+		<delete dir="${deploymentDir}"/>
+		<mkdir dir="${deploymentDir}" />
+			
+		<echo message="From ${WebContent} to ${deploymentDir}" />	
+		<copy todir="${deploymentDir}" overwrite="true"> 
+			<fileset dir="${WebContent}"/>
+ 	    </copy>
+ 	    
+		<echo message="From ${classes} to ${deploymentDir}/WEB-INF/classes" />	
+		<copy todir="${deploymentDir}/WEB-INF/classes" overwrite="true"> 
+			<fileset dir="${classes}"/>
+		</copy>
+		
+		<echo message="From ${src} to ${deploymentDir}/src" />
+		<copy todir="${deploymentDir}/src" overwrite="true"> 
+			<fileset dir="${src}"/>
+		</copy>
+		
+		<echo message="From ${srcLibs} to ${deploymentDir}/src" />
+		<copy todir="${deploymentDir}/src" overwrite="true"> 
+			<fileset dir="${srcLibs}"/>
+		</copy>	
+			
+    </target>
+	
+    <target name="build" >
+            <javac srcdir="${src}" destdir="${classes}" target="1.5" source="1.5" nowarn="true" failonerror="true" debug="on" includeantruntime="false" >
+              <classpath>
+                         <fileset dir="${serverLibs}"/>
+                         <fileset dir="${libs}"/>
+              </classpath>
+            </javac>
+    		
+    		<echo message="From ${src} to ${classes}" />
+    		
+    		<copy todir="${classes}">
+    	     	     <fileset dir="${src}">
+    	     	        <include name="**/*.properties"/>
+    	     	     	<include name="**/*.xml"/>
+    	     	     </fileset>
+    	   	</copy>  
+    	
+            <echo message="All Compiled" />
+    </target>
+</project>

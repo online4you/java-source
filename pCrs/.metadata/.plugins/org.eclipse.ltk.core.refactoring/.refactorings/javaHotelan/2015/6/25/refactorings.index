@@ -1,0 +1,6 @@
+1434453588708	Delete element
+1434453718105	Rename type 'BaseBdlReservas'
+1434453816425	Rename type 'BaseBdlReservasMails'
+1434453855681	Rename resource 'BdlReservasMails.hbm.xml'
+1434453861764	Rename resource 'BdlReservas.hbm.xml'
+1434455192139	Rename type 'HibernatelReservasMails'

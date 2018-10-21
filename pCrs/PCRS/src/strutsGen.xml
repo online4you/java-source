@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="gen" namespace="/apps" extends="struts-default">
+		<result-types>
+			<result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+		</result-types>
+		
+		
+		<interceptors>
+			<interceptor name="MonitorInterceptor" class="com.photel.apps.interceptors.gen.monitor.MonitorInterceptor">
+				<param name="model">pcrsModel</param>
+				<param name="parametrosPeticion">parametrosPeticion</param>
+				<param name="monitorAll">false</param>
+				<param name="actionsToMonitor"></param> <!-- Disponibilidad, DisponibilidadRenfe... -->
+			 </interceptor>
+			<interceptor name="InitInterceptor" class="com.photel.apps.interceptors.gen.InitInterceptor">
+				<param name="model">pcrsModel</param>
+				<param name="serviceIp"></param>
+				<param name="servicePort">1099</param>
+				<param name="serviceName">ModelService</param>
+			 </interceptor>
+			<interceptor name="GetSessionInterceptor" class="com.photel.apps.interceptors.gen.session.GetSessionInterceptor">
+				<param name="model">pcrsModel</param>
+				<param name="parametrosPeticion">parametrosPeticion</param>
+			 </interceptor>
+
+			<interceptor-stack name="genStack">	
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="InitInterceptor"/>
+				<interceptor-ref name="GetSessionInterceptor" /> 
+				  <interceptor-ref name="MonitorInterceptor" />
+			</interceptor-stack>
+			<interceptor-stack name="genStackNoSession">	
+				<interceptor-ref name="defaultStack"/>
+				<interceptor-ref name="InitInterceptor"/>
+			</interceptor-stack>
+			
+		</interceptors>
+
+		<default-interceptor-ref name="genStack"/>
+
+
+
+		
+		<action name="NotFound" class="com.photel.common.errors.Error404" >
+          <result name="success" type="tiles">error404</result>
+		</action>
+		
+        
+
+		<action name="gmap" class="com.photel.apps.actions.gen.maps.GenericMap" >
+			<param name="lat">40.346544</param>
+			<param name="lng">-3.515625</param>
+				<param name="zoom">6</param>
+			<param name="loadScript">true</param>
+			<result name="success" type="tiles">
+	          		<param name="location">genericMap</param>
+	      			<param name="charSet">UTF-8</param>
+	          	</result>
+          
+		</action>
+
+
+    </package>
+</struts>

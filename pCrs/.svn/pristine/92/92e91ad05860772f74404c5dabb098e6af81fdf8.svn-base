@@ -1,0 +1,2 @@
+SET CLASSPATH=.;C:/dev/Java/workspace/javaGENMail/bin;C:/dev/Java/workspace/javaGENMail/lib/javaCommonServices.jar;C:/dev/Java/workspace/javaGENMail/lib/javaCommons.jar;C:/dev/Java/workspace/javaBDLConnector/lib/javaLibreriasExternas.jar
+java com.photel.mail.facade.test.MainJavaMail

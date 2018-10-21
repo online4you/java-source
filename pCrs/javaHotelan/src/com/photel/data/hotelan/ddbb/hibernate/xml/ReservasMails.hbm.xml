@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.photel.data.hotelan.ddbb.hibernate.pojo">
+	<class
+		name="HibernateReservasMails"
+		table="HL_reservas_mails"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="HL_ID_MAIL"
+		>
+			<generator class="increment" />
+		</id>
+
+		<property
+			name="HlIdReserva"
+			column="HL_ID_RESERVA"
+			type="integer"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="HlTimcre"
+			column="HL_TIMCRE"
+			type="timestamp"
+			not-null="true"
+			insert="false"
+			length="19"
+		/>
+		<property
+			name="HlFrom"
+			column="HL_FROM"
+			type="string"
+			not-null="false"
+			length="500"
+		/>
+		<property
+			name="HlTo"
+			column="HL_TO"
+			type="string"
+			not-null="false"
+			length="500"
+		/>
+		<property
+			name="HlCc"
+			column="HL_CC"
+			type="string"
+			not-null="false"
+			length="500"
+		/>
+		<property
+			name="HlCco"
+			column="HL_CCO"
+			type="string"
+			not-null="false"
+			length="500"
+		/>
+		<property
+			name="HlAsunto"
+			column="HL_ASUNTO"
+			type="string"
+			not-null="false"
+			length="500"
+		/>
+		<property
+			name="HlMail"
+			column="HL_MAIL"
+			type="string"
+			not-null="false"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

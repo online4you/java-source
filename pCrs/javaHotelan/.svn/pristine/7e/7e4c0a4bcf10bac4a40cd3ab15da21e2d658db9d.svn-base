@@ -1,0 +1,320 @@
+package com.photel.hotelan;
+
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.log4j.Logger;
+
+import com.photel.commonServices.util.AppModelProperties;
+import com.photel.data.hotelan.ddbb.HelperHibernateDDBBHotelan;
+import com.photel.data.hotelan.ddbb.hibernate.pojo.HibernateHotel;
+import com.photel.data.hotelan.ddbb.hibernate.pojo.HibernateReservas;
+import com.photel.data.hotelan.ddbb.hibernate.pojo.HibernateReservasMails;
+import com.photel.hotelan.client.HotelanClientStub;
+import com.photel.hotelan.client.IrqCathegoryList.IrqCathegoryListResponse;
+import com.photel.hotelan.client.IrqDestinationList.IrqDestinationListResponse;
+import com.photel.hotelan.client.IrqDestinationZoneList.IrqDestinationZoneListResponse;
+import com.photel.hotelan.client.IrqHotelDetailsList.IrqHotelDetailsListResponse;
+import com.photel.hotelan.client.IrqRoomTypesList.IrqRoomTypesListResponse;
+import com.photel.hotelan.client.IrqVillaAvailablePrice.IrqVillaAvailablePriceResponse;
+import com.photel.hotelan.client.IrqVillaAvailablePrice.Villa;
+import com.photel.hotelan.client.IrqVillaConfirmReservation.IrqVillaConfirmReservationResponse;
+import com.photel.hotelan.client.IrqVillaPreReservation.IrqVillaPreReservationResponse;
+import com.photel.hotelan.client.IrqZoneList.IrqZoneListResponse;
+
+public class HotelanFacade {
+	private static Logger  oLog=Logger.getLogger(HotelanFacade.class);
+	private static AppModelProperties prop;
+	private HotelanClientStub client = new HotelanClientStub();
+	private HelperHibernateDDBBHotelan ddbb=new HelperHibernateDDBBHotelan();
+	private static HotelanCaches cache;
+	private static Map<String,String> langFromJoomlaToHotelan;
+	private static Map<String,String> langFromHotelanToJoomla;
+	
+	public HotelanFacade() throws IOException{
+		prop=prop==null?new AppModelProperties():prop;
+		if (cache==null){
+			initCache();
+		}
+		if (langFromJoomlaToHotelan==null ||langFromHotelanToJoomla==null){
+			String[] langs=prop.getProperty("com.photel.HotelanLanguages").split("##");
+			String[] joomlaLang=prop.getProperty("com.photel.JoomlaLanLanguages").split("##");
+			langFromJoomlaToHotelan=new HashMap<String,String>();	
+			langFromHotelanToJoomla=new HashMap<String,String>();
+			for(int i=0;i<langs.length;i++){
+				langFromJoomlaToHotelan.put(joomlaLang[i], langs[i]);
+				langFromHotelanToJoomla.put(langs[i], joomlaLang[i]);
+			}
+			
+			
+			
+		}
+		
+	}
+	private void initCache(){
+		cache=new HotelanCaches();
+		cache.setBoards(ddbb.getBoards());
+		cache.setHotelTypes(ddbb.getHotelTypes());
+		cache.setCathegories(ddbb.getCathegories());
+		cache.setDestinations(ddbb.getDestinations());
+		cache.setRoomTypes(ddbb.getRoomTypes());
+		cache.setZones(ddbb.getZones());
+	}
+	
+	
+	public IrqVillaPreReservationResponse getIrqVillaPreReservation(
+			String idioma, String hotelId, Calendar arrival, String nights,
+			String roomId, String boardId, String adults, String children,
+			String infants, String clientName, String clientSurname,
+			String clientDocument, String clientAddress, String clientZipCode,
+			String clientCity, String clientRegion, String clientCountry,
+			String clientEmail, String clientTelephone, String remarks)
+			throws Exception {
+		return client.getIrqVillaPreReservation(idioma, hotelId, arrival,
+				nights, roomId, boardId, adults, children, infants, clientName,
+				clientSurname, clientDocument, clientAddress, clientZipCode,
+				clientCity, clientRegion, clientCountry, clientEmail,
+				clientTelephone, remarks);
+	}
+	
+	public IrqVillaConfirmReservationResponse getIrqVillaConfirmReservation(
+			String hotelId, String year, String countryId) throws Exception {
+		return client.getIrqVillaConfirmReservation(hotelId, year, countryId);
+	}
+	public void update() throws Exception{
+		updateHotels();
+		updateLookUps();
+	}
+	public void updateHotels() throws Exception{
+		String[] langs=prop.getProperty("com.photel.HotelanLanguages").split("##");
+		List<HibernateHotel> result=null;
+		ddbb.deleteImages();
+		ddbb.initImagesAutoIncrement();
+		for (String lang:langs){
+			IrqHotelDetailsListResponse hotels = client.getIrqHotelDetailsList(lang, null, null, null);
+			result = ddbb.setHotels(hotels.getHotel(),lang);
+		}
+		ddbb.updateMainImage();
+		if (result!=null){
+			oLog.info(result.size()+" hotels inserted");
+		}else{
+			oLog.info("0 hotels inserted!!!");
+		}
+	}
+	public void updateLookUps() throws Exception{
+		String[] langs=prop.getProperty("com.photel.HotelanLanguages").split("##");
+		for (String lang:langs){
+			try {
+				IrqDestinationListResponse destinos = client.getIrqDestinationList(lang);
+				if (destinos!=null && destinos.getDestinations()!=null && destinos.getDestinations().getDestination()!=null){
+					if (destinos.getDestinations().getDestination().size()>0){
+						ddbb.setDestinations(destinos.getDestinations().getDestination(), lang);
+					}
+				}
+				
+			} catch (Exception e) {
+				oLog.error(e.getMessage(),e);
+			}
+			try {
+				IrqZoneListResponse zones = client.getIrqZoneList(lang);
+				if (zones!=null && zones.getZones()!=null && zones.getZones().getZone()!=null){
+					if (zones.getZones().getZone().size()>0){
+						ddbb.setZones(zones.getZones().getZone(), lang);
+					}
+				}
+				
+			} catch (Exception e) {
+				oLog.error(e.getMessage(),e);
+			}
+			try {
+				IrqCathegoryListResponse cats = client.getIrqCathegoryList(lang);
+				if (cats!=null && cats.getCathegories()!=null && cats.getCathegories().getCathegory()!=null){
+					if (cats.getCathegories().getCathegory().size()>0){
+						ddbb.setCathegories(cats.getCathegories().getCathegory(), lang);
+					}
+				}
+				
+			} catch (Exception e) {
+				oLog.error(e.getMessage(),e);
+			}
+			try {
+				IrqRoomTypesListResponse types = client.getIrqRoomTypesList(lang);
+				if (types!=null && types.getRoomTypes()!=null && types.getRoomTypes().getRoom()!=null){
+					if (types.getRoomTypes().getRoom().size()>0){
+						ddbb.setRoomTypes(types.getRoomTypes().getRoom(), lang);
+					}
+				}
+				
+			} catch (Exception e) {
+				oLog.error(e.getMessage(),e);
+			}
+			
+		}
+	}
+	
+	public Villa getVilla(Villa vill, String lang) {
+		return ddbb.getVilla(vill, lang);
+	}
+	public Villa getVilla(String vill, String lang) {
+		return ddbb.getVilla(vill, lang);
+	}
+	private IrqVillaAvailablePriceResponse setDatosDeDisponibiliad(IrqVillaAvailablePriceResponse dispo,String lang,String prepagoDefault) throws SQLException, Exception{
+		
+		if (dispo!=null && dispo.getVilla()!=null && dispo.getVilla().size()>0){
+			Map<String,Map<String,String>> codes = ddbb.getVillasCodes(dispo.getVilla(),langFromHotelanToJoomla.get(lang));
+			Map<String,HibernateHotel> ddbbHotels = ddbb.getDDBBVillas(dispo.getVilla(), lang);
+			prepagoDefault=prepagoDefault==null?"17.00":prepagoDefault;
+			BigDecimal prepago=null;
+			try {
+				prepago=new BigDecimal(prepagoDefault);
+			} catch (Exception e) {
+				prepago=new BigDecimal("17.00");
+			}
+			
+			for (Villa villa:dispo.getVilla()){
+				villa.setBoard(this.cache.getBoard(villa.getBoardId(), lang));
+				villa.setCathegory(this.cache.getCathegory(villa.getCathegoryId(), lang));
+				villa.setDestination(this.cache.getDestination(villa.getDestinationId(), lang));
+				villa.setRoom(this.cache.getRoomType(villa.getRoomId(), lang));
+				villa.setType(this.cache.getHotelType(villa.getTypeId(), lang));
+				villa.setZone(this.cache.getZone(villa.getZoneId(), lang));
+				if (codes.containsKey(villa.getId())){
+					villa.setCodHotelguide(codes.get(villa.getId()).get("codhg"));
+					villa.setCodCrs(codes.get(villa.getId()).get("codcrs"));
+					villa.setJoomlaDescription(codes.get(villa.getId()).get("deshg"));
+					villa.setJoomlaImage(codes.get(villa.getId()).get("mainimage"));
+					villa.setJoomlaFacilities(codes.get(villa.getId()).get("facilities"));
+					villa.setCodPortVill(codes.get(villa.getId()).get("codportvill_all"));
+					BigDecimal prepagoVilla=null;
+					try {
+						prepagoVilla=new BigDecimal(codes.get(villa.getId()).get("prepago"));
+					} catch (Exception e) {
+						prepagoVilla=new BigDecimal("17.00");
+					}
+					villa.setComision(prepagoVilla);
+				}else{
+					villa.setCodPortVill("P"+villa.getId());
+					villa.setComision(prepago);
+				}
+				if (ddbbHotels.containsKey(villa.getId())){
+					villa.setDdbbHotel(ddbbHotels.get(villa.getId()));
+					if (codes.containsKey(villa.getId())){
+						villa.getDdbbHotel().setAcces(null);
+						villa.getDdbbHotel().setDetails(null);
+					}
+				}
+			}
+		}
+		
+		return dispo;
+	}
+	public IrqVillaAvailablePriceResponse getVillaAvailableRich(String prepagoDefault,
+			String idioma, String hotelId, String destinationId, String zoneId,
+			Calendar arrival, Integer nights, Integer adults, Integer children,
+			Integer infants) throws Exception {
+		IrqVillaAvailablePriceResponse dispo=null;
+		if (hotelId==null ){
+			dispo = client.getIrqVillaAvailablePrice(idioma, hotelId, destinationId,
+				zoneId, arrival, nights, adults, children, infants);
+		}else{
+			if (hotelId.contains("##")){
+				String[] ids = hotelId.split("##");
+				List<Villa> villas=new ArrayList<Villa>();
+				
+				for (String id:ids){
+					String idHotel = id.substring(1,id.length());
+					dispo = client.getIrqVillaAvailablePrice(idioma, idHotel, destinationId,
+							zoneId, arrival, nights, adults, children, infants);
+					if (dispo.getVilla()!=null && dispo.getVilla().size()>0){
+						villas.addAll(dispo.getVilla());
+					}
+				}
+				dispo.setVilla(villas);
+			}else{
+				String idHotel = hotelId.substring(1,hotelId.length());
+				dispo = client.getIrqVillaAvailablePrice(idioma, idHotel, destinationId,
+						zoneId, arrival, nights, adults, children, infants);
+			}
+		}
+		
+		if (dispo!=null){
+			dispo=this.setDatosDeDisponibiliad(dispo, idioma,prepagoDefault);
+		}
+		
+		return dispo;
+	}
+	public IrqVillaAvailablePriceResponse getVillaAvailable(
+			String idioma, String hotelId, String destinationId, String zoneId,
+			Calendar arrival, Integer nights, Integer adults, Integer children,
+			Integer infants, Boolean details) throws Exception {
+		
+		return client.getIrqVillaAvailablePrice(idioma, hotelId, destinationId,
+				zoneId, arrival, nights, adults, children, infants, details);
+	}
+	public IrqVillaAvailablePriceResponse getVillaAvailable(
+			String idioma, String hotelId, String destinationId, String zoneId,
+			Calendar arrival, Integer nights, Integer adults, Integer children,
+			Integer infants) throws Exception {
+		
+		return client.getIrqVillaAvailablePrice(idioma, hotelId, destinationId,
+				zoneId, arrival, nights, adults, children, infants);
+	}
+	public IrqDestinationListResponse getDestinationList(String idioma)
+			throws Exception {
+		return client.getIrqDestinationList(idioma);
+	}
+	public IrqDestinationZoneListResponse getDestinationZoneList(
+			String idioma, String destinationId) throws Exception {
+		return client.getIrqDestinationZoneList(idioma, destinationId);
+	}
+	
+	public IrqZoneListResponse getZoneList(String idioma) throws Exception {
+		return client.getIrqZoneList(idioma);
+	}
+	
+	public IrqRoomTypesListResponse getRoomTypesList(String idioma)
+			throws Exception {
+		return client.getIrqRoomTypesList(idioma);
+	}
+	public IrqCathegoryListResponse getCathegoryList(String idioma)
+			throws Exception {
+		return client.getIrqCathegoryList(idioma);
+	}
+	public Map<String,String> getFacilities(String lang) {
+		return ddbb.getFacilities(lang);
+	}
+	public Map<String,String> getHotelTypes(String lang) {
+		return this.cache.getHotelTypes(lang);
+	}
+	public HibernateReservas getReserva(int idReserva) {
+		return ddbb.getReserva(idReserva);
+	}
+	public ArrayList getReservas() {
+		return ddbb.getReservas();
+	}
+	public HibernateReservas setReserva(HibernateReservas res) {
+		return ddbb.setReserva(res);
+	}
+	public HibernateReservasMails getReservaMail(int idReservaMail) {
+		return ddbb.getReservaMail(idReservaMail);
+	}
+	public ArrayList getReservasMails() {
+		return ddbb.getReservasMails();
+	}
+	public ArrayList getReservasMails(int idReserva) {
+		return ddbb.getReservasMails(idReserva);
+	}
+	public HibernateReservasMails setReservaMails(HibernateReservasMails res) {
+		return ddbb.setReservaMails(res);
+	}
+	public HibernateReservas getUltimaFactura() {
+		return ddbb.getUltimaFactura();
+	}
+	
+}

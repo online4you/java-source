@@ -1,0 +1,493 @@
+
+C:\DEV\java\workspace\javaGENMail>SET CLASSPATH=.;C:/dev/Java/workspace/javaGENMail/bin;C:/dev/Java/workspace/javaGENMail/lib/javaCommonServices.jar;C:/dev/Java/workspace/javaGENMail/lib/javaCommons.jar;C:/dev/Java/workspace/javaBDLConnector/lib/javaLibreriasExternas.jar 
+
+C:\DEV\java\workspace\javaGENMail>java com.photel.mail.facade.test.MainJavaMail 
+Hibernate: 
+    SELECT
+        GMT_TITLE,
+        GMT_TEMPLATE,
+        GMT_VAL 
+    FROM
+        GEN_MAIL_TEMPLATES 
+    WHERE
+        GMT_TITLE='voucherTPV' 
+        AND GMT_VAL='S' 
+        AND GMT_LANG='any'
+Hibernate: 
+    SELECT
+        GMT_TITLE,
+        GMT_TEMPLATE,
+        GMT_VAL 
+    FROM
+        GEN_MAIL_TEMPLATES 
+    WHERE
+        GMT_TITLE='voucherTPV' 
+        AND GMT_VAL='S' 
+        AND GMT_LANG='any'
+Hibernate: 
+    SELECT
+        GMT_TITLE,
+        GMT_TEMPLATE,
+        GMT_VAL 
+    FROM
+        GEN_MAIL_TEMPLATES 
+    WHERE
+        GMT_TITLE='voucherTPV' 
+        AND GMT_VAL='S' 
+        AND GMT_LANG='any'
+Hibernate: 
+    SELECT
+        GMA_LANG,
+        GMA_TITLE,
+        GMA_FILENAME,
+        GMA_CONTENTTYPE,
+        GMA_ATTACHMENT,
+        GMA_VAL 
+    FROM
+        GEN_MAIL_TEMPLATES_ATT 
+    WHERE
+        GMA_TITLE='voucherTPV' 
+        AND GMA_VAL='S' 
+        AND GMA_LANG='any'
+<table border="0" cellpadding="0" cellspacing="0" width="550">
+	<tbody>
+		<tr>
+			<td>
+				<img height="1" src="http://www.online4you.es/images/Voucher/tr.gif" width="50" /></td>
+			<td>
+				<table border="0" cellpadding="0" cellspacing="0" style="width: 361px;">
+					<tbody>
+						<tr style="line-height: 0px;">
+							<td align="center" style="width: 357px;">
+								<img alt="" src="http://www.online4you.es/images/Voucher/logo.gif" style="width: 277px; height: 83px;" /></td>
+						</tr>
+						<tr style="line-height: 0px;">
+							<td style="width: 357px;">
+								<img height="10" src="http://www.online4you.es/images/Voucher/tr.gif" width="1" /></td>
+						</tr>
+						<tr>
+							<td style="width: 357px;">
+								<table border="0" cellpadding="0" cellspacing="0">
+									<tbody>
+										<tr>
+											<td height="1" valign="top" width="10">
+												<img src="http://www.online4you.es/images/Voucher/tr.gif" /></td>
+											<td valign="top" width="10">
+												<img src="http://www.online4you.es/images/Voucher/rect_isla.gif" /></td>
+											<td valign="top">
+												<font color="#666666" face="Arial" size="3"><b>Online4you.es</b></font></td>
+											<td height="1" valign="top" width="20">
+												<img src="http://www.online4you.es/images/Voucher/tr.gif" /></td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 357px;">
+								<hr color="#f38a12" size="1" />
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 357px;">
+								<table border="0" cellpadding="0" cellspacing="0">
+									<tbody>
+										<tr>
+											<td height="1" valign="top" width="10">
+												<img src="http://www.online4you.es/images/Voucher/tr.gif" /></td>
+											<td style="width: 11px;" valign="top" width="10">
+												<img src="http://www.online4you.es/images/Voucher/rect_isla.gif" /></td>
+											<td style="width: 148px;" valign="top">
+												<font color="#666666" face="Arial" size="2">Online4you, S.L.</font></td>
+											<td height="1" valign="top" width="20">
+												<img src="http://www.online4you.es/images/Voucher/tr.gif" /></td>
+										</tr>
+										<tr>
+											<td colspan="2" style="width: 23px;">
+												&nbsp;</td>
+											<td style="width: 148px;">
+												<font color="#666666" face="Arial" size="2">CIF:B57677593</font></td>
+											<td>
+												&nbsp;</td>
+										</tr>
+										<tr>
+											<td colspan="2" style="width: 23px;">
+												&nbsp;</td>
+											<td style="width: 148px;">
+												<font color="#666666" face="Arial" size="2">Goleta 54 A, 07609 Badia Gran, Llucmajor</font></td>
+											<td>
+												&nbsp;</td>
+										</tr>
+										<tr>
+											<td colspan="2" style="width: 23px;">
+												&nbsp;</td>
+											<td style="width: 148px;">
+												<font color="#666666" face="Arial" size="2">Mallorca (Baleares)<br />
+												Espa&ntilde;a</font></td>
+											<td>
+												&nbsp;</td>
+										</tr>
+										<tr>
+											<td colspan="2" style="width: 23px;">
+												&nbsp;</td>
+											<td style="width: 148px;">
+												<font color="#666666" face="Arial" size="2">Tlf: 902 50 17 27<br />
+												Fax: 902 50 17 27</font></td>
+											<td>
+												&nbsp;</td>
+										</tr>
+										<tr>
+											<td colspan="2" style="width: 23px;">
+												&nbsp;</td>
+											<td style="width: 148px;">
+												<font color="#666666" face="Arial" size="2"><a href="mailto:reservas@online4you.es">reservas@online4you.es</a></font></td>
+											<td>
+												&nbsp;</td>
+										</tr>
+										<tr>
+											<td colspan="2" style="width: 23px;">
+												&nbsp;</td>
+											<td style="width: 148px;">
+												<font color="#666666" face="Arial" size="2"><a href="http://www.online4you.es">www.online4you.es</a></font></td>
+											<td>
+												&nbsp;</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 357px;">
+								<hr color="#f38a12" size="1" />
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 357px;">
+								<table border="0" cellpadding="0" cellspacing="0" style="width: 354px; height: 86px;">
+									<tbody>
+										<tr>
+											<td height="1" valign="top" width="10">
+												<img src="http://www.online4you.es/images/Voucher/tr.gif" /></td>
+											<td style="width: 4px;" valign="top" width="10">
+												<img src="http://www.online4you.es/images/Voucher/rect_isla.gif" /></td>
+											<td style="width: 301px;" valign="top">
+												<font color="#666666" face="Arial" size="2"><b></b></font></td>
+											<td height="1" style="width: 22px;" valign="top" width="20">
+												<img src="http://www.online4you.es/images/Voucher/tr.gif" /></td>
+										</tr>
+										<tr>
+											<td colspan="2" style="width: 22px;">
+												&nbsp;</td>
+											<td style="width: 301px;">
+												<font color="#666666" face="Arial" size="2"></font></td>
+											<td style="width: 22px;">
+												&nbsp;</td>
+										</tr>
+										<tr>
+											<td colspan="2" style="width: 22px;">
+												&nbsp;</td>
+											<td style="width: 301px;">
+												<font color="#666666" face="Arial" size="2">voucher=direhotel</font></td>
+											<td style="width: 22px;">
+												&nbsp;</td>
+										</tr>
+										<tr>
+											<td colspan="2" style="width: 22px;">
+												&nbsp;</td>
+											<td style="width: 301px;">
+												<font color="#666666" face="Arial" size="2">voucher=poblahotel</font></td>
+											<td style="width: 22px;">
+												&nbsp;</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 357px;">
+								<hr color="#f38a12" size="1" />
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 357px;">
+								<table border="0" cellpadding="0" cellspacing="0">
+									<tbody>
+										<tr>
+											<td height="1" valign="top" width="10">
+												<img src="http://www.online4you.es/images/Voucher/tr.gif" /></td>
+											<td style="width: 50px;" valign="top" width="10">
+												<img src="http://www.online4you.es/images/Voucher/rect_isla.gif" /></td>
+											<td style="width: 42px;" valign="top">
+												<font color="#666666" face="Arial" size="2"><b>voucher=hoy</b></font></td>
+											<td height="1" style="width: 43px;" valign="top" width="20">
+												<img src="http://www.online4you.es/images/Voucher/tr.gif" /></td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 357px;">
+								<hr color="#f38a12" size="1" />
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 357px;">
+								<table border="0" cellpadding="0" cellspacing="0">
+									<tbody>
+										<tr>
+											<td height="1" valign="top" width="10">
+												<img src="http://www.online4you.es/images/Voucher/tr.gif" /></td>
+											<td valign="top" width="10">
+												<img src="http://www.online4you.es/images/Voucher/rect_isla.gif" /></td>
+											<td valign="top">
+												<font color="#666666" face="Arial" size="2"><b>voucher=datosreserva</b></font></td>
+											<td height="1" valign="top" width="20">
+												<img src="http://www.online4you.es/images/Voucher/tr.gif" /></td>
+										</tr>
+										<tr>
+											<td colspan="2">
+												&nbsp;</td>
+											<td>
+												<font color="#666666" face="Arial" size="2">voucher=codigoreservaFactura</font></td>
+											<td>
+												&nbsp;</td>
+										</tr>
+										<tr>
+											<td colspan="2">
+												&nbsp;</td>
+											<td>
+												<font color="#666666" face="Arial" size="2">voucher=fechallegada</font></td>
+											<td>
+												&nbsp;</td>
+										</tr>
+										<tr>
+											<td colspan="2">
+												&nbsp;</td>
+											<td>
+												<font color="#666666" face="Arial" size="2">voucher=fechasalida</font></td>
+											<td>
+												&nbsp;</td>
+										</tr>
+										<tr>
+											<td colspan="2">
+												&nbsp;</td>
+											<td>
+												<font color="#666666" face="Arial" size="2">voucher=noches</font></td>
+											<td>
+												&nbsp;</td>
+										</tr>
+										<tr>
+											<td colspan="2">
+												&nbsp;</td>
+											<td>
+												<font color="#666666" face="Arial" size="2">voucher=habitaciones</font></td>
+											<td>
+												&nbsp;</td>
+										</tr>
+<!-- <tr> 
+                <td colspan="2"> </td>
+                <td><font face="Arial" size="2" color="#666666">voucher=ofertas</font></td>
+                <td> </td>
+              </tr>-->										<tr>
+											<td colspan="2">
+												&nbsp;</td>
+											<td>
+												<font color="#666666" face="Arial" size="2">voucher=precio</font></td>
+											<td>
+												&nbsp;</td>
+										</tr>
+										<tr>
+											<td colspan="2">
+												&nbsp;</td>
+											<td>
+												<font color="#666666" face="Arial" size="2">voucher=pagado</font></td>
+											<td>
+												&nbsp;</td>
+										</tr>
+										<tr>
+											<td colspan="2">
+												&nbsp;</td>
+											<td>
+												<font color="#666666" face="Arial" size="2">voucher=pagarhotel</font></td>
+											<td>
+												&nbsp;</td>
+										</tr>
+										<tr>
+											<td colspan="2">
+												&nbsp;</td>
+											<td>
+												<span style="color: rgb(27, 154, 197);"><font face="Arial" size="2"><span>voucher=descripcionesOfertas</span></font></span></td>
+											<td>
+												&nbsp;</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 357px;">
+								<hr color="#f38a12" size="1" />
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 357px;">
+								<table border="0" cellpadding="0" cellspacing="0">
+									<tbody>
+										<tr>
+											<td height="1" valign="top" width="10">
+												<img src="http://www.online4you.es/images/Voucher/tr.gif" /></td>
+											<td valign="top" width="10">
+												<img src="http://www.online4you.es/images/Voucher/rect_isla.gif" /></td>
+											<td valign="top">
+												<font color="#666666" face="Arial" size="2"><b>voucher=datosEconomicos</b></font></td>
+											<td height="1" valign="top" width="20">
+												<img src="http://www.online4you.es/images/Voucher/tr.gif" /></td>
+										</tr>
+										<tr>
+											<td colspan="2">
+												&nbsp;</td>
+											<td>
+												<font color="#666666" face="Arial" size="2">voucher=baseImponible</font></td>
+											<td>
+												&nbsp;</td>
+										</tr>
+										<tr>
+											<td colspan="2">
+												&nbsp;</td>
+											<td>
+												<font color="#666666" face="Arial" size="2">voucher=iva</font></td>
+											<td>
+												&nbsp;</td>
+										</tr>
+										<tr>
+											<td colspan="2">
+												&nbsp;</td>
+											<td>
+												<font color="#666666" face="Arial" size="2">voucher=totalFactura</font></td>
+											<td>
+												&nbsp;</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 357px;">
+								<hr color="#f38a12" size="1" />
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 357px;">
+								<table border="0" cellpadding="0" cellspacing="0">
+									<tbody>
+										<tr>
+											<td height="1" valign="top" width="10">
+												<img src="http://www.online4you.es/images/Voucher/tr.gif" /></td>
+											<td style="width: 10px;" valign="top" width="10">
+												<img src="http://www.online4you.es/images/Voucher/rect_isla.gif" /></td>
+											<td style="width: 198px;" valign="top">
+												<font color="#666666" face="Arial" size="2"><b>voucher=datospersonales</b></font></td>
+											<td height="1" valign="top" width="20">
+												<img src="http://www.online4you.es/images/Voucher/tr.gif" /></td>
+										</tr>
+										<tr>
+											<td colspan="2" style="width: 22px;">
+												&nbsp;</td>
+											<td style="width: 198px;">
+												<font color="#666666" face="Arial" size="2">voucher=nombrecliente</font></td>
+											<td>
+												&nbsp;</td>
+										</tr>
+										<tr>
+											<td colspan="2" style="width: 22px;">
+												&nbsp;</td>
+											<td style="width: 198px;">
+												<font color="#666666" face="Arial" size="2">voucher=tipoDocumento</font></td>
+											<td>
+												&nbsp;</td>
+										</tr>
+										<tr>
+											<td colspan="2" style="width: 22px;">
+												&nbsp;</td>
+											<td style="width: 198px;">
+												<font color="#666666" face="Arial" size="2">voucher=documento</font></td>
+											<td>
+												&nbsp;</td>
+										</tr>
+										<tr>
+											<td colspan="2" style="width: 22px;">
+												&nbsp;</td>
+											<td style="width: 198px;">
+												<font color="#666666" face="Arial" size="2">voucher=emailcliente</font></td>
+											<td>
+												&nbsp;</td>
+										</tr>
+										<tr>
+											<td colspan="2" style="width: 22px;">
+												&nbsp;</td>
+											<td style="width: 198px;">
+												<font color="#666666" face="Arial" size="2">voucher=telefonocliente</font></td>
+											<td>
+												&nbsp;</td>
+										</tr>
+										<tr>
+											<td colspan="2" style="width: 22px;">
+												&nbsp;</td>
+											<td style="width: 198px;">
+												<font color="#666666" face="Arial" size="2">voucher=obscliente</font></td>
+											<td>
+												&nbsp;</td>
+										</tr>
+										<tr>
+											<td colspan="2" style="width: 22px;">
+												&nbsp;</td>
+											<td style="width: 198px;">
+												<font color="#666666" face="Arial" size="2">voucher=nomContact</font></td>
+											<td>
+												&nbsp;</td>
+										</tr>
+										<tr>
+											<td colspan="2" style="width: 22px;">
+												&nbsp;</td>
+											<td style="width: 198px;">
+												<font color="#666666" face="Arial" size="2">voucher=telContact</font></td>
+											<td>
+												&nbsp;</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 357px;">
+								<hr color="#f38a12" size="1" />
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 357px;">
+								<table border="0" cellpadding="0" cellspacing="0" style="width: 354px; height: 24px;">
+									<tbody>
+										<tr>
+											<td style="width: 19px;" width="20">
+												&nbsp;</td>
+											<td style="width: 177.01px;" valign="top">
+												<font color="#666666" face="Arial" size="1">glosario=condicionesReserva<br />
+												<br />
+												glosario=politicadecancelacion</font></td>
+											<td style="width: 0.98px;">
+												&nbsp;</td>
+										</tr>
+									</tbody>
+								</table>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</td>
+			<td>
+				<img height="1" src="http://www.online4you.es/images/Voucher/tr.gif" width="50" /></td>
+		</tr>
+	</tbody>
+</table>
+

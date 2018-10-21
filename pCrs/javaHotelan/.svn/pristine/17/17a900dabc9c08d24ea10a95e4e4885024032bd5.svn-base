@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory >
+		<mapping resource="com/photel/data/hotelan/ddbb/hibernate/xml/TypeDefs.hbm.xml" />
+		<mapping resource="com/photel/data/hotelan/ddbb/hibernate/xml/Hotels.hbm.xml" />
+		<mapping resource="com/photel/data/hotelan/ddbb/hibernate/xml/HotelImage.hbm.xml" />
+		<mapping resource="com/photel/data/hotelan/ddbb/hibernate/xml/Zones.hbm.xml" />
+		<mapping resource="com/photel/data/hotelan/ddbb/hibernate/xml/Cathegories.hbm.xml" />
+		<mapping resource="com/photel/data/hotelan/ddbb/hibernate/xml/Destinations.hbm.xml" />
+		<mapping resource="com/photel/data/hotelan/ddbb/hibernate/xml/RoomTypes.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

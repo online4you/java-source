@@ -1,0 +1,1442 @@
+<?xml version="1.0"?>
+<Response>
+  <Hotel Id="34" Name="Picarol Gran">
+    <Booking Id="23402" Cont="1" Arrival="2015-05-02" Departure="2015-05-10" RoomTypeId="9" Status="R"/>
+    <Booking Id="22803" Cont="1" Arrival="2015-05-23" Departure="2015-05-30" RoomTypeId="9" Status="R"/>
+    <Booking Id="23393" Cont="1" Arrival="2015-08-24" Departure="2015-08-31" RoomTypeId="9" Status="R"/>
+    <Booking Id="22438" Cont="1" Arrival="2015-09-02" Departure="2015-09-16" RoomTypeId="9" Status="R"/>
+    <Booking Id="23019" Cont="1" Arrival="2015-09-16" Departure="2015-09-30" RoomTypeId="9" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-01" Departure="2015-08-15" RoomTypeId="9" Status="C"/>
+  </Hotel>
+  <Hotel Id="57" Name="Luna">
+    <Booking Id="22995" Cont="1" Arrival="2015-05-03" Departure="2015-05-07" RoomTypeId="4" Status="R"/>
+    <Booking Id="23647" Cont="1" Arrival="2015-06-13" Departure="2015-06-24" RoomTypeId="4" Status="O"/>
+    <Booking Id="23545" Cont="1" Arrival="2015-06-27" Departure="2015-07-11" RoomTypeId="4" Status="R"/>
+    <Booking Id="23723" Cont="1" Arrival="2015-07-26" Departure="2015-08-09" RoomTypeId="4" Status="O"/>
+    <Booking Id="22388" Cont="1" Arrival="2015-08-20" Departure="2015-09-02" RoomTypeId="4" Status="R"/>
+    <Booking Id="22392" Cont="1" Arrival="2015-09-06" Departure="2015-09-18" RoomTypeId="4" Status="R"/>
+  </Hotel>
+  <Hotel Id="89" Name="Botana 03">
+    <Booking Id="22566" Cont="1" Arrival="2015-04-29" Departure="2015-05-06" RoomTypeId="4" Status="R"/>
+    <Booking Id="23317" Cont="1" Arrival="2015-06-12" Departure="2015-06-26" RoomTypeId="4" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-25" Departure="2015-08-08" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-15" Departure="2015-08-29" RoomTypeId="4" Status="C"/>
+  </Hotel>
+  <Hotel Id="90" Name="Botana 04"/>
+  <Hotel Id="91" Name="Botana 05">
+    <Booking Id="23700" Cont="1" Arrival="2015-08-14" Departure="2015-08-21" RoomTypeId="4" Status="O"/>
+  </Hotel>
+  <Hotel Id="92" Name="Botana 06">
+    <Booking Id="23709" Cont="1" Arrival="2015-06-30" Departure="2015-07-14" RoomTypeId="1" Status="O"/>
+    <Booking Id="22540" Cont="1" Arrival="2015-08-09" Departure="2015-08-23" RoomTypeId="1" Status="R"/>
+    <Booking Id="23089" Cont="1" Arrival="2015-09-18" Departure="2015-09-26" RoomTypeId="1" Status="R"/>
+  </Hotel>
+  <Hotel Id="95" Name="Botana 09">
+    <Booking Id="23670" Cont="1" Arrival="2015-06-21" Departure="2015-06-28" RoomTypeId="9" Status="O"/>
+    <Booking Id="22765" Cont="1" Arrival="2015-07-14" Departure="2015-07-18" RoomTypeId="9" Status="R"/>
+    <Booking Id="23593" Cont="1" Arrival="2015-07-24" Departure="2015-07-31" RoomTypeId="9" Status="R"/>
+  </Hotel>
+  <Hotel Id="104" Name="Bon Estatge D">
+    <Booking Id="0" Cont="0" Arrival="2015-05-26" Departure="2015-06-02" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-06-24" Departure="2015-07-08" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-10" Departure="2015-07-18" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-01" Departure="2015-08-17" RoomTypeId="4" Status="C"/>
+  </Hotel>
+  <Hotel Id="146" Name="Pinos Altos 01 (T1) - Peral">
+    <Booking Id="21894" Cont="1" Arrival="2015-03-28" Departure="2015-04-04" RoomTypeId="10" Status="R"/>
+    <Booking Id="23378" Cont="1" Arrival="2015-04-12" Departure="2015-04-17" RoomTypeId="10" Status="R"/>
+    <Booking Id="23539" Cont="1" Arrival="2015-05-08" Departure="2015-05-12" RoomTypeId="10" Status="R"/>
+    <Booking Id="23556" Cont="1" Arrival="2015-05-12" Departure="2015-05-20" RoomTypeId="10" Status="R"/>
+    <Booking Id="21778" Cont="1" Arrival="2015-05-22" Departure="2015-06-01" RoomTypeId="10" Status="R"/>
+    <Booking Id="22878" Cont="1" Arrival="2015-06-16" Departure="2015-06-30" RoomTypeId="10" Status="R"/>
+    <Booking Id="22719" Cont="1" Arrival="2015-07-16" Departure="2015-07-29" RoomTypeId="10" Status="R"/>
+    <Booking Id="23505" Cont="1" Arrival="2015-08-03" Departure="2015-08-10" RoomTypeId="10" Status="R"/>
+    <Booking Id="21780" Cont="1" Arrival="2015-08-18" Departure="2015-09-08" RoomTypeId="10" Status="R"/>
+    <Booking Id="23690" Cont="1" Arrival="2015-09-14" Departure="2015-09-18" RoomTypeId="10" Status="R"/>
+    <Booking Id="22716" Cont="1" Arrival="2015-09-30" Departure="2015-10-14" RoomTypeId="10" Status="R"/>
+  </Hotel>
+  <Hotel Id="147" Name="Pinos Altos 02 (T2) - Cerezo">
+    <Booking Id="21692" Cont="1" Arrival="2015-03-28" Departure="2015-04-11" RoomTypeId="9" Status="R"/>
+    <Booking Id="22577" Cont="1" Arrival="2015-04-27" Departure="2015-05-04" RoomTypeId="9" Status="R"/>
+    <Booking Id="23115" Cont="1" Arrival="2015-05-20" Departure="2015-05-28" RoomTypeId="9" Status="R"/>
+    <Booking Id="22777" Cont="1" Arrival="2015-05-28" Departure="2015-06-11" RoomTypeId="9" Status="R"/>
+    <Booking Id="23541" Cont="1" Arrival="2015-07-01" Departure="2015-07-08" RoomTypeId="9" Status="R"/>
+    <Booking Id="23633" Cont="1" Arrival="2015-07-17" Departure="2015-07-26" RoomTypeId="9" Status="R"/>
+    <Booking Id="22446" Cont="1" Arrival="2015-07-26" Departure="2015-08-09" RoomTypeId="9" Status="R"/>
+    <Booking Id="22983" Cont="1" Arrival="2015-08-16" Departure="2015-08-26" RoomTypeId="9" Status="R"/>
+    <Booking Id="23433" Cont="1" Arrival="2015-08-30" Departure="2015-09-10" RoomTypeId="9" Status="R"/>
+    <Booking Id="23689" Cont="1" Arrival="2015-09-14" Departure="2015-09-18" RoomTypeId="9" Status="R"/>
+    <Booking Id="23510" Cont="1" Arrival="2015-09-26" Departure="2015-10-03" RoomTypeId="9" Status="R"/>
+  </Hotel>
+  <Hotel Id="148" Name="Pinos Altos 03 (T2) - Adelfas">
+    <Booking Id="21693" Cont="1" Arrival="2015-03-28" Departure="2015-04-11" RoomTypeId="9" Status="R"/>
+    <Booking Id="23592" Cont="1" Arrival="2015-05-02" Departure="2015-05-08" RoomTypeId="9" Status="R"/>
+    <Booking Id="22802" Cont="1" Arrival="2015-05-12" Departure="2015-05-18" RoomTypeId="9" Status="R"/>
+    <Booking Id="22660" Cont="1" Arrival="2015-05-23" Departure="2015-06-02" RoomTypeId="9" Status="R"/>
+    <Booking Id="23671" Cont="1" Arrival="2015-06-21" Departure="2015-06-28" RoomTypeId="9" Status="O"/>
+    <Booking Id="23292" Cont="1" Arrival="2015-07-11" Departure="2015-07-25" RoomTypeId="9" Status="R"/>
+    <Booking Id="22822" Cont="1" Arrival="2015-07-25" Departure="2015-08-02" RoomTypeId="9" Status="R"/>
+    <Booking Id="22671" Cont="1" Arrival="2015-08-06" Departure="2015-08-13" RoomTypeId="9" Status="R"/>
+    <Booking Id="23509" Cont="1" Arrival="2015-08-23" Departure="2015-09-06" RoomTypeId="9" Status="R"/>
+    <Booking Id="23688" Cont="1" Arrival="2015-09-14" Departure="2015-09-18" RoomTypeId="9" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-19" Departure="2015-08-22" RoomTypeId="9" Status="C"/>
+  </Hotel>
+  <Hotel Id="149" Name="Pinos Altos 04 (T1) - Manzano">
+    <Booking Id="22196" Cont="1" Arrival="2015-03-30" Departure="2015-04-08" RoomTypeId="10" Status="R"/>
+    <Booking Id="22410" Cont="1" Arrival="2015-04-08" Departure="2015-04-15" RoomTypeId="10" Status="R"/>
+    <Booking Id="23435" Cont="1" Arrival="2015-05-25" Departure="2015-06-01" RoomTypeId="10" Status="R"/>
+    <Booking Id="22890" Cont="1" Arrival="2015-07-07" Departure="2015-07-18" RoomTypeId="10" Status="R"/>
+    <Booking Id="23154" Cont="1" Arrival="2015-07-18" Departure="2015-07-25" RoomTypeId="10" Status="R"/>
+    <Booking Id="23001" Cont="1" Arrival="2015-08-16" Departure="2015-08-28" RoomTypeId="10" Status="R"/>
+    <Booking Id="22742" Cont="1" Arrival="2015-09-05" Departure="2015-09-12" RoomTypeId="10" Status="R"/>
+    <Booking Id="23687" Cont="1" Arrival="2015-09-14" Departure="2015-09-18" RoomTypeId="10" Status="R"/>
+    <Booking Id="23414" Cont="1" Arrival="2015-10-02" Departure="2015-10-10" RoomTypeId="10" Status="R"/>
+    <Booking Id="23716" Cont="1" Arrival="2015-10-17" Departure="2015-10-24" RoomTypeId="10" Status="O"/>
+  </Hotel>
+  <Hotel Id="150" Name="Pinos Altos 05 (T1) - Rosales">
+    <Booking Id="22417" Cont="1" Arrival="2015-03-28" Departure="2015-04-04" RoomTypeId="10" Status="R"/>
+    <Booking Id="23279" Cont="1" Arrival="2015-04-04" Departure="2015-04-11" RoomTypeId="10" Status="R"/>
+    <Booking Id="23506" Cont="1" Arrival="2015-04-11" Departure="2015-04-18" RoomTypeId="10" Status="R"/>
+    <Booking Id="23428" Cont="1" Arrival="2015-05-08" Departure="2015-05-15" RoomTypeId="10" Status="R"/>
+    <Booking Id="23380" Cont="1" Arrival="2015-05-24" Departure="2015-05-31" RoomTypeId="10" Status="R"/>
+    <Booking Id="23316" Cont="1" Arrival="2015-05-31" Departure="2015-06-06" RoomTypeId="10" Status="R"/>
+    <Booking Id="22535" Cont="1" Arrival="2015-06-14" Departure="2015-06-23" RoomTypeId="10" Status="R"/>
+    <Booking Id="22999" Cont="1" Arrival="2015-07-27" Departure="2015-08-10" RoomTypeId="10" Status="R"/>
+    <Booking Id="23658" Cont="1" Arrival="2015-08-29" Departure="2015-09-12" RoomTypeId="10" Status="R"/>
+    <Booking Id="23686" Cont="1" Arrival="2015-09-14" Departure="2015-09-18" RoomTypeId="10" Status="R"/>
+    <Booking Id="23293" Cont="1" Arrival="2015-09-24" Departure="2015-10-08" RoomTypeId="10" Status="R"/>
+  </Hotel>
+  <Hotel Id="151" Name="Pinos Altos 06 (T1) - Jazmin">
+    <Booking Id="22418" Cont="1" Arrival="2015-03-28" Departure="2015-04-04" RoomTypeId="10" Status="R"/>
+    <Booking Id="23266" Cont="1" Arrival="2015-04-21" Departure="2015-05-04" RoomTypeId="10" Status="R"/>
+    <Booking Id="23466" Cont="1" Arrival="2015-05-26" Departure="2015-06-03" RoomTypeId="10" Status="R"/>
+    <Booking Id="22992" Cont="1" Arrival="2015-06-16" Departure="2015-06-23" RoomTypeId="10" Status="R"/>
+    <Booking Id="22820" Cont="1" Arrival="2015-07-22" Departure="2015-07-29" RoomTypeId="10" Status="R"/>
+    <Booking Id="23385" Cont="1" Arrival="2015-07-29" Departure="2015-08-08" RoomTypeId="10" Status="R"/>
+    <Booking Id="22776" Cont="1" Arrival="2015-08-22" Departure="2015-09-03" RoomTypeId="10" Status="R"/>
+    <Booking Id="22234" Cont="1" Arrival="2015-09-03" Departure="2015-09-10" RoomTypeId="10" Status="R"/>
+    <Booking Id="23685" Cont="1" Arrival="2015-09-14" Departure="2015-09-18" RoomTypeId="10" Status="R"/>
+  </Hotel>
+  <Hotel Id="152" Name="Pinos Altos 07 (T1) - Cipres">
+    <Booking Id="22419" Cont="1" Arrival="2015-03-28" Departure="2015-04-04" RoomTypeId="10" Status="R"/>
+    <Booking Id="22801" Cont="1" Arrival="2015-04-21" Departure="2015-04-28" RoomTypeId="10" Status="R"/>
+    <Booking Id="22985" Cont="1" Arrival="2015-05-26" Departure="2015-06-05" RoomTypeId="10" Status="R"/>
+    <Booking Id="23024" Cont="1" Arrival="2015-07-19" Departure="2015-07-26" RoomTypeId="10" Status="R"/>
+    <Booking Id="23703" Cont="1" Arrival="2015-08-02" Departure="2015-08-07" RoomTypeId="10" Status="R"/>
+    <Booking Id="22236" Cont="1" Arrival="2015-09-03" Departure="2015-09-10" RoomTypeId="10" Status="R"/>
+    <Booking Id="23684" Cont="1" Arrival="2015-09-14" Departure="2015-09-18" RoomTypeId="10" Status="R"/>
+    <Booking Id="21897" Cont="1" Arrival="2015-10-24" Departure="2015-10-31" RoomTypeId="10" Status="R"/>
+  </Hotel>
+  <Hotel Id="153" Name="Pinos Altos 08 (T1) - Casta&#xF1;o">
+    <Booking Id="23088" Cont="1" Arrival="2015-04-03" Departure="2015-04-13" RoomTypeId="10" Status="R"/>
+    <Booking Id="23502" Cont="1" Arrival="2015-04-13" Departure="2015-04-18" RoomTypeId="10" Status="R"/>
+    <Booking Id="23549" Cont="1" Arrival="2015-04-18" Departure="2015-05-02" RoomTypeId="10" Status="R"/>
+    <Booking Id="23322" Cont="1" Arrival="2015-05-23" Departure="2015-06-01" RoomTypeId="10" Status="R"/>
+    <Booking Id="23431" Cont="1" Arrival="2015-08-04" Departure="2015-08-16" RoomTypeId="10" Status="R"/>
+    <Booking Id="22235" Cont="1" Arrival="2015-09-03" Departure="2015-09-10" RoomTypeId="10" Status="R"/>
+    <Booking Id="22161" Cont="1" Arrival="2015-09-16" Departure="2015-09-25" RoomTypeId="10" Status="R"/>
+  </Hotel>
+  <Hotel Id="154" Name="Pinos Altos 09 (T1) - Olivo">
+    <Booking Id="22420" Cont="1" Arrival="2015-03-28" Departure="2015-04-04" RoomTypeId="10" Status="R"/>
+    <Booking Id="23512" Cont="1" Arrival="2015-04-12" Departure="2015-04-22" RoomTypeId="10" Status="R"/>
+    <Booking Id="22734" Cont="1" Arrival="2015-05-06" Departure="2015-05-20" RoomTypeId="10" Status="R"/>
+    <Booking Id="22782" Cont="1" Arrival="2015-05-21" Departure="2015-05-31" RoomTypeId="10" Status="R"/>
+    <Booking Id="23683" Cont="1" Arrival="2015-09-14" Departure="2015-09-18" RoomTypeId="10" Status="R"/>
+  </Hotel>
+  <Hotel Id="155" Name="Pinos Altos 10 (T2) - Roble">
+    <Booking Id="23278" Cont="1" Arrival="2015-03-28" Departure="2015-04-04" RoomTypeId="9" Status="R"/>
+    <Booking Id="22073" Cont="1" Arrival="2015-04-04" Departure="2015-04-15" RoomTypeId="9" Status="R"/>
+    <Booking Id="23052" Cont="1" Arrival="2015-05-01" Departure="2015-05-10" RoomTypeId="9" Status="R"/>
+    <Booking Id="23049" Cont="1" Arrival="2015-05-11" Departure="2015-05-23" RoomTypeId="9" Status="R"/>
+    <Booking Id="22698" Cont="1" Arrival="2015-05-23" Departure="2015-06-06" RoomTypeId="9" Status="R"/>
+    <Booking Id="22856" Cont="1" Arrival="2015-06-16" Departure="2015-06-30" RoomTypeId="9" Status="R"/>
+    <Booking Id="23559" Cont="1" Arrival="2015-07-12" Departure="2015-07-21" RoomTypeId="9" Status="R"/>
+    <Booking Id="22821" Cont="1" Arrival="2015-07-22" Departure="2015-07-29" RoomTypeId="9" Status="R"/>
+    <Booking Id="23129" Cont="1" Arrival="2015-07-31" Departure="2015-08-14" RoomTypeId="9" Status="R"/>
+    <Booking Id="22164" Cont="1" Arrival="2015-08-14" Departure="2015-08-27" RoomTypeId="9" Status="R"/>
+    <Booking Id="23543" Cont="1" Arrival="2015-08-29" Departure="2015-09-12" RoomTypeId="9" Status="R"/>
+    <Booking Id="23682" Cont="1" Arrival="2015-09-14" Departure="2015-09-18" RoomTypeId="9" Status="R"/>
+    <Booking Id="23300" Cont="1" Arrival="2015-10-12" Departure="2015-10-20" RoomTypeId="9" Status="R"/>
+  </Hotel>
+  <Hotel Id="156" Name="Pinos Altos 11 (T2) - Encinas">
+    <Booking Id="22733" Cont="1" Arrival="2015-03-28" Departure="2015-04-11" RoomTypeId="9" Status="R"/>
+    <Booking Id="23179" Cont="1" Arrival="2015-04-25" Departure="2015-05-05" RoomTypeId="9" Status="R"/>
+    <Booking Id="23002" Cont="1" Arrival="2015-05-15" Departure="2015-06-04" RoomTypeId="9" Status="R"/>
+    <Booking Id="22984" Cont="1" Arrival="2015-06-05" Departure="2015-06-19" RoomTypeId="9" Status="R"/>
+    <Booking Id="22497" Cont="1" Arrival="2015-07-19" Departure="2015-08-09" RoomTypeId="9" Status="R"/>
+    <Booking Id="23542" Cont="1" Arrival="2015-08-10" Departure="2015-08-19" RoomTypeId="9" Status="R"/>
+    <Booking Id="23599" Cont="1" Arrival="2015-09-02" Departure="2015-09-11" RoomTypeId="9" Status="R"/>
+    <Booking Id="23681" Cont="1" Arrival="2015-09-14" Departure="2015-09-18" RoomTypeId="9" Status="R"/>
+    <Booking Id="23221" Cont="1" Arrival="2015-09-24" Departure="2015-10-08" RoomTypeId="9" Status="R"/>
+  </Hotel>
+  <Hotel Id="157" Name="Pinos Altos 12 (T1) - Abeto">
+    <Booking Id="23715" Cont="1" Arrival="2015-03-25" Departure="2015-04-01" RoomTypeId="10" Status="O"/>
+    <Booking Id="21896" Cont="1" Arrival="2015-04-02" Departure="2015-04-16" RoomTypeId="10" Status="R"/>
+    <Booking Id="23708" Cont="1" Arrival="2015-04-19" Departure="2015-04-27" RoomTypeId="10" Status="R"/>
+    <Booking Id="22596" Cont="1" Arrival="2015-05-02" Departure="2015-05-16" RoomTypeId="10" Status="R"/>
+    <Booking Id="22830" Cont="1" Arrival="2015-05-16" Departure="2015-05-27" RoomTypeId="10" Status="R"/>
+    <Booking Id="23434" Cont="1" Arrival="2015-05-29" Departure="2015-06-05" RoomTypeId="10" Status="R"/>
+    <Booking Id="23302" Cont="1" Arrival="2015-06-05" Departure="2015-06-17" RoomTypeId="10" Status="R"/>
+    <Booking Id="23403" Cont="1" Arrival="2015-07-11" Departure="2015-07-18" RoomTypeId="10" Status="R"/>
+    <Booking Id="23124" Cont="1" Arrival="2015-09-01" Departure="2015-09-15" RoomTypeId="10" Status="R"/>
+  </Hotel>
+  <Hotel Id="158" Name="Pinos Altos 13 (T3) - Nispero">
+    <Booking Id="21461" Cont="1" Arrival="2015-03-28" Departure="2015-04-11" RoomTypeId="9" Status="R"/>
+    <Booking Id="23679" Cont="1" Arrival="2015-05-23" Departure="2015-05-30" RoomTypeId="9" Status="R"/>
+    <Booking Id="23003" Cont="1" Arrival="2015-05-31" Departure="2015-06-07" RoomTypeId="9" Status="R"/>
+    <Booking Id="21938" Cont="1" Arrival="2015-06-15" Departure="2015-06-25" RoomTypeId="9" Status="R"/>
+    <Booking Id="23349" Cont="1" Arrival="2015-06-30" Departure="2015-07-10" RoomTypeId="9" Status="R"/>
+    <Booking Id="22718" Cont="1" Arrival="2015-07-23" Departure="2015-08-02" RoomTypeId="9" Status="R"/>
+    <Booking Id="22659" Cont="1" Arrival="2015-08-06" Departure="2015-08-13" RoomTypeId="9" Status="R"/>
+    <Booking Id="22740" Cont="1" Arrival="2015-08-15" Departure="2015-08-29" RoomTypeId="9" Status="R"/>
+    <Booking Id="22058" Cont="1" Arrival="2015-09-02" Departure="2015-09-06" RoomTypeId="9" Status="R"/>
+    <Booking Id="23620" Cont="1" Arrival="2015-09-12" Departure="2015-09-19" RoomTypeId="9" Status="R"/>
+  </Hotel>
+  <Hotel Id="159" Name="Pinos Altos 14 (T3) - Ciruelo">
+    <Booking Id="21460" Cont="1" Arrival="2015-03-28" Departure="2015-04-11" RoomTypeId="9" Status="R"/>
+    <Booking Id="23648" Cont="1" Arrival="2015-04-21" Departure="2015-04-28" RoomTypeId="9" Status="R"/>
+    <Booking Id="22536" Cont="1" Arrival="2015-05-23" Departure="2015-05-30" RoomTypeId="9" Status="R"/>
+    <Booking Id="22706" Cont="1" Arrival="2015-05-30" Departure="2015-06-06" RoomTypeId="9" Status="R"/>
+    <Booking Id="21937" Cont="1" Arrival="2015-06-15" Departure="2015-06-25" RoomTypeId="9" Status="R"/>
+    <Booking Id="22906" Cont="1" Arrival="2015-07-04" Departure="2015-07-11" RoomTypeId="9" Status="R"/>
+    <Booking Id="21801" Cont="1" Arrival="2015-07-31" Departure="2015-08-07" RoomTypeId="9" Status="R"/>
+    <Booking Id="22666" Cont="1" Arrival="2015-08-09" Departure="2015-08-18" RoomTypeId="9" Status="R"/>
+    <Booking Id="22130" Cont="1" Arrival="2015-08-29" Departure="2015-09-12" RoomTypeId="9" Status="R"/>
+    <Booking Id="23617" Cont="1" Arrival="2015-09-12" Departure="2015-09-19" RoomTypeId="9" Status="R"/>
+    <Booking Id="23407" Cont="1" Arrival="2015-10-19" Departure="2015-10-28" RoomTypeId="9" Status="R"/>
+  </Hotel>
+  <Hotel Id="160" Name="Pinos Altos 15 (T3) - Romero">
+    <Booking Id="21459" Cont="1" Arrival="2015-03-28" Departure="2015-04-11" RoomTypeId="9" Status="R"/>
+    <Booking Id="23460" Cont="1" Arrival="2015-05-12" Departure="2015-05-22" RoomTypeId="9" Status="R"/>
+    <Booking Id="22469" Cont="1" Arrival="2015-05-23" Departure="2015-05-30" RoomTypeId="9" Status="R"/>
+    <Booking Id="21959" Cont="1" Arrival="2015-06-01" Departure="2015-06-15" RoomTypeId="9" Status="R"/>
+    <Booking Id="23010" Cont="1" Arrival="2015-06-18" Departure="2015-06-22" RoomTypeId="9" Status="R"/>
+    <Booking Id="23250" Cont="1" Arrival="2015-06-22" Departure="2015-07-01" RoomTypeId="9" Status="R"/>
+    <Booking Id="23462" Cont="1" Arrival="2015-07-12" Departure="2015-07-22" RoomTypeId="9" Status="R"/>
+    <Booking Id="22989" Cont="1" Arrival="2015-07-26" Departure="2015-08-05" RoomTypeId="9" Status="R"/>
+    <Booking Id="22579" Cont="1" Arrival="2015-08-06" Departure="2015-08-13" RoomTypeId="9" Status="R"/>
+    <Booking Id="23394" Cont="1" Arrival="2015-08-13" Departure="2015-08-17" RoomTypeId="9" Status="R"/>
+    <Booking Id="22081" Cont="1" Arrival="2015-09-01" Departure="2015-09-10" RoomTypeId="9" Status="R"/>
+    <Booking Id="23619" Cont="1" Arrival="2015-09-12" Departure="2015-09-19" RoomTypeId="9" Status="R"/>
+  </Hotel>
+  <Hotel Id="161" Name="Pinos Altos 16 (T3) - Almendro">
+    <Booking Id="21458" Cont="1" Arrival="2015-03-28" Departure="2015-04-11" RoomTypeId="9" Status="R"/>
+    <Booking Id="22641" Cont="1" Arrival="2015-04-20" Departure="2015-05-04" RoomTypeId="9" Status="R"/>
+    <Booking Id="21452" Cont="1" Arrival="2015-05-15" Departure="2015-05-24" RoomTypeId="9" Status="R"/>
+    <Booking Id="22367" Cont="1" Arrival="2015-05-24" Departure="2015-06-01" RoomTypeId="9" Status="R"/>
+    <Booking Id="21464" Cont="1" Arrival="2015-06-24" Departure="2015-06-28" RoomTypeId="9" Status="R"/>
+    <Booking Id="22731" Cont="1" Arrival="2015-07-07" Departure="2015-07-16" RoomTypeId="9" Status="R"/>
+    <Booking Id="22747" Cont="1" Arrival="2015-07-21" Departure="2015-07-25" RoomTypeId="9" Status="R"/>
+    <Booking Id="21775" Cont="1" Arrival="2015-07-25" Departure="2015-08-08" RoomTypeId="9" Status="R"/>
+    <Booking Id="22494" Cont="1" Arrival="2015-08-08" Departure="2015-08-26" RoomTypeId="9" Status="R"/>
+    <Booking Id="22004" Cont="1" Arrival="2015-09-01" Departure="2015-09-06" RoomTypeId="9" Status="R"/>
+    <Booking Id="21960" Cont="1" Arrival="2015-09-07" Departure="2015-09-17" RoomTypeId="9" Status="R"/>
+    <Booking Id="23713" Cont="1" Arrival="2015-09-17" Departure="2015-10-01" RoomTypeId="9" Status="R"/>
+    <Booking Id="23011" Cont="1" Arrival="2015-10-22" Departure="2015-10-29" RoomTypeId="9" Status="R"/>
+  </Hotel>
+  <Hotel Id="188" Name="Font March">
+    <Booking Id="23243" Cont="1" Arrival="2015-04-01" Departure="2015-04-09" RoomTypeId="9" Status="R"/>
+    <Booking Id="23417" Cont="1" Arrival="2015-07-09" Departure="2015-07-18" RoomTypeId="9" Status="R"/>
+    <Booking Id="22812" Cont="1" Arrival="2015-09-24" Departure="2015-10-01" RoomTypeId="9" Status="R"/>
+  </Hotel>
+  <Hotel Id="191" Name="Picarol Petit">
+    <Booking Id="22493" Cont="1" Arrival="2015-04-25" Departure="2015-05-02" RoomTypeId="10" Status="R"/>
+    <Booking Id="22557" Cont="1" Arrival="2015-05-22" Departure="2015-05-29" RoomTypeId="10" Status="R"/>
+    <Booking Id="22400" Cont="1" Arrival="2015-08-07" Departure="2015-08-14" RoomTypeId="10" Status="R"/>
+    <Booking Id="22421" Cont="1" Arrival="2015-09-05" Departure="2015-09-12" RoomTypeId="10" Status="R"/>
+    <Booking Id="23483" Cont="1" Arrival="2015-09-21" Departure="2015-09-29" RoomTypeId="10" Status="R"/>
+  </Hotel>
+  <Hotel Id="192" Name="Andreu">
+    <Booking Id="0" Cont="0" Arrival="2015-05-23" Departure="2015-06-01" RoomTypeId="9" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-06-27" Departure="2015-07-15" RoomTypeId="9" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-19" Departure="2015-08-02" RoomTypeId="9" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-03" Departure="2015-08-17" RoomTypeId="9" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-18" Departure="2015-09-04" RoomTypeId="9" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-10-03" Departure="2015-10-18" RoomTypeId="9" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-10-21" Departure="2015-10-31" RoomTypeId="9" Status="C"/>
+  </Hotel>
+  <Hotel Id="195" Name="Payeras">
+    <Booking Id="23415" Cont="1" Arrival="2015-09-06" Departure="2015-09-19" RoomTypeId="9" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-03" Departure="2015-07-18" RoomTypeId="9" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-08" Departure="2015-08-22" RoomTypeId="9" Status="C"/>
+  </Hotel>
+  <Hotel Id="198" Name="Boi Cifre">
+    <Booking Id="0" Cont="0" Arrival="2015-03-25" Departure="2015-04-01" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-05-21" Departure="2015-06-07" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-22" Departure="2015-09-22" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-09-30" Departure="2015-10-13" RoomTypeId="4" Status="C"/>
+  </Hotel>
+  <Hotel Id="208" Name="Fontxica">
+    <Booking Id="22071" Cont="1" Arrival="2015-03-16" Departure="2015-03-30" RoomTypeId="4" Status="R"/>
+    <Booking Id="21949" Cont="1" Arrival="2015-04-01" Departure="2015-04-10" RoomTypeId="4" Status="R"/>
+    <Booking Id="22343" Cont="1" Arrival="2015-04-19" Departure="2015-04-30" RoomTypeId="4" Status="R"/>
+    <Booking Id="22355" Cont="1" Arrival="2015-04-30" Departure="2015-05-11" RoomTypeId="4" Status="R"/>
+    <Booking Id="21407" Cont="1" Arrival="2015-05-11" Departure="2015-05-29" RoomTypeId="4" Status="R"/>
+    <Booking Id="22695" Cont="1" Arrival="2015-05-30" Departure="2015-06-06" RoomTypeId="4" Status="R"/>
+    <Booking Id="23253" Cont="1" Arrival="2015-06-07" Departure="2015-06-12" RoomTypeId="4" Status="R"/>
+    <Booking Id="22387" Cont="1" Arrival="2015-06-24" Departure="2015-06-29" RoomTypeId="4" Status="R"/>
+    <Booking Id="22219" Cont="1" Arrival="2015-07-01" Departure="2015-07-15" RoomTypeId="4" Status="R"/>
+    <Booking Id="23173" Cont="1" Arrival="2015-07-23" Departure="2015-08-04" RoomTypeId="4" Status="R"/>
+    <Booking Id="22814" Cont="1" Arrival="2015-08-04" Departure="2015-08-14" RoomTypeId="4" Status="R"/>
+    <Booking Id="21856" Cont="1" Arrival="2015-08-15" Departure="2015-08-29" RoomTypeId="4" Status="R"/>
+    <Booking Id="21771" Cont="1" Arrival="2015-09-05" Departure="2015-09-12" RoomTypeId="4" Status="R"/>
+    <Booking Id="22339" Cont="1" Arrival="2015-09-13" Departure="2015-09-24" RoomTypeId="4" Status="R"/>
+    <Booking Id="22368" Cont="1" Arrival="2015-10-01" Departure="2015-10-15" RoomTypeId="4" Status="R"/>
+    <Booking Id="21763" Cont="1" Arrival="2015-10-18" Departure="2015-10-29" RoomTypeId="4" Status="R"/>
+  </Hotel>
+  <Hotel Id="213" Name="Fullos">
+    <Booking Id="23634" Cont="1" Arrival="2015-03-28" Departure="2015-04-07" RoomTypeId="4" Status="R"/>
+    <Booking Id="23575" Cont="1" Arrival="2015-04-07" Departure="2015-04-15" RoomTypeId="4" Status="R"/>
+    <Booking Id="23155" Cont="1" Arrival="2015-04-30" Departure="2015-05-17" RoomTypeId="4" Status="R"/>
+    <Booking Id="23517" Cont="1" Arrival="2015-05-28" Departure="2015-06-01" RoomTypeId="4" Status="R"/>
+    <Booking Id="23668" Cont="1" Arrival="2015-09-06" Departure="2015-09-13" RoomTypeId="4" Status="R"/>
+    <Booking Id="23447" Cont="1" Arrival="2015-09-20" Departure="2015-10-04" RoomTypeId="4" Status="R"/>
+    <Booking Id="22921" Cont="1" Arrival="2015-10-08" Departure="2015-10-18" RoomTypeId="4" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-06-14" Departure="2015-06-28" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-07" Departure="2015-07-22" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-23" Departure="2015-08-14" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-24" Departure="2015-09-01" RoomTypeId="4" Status="C"/>
+  </Hotel>
+  <Hotel Id="228" Name="Encinas Son Toni">
+    <Booking Id="21909" Cont="1" Arrival="2015-04-04" Departure="2015-04-11" RoomTypeId="1" Status="R"/>
+    <Booking Id="23531" Cont="1" Arrival="2015-05-16" Departure="2015-05-23" RoomTypeId="1" Status="R"/>
+    <Booking Id="21977" Cont="1" Arrival="2015-05-23" Departure="2015-05-30" RoomTypeId="1" Status="R"/>
+    <Booking Id="22673" Cont="1" Arrival="2015-07-25" Departure="2015-08-01" RoomTypeId="1" Status="R"/>
+    <Booking Id="22674" Cont="1" Arrival="2015-08-01" Departure="2015-08-08" RoomTypeId="1" Status="R"/>
+    <Booking Id="22697" Cont="1" Arrival="2015-08-08" Departure="2015-08-15" RoomTypeId="1" Status="R"/>
+    <Booking Id="22701" Cont="1" Arrival="2015-08-15" Departure="2015-08-22" RoomTypeId="1" Status="R"/>
+    <Booking Id="21903" Cont="1" Arrival="2015-08-22" Departure="2015-08-29" RoomTypeId="1" Status="R"/>
+    <Booking Id="22973" Cont="1" Arrival="2015-08-29" Departure="2015-09-05" RoomTypeId="1" Status="R"/>
+    <Booking Id="22705" Cont="1" Arrival="2015-09-05" Departure="2015-09-19" RoomTypeId="1" Status="R"/>
+    <Booking Id="23504" Cont="1" Arrival="2015-09-19" Departure="2015-10-03" RoomTypeId="1" Status="R"/>
+    <Booking Id="22448" Cont="1" Arrival="2015-10-05" Departure="2015-10-12" RoomTypeId="1" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-03-28" Departure="2015-04-04" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-04-11" Departure="2015-05-01" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-05-31" Departure="2015-06-07" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-10-14" Departure="2015-10-24" RoomTypeId="1" Status="C"/>
+  </Hotel>
+  <Hotel Id="245" Name="Valenta">
+    <Booking Id="0" Cont="0" Arrival="2015-05-14" Departure="2015-05-26" RoomTypeId="9" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-11" Departure="2015-07-25" RoomTypeId="9" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-01" Departure="2015-08-30" RoomTypeId="9" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-10-17" Departure="2015-10-31" RoomTypeId="9" Status="C"/>
+  </Hotel>
+  <Hotel Id="250" Name="Pascol">
+    <Booking Id="23551" Cont="1" Arrival="2015-03-14" Departure="2015-03-21" RoomTypeId="4" Status="R"/>
+    <Booking Id="21902" Cont="1" Arrival="2015-03-29" Departure="2015-04-12" RoomTypeId="4" Status="R"/>
+    <Booking Id="23199" Cont="1" Arrival="2015-05-01" Departure="2015-05-08" RoomTypeId="4" Status="R"/>
+    <Booking Id="23021" Cont="1" Arrival="2015-06-05" Departure="2015-06-09" RoomTypeId="4" Status="R"/>
+    <Booking Id="22870" Cont="1" Arrival="2015-08-24" Departure="2015-09-03" RoomTypeId="4" Status="R"/>
+    <Booking Id="23637" Cont="1" Arrival="2015-09-05" Departure="2015-09-19" RoomTypeId="4" Status="R"/>
+    <Booking Id="23653" Cont="1" Arrival="2015-09-19" Departure="2015-09-24" RoomTypeId="4" Status="O"/>
+    <Booking Id="23263" Cont="1" Arrival="2015-09-26" Departure="2015-10-02" RoomTypeId="4" Status="R"/>
+    <Booking Id="23654" Cont="1" Arrival="2015-10-02" Departure="2015-10-07" RoomTypeId="4" Status="O"/>
+    <Booking Id="23137" Cont="1" Arrival="2015-10-10" Departure="2015-10-17" RoomTypeId="4" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-04-18" Departure="2015-04-27" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-05-20" Departure="2015-05-30" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-25" Departure="2015-08-22" RoomTypeId="4" Status="C"/>
+  </Hotel>
+  <Hotel Id="252" Name="Rosa">
+    <Booking Id="23374" Cont="1" Arrival="2015-03-11" Departure="2015-03-22" RoomTypeId="1" Status="R"/>
+    <Booking Id="22931" Cont="1" Arrival="2015-03-26" Departure="2015-04-05" RoomTypeId="1" Status="R"/>
+    <Booking Id="23206" Cont="1" Arrival="2015-04-14" Departure="2015-04-21" RoomTypeId="1" Status="R"/>
+    <Booking Id="22587" Cont="1" Arrival="2015-05-10" Departure="2015-05-17" RoomTypeId="1" Status="R"/>
+    <Booking Id="23166" Cont="1" Arrival="2015-05-24" Departure="2015-05-31" RoomTypeId="1" Status="R"/>
+    <Booking Id="23493" Cont="1" Arrival="2015-06-16" Departure="2015-06-26" RoomTypeId="1" Status="R"/>
+    <Booking Id="22839" Cont="1" Arrival="2015-07-08" Departure="2015-07-18" RoomTypeId="1" Status="R"/>
+    <Booking Id="23712" Cont="1" Arrival="2015-08-08" Departure="2015-08-22" RoomTypeId="1" Status="R"/>
+    <Booking Id="22634" Cont="1" Arrival="2015-08-24" Departure="2015-09-03" RoomTypeId="1" Status="R"/>
+    <Booking Id="23189" Cont="1" Arrival="2015-09-15" Departure="2015-09-29" RoomTypeId="1" Status="R"/>
+  </Hotel>
+  <Hotel Id="254" Name="Caragola">
+    <Booking Id="22168" Cont="1" Arrival="2015-03-26" Departure="2015-04-04" RoomTypeId="1" Status="R"/>
+    <Booking Id="21779" Cont="1" Arrival="2015-04-04" Departure="2015-04-11" RoomTypeId="1" Status="R"/>
+    <Booking Id="21860" Cont="1" Arrival="2015-04-19" Departure="2015-04-30" RoomTypeId="1" Status="R"/>
+    <Booking Id="22978" Cont="1" Arrival="2015-05-02" Departure="2015-05-10" RoomTypeId="1" Status="R"/>
+    <Booking Id="22171" Cont="1" Arrival="2015-05-14" Departure="2015-05-24" RoomTypeId="1" Status="R"/>
+    <Booking Id="22172" Cont="1" Arrival="2015-05-26" Departure="2015-06-05" RoomTypeId="1" Status="R"/>
+    <Booking Id="23345" Cont="1" Arrival="2015-06-05" Departure="2015-06-09" RoomTypeId="1" Status="R"/>
+    <Booking Id="23422" Cont="1" Arrival="2015-06-18" Departure="2015-06-27" RoomTypeId="1" Status="R"/>
+    <Booking Id="22241" Cont="1" Arrival="2015-07-04" Departure="2015-07-11" RoomTypeId="1" Status="R"/>
+    <Booking Id="22242" Cont="1" Arrival="2015-07-11" Departure="2015-07-18" RoomTypeId="1" Status="R"/>
+    <Booking Id="23183" Cont="1" Arrival="2015-07-18" Departure="2015-07-25" RoomTypeId="1" Status="R"/>
+    <Booking Id="22612" Cont="1" Arrival="2015-07-25" Departure="2015-08-01" RoomTypeId="1" Status="R"/>
+    <Booking Id="22613" Cont="1" Arrival="2015-08-01" Departure="2015-08-08" RoomTypeId="1" Status="R"/>
+    <Booking Id="22293" Cont="1" Arrival="2015-08-08" Departure="2015-08-15" RoomTypeId="1" Status="R"/>
+    <Booking Id="21796" Cont="1" Arrival="2015-08-22" Departure="2015-09-05" RoomTypeId="1" Status="R"/>
+    <Booking Id="22144" Cont="1" Arrival="2015-09-07" Departure="2015-09-21" RoomTypeId="1" Status="R"/>
+    <Booking Id="22215" Cont="1" Arrival="2015-09-21" Departure="2015-10-01" RoomTypeId="1" Status="R"/>
+    <Booking Id="22611" Cont="1" Arrival="2015-10-07" Departure="2015-10-14" RoomTypeId="1" Status="R"/>
+    <Booking Id="23437" Cont="1" Arrival="2015-10-25" Departure="2015-11-01" RoomTypeId="1" Status="R"/>
+  </Hotel>
+  <Hotel Id="255" Name="Sort">
+    <Booking Id="22914" Cont="1" Arrival="2015-05-01" Departure="2015-05-08" RoomTypeId="9" Status="R"/>
+    <Booking Id="22575" Cont="1" Arrival="2015-10-01" Departure="2015-10-22" RoomTypeId="9" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-05-23" Departure="2015-06-05" RoomTypeId="9" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-06-21" Departure="2015-06-28" RoomTypeId="9" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-12" Departure="2015-07-19" RoomTypeId="9" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-01" Departure="2015-08-29" RoomTypeId="9" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-09-05" Departure="2015-09-19" RoomTypeId="9" Status="C"/>
+  </Hotel>
+  <Hotel Id="264" Name="Montana">
+    <Booking Id="23581" Cont="1" Arrival="2015-03-25" Departure="2015-04-01" RoomTypeId="1" Status="R"/>
+    <Booking Id="23060" Cont="1" Arrival="2015-04-05" Departure="2015-04-11" RoomTypeId="1" Status="R"/>
+    <Booking Id="23436" Cont="1" Arrival="2015-05-01" Departure="2015-05-05" RoomTypeId="1" Status="R"/>
+    <Booking Id="23212" Cont="1" Arrival="2015-07-11" Departure="2015-07-25" RoomTypeId="1" Status="R"/>
+    <Booking Id="23080" Cont="1" Arrival="2015-08-01" Departure="2015-08-08" RoomTypeId="1" Status="R"/>
+    <Booking Id="23672" Cont="1" Arrival="2015-08-25" Departure="2015-09-01" RoomTypeId="1" Status="R"/>
+    <Booking Id="23103" Cont="1" Arrival="2015-09-07" Departure="2015-09-14" RoomTypeId="1" Status="R"/>
+    <Booking Id="23455" Cont="1" Arrival="2015-10-03" Departure="2015-10-10" RoomTypeId="1" Status="R"/>
+  </Hotel>
+  <Hotel Id="265" Name="Creus">
+    <Booking Id="23711" Cont="1" Arrival="2015-05-31" Departure="2015-06-10" RoomTypeId="1" Status="O"/>
+    <Booking Id="22489" Cont="1" Arrival="2015-07-04" Departure="2015-07-11" RoomTypeId="1" Status="R"/>
+    <Booking Id="22490" Cont="1" Arrival="2015-07-11" Departure="2015-07-18" RoomTypeId="1" Status="R"/>
+    <Booking Id="23474" Cont="1" Arrival="2015-08-31" Departure="2015-09-07" RoomTypeId="1" Status="R"/>
+    <Booking Id="23107" Cont="1" Arrival="2015-09-21" Departure="2015-10-01" RoomTypeId="1" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-03-28" Departure="2015-04-04" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-06-10" Departure="2015-07-04" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-18" Departure="2015-08-01" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-08" Departure="2015-08-29" RoomTypeId="1" Status="C"/>
+  </Hotel>
+  <Hotel Id="270" Name="Alordes">
+    <Booking Id="20573" Cont="1" Arrival="2015-03-28" Departure="2015-04-11" RoomTypeId="7" Status="R"/>
+    <Booking Id="23332" Cont="1" Arrival="2015-04-11" Departure="2015-04-18" RoomTypeId="7" Status="R"/>
+    <Booking Id="23338" Cont="1" Arrival="2015-04-25" Departure="2015-05-02" RoomTypeId="7" Status="R"/>
+    <Booking Id="21614" Cont="1" Arrival="2015-05-02" Departure="2015-05-09" RoomTypeId="7" Status="R"/>
+    <Booking Id="22157" Cont="1" Arrival="2015-05-09" Departure="2015-05-16" RoomTypeId="7" Status="R"/>
+    <Booking Id="22123" Cont="1" Arrival="2015-05-19" Departure="2015-05-30" RoomTypeId="7" Status="R"/>
+    <Booking Id="22770" Cont="1" Arrival="2015-05-30" Departure="2015-06-06" RoomTypeId="7" Status="R"/>
+    <Booking Id="23421" Cont="1" Arrival="2015-06-20" Departure="2015-06-27" RoomTypeId="7" Status="R"/>
+    <Booking Id="22927" Cont="1" Arrival="2015-06-27" Departure="2015-07-04" RoomTypeId="7" Status="R"/>
+    <Booking Id="22237" Cont="1" Arrival="2015-07-04" Departure="2015-07-11" RoomTypeId="7" Status="R"/>
+    <Booking Id="21543" Cont="1" Arrival="2015-07-11" Departure="2015-07-18" RoomTypeId="7" Status="R"/>
+    <Booking Id="21544" Cont="1" Arrival="2015-07-18" Departure="2015-07-25" RoomTypeId="7" Status="R"/>
+    <Booking Id="22291" Cont="1" Arrival="2015-08-01" Departure="2015-08-08" RoomTypeId="7" Status="R"/>
+    <Booking Id="22292" Cont="1" Arrival="2015-08-08" Departure="2015-08-15" RoomTypeId="7" Status="R"/>
+    <Booking Id="21706" Cont="1" Arrival="2015-08-15" Departure="2015-08-22" RoomTypeId="7" Status="R"/>
+    <Booking Id="21707" Cont="1" Arrival="2015-08-22" Departure="2015-08-29" RoomTypeId="7" Status="R"/>
+    <Booking Id="22835" Cont="1" Arrival="2015-08-29" Departure="2015-09-05" RoomTypeId="7" Status="R"/>
+    <Booking Id="22181" Cont="1" Arrival="2015-09-05" Departure="2015-09-19" RoomTypeId="7" Status="R"/>
+    <Booking Id="22488" Cont="1" Arrival="2015-09-20" Departure="2015-10-04" RoomTypeId="7" Status="R"/>
+    <Booking Id="22520" Cont="1" Arrival="2015-10-13" Departure="2015-10-23" RoomTypeId="7" Status="R"/>
+  </Hotel>
+  <Hotel Id="276" Name="Moli">
+    <Booking Id="23500" Cont="1" Arrival="2015-04-21" Departure="2015-04-28" RoomTypeId="4" Status="R"/>
+    <Booking Id="23066" Cont="1" Arrival="2015-05-13" Departure="2015-05-18" RoomTypeId="4" Status="R"/>
+    <Booking Id="21786" Cont="1" Arrival="2015-05-24" Departure="2015-05-31" RoomTypeId="4" Status="R"/>
+    <Booking Id="22394" Cont="1" Arrival="2015-07-04" Departure="2015-07-11" RoomTypeId="4" Status="R"/>
+    <Booking Id="23404" Cont="1" Arrival="2015-07-28" Departure="2015-08-02" RoomTypeId="4" Status="R"/>
+    <Booking Id="22548" Cont="1" Arrival="2015-08-02" Departure="2015-08-09" RoomTypeId="4" Status="R"/>
+    <Booking Id="21749" Cont="1" Arrival="2015-08-10" Departure="2015-08-20" RoomTypeId="4" Status="R"/>
+    <Booking Id="22871" Cont="1" Arrival="2015-08-22" Departure="2015-08-29" RoomTypeId="4" Status="R"/>
+    <Booking Id="22889" Cont="1" Arrival="2015-09-03" Departure="2015-09-11" RoomTypeId="4" Status="R"/>
+    <Booking Id="21187" Cont="1" Arrival="2015-09-11" Departure="2015-09-25" RoomTypeId="4" Status="R"/>
+    <Booking Id="23677" Cont="1" Arrival="2015-09-26" Departure="2015-10-05" RoomTypeId="4" Status="R"/>
+    <Booking Id="20639" Cont="1" Arrival="2015-10-05" Departure="2015-10-17" RoomTypeId="4" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-15" Departure="2015-07-28" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-10-18" Departure="2015-10-30" RoomTypeId="4" Status="C"/>
+  </Hotel>
+  <Hotel Id="280" Name="Ternelles">
+    <Booking Id="22724" Cont="1" Arrival="2015-07-04" Departure="2015-07-11" RoomTypeId="4" Status="R"/>
+    <Booking Id="22725" Cont="1" Arrival="2015-07-11" Departure="2015-07-18" RoomTypeId="4" Status="R"/>
+    <Booking Id="22679" Cont="1" Arrival="2015-07-25" Departure="2015-08-01" RoomTypeId="4" Status="R"/>
+    <Booking Id="22680" Cont="1" Arrival="2015-08-01" Departure="2015-08-08" RoomTypeId="4" Status="R"/>
+    <Booking Id="22681" Cont="1" Arrival="2015-08-08" Departure="2015-08-15" RoomTypeId="4" Status="R"/>
+    <Booking Id="22682" Cont="1" Arrival="2015-08-15" Departure="2015-08-22" RoomTypeId="4" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-05-23" Departure="2015-06-06" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-06-22" Departure="2015-07-04" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-09-05" Departure="2015-09-19" RoomTypeId="4" Status="C"/>
+  </Hotel>
+  <Hotel Id="288" Name="Medina">
+    <Booking Id="21637" Cont="1" Arrival="2015-04-01" Departure="2015-04-08" RoomTypeId="1" Status="R"/>
+    <Booking Id="21886" Cont="1" Arrival="2015-04-08" Departure="2015-04-15" RoomTypeId="1" Status="R"/>
+    <Booking Id="22609" Cont="1" Arrival="2015-04-18" Departure="2015-05-02" RoomTypeId="1" Status="R"/>
+    <Booking Id="21580" Cont="1" Arrival="2015-05-04" Departure="2015-05-14" RoomTypeId="1" Status="R"/>
+    <Booking Id="21435" Cont="1" Arrival="2015-05-20" Departure="2015-06-03" RoomTypeId="1" Status="R"/>
+    <Booking Id="21750" Cont="1" Arrival="2015-06-06" Departure="2015-06-16" RoomTypeId="1" Status="R"/>
+    <Booking Id="22139" Cont="1" Arrival="2015-06-19" Departure="2015-06-27" RoomTypeId="1" Status="R"/>
+    <Booking Id="22140" Cont="1" Arrival="2015-06-27" Departure="2015-07-03" RoomTypeId="1" Status="R"/>
+    <Booking Id="23444" Cont="1" Arrival="2015-07-03" Departure="2015-07-18" RoomTypeId="1" Status="R"/>
+    <Booking Id="22187" Cont="1" Arrival="2015-07-18" Departure="2015-07-25" RoomTypeId="1" Status="R"/>
+    <Booking Id="22143" Cont="1" Arrival="2015-07-25" Departure="2015-08-01" RoomTypeId="1" Status="R"/>
+    <Booking Id="21984" Cont="1" Arrival="2015-08-01" Departure="2015-08-08" RoomTypeId="1" Status="R"/>
+    <Booking Id="22372" Cont="1" Arrival="2015-08-08" Departure="2015-08-15" RoomTypeId="1" Status="R"/>
+    <Booking Id="22539" Cont="1" Arrival="2015-08-15" Departure="2015-08-22" RoomTypeId="1" Status="R"/>
+    <Booking Id="22132" Cont="1" Arrival="2015-08-22" Departure="2015-08-29" RoomTypeId="1" Status="R"/>
+    <Booking Id="23061" Cont="1" Arrival="2015-08-29" Departure="2015-09-10" RoomTypeId="1" Status="R"/>
+    <Booking Id="21434" Cont="1" Arrival="2015-09-10" Departure="2015-09-17" RoomTypeId="1" Status="R"/>
+    <Booking Id="23058" Cont="1" Arrival="2015-09-17" Departure="2015-09-26" RoomTypeId="1" Status="R"/>
+    <Booking Id="22573" Cont="1" Arrival="2015-09-26" Departure="2015-10-03" RoomTypeId="1" Status="R"/>
+    <Booking Id="22088" Cont="1" Arrival="2015-10-06" Departure="2015-10-16" RoomTypeId="1" Status="R"/>
+    <Booking Id="22096" Cont="1" Arrival="2015-10-17" Departure="2015-10-24" RoomTypeId="1" Status="R"/>
+  </Hotel>
+  <Hotel Id="292" Name="Florit">
+    <Booking Id="22428" Cont="1" Arrival="2015-06-18" Departure="2015-06-21" RoomTypeId="4" Status="R"/>
+    <Booking Id="23108" Cont="1" Arrival="2015-07-11" Departure="2015-07-18" RoomTypeId="4" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-04-04" Departure="2015-04-11" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-06-05" Departure="2015-06-18" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-06-21" Departure="2015-06-28" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-25" Departure="2015-08-08" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-09-30" Departure="2015-10-07" RoomTypeId="4" Status="C"/>
+  </Hotel>
+  <Hotel Id="295" Name="Jaume Ramona">
+    <Booking Id="23325" Cont="1" Arrival="2015-03-20" Departure="2015-03-25" RoomTypeId="11" Status="R"/>
+    <Booking Id="21115" Cont="1" Arrival="2015-03-29" Departure="2015-04-08" RoomTypeId="11" Status="R"/>
+    <Booking Id="22247" Cont="1" Arrival="2015-04-08" Departure="2015-04-13" RoomTypeId="11" Status="O"/>
+    <Booking Id="21956" Cont="1" Arrival="2015-04-22" Departure="2015-04-30" RoomTypeId="11" Status="R"/>
+    <Booking Id="22363" Cont="1" Arrival="2015-05-01" Departure="2015-05-09" RoomTypeId="11" Status="R"/>
+    <Booking Id="22129" Cont="1" Arrival="2015-05-13" Departure="2015-05-18" RoomTypeId="11" Status="R"/>
+    <Booking Id="20831" Cont="1" Arrival="2015-05-23" Departure="2015-06-20" RoomTypeId="11" Status="R"/>
+    <Booking Id="22301" Cont="1" Arrival="2015-06-27" Departure="2015-07-04" RoomTypeId="11" Status="R"/>
+    <Booking Id="22302" Cont="1" Arrival="2015-07-04" Departure="2015-07-11" RoomTypeId="11" Status="R"/>
+    <Booking Id="22562" Cont="1" Arrival="2015-07-11" Departure="2015-07-18" RoomTypeId="11" Status="R"/>
+    <Booking Id="22076" Cont="1" Arrival="2015-07-25" Departure="2015-08-01" RoomTypeId="11" Status="R"/>
+    <Booking Id="22077" Cont="1" Arrival="2015-08-01" Departure="2015-08-08" RoomTypeId="11" Status="R"/>
+    <Booking Id="22667" Cont="1" Arrival="2015-08-08" Departure="2015-08-15" RoomTypeId="11" Status="R"/>
+    <Booking Id="22668" Cont="1" Arrival="2015-08-15" Departure="2015-08-22" RoomTypeId="11" Status="R"/>
+    <Booking Id="22298" Cont="1" Arrival="2015-08-22" Departure="2015-08-29" RoomTypeId="11" Status="R"/>
+    <Booking Id="22299" Cont="1" Arrival="2015-08-29" Departure="2015-09-05" RoomTypeId="11" Status="R"/>
+    <Booking Id="22013" Cont="1" Arrival="2015-09-05" Departure="2015-09-12" RoomTypeId="11" Status="R"/>
+    <Booking Id="23231" Cont="1" Arrival="2015-09-18" Departure="2015-09-25" RoomTypeId="11" Status="R"/>
+    <Booking Id="22062" Cont="1" Arrival="2015-09-28" Departure="2015-10-05" RoomTypeId="11" Status="R"/>
+    <Booking Id="23261" Cont="1" Arrival="2015-10-06" Departure="2015-10-13" RoomTypeId="11" Status="R"/>
+    <Booking Id="22401" Cont="1" Arrival="2015-10-15" Departure="2015-10-25" RoomTypeId="11" Status="R"/>
+  </Hotel>
+  <Hotel Id="298" Name="March - Casa 11">
+    <Booking Id="22068" Cont="1" Arrival="2015-04-04" Departure="2015-04-11" RoomTypeId="1" Status="R"/>
+    <Booking Id="22664" Cont="1" Arrival="2015-04-12" Departure="2015-04-19" RoomTypeId="1" Status="R"/>
+    <Booking Id="22393" Cont="1" Arrival="2015-05-02" Departure="2015-05-12" RoomTypeId="1" Status="R"/>
+    <Booking Id="22833" Cont="1" Arrival="2015-05-25" Departure="2015-06-04" RoomTypeId="1" Status="R"/>
+    <Booking Id="23392" Cont="1" Arrival="2015-06-18" Departure="2015-06-26" RoomTypeId="1" Status="R"/>
+    <Booking Id="23146" Cont="1" Arrival="2015-06-27" Departure="2015-07-04" RoomTypeId="1" Status="R"/>
+    <Booking Id="23147" Cont="1" Arrival="2015-07-04" Departure="2015-07-11" RoomTypeId="1" Status="R"/>
+    <Booking Id="23235" Cont="1" Arrival="2015-07-11" Departure="2015-07-18" RoomTypeId="1" Status="R"/>
+    <Booking Id="22936" Cont="1" Arrival="2015-07-18" Departure="2015-07-25" RoomTypeId="1" Status="R"/>
+    <Booking Id="22937" Cont="1" Arrival="2015-07-25" Departure="2015-08-01" RoomTypeId="1" Status="R"/>
+    <Booking Id="21965" Cont="1" Arrival="2015-08-24" Departure="2015-08-31" RoomTypeId="1" Status="R"/>
+    <Booking Id="21869" Cont="1" Arrival="2015-08-31" Departure="2015-09-10" RoomTypeId="1" Status="R"/>
+    <Booking Id="22915" Cont="1" Arrival="2015-09-25" Departure="2015-10-02" RoomTypeId="1" Status="R"/>
+    <Booking Id="22737" Cont="1" Arrival="2015-10-03" Departure="2015-10-17" RoomTypeId="1" Status="R"/>
+    <Booking Id="21088" Cont="1" Arrival="2015-10-19" Departure="2015-10-29" RoomTypeId="1" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-01" Departure="2015-08-24" RoomTypeId="1" Status="C"/>
+  </Hotel>
+  <Hotel Id="302" Name="Oliver">
+    <Booking Id="22760" Cont="1" Arrival="2015-03-31" Departure="2015-04-08" RoomTypeId="9" Status="R"/>
+    <Booking Id="23475" Cont="1" Arrival="2015-04-12" Departure="2015-04-22" RoomTypeId="9" Status="R"/>
+    <Booking Id="22589" Cont="1" Arrival="2015-04-25" Departure="2015-05-09" RoomTypeId="9" Status="R"/>
+    <Booking Id="22891" Cont="1" Arrival="2015-05-17" Departure="2015-05-22" RoomTypeId="9" Status="R"/>
+    <Booking Id="22952" Cont="1" Arrival="2015-05-22" Departure="2015-05-29" RoomTypeId="9" Status="R"/>
+    <Booking Id="23262" Cont="1" Arrival="2015-05-30" Departure="2015-06-06" RoomTypeId="9" Status="R"/>
+    <Booking Id="21339" Cont="1" Arrival="2015-06-13" Departure="2015-06-27" RoomTypeId="9" Status="R"/>
+    <Booking Id="22496" Cont="1" Arrival="2015-06-27" Departure="2015-07-04" RoomTypeId="9" Status="R"/>
+    <Booking Id="22495" Cont="1" Arrival="2015-07-04" Departure="2015-07-11" RoomTypeId="9" Status="R"/>
+    <Booking Id="23364" Cont="1" Arrival="2015-07-25" Departure="2015-08-01" RoomTypeId="9" Status="R"/>
+    <Booking Id="22449" Cont="1" Arrival="2015-08-15" Departure="2015-08-22" RoomTypeId="9" Status="R"/>
+    <Booking Id="22450" Cont="1" Arrival="2015-08-22" Departure="2015-08-29" RoomTypeId="9" Status="R"/>
+    <Booking Id="22369" Cont="1" Arrival="2015-09-04" Departure="2015-09-21" RoomTypeId="9" Status="R"/>
+    <Booking Id="22218" Cont="1" Arrival="2015-09-26" Departure="2015-10-10" RoomTypeId="9" Status="R"/>
+  </Hotel>
+  <Hotel Id="306" Name="Clos">
+    <Booking Id="22759" Cont="1" Arrival="2015-04-01" Departure="2015-04-10" RoomTypeId="16" Status="R"/>
+    <Booking Id="23244" Cont="1" Arrival="2015-04-23" Departure="2015-05-07" RoomTypeId="16" Status="R"/>
+    <Booking Id="23642" Cont="1" Arrival="2015-05-10" Departure="2015-05-24" RoomTypeId="16" Status="R"/>
+    <Booking Id="23629" Cont="1" Arrival="2015-05-24" Departure="2015-05-31" RoomTypeId="16" Status="R"/>
+    <Booking Id="22764" Cont="1" Arrival="2015-06-06" Departure="2015-06-13" RoomTypeId="16" Status="R"/>
+    <Booking Id="22866" Cont="1" Arrival="2015-06-27" Departure="2015-07-08" RoomTypeId="16" Status="R"/>
+    <Booking Id="22512" Cont="1" Arrival="2015-07-16" Departure="2015-07-30" RoomTypeId="16" Status="R"/>
+    <Booking Id="23281" Cont="1" Arrival="2015-08-04" Departure="2015-08-12" RoomTypeId="16" Status="R"/>
+    <Booking Id="23324" Cont="1" Arrival="2015-08-13" Departure="2015-08-27" RoomTypeId="16" Status="R"/>
+    <Booking Id="22853" Cont="1" Arrival="2015-08-27" Departure="2015-09-06" RoomTypeId="16" Status="R"/>
+    <Booking Id="22070" Cont="1" Arrival="2015-09-07" Departure="2015-09-18" RoomTypeId="16" Status="R"/>
+    <Booking Id="22357" Cont="1" Arrival="2015-09-28" Departure="2015-10-05" RoomTypeId="16" Status="R"/>
+    <Booking Id="22352" Cont="1" Arrival="2015-10-17" Departure="2015-10-24" RoomTypeId="16" Status="R"/>
+  </Hotel>
+  <Hotel Id="315" Name="Alegre">
+    <Booking Id="23241" Cont="1" Arrival="2015-03-29" Departure="2015-04-03" RoomTypeId="4" Status="R"/>
+    <Booking Id="21870" Cont="1" Arrival="2015-04-03" Departure="2015-04-10" RoomTypeId="4" Status="R"/>
+    <Booking Id="22454" Cont="1" Arrival="2015-04-18" Departure="2015-05-02" RoomTypeId="4" Status="R"/>
+    <Booking Id="23242" Cont="1" Arrival="2015-05-07" Departure="2015-05-16" RoomTypeId="4" Status="R"/>
+    <Booking Id="22035" Cont="1" Arrival="2015-05-16" Departure="2015-05-30" RoomTypeId="4" Status="R"/>
+    <Booking Id="23704" Cont="1" Arrival="2015-06-18" Departure="2015-06-27" RoomTypeId="4" Status="R"/>
+    <Booking Id="23705" Cont="1" Arrival="2015-06-27" Departure="2015-07-04" RoomTypeId="4" Status="R"/>
+    <Booking Id="22942" Cont="1" Arrival="2015-07-04" Departure="2015-07-11" RoomTypeId="4" Status="R"/>
+    <Booking Id="22943" Cont="1" Arrival="2015-07-11" Departure="2015-07-18" RoomTypeId="4" Status="R"/>
+    <Booking Id="22434" Cont="1" Arrival="2015-07-18" Departure="2015-07-25" RoomTypeId="4" Status="R"/>
+    <Booking Id="22435" Cont="1" Arrival="2015-07-25" Departure="2015-08-01" RoomTypeId="4" Status="R"/>
+    <Booking Id="23424" Cont="1" Arrival="2015-08-01" Departure="2015-08-08" RoomTypeId="4" Status="R"/>
+    <Booking Id="23423" Cont="1" Arrival="2015-08-08" Departure="2015-08-15" RoomTypeId="4" Status="R"/>
+    <Booking Id="23251" Cont="1" Arrival="2015-08-15" Departure="2015-08-22" RoomTypeId="4" Status="R"/>
+    <Booking Id="22386" Cont="1" Arrival="2015-08-22" Departure="2015-09-05" RoomTypeId="4" Status="R"/>
+    <Booking Id="21900" Cont="1" Arrival="2015-09-09" Departure="2015-09-19" RoomTypeId="4" Status="R"/>
+    <Booking Id="22445" Cont="1" Arrival="2015-09-19" Departure="2015-09-26" RoomTypeId="4" Status="R"/>
+    <Booking Id="21574" Cont="1" Arrival="2015-09-26" Departure="2015-10-10" RoomTypeId="4" Status="R"/>
+    <Booking Id="22621" Cont="1" Arrival="2015-10-17" Departure="2015-10-26" RoomTypeId="4" Status="R"/>
+  </Hotel>
+  <Hotel Id="316" Name="Coster Rafal">
+    <Booking Id="23528" Cont="1" Arrival="2015-03-30" Departure="2015-04-05" RoomTypeId="17" Status="R"/>
+    <Booking Id="22909" Cont="1" Arrival="2015-04-19" Departure="2015-04-26" RoomTypeId="17" Status="R"/>
+    <Booking Id="22498" Cont="1" Arrival="2015-04-28" Departure="2015-05-05" RoomTypeId="17" Status="R"/>
+    <Booking Id="22283" Cont="1" Arrival="2015-05-09" Departure="2015-05-23" RoomTypeId="17" Status="R"/>
+    <Booking Id="22903" Cont="1" Arrival="2015-06-02" Departure="2015-06-07" RoomTypeId="17" Status="R"/>
+    <Booking Id="22376" Cont="1" Arrival="2015-06-11" Departure="2015-06-18" RoomTypeId="17" Status="R"/>
+    <Booking Id="22047" Cont="1" Arrival="2015-06-20" Departure="2015-06-27" RoomTypeId="17" Status="R"/>
+    <Booking Id="23143" Cont="1" Arrival="2015-07-04" Departure="2015-07-11" RoomTypeId="17" Status="R"/>
+    <Booking Id="23144" Cont="1" Arrival="2015-07-11" Departure="2015-07-18" RoomTypeId="17" Status="R"/>
+    <Booking Id="22919" Cont="1" Arrival="2015-08-01" Departure="2015-08-08" RoomTypeId="17" Status="R"/>
+    <Booking Id="23312" Cont="1" Arrival="2015-08-08" Departure="2015-08-15" RoomTypeId="17" Status="R"/>
+    <Booking Id="23313" Cont="1" Arrival="2015-08-15" Departure="2015-08-22" RoomTypeId="17" Status="R"/>
+    <Booking Id="23354" Cont="1" Arrival="2015-08-22" Departure="2015-08-29" RoomTypeId="17" Status="R"/>
+    <Booking Id="22478" Cont="1" Arrival="2015-08-29" Departure="2015-09-05" RoomTypeId="17" Status="R"/>
+    <Booking Id="22874" Cont="1" Arrival="2015-09-07" Departure="2015-09-17" RoomTypeId="17" Status="R"/>
+    <Booking Id="22852" Cont="1" Arrival="2015-09-26" Departure="2015-10-07" RoomTypeId="17" Status="R"/>
+    <Booking Id="23465" Cont="1" Arrival="2015-10-25" Departure="2015-10-30" RoomTypeId="17" Status="R"/>
+  </Hotel>
+  <Hotel Id="317" Name="Miquel">
+    <Booking Id="0" Cont="0" Arrival="2015-05-27" Departure="2015-06-03" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-06-21" Departure="2015-07-02" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-19" Departure="2015-07-26" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-29" Departure="2015-08-05" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-09" Departure="2015-08-18" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-09-09" Departure="2015-09-23" RoomTypeId="4" Status="C"/>
+  </Hotel>
+  <Hotel Id="318" Name="Rafal Antic">
+    <Booking Id="22523" Cont="1" Arrival="2015-05-15" Departure="2015-05-18" RoomTypeId="1" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-02-18" Departure="2015-03-28" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-06-11" Departure="2015-06-14" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-06-27" Departure="2015-07-11" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-18" Departure="2015-08-08" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-09-12" Departure="2015-09-19" RoomTypeId="1" Status="C"/>
+  </Hotel>
+  <Hotel Id="333" Name="Bernardo">
+    <Booking Id="23591" Cont="1" Arrival="2015-04-05" Departure="2015-04-10" RoomTypeId="4" Status="R"/>
+    <Booking Id="23586" Cont="1" Arrival="2015-04-17" Departure="2015-04-21" RoomTypeId="4" Status="R"/>
+    <Booking Id="23486" Cont="1" Arrival="2015-07-04" Departure="2015-07-14" RoomTypeId="4" Status="R"/>
+    <Booking Id="23721" Cont="1" Arrival="2015-07-25" Departure="2015-08-08" RoomTypeId="4" Status="O"/>
+    <Booking Id="22913" Cont="1" Arrival="2015-08-28" Departure="2015-09-09" RoomTypeId="4" Status="R"/>
+    <Booking Id="23499" Cont="1" Arrival="2015-09-13" Departure="2015-09-25" RoomTypeId="4" Status="R"/>
+    <Booking Id="23699" Cont="1" Arrival="2015-10-11" Departure="2015-10-19" RoomTypeId="4" Status="O"/>
+  </Hotel>
+  <Hotel Id="334" Name="Perez">
+    <Booking Id="23526" Cont="1" Arrival="2015-03-30" Departure="2015-04-04" RoomTypeId="4" Status="R"/>
+    <Booking Id="22948" Cont="1" Arrival="2015-04-04" Departure="2015-04-11" RoomTypeId="4" Status="R"/>
+    <Booking Id="22451" Cont="1" Arrival="2015-04-14" Departure="2015-04-21" RoomTypeId="4" Status="R"/>
+    <Booking Id="22322" Cont="1" Arrival="2015-05-02" Departure="2015-05-14" RoomTypeId="4" Status="R"/>
+    <Booking Id="23375" Cont="1" Arrival="2015-06-14" Departure="2015-06-21" RoomTypeId="4" Status="R"/>
+    <Booking Id="23347" Cont="1" Arrival="2015-06-24" Departure="2015-07-08" RoomTypeId="4" Status="R"/>
+    <Booking Id="23359" Cont="1" Arrival="2015-07-08" Departure="2015-07-12" RoomTypeId="4" Status="R"/>
+    <Booking Id="23376" Cont="1" Arrival="2015-08-22" Departure="2015-09-01" RoomTypeId="4" Status="R"/>
+    <Booking Id="22398" Cont="1" Arrival="2015-09-05" Departure="2015-09-19" RoomTypeId="4" Status="R"/>
+    <Booking Id="22323" Cont="1" Arrival="2015-10-02" Departure="2015-10-16" RoomTypeId="4" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-03" Departure="2015-08-17" RoomTypeId="4" Status="C"/>
+  </Hotel>
+  <Hotel Id="341" Name="Puig Petit">
+    <Booking Id="23632" Cont="1" Arrival="2015-03-27" Departure="2015-04-03" RoomTypeId="4" Status="R"/>
+    <Booking Id="22636" Cont="1" Arrival="2015-06-27" Departure="2015-07-04" RoomTypeId="4" Status="R"/>
+    <Booking Id="22637" Cont="1" Arrival="2015-07-04" Departure="2015-07-11" RoomTypeId="4" Status="R"/>
+    <Booking Id="23663" Cont="1" Arrival="2015-08-08" Departure="2015-08-18" RoomTypeId="4" Status="R"/>
+    <Booking Id="22244" Cont="1" Arrival="2015-08-22" Departure="2015-08-29" RoomTypeId="4" Status="R"/>
+    <Booking Id="22245" Cont="1" Arrival="2015-08-29" Departure="2015-09-05" RoomTypeId="4" Status="R"/>
+    <Booking Id="22939" Cont="1" Arrival="2015-09-13" Departure="2015-09-20" RoomTypeId="4" Status="R"/>
+  </Hotel>
+  <Hotel Id="344" Name="Butxaco">
+    <Booking Id="22672" Cont="1" Arrival="2015-04-02" Departure="2015-04-12" RoomTypeId="4" Status="R"/>
+    <Booking Id="23288" Cont="1" Arrival="2015-04-18" Departure="2015-04-25" RoomTypeId="4" Status="R"/>
+    <Booking Id="23141" Cont="1" Arrival="2015-04-25" Departure="2015-05-04" RoomTypeId="4" Status="R"/>
+    <Booking Id="22767" Cont="1" Arrival="2015-05-10" Departure="2015-05-20" RoomTypeId="4" Status="R"/>
+    <Booking Id="22542" Cont="1" Arrival="2015-05-30" Departure="2015-06-12" RoomTypeId="4" Status="R"/>
+    <Booking Id="21948" Cont="1" Arrival="2015-06-16" Departure="2015-06-26" RoomTypeId="4" Status="R"/>
+    <Booking Id="22141" Cont="1" Arrival="2015-07-04" Departure="2015-07-11" RoomTypeId="4" Status="R"/>
+    <Booking Id="23276" Cont="1" Arrival="2015-07-11" Departure="2015-07-18" RoomTypeId="4" Status="R"/>
+    <Booking Id="23277" Cont="1" Arrival="2015-07-18" Departure="2015-07-25" RoomTypeId="4" Status="R"/>
+    <Booking Id="22692" Cont="1" Arrival="2015-07-25" Departure="2015-08-01" RoomTypeId="4" Status="R"/>
+    <Booking Id="22693" Cont="1" Arrival="2015-08-01" Departure="2015-08-08" RoomTypeId="4" Status="R"/>
+    <Booking Id="22694" Cont="1" Arrival="2015-08-08" Departure="2015-08-15" RoomTypeId="4" Status="R"/>
+    <Booking Id="22699" Cont="1" Arrival="2015-08-15" Departure="2015-08-22" RoomTypeId="4" Status="R"/>
+    <Booking Id="23101" Cont="1" Arrival="2015-08-22" Departure="2015-08-29" RoomTypeId="4" Status="R"/>
+    <Booking Id="22102" Cont="1" Arrival="2015-08-29" Departure="2015-09-20" RoomTypeId="4" Status="R"/>
+    <Booking Id="22804" Cont="1" Arrival="2015-09-26" Departure="2015-10-03" RoomTypeId="4" Status="R"/>
+    <Booking Id="22347" Cont="1" Arrival="2015-10-05" Departure="2015-10-14" RoomTypeId="4" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-05-23" Departure="2015-05-30" RoomTypeId="4" Status="C"/>
+  </Hotel>
+  <Hotel Id="345" Name="Crever">
+    <Booking Id="21240" Cont="1" Arrival="2015-03-28" Departure="2015-04-10" RoomTypeId="7" Status="R"/>
+    <Booking Id="21226" Cont="1" Arrival="2015-04-13" Departure="2015-04-20" RoomTypeId="7" Status="R"/>
+    <Booking Id="22227" Cont="1" Arrival="2015-04-25" Departure="2015-05-02" RoomTypeId="7" Status="R"/>
+    <Booking Id="22287" Cont="1" Arrival="2015-05-08" Departure="2015-05-18" RoomTypeId="7" Status="R"/>
+    <Booking Id="21538" Cont="1" Arrival="2015-05-23" Departure="2015-06-06" RoomTypeId="7" Status="R"/>
+    <Booking Id="22366" Cont="1" Arrival="2015-06-09" Departure="2015-06-23" RoomTypeId="7" Status="R"/>
+    <Booking Id="23678" Cont="1" Arrival="2015-06-27" Departure="2015-07-04" RoomTypeId="7" Status="R"/>
+    <Booking Id="22908" Cont="1" Arrival="2015-07-18" Departure="2015-08-01" RoomTypeId="7" Status="R"/>
+    <Booking Id="22314" Cont="1" Arrival="2015-08-01" Departure="2015-08-08" RoomTypeId="7" Status="R"/>
+    <Booking Id="22029" Cont="1" Arrival="2015-08-15" Departure="2015-08-30" RoomTypeId="7" Status="R"/>
+    <Booking Id="22439" Cont="1" Arrival="2015-08-30" Departure="2015-09-06" RoomTypeId="7" Status="R"/>
+    <Booking Id="22119" Cont="1" Arrival="2015-09-15" Departure="2015-09-20" RoomTypeId="7" Status="R"/>
+    <Booking Id="22365" Cont="1" Arrival="2015-09-20" Departure="2015-10-04" RoomTypeId="7" Status="R"/>
+    <Booking Id="22524" Cont="1" Arrival="2015-10-10" Departure="2015-10-17" RoomTypeId="7" Status="R"/>
+    <Booking Id="22201" Cont="1" Arrival="2015-10-17" Departure="2015-10-24" RoomTypeId="7" Status="R"/>
+    <Booking Id="22574" Cont="1" Arrival="2015-10-24" Departure="2015-10-31" RoomTypeId="7" Status="R"/>
+  </Hotel>
+  <Hotel Id="346" Name="Rafal Catalina">
+    <Booking Id="23342" Cont="1" Arrival="2015-05-07" Departure="2015-05-13" RoomTypeId="4" Status="R"/>
+    <Booking Id="23096" Cont="1" Arrival="2015-07-13" Departure="2015-07-19" RoomTypeId="4" Status="R"/>
+    <Booking Id="23056" Cont="1" Arrival="2015-08-01" Departure="2015-08-15" RoomTypeId="4" Status="R"/>
+    <Booking Id="23563" Cont="1" Arrival="2015-08-21" Departure="2015-08-28" RoomTypeId="4" Status="R"/>
+    <Booking Id="22928" Cont="1" Arrival="2015-08-28" Departure="2015-09-11" RoomTypeId="4" Status="R"/>
+  </Hotel>
+  <Hotel Id="347" Name="Alzina">
+    <Booking Id="23118" Cont="1" Arrival="2015-04-26" Departure="2015-05-03" RoomTypeId="4" Status="R"/>
+    <Booking Id="22864" Cont="1" Arrival="2015-05-12" Departure="2015-05-18" RoomTypeId="4" Status="R"/>
+    <Booking Id="22603" Cont="1" Arrival="2015-05-22" Departure="2015-05-30" RoomTypeId="4" Status="R"/>
+    <Booking Id="23527" Cont="1" Arrival="2015-05-30" Departure="2015-06-06" RoomTypeId="4" Status="R"/>
+    <Booking Id="22963" Cont="1" Arrival="2015-06-06" Departure="2015-06-14" RoomTypeId="4" Status="R"/>
+    <Booking Id="23247" Cont="1" Arrival="2015-06-17" Departure="2015-06-27" RoomTypeId="4" Status="R"/>
+    <Booking Id="21765" Cont="1" Arrival="2015-07-04" Departure="2015-07-11" RoomTypeId="4" Status="R"/>
+    <Booking Id="21766" Cont="1" Arrival="2015-07-11" Departure="2015-07-18" RoomTypeId="4" Status="R"/>
+    <Booking Id="21767" Cont="1" Arrival="2015-07-18" Departure="2015-07-25" RoomTypeId="4" Status="R"/>
+    <Booking Id="22688" Cont="1" Arrival="2015-07-25" Departure="2015-08-01" RoomTypeId="4" Status="R"/>
+    <Booking Id="22689" Cont="1" Arrival="2015-08-01" Departure="2015-08-08" RoomTypeId="4" Status="R"/>
+    <Booking Id="22690" Cont="1" Arrival="2015-08-08" Departure="2015-08-15" RoomTypeId="4" Status="R"/>
+    <Booking Id="22691" Cont="1" Arrival="2015-08-15" Departure="2015-08-22" RoomTypeId="4" Status="R"/>
+    <Booking Id="22353" Cont="1" Arrival="2015-08-23" Departure="2015-09-04" RoomTypeId="4" Status="R"/>
+    <Booking Id="22384" Cont="1" Arrival="2015-09-04" Departure="2015-09-18" RoomTypeId="4" Status="R"/>
+    <Booking Id="21511" Cont="1" Arrival="2015-09-19" Departure="2015-09-26" RoomTypeId="4" Status="R"/>
+    <Booking Id="22224" Cont="1" Arrival="2015-09-26" Departure="2015-10-03" RoomTypeId="4" Status="R"/>
+    <Booking Id="23120" Cont="1" Arrival="2015-10-07" Departure="2015-10-12" RoomTypeId="4" Status="R"/>
+    <Booking Id="22432" Cont="1" Arrival="2015-10-17" Departure="2015-10-31" RoomTypeId="4" Status="R"/>
+  </Hotel>
+  <Hotel Id="348" Name="Jaume">
+    <Booking Id="22567" Cont="1" Arrival="2015-03-29" Departure="2015-04-12" RoomTypeId="9" Status="R"/>
+    <Booking Id="23445" Cont="1" Arrival="2015-05-26" Departure="2015-06-04" RoomTypeId="9" Status="R"/>
+    <Booking Id="22466" Cont="1" Arrival="2015-06-07" Departure="2015-06-22" RoomTypeId="9" Status="R"/>
+    <Booking Id="23022" Cont="1" Arrival="2015-07-11" Departure="2015-07-21" RoomTypeId="9" Status="R"/>
+    <Booking Id="22675" Cont="1" Arrival="2015-07-25" Departure="2015-08-01" RoomTypeId="9" Status="R"/>
+    <Booking Id="22676" Cont="1" Arrival="2015-08-01" Departure="2015-08-08" RoomTypeId="9" Status="R"/>
+    <Booking Id="22677" Cont="1" Arrival="2015-08-08" Departure="2015-08-15" RoomTypeId="9" Status="R"/>
+    <Booking Id="22678" Cont="1" Arrival="2015-08-15" Departure="2015-08-22" RoomTypeId="9" Status="R"/>
+    <Booking Id="23287" Cont="1" Arrival="2015-08-22" Departure="2015-08-29" RoomTypeId="9" Status="R"/>
+    <Booking Id="22926" Cont="1" Arrival="2015-09-04" Departure="2015-09-18" RoomTypeId="9" Status="R"/>
+    <Booking Id="22772" Cont="1" Arrival="2015-09-21" Departure="2015-10-05" RoomTypeId="9" Status="R"/>
+  </Hotel>
+  <Hotel Id="349" Name="Lluch">
+    <Booking Id="22712" Cont="1" Arrival="2015-05-04" Departure="2015-05-11" RoomTypeId="1" Status="R"/>
+    <Booking Id="21602" Cont="1" Arrival="2015-05-22" Departure="2015-05-29" RoomTypeId="1" Status="R"/>
+    <Booking Id="22416" Cont="1" Arrival="2015-05-30" Departure="2015-06-03" RoomTypeId="1" Status="R"/>
+    <Booking Id="22468" Cont="1" Arrival="2015-06-03" Departure="2015-06-07" RoomTypeId="1" Status="R"/>
+    <Booking Id="21795" Cont="1" Arrival="2015-06-09" Departure="2015-06-16" RoomTypeId="1" Status="R"/>
+    <Booking Id="22599" Cont="1" Arrival="2015-06-16" Departure="2015-06-27" RoomTypeId="1" Status="R"/>
+    <Booking Id="23198" Cont="1" Arrival="2015-09-05" Departure="2015-09-15" RoomTypeId="1" Status="R"/>
+  </Hotel>
+  <Hotel Id="357" Name="Yesero">
+    <Booking Id="21953" Cont="1" Arrival="2015-05-23" Departure="2015-05-31" RoomTypeId="4" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-04-19" Departure="2015-04-28" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-12" Departure="2015-08-03" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-08" Departure="2015-08-23" RoomTypeId="4" Status="C"/>
+  </Hotel>
+  <Hotel Id="362" Name="Guillo">
+    <Booking Id="22374" Cont="1" Arrival="2015-04-30" Departure="2015-05-05" RoomTypeId="1" Status="R"/>
+    <Booking Id="21615" Cont="1" Arrival="2015-05-23" Departure="2015-05-30" RoomTypeId="1" Status="R"/>
+    <Booking Id="22342" Cont="1" Arrival="2015-06-06" Departure="2015-06-27" RoomTypeId="1" Status="R"/>
+    <Booking Id="23246" Cont="1" Arrival="2015-07-16" Departure="2015-08-01" RoomTypeId="1" Status="R"/>
+    <Booking Id="23719" Cont="1" Arrival="2015-10-03" Departure="2015-10-17" RoomTypeId="1" Status="O"/>
+    <Booking Id="0" Cont="0" Arrival="2015-04-01" Departure="2015-04-17" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-01" Departure="2015-08-15" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-09-17" Departure="2015-09-29" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-10-17" Departure="2015-11-01" RoomTypeId="1" Status="C"/>
+  </Hotel>
+  <Hotel Id="363" Name="Panada">
+    <Booking Id="23372" Cont="1" Arrival="2015-07-04" Departure="2015-07-11" RoomTypeId="4" Status="R"/>
+    <Booking Id="23373" Cont="1" Arrival="2015-07-11" Departure="2015-07-18" RoomTypeId="4" Status="R"/>
+    <Booking Id="23577" Cont="1" Arrival="2015-08-22" Departure="2015-08-29" RoomTypeId="4" Status="R"/>
+    <Booking Id="23265" Cont="1" Arrival="2015-09-01" Departure="2015-09-08" RoomTypeId="4" Status="R"/>
+    <Booking Id="23694" Cont="1" Arrival="2015-09-14" Departure="2015-09-21" RoomTypeId="4" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-25" Departure="2015-08-08" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-09-25" Departure="2015-10-04" RoomTypeId="4" Status="C"/>
+  </Hotel>
+  <Hotel Id="364" Name="Toni Pau">
+    <Booking Id="22522" Cont="1" Arrival="2015-03-26" Departure="2015-04-11" RoomTypeId="1" Status="R"/>
+    <Booking Id="22280" Cont="1" Arrival="2015-04-26" Departure="2015-05-09" RoomTypeId="1" Status="R"/>
+    <Booking Id="22515" Cont="1" Arrival="2015-05-11" Departure="2015-05-21" RoomTypeId="1" Status="R"/>
+    <Booking Id="22030" Cont="1" Arrival="2015-05-24" Departure="2015-06-05" RoomTypeId="1" Status="R"/>
+    <Booking Id="22583" Cont="1" Arrival="2015-06-06" Departure="2015-06-13" RoomTypeId="1" Status="R"/>
+    <Booking Id="22584" Cont="1" Arrival="2015-06-13" Departure="2015-06-20" RoomTypeId="1" Status="R"/>
+    <Booking Id="21687" Cont="1" Arrival="2015-07-04" Departure="2015-07-11" RoomTypeId="1" Status="R"/>
+    <Booking Id="21736" Cont="1" Arrival="2015-07-11" Departure="2015-07-18" RoomTypeId="1" Status="R"/>
+    <Booking Id="22509" Cont="1" Arrival="2015-07-25" Departure="2015-08-01" RoomTypeId="1" Status="R"/>
+    <Booking Id="23306" Cont="1" Arrival="2015-08-01" Departure="2015-08-08" RoomTypeId="1" Status="R"/>
+    <Booking Id="21853" Cont="1" Arrival="2015-08-15" Departure="2015-08-22" RoomTypeId="1" Status="R"/>
+    <Booking Id="21854" Cont="1" Arrival="2015-08-22" Departure="2015-08-29" RoomTypeId="1" Status="R"/>
+    <Booking Id="22383" Cont="1" Arrival="2015-08-29" Departure="2015-09-05" RoomTypeId="1" Status="R"/>
+    <Booking Id="23331" Cont="1" Arrival="2015-09-05" Departure="2015-09-12" RoomTypeId="1" Status="R"/>
+    <Booking Id="22517" Cont="1" Arrival="2015-09-12" Departure="2015-09-19" RoomTypeId="1" Status="R"/>
+    <Booking Id="23039" Cont="1" Arrival="2015-09-24" Departure="2015-10-08" RoomTypeId="1" Status="R"/>
+    <Booking Id="22826" Cont="1" Arrival="2015-10-17" Departure="2015-10-31" RoomTypeId="1" Status="R"/>
+  </Hotel>
+  <Hotel Id="369" Name="Pedro Monjo">
+    <Booking Id="23258" Cont="1" Arrival="2015-03-31" Departure="2015-04-10" RoomTypeId="9" Status="R"/>
+    <Booking Id="23043" Cont="1" Arrival="2015-04-15" Departure="2015-04-29" RoomTypeId="9" Status="R"/>
+    <Booking Id="23187" Cont="1" Arrival="2015-05-22" Departure="2015-05-31" RoomTypeId="9" Status="R"/>
+    <Booking Id="22210" Cont="1" Arrival="2015-08-08" Departure="2015-08-18" RoomTypeId="9" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-11" Departure="2015-08-08" RoomTypeId="9" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-29" Departure="2015-09-13" RoomTypeId="9" Status="C"/>
+  </Hotel>
+  <Hotel Id="378" Name="Piedra">
+    <Booking Id="23075" Cont="1" Arrival="2015-04-03" Departure="2015-04-10" RoomTypeId="4" Status="R"/>
+    <Booking Id="22525" Cont="1" Arrival="2015-04-17" Departure="2015-04-26" RoomTypeId="4" Status="R"/>
+    <Booking Id="22412" Cont="1" Arrival="2015-04-30" Departure="2015-05-10" RoomTypeId="4" Status="R"/>
+    <Booking Id="22334" Cont="1" Arrival="2015-05-23" Departure="2015-05-30" RoomTypeId="4" Status="R"/>
+    <Booking Id="22781" Cont="1" Arrival="2015-05-30" Departure="2015-06-06" RoomTypeId="4" Status="R"/>
+    <Booking Id="23356" Cont="1" Arrival="2015-06-13" Departure="2015-06-27" RoomTypeId="4" Status="R"/>
+    <Booking Id="22440" Cont="1" Arrival="2015-07-04" Departure="2015-07-11" RoomTypeId="4" Status="R"/>
+    <Booking Id="22442" Cont="1" Arrival="2015-07-11" Departure="2015-07-18" RoomTypeId="4" Status="R"/>
+    <Booking Id="23362" Cont="1" Arrival="2015-07-18" Departure="2015-07-25" RoomTypeId="4" Status="R"/>
+    <Booking Id="22069" Cont="1" Arrival="2015-07-25" Departure="2015-08-01" RoomTypeId="4" Status="R"/>
+    <Booking Id="23109" Cont="1" Arrival="2015-08-01" Departure="2015-08-08" RoomTypeId="4" Status="R"/>
+    <Booking Id="22203" Cont="1" Arrival="2015-08-08" Departure="2015-08-15" RoomTypeId="4" Status="R"/>
+    <Booking Id="22204" Cont="1" Arrival="2015-08-15" Departure="2015-08-22" RoomTypeId="4" Status="R"/>
+    <Booking Id="22785" Cont="1" Arrival="2015-08-23" Departure="2015-08-30" RoomTypeId="4" Status="R"/>
+    <Booking Id="22159" Cont="1" Arrival="2015-09-07" Departure="2015-09-25" RoomTypeId="4" Status="R"/>
+    <Booking Id="22320" Cont="1" Arrival="2015-10-01" Departure="2015-10-15" RoomTypeId="4" Status="R"/>
+  </Hotel>
+  <Hotel Id="381" Name="Tirana">
+    <Booking Id="22232" Cont="1" Arrival="2015-04-19" Departure="2015-04-29" RoomTypeId="4" Status="R"/>
+    <Booking Id="23323" Cont="1" Arrival="2015-05-11" Departure="2015-05-19" RoomTypeId="4" Status="R"/>
+    <Booking Id="23334" Cont="1" Arrival="2015-05-20" Departure="2015-06-03" RoomTypeId="4" Status="R"/>
+    <Booking Id="22877" Cont="1" Arrival="2015-06-05" Departure="2015-06-19" RoomTypeId="4" Status="R"/>
+    <Booking Id="23669" Cont="1" Arrival="2015-06-19" Departure="2015-07-03" RoomTypeId="4" Status="O"/>
+    <Booking Id="22827" Cont="1" Arrival="2015-07-05" Departure="2015-07-16" RoomTypeId="4" Status="R"/>
+    <Booking Id="23568" Cont="1" Arrival="2015-07-23" Departure="2015-08-06" RoomTypeId="4" Status="R"/>
+    <Booking Id="23667" Cont="1" Arrival="2015-08-08" Departure="2015-08-22" RoomTypeId="4" Status="O"/>
+  </Hotel>
+  <Hotel Id="392" Name="Piquetes">
+    <Booking Id="0" Cont="0" Arrival="2015-05-10" Departure="2015-05-17" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-05-18" Departure="2015-05-29" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-06-11" Departure="2015-07-07" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-18" Departure="2015-08-22" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-28" Departure="2015-09-12" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-09-19" Departure="2015-09-26" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-10-05" Departure="2015-10-15" RoomTypeId="4" Status="C"/>
+  </Hotel>
+  <Hotel Id="395" Name="Pep">
+    <Booking Id="22570" Cont="1" Arrival="2015-06-13" Departure="2015-06-20" RoomTypeId="7" Status="R"/>
+    <Booking Id="21447" Cont="1" Arrival="2015-07-06" Departure="2015-07-27" RoomTypeId="7" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-03-22" Departure="2015-03-29" RoomTypeId="7" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-05-17" Departure="2015-05-25" RoomTypeId="7" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-06-20" Departure="2015-06-28" RoomTypeId="7" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-02" Departure="2015-08-27" RoomTypeId="7" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-09-01" Departure="2015-09-17" RoomTypeId="7" Status="C"/>
+  </Hotel>
+  <Hotel Id="398" Name="Punxa">
+    <Booking Id="22103" Cont="1" Arrival="2015-03-29" Departure="2015-04-05" RoomTypeId="4" Status="R"/>
+    <Booking Id="22327" Cont="1" Arrival="2015-04-05" Departure="2015-04-12" RoomTypeId="4" Status="R"/>
+    <Booking Id="22708" Cont="1" Arrival="2015-04-18" Departure="2015-04-25" RoomTypeId="4" Status="R"/>
+    <Booking Id="23032" Cont="1" Arrival="2015-04-25" Departure="2015-05-09" RoomTypeId="4" Status="R"/>
+    <Booking Id="21919" Cont="1" Arrival="2015-05-23" Departure="2015-05-30" RoomTypeId="4" Status="R"/>
+    <Booking Id="23443" Cont="1" Arrival="2015-06-05" Departure="2015-06-13" RoomTypeId="4" Status="R"/>
+    <Booking Id="22619" Cont="1" Arrival="2015-06-21" Departure="2015-06-28" RoomTypeId="4" Status="R"/>
+    <Booking Id="23087" Cont="1" Arrival="2015-06-28" Departure="2015-07-11" RoomTypeId="4" Status="R"/>
+    <Booking Id="22340" Cont="1" Arrival="2015-07-11" Departure="2015-07-18" RoomTypeId="4" Status="R"/>
+    <Booking Id="21744" Cont="1" Arrival="2015-07-25" Departure="2015-08-01" RoomTypeId="4" Status="R"/>
+    <Booking Id="21745" Cont="1" Arrival="2015-08-01" Departure="2015-08-08" RoomTypeId="4" Status="R"/>
+    <Booking Id="23236" Cont="1" Arrival="2015-08-08" Departure="2015-08-15" RoomTypeId="4" Status="R"/>
+    <Booking Id="23237" Cont="1" Arrival="2015-08-15" Departure="2015-08-22" RoomTypeId="4" Status="R"/>
+    <Booking Id="22696" Cont="1" Arrival="2015-08-25" Departure="2015-09-03" RoomTypeId="4" Status="R"/>
+    <Booking Id="23004" Cont="1" Arrival="2015-09-03" Departure="2015-09-10" RoomTypeId="4" Status="R"/>
+    <Booking Id="23121" Cont="1" Arrival="2015-09-12" Departure="2015-09-26" RoomTypeId="4" Status="R"/>
+    <Booking Id="23150" Cont="1" Arrival="2015-09-26" Departure="2015-10-16" RoomTypeId="4" Status="R"/>
+    <Booking Id="22409" Cont="1" Arrival="2015-10-18" Departure="2015-10-25" RoomTypeId="4" Status="R"/>
+  </Hotel>
+  <Hotel Id="399" Name="Paulina">
+    <Booking Id="21925" Cont="1" Arrival="2015-04-04" Departure="2015-04-11" RoomTypeId="9" Status="R"/>
+    <Booking Id="23051" Cont="1" Arrival="2015-04-19" Departure="2015-04-26" RoomTypeId="9" Status="R"/>
+    <Booking Id="23113" Cont="1" Arrival="2015-05-06" Departure="2015-05-10" RoomTypeId="9" Status="R"/>
+    <Booking Id="23476" Cont="1" Arrival="2015-05-14" Departure="2015-05-18" RoomTypeId="9" Status="R"/>
+    <Booking Id="22778" Cont="1" Arrival="2015-05-24" Departure="2015-05-31" RoomTypeId="9" Status="R"/>
+    <Booking Id="23691" Cont="1" Arrival="2015-06-08" Departure="2015-06-18" RoomTypeId="9" Status="O"/>
+    <Booking Id="23186" Cont="1" Arrival="2015-06-30" Departure="2015-07-07" RoomTypeId="9" Status="R"/>
+    <Booking Id="22222" Cont="1" Arrival="2015-07-07" Departure="2015-07-17" RoomTypeId="9" Status="R"/>
+    <Booking Id="22626" Cont="1" Arrival="2015-07-25" Departure="2015-08-04" RoomTypeId="9" Status="R"/>
+    <Booking Id="23425" Cont="1" Arrival="2015-08-04" Departure="2015-08-14" RoomTypeId="9" Status="R"/>
+    <Booking Id="21880" Cont="1" Arrival="2015-08-16" Departure="2015-08-23" RoomTypeId="9" Status="R"/>
+    <Booking Id="22834" Cont="1" Arrival="2015-08-30" Departure="2015-09-08" RoomTypeId="9" Status="R"/>
+  </Hotel>
+  <Hotel Id="400" Name="Encinares Cala">
+    <Booking Id="22217" Cont="1" Arrival="2015-05-08" Departure="2015-05-22" RoomTypeId="4" Status="R"/>
+    <Booking Id="21966" Cont="1" Arrival="2015-05-25" Departure="2015-06-01" RoomTypeId="4" Status="R"/>
+    <Booking Id="22375" Cont="1" Arrival="2015-06-06" Departure="2015-06-13" RoomTypeId="4" Status="R"/>
+    <Booking Id="23457" Cont="1" Arrival="2015-07-11" Departure="2015-07-18" RoomTypeId="4" Status="R"/>
+    <Booking Id="23453" Cont="1" Arrival="2015-07-19" Departure="2015-07-29" RoomTypeId="4" Status="R"/>
+    <Booking Id="22823" Cont="1" Arrival="2015-08-02" Departure="2015-08-09" RoomTypeId="4" Status="R"/>
+    <Booking Id="23665" Cont="1" Arrival="2015-08-09" Departure="2015-08-18" RoomTypeId="4" Status="R"/>
+    <Booking Id="22863" Cont="1" Arrival="2015-08-18" Departure="2015-08-25" RoomTypeId="4" Status="R"/>
+    <Booking Id="23479" Cont="1" Arrival="2015-08-25" Departure="2015-09-01" RoomTypeId="4" Status="R"/>
+    <Booking Id="22026" Cont="1" Arrival="2015-09-05" Departure="2015-09-13" RoomTypeId="4" Status="R"/>
+  </Hotel>
+  <Hotel Id="406" Name="Camp Redo">
+    <Booking Id="22700" Cont="1" Arrival="2015-03-14" Departure="2015-03-21" RoomTypeId="4" Status="R"/>
+    <Booking Id="23042" Cont="1" Arrival="2015-03-21" Departure="2015-03-29" RoomTypeId="4" Status="R"/>
+    <Booking Id="21814" Cont="1" Arrival="2015-03-31" Departure="2015-04-14" RoomTypeId="4" Status="R"/>
+    <Booking Id="23210" Cont="1" Arrival="2015-04-18" Departure="2015-05-02" RoomTypeId="4" Status="R"/>
+    <Booking Id="22510" Cont="1" Arrival="2015-05-05" Departure="2015-05-12" RoomTypeId="4" Status="R"/>
+    <Booking Id="22284" Cont="1" Arrival="2015-05-15" Departure="2015-05-29" RoomTypeId="4" Status="R"/>
+    <Booking Id="21282" Cont="1" Arrival="2015-06-02" Departure="2015-06-16" RoomTypeId="4" Status="R"/>
+    <Booking Id="22873" Cont="1" Arrival="2015-06-20" Departure="2015-06-27" RoomTypeId="4" Status="R"/>
+    <Booking Id="23418" Cont="1" Arrival="2015-06-27" Departure="2015-07-04" RoomTypeId="4" Status="R"/>
+    <Booking Id="22261" Cont="1" Arrival="2015-07-04" Departure="2015-07-11" RoomTypeId="4" Status="R"/>
+    <Booking Id="22262" Cont="1" Arrival="2015-07-11" Departure="2015-07-18" RoomTypeId="4" Status="R"/>
+    <Booking Id="22629" Cont="1" Arrival="2015-07-18" Departure="2015-07-25" RoomTypeId="4" Status="R"/>
+    <Booking Id="22630" Cont="1" Arrival="2015-07-25" Departure="2015-08-01" RoomTypeId="4" Status="R"/>
+    <Booking Id="22982" Cont="1" Arrival="2015-08-01" Departure="2015-08-08" RoomTypeId="4" Status="R"/>
+    <Booking Id="23482" Cont="1" Arrival="2015-08-08" Departure="2015-08-15" RoomTypeId="4" Status="R"/>
+    <Booking Id="23481" Cont="1" Arrival="2015-08-15" Departure="2015-08-22" RoomTypeId="4" Status="R"/>
+    <Booking Id="22190" Cont="1" Arrival="2015-08-22" Departure="2015-08-29" RoomTypeId="4" Status="R"/>
+    <Booking Id="21408" Cont="1" Arrival="2015-09-05" Departure="2015-09-12" RoomTypeId="4" Status="R"/>
+    <Booking Id="20435" Cont="1" Arrival="2015-09-17" Departure="2015-10-01" RoomTypeId="4" Status="R"/>
+    <Booking Id="21537" Cont="1" Arrival="2015-10-03" Departure="2015-10-10" RoomTypeId="4" Status="R"/>
+    <Booking Id="20429" Cont="1" Arrival="2015-10-16" Departure="2015-10-23" RoomTypeId="4" Status="R"/>
+    <Booking Id="23438" Cont="1" Arrival="2015-10-24" Departure="2015-10-31" RoomTypeId="4" Status="R"/>
+  </Hotel>
+  <Hotel Id="407" Name="Catalina Petit">
+    <Booking Id="22290" Cont="1" Arrival="2015-03-31" Departure="2015-04-08" RoomTypeId="9" Status="R"/>
+    <Booking Id="22216" Cont="1" Arrival="2015-05-09" Departure="2015-05-16" RoomTypeId="9" Status="R"/>
+    <Booking Id="22124" Cont="1" Arrival="2015-05-19" Departure="2015-05-30" RoomTypeId="9" Status="R"/>
+    <Booking Id="22333" Cont="1" Arrival="2015-06-02" Departure="2015-06-09" RoomTypeId="9" Status="R"/>
+    <Booking Id="23416" Cont="1" Arrival="2015-06-09" Departure="2015-06-16" RoomTypeId="9" Status="R"/>
+    <Booking Id="21793" Cont="1" Arrival="2015-06-20" Departure="2015-06-27" RoomTypeId="9" Status="R"/>
+    <Booking Id="21794" Cont="1" Arrival="2015-06-27" Departure="2015-07-04" RoomTypeId="9" Status="R"/>
+    <Booking Id="22899" Cont="1" Arrival="2015-07-04" Departure="2015-07-11" RoomTypeId="9" Status="R"/>
+    <Booking Id="22900" Cont="1" Arrival="2015-07-11" Departure="2015-07-18" RoomTypeId="9" Status="R"/>
+    <Booking Id="23178" Cont="1" Arrival="2015-07-18" Departure="2015-07-25" RoomTypeId="9" Status="R"/>
+    <Booking Id="22916" Cont="1" Arrival="2015-07-25" Departure="2015-08-01" RoomTypeId="9" Status="R"/>
+    <Booking Id="22917" Cont="1" Arrival="2015-08-01" Departure="2015-08-08" RoomTypeId="9" Status="R"/>
+    <Booking Id="22768" Cont="1" Arrival="2015-08-08" Departure="2015-08-15" RoomTypeId="9" Status="R"/>
+    <Booking Id="23282" Cont="1" Arrival="2015-08-15" Departure="2015-08-22" RoomTypeId="9" Status="R"/>
+    <Booking Id="21963" Cont="1" Arrival="2015-08-22" Departure="2015-08-29" RoomTypeId="9" Status="R"/>
+    <Booking Id="22325" Cont="1" Arrival="2015-09-05" Departure="2015-09-12" RoomTypeId="9" Status="R"/>
+    <Booking Id="21906" Cont="1" Arrival="2015-09-12" Departure="2015-09-22" RoomTypeId="9" Status="R"/>
+    <Booking Id="23174" Cont="1" Arrival="2015-09-26" Departure="2015-10-06" RoomTypeId="9" Status="R"/>
+    <Booking Id="23710" Cont="1" Arrival="2015-10-07" Departure="2015-10-14" RoomTypeId="9" Status="O"/>
+  </Hotel>
+  <Hotel Id="408" Name="Esperanza">
+    <Booking Id="22560" Cont="1" Arrival="2015-03-29" Departure="2015-04-03" RoomTypeId="1" Status="R"/>
+    <Booking Id="21942" Cont="1" Arrival="2015-04-03" Departure="2015-04-17" RoomTypeId="1" Status="R"/>
+    <Booking Id="23069" Cont="1" Arrival="2015-04-30" Departure="2015-05-12" RoomTypeId="1" Status="R"/>
+    <Booking Id="22813" Cont="1" Arrival="2015-05-23" Departure="2015-05-30" RoomTypeId="1" Status="R"/>
+    <Booking Id="22901" Cont="1" Arrival="2015-05-26" Departure="2015-06-02" RoomTypeId="1" Status="R"/>
+    <Booking Id="22364" Cont="1" Arrival="2015-06-06" Departure="2015-06-20" RoomTypeId="1" Status="R"/>
+    <Booking Id="22484" Cont="1" Arrival="2015-07-18" Departure="2015-07-25" RoomTypeId="1" Status="R"/>
+    <Booking Id="23413" Cont="1" Arrival="2015-07-25" Departure="2015-08-01" RoomTypeId="1" Status="R"/>
+    <Booking Id="22783" Cont="1" Arrival="2015-08-22" Departure="2015-08-29" RoomTypeId="1" Status="R"/>
+    <Booking Id="22940" Cont="1" Arrival="2015-09-05" Departure="2015-09-12" RoomTypeId="1" Status="R"/>
+    <Booking Id="22228" Cont="1" Arrival="2015-09-12" Departure="2015-09-18" RoomTypeId="1" Status="R"/>
+    <Booking Id="22396" Cont="1" Arrival="2015-09-19" Departure="2015-10-03" RoomTypeId="1" Status="R"/>
+    <Booking Id="22315" Cont="1" Arrival="2015-10-03" Departure="2015-10-17" RoomTypeId="1" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-06-27" Departure="2015-07-17" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-01" Departure="2015-08-21" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-10-20" Departure="2015-10-27" RoomTypeId="1" Status="C"/>
+  </Hotel>
+  <Hotel Id="414" Name="Castello">
+    <Booking Id="22267" Cont="1" Arrival="2015-04-25" Departure="2015-05-02" RoomTypeId="9" Status="R"/>
+    <Booking Id="23201" Cont="1" Arrival="2015-05-27" Departure="2015-06-06" RoomTypeId="9" Status="R"/>
+    <Booking Id="22294" Cont="1" Arrival="2015-06-27" Departure="2015-07-04" RoomTypeId="9" Status="R"/>
+    <Booking Id="23698" Cont="1" Arrival="2015-07-11" Departure="2015-07-18" RoomTypeId="9" Status="R"/>
+    <Booking Id="22547" Cont="1" Arrival="2015-08-03" Departure="2015-08-21" RoomTypeId="9" Status="R"/>
+    <Booking Id="23098" Cont="1" Arrival="2015-09-04" Departure="2015-09-19" RoomTypeId="9" Status="R"/>
+  </Hotel>
+  <Hotel Id="416" Name="Estades Gran">
+    <Booking Id="23604" Cont="1" Arrival="2015-05-19" Departure="2015-05-24" RoomTypeId="1" Status="R"/>
+    <Booking Id="23552" Cont="1" Arrival="2015-06-07" Departure="2015-06-14" RoomTypeId="1" Status="R"/>
+    <Booking Id="22422" Cont="1" Arrival="2015-06-27" Departure="2015-07-04" RoomTypeId="1" Status="R"/>
+    <Booking Id="22423" Cont="1" Arrival="2015-07-04" Departure="2015-07-11" RoomTypeId="1" Status="R"/>
+    <Booking Id="23399" Cont="1" Arrival="2015-07-11" Departure="2015-07-18" RoomTypeId="1" Status="R"/>
+    <Booking Id="23400" Cont="1" Arrival="2015-07-18" Departure="2015-07-25" RoomTypeId="1" Status="R"/>
+    <Booking Id="22684" Cont="1" Arrival="2015-07-25" Departure="2015-08-01" RoomTypeId="1" Status="R"/>
+    <Booking Id="22685" Cont="1" Arrival="2015-08-01" Departure="2015-08-08" RoomTypeId="1" Status="R"/>
+    <Booking Id="21882" Cont="1" Arrival="2015-08-08" Departure="2015-08-15" RoomTypeId="1" Status="R"/>
+    <Booking Id="21883" Cont="1" Arrival="2015-08-15" Departure="2015-08-22" RoomTypeId="1" Status="R"/>
+    <Booking Id="22686" Cont="1" Arrival="2015-08-22" Departure="2015-08-29" RoomTypeId="1" Status="R"/>
+    <Booking Id="23695" Cont="1" Arrival="2015-09-12" Departure="2015-09-19" RoomTypeId="1" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-05-02" Departure="2015-05-07" RoomTypeId="1" Status="C"/>
+  </Hotel>
+  <Hotel Id="417" Name="Estades Petit">
+    <Booking Id="21950" Cont="1" Arrival="2015-03-29" Departure="2015-04-05" RoomTypeId="4" Status="R"/>
+    <Booking Id="21729" Cont="1" Arrival="2015-05-16" Departure="2015-05-26" RoomTypeId="4" Status="R"/>
+    <Booking Id="21527" Cont="1" Arrival="2015-06-27" Departure="2015-07-04" RoomTypeId="4" Status="R"/>
+    <Booking Id="21528" Cont="1" Arrival="2015-07-04" Departure="2015-07-11" RoomTypeId="4" Status="R"/>
+    <Booking Id="21684" Cont="1" Arrival="2015-07-25" Departure="2015-08-01" RoomTypeId="4" Status="R"/>
+    <Booking Id="21685" Cont="1" Arrival="2015-08-01" Departure="2015-08-08" RoomTypeId="4" Status="R"/>
+    <Booking Id="21944" Cont="1" Arrival="2015-08-08" Departure="2015-08-15" RoomTypeId="4" Status="R"/>
+    <Booking Id="21945" Cont="1" Arrival="2015-08-15" Departure="2015-08-22" RoomTypeId="4" Status="R"/>
+    <Booking Id="22683" Cont="1" Arrival="2015-08-22" Departure="2015-08-29" RoomTypeId="4" Status="R"/>
+    <Booking Id="22500" Cont="1" Arrival="2015-09-05" Departure="2015-09-12" RoomTypeId="4" Status="R"/>
+    <Booking Id="23722" Cont="1" Arrival="2015-09-12" Departure="2015-09-22" RoomTypeId="4" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-03-01" Departure="2015-03-11" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-03-21" Departure="2015-03-29" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-04-08" Departure="2015-04-16" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-04-25" Departure="2015-05-04" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-06-03" Departure="2015-06-22" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-11" Departure="2015-07-25" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-09-26" Departure="2015-10-10" RoomTypeId="4" Status="C"/>
+  </Hotel>
+  <Hotel Id="424" Name="Varella">
+    <Booking Id="23390" Cont="1" Arrival="2015-04-07" Departure="2015-04-16" RoomTypeId="4" Status="R"/>
+    <Booking Id="22089" Cont="1" Arrival="2015-05-09" Departure="2015-05-23" RoomTypeId="4" Status="R"/>
+    <Booking Id="22761" Cont="1" Arrival="2015-05-24" Departure="2015-06-06" RoomTypeId="4" Status="R"/>
+    <Booking Id="23602" Cont="1" Arrival="2015-06-06" Departure="2015-06-16" RoomTypeId="4" Status="R"/>
+    <Booking Id="22188" Cont="1" Arrival="2015-06-16" Departure="2015-06-23" RoomTypeId="4" Status="R"/>
+    <Booking Id="22669" Cont="1" Arrival="2015-06-29" Departure="2015-07-06" RoomTypeId="4" Status="R"/>
+    <Booking Id="22260" Cont="1" Arrival="2015-07-14" Departure="2015-07-28" RoomTypeId="4" Status="R"/>
+    <Booking Id="22028" Cont="1" Arrival="2015-07-28" Departure="2015-08-04" RoomTypeId="4" Status="R"/>
+    <Booking Id="22332" Cont="1" Arrival="2015-08-11" Departure="2015-08-18" RoomTypeId="4" Status="R"/>
+    <Booking Id="21826" Cont="1" Arrival="2015-08-18" Departure="2015-08-28" RoomTypeId="4" Status="R"/>
+    <Booking Id="22513" Cont="1" Arrival="2015-08-29" Departure="2015-09-12" RoomTypeId="4" Status="R"/>
+    <Booking Id="22463" Cont="1" Arrival="2015-09-13" Departure="2015-09-23" RoomTypeId="4" Status="R"/>
+    <Booking Id="22192" Cont="1" Arrival="2015-09-27" Departure="2015-10-09" RoomTypeId="4" Status="R"/>
+    <Booking Id="23676" Cont="1" Arrival="2015-10-11" Departure="2015-10-18" RoomTypeId="4" Status="O"/>
+  </Hotel>
+  <Hotel Id="425" Name="Guillonet">
+    <Booking Id="23271" Cont="1" Arrival="2015-03-20" Departure="2015-03-28" RoomTypeId="17" Status="R"/>
+    <Booking Id="22875" Cont="1" Arrival="2015-04-02" Departure="2015-04-10" RoomTypeId="17" Status="R"/>
+    <Booking Id="23348" Cont="1" Arrival="2015-06-01" Departure="2015-06-12" RoomTypeId="17" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-04-10" Departure="2015-04-17" RoomTypeId="17" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-04-30" Departure="2015-05-31" RoomTypeId="17" Status="C"/>
+  </Hotel>
+  <Hotel Id="427" Name="Cozza">
+    <Booking Id="22606" Cont="1" Arrival="2015-05-16" Departure="2015-05-23" RoomTypeId="15" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-04-01" Departure="2015-04-10" RoomTypeId="15" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-04-18" Departure="2015-05-02" RoomTypeId="15" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-05-09" Departure="2015-05-16" RoomTypeId="15" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-05-26" Departure="2015-06-05" RoomTypeId="15" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-06-20" Departure="2015-06-26" RoomTypeId="15" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-18" Departure="2015-08-15" RoomTypeId="15" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-22" Departure="2015-08-29" RoomTypeId="15" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-09-05" Departure="2015-09-26" RoomTypeId="15" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-10-02" Departure="2015-10-22" RoomTypeId="15" Status="C"/>
+  </Hotel>
+  <Hotel Id="428" Name="Geroni">
+    <Booking Id="22930" Cont="1" Arrival="2015-04-04" Departure="2015-04-12" RoomTypeId="4" Status="R"/>
+    <Booking Id="23452" Cont="1" Arrival="2015-04-24" Departure="2015-05-01" RoomTypeId="4" Status="R"/>
+    <Booking Id="23583" Cont="1" Arrival="2015-05-02" Departure="2015-05-09" RoomTypeId="4" Status="R"/>
+    <Booking Id="22756" Cont="1" Arrival="2015-05-16" Departure="2015-05-22" RoomTypeId="4" Status="R"/>
+    <Booking Id="21591" Cont="1" Arrival="2015-05-23" Departure="2015-05-30" RoomTypeId="4" Status="R"/>
+    <Booking Id="23234" Cont="1" Arrival="2015-05-30" Departure="2015-06-06" RoomTypeId="4" Status="R"/>
+    <Booking Id="22929" Cont="1" Arrival="2015-06-13" Departure="2015-06-20" RoomTypeId="4" Status="R"/>
+    <Booking Id="23369" Cont="1" Arrival="2015-06-20" Departure="2015-06-27" RoomTypeId="4" Status="R"/>
+    <Booking Id="22862" Cont="1" Arrival="2015-06-27" Departure="2015-07-09" RoomTypeId="4" Status="R"/>
+    <Booking Id="23119" Cont="1" Arrival="2015-07-11" Departure="2015-07-18" RoomTypeId="4" Status="R"/>
+    <Booking Id="23564" Cont="1" Arrival="2015-07-18" Departure="2015-07-23" RoomTypeId="4" Status="R"/>
+    <Booking Id="22868" Cont="1" Arrival="2015-07-26" Departure="2015-08-05" RoomTypeId="4" Status="R"/>
+    <Booking Id="23026" Cont="1" Arrival="2015-08-15" Departure="2015-08-22" RoomTypeId="4" Status="R"/>
+    <Booking Id="22231" Cont="1" Arrival="2015-08-22" Departure="2015-09-03" RoomTypeId="4" Status="R"/>
+    <Booking Id="22385" Cont="1" Arrival="2015-09-06" Departure="2015-09-18" RoomTypeId="4" Status="R"/>
+    <Booking Id="22836" Cont="1" Arrival="2015-09-23" Departure="2015-10-03" RoomTypeId="4" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-05-09" Departure="2015-05-12" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-08" Departure="2015-08-11" RoomTypeId="4" Status="C"/>
+  </Hotel>
+  <Hotel Id="429" Name="Teo">
+    <Booking Id="23165" Cont="1" Arrival="2015-05-18" Departure="2015-05-30" RoomTypeId="4" Status="R"/>
+    <Booking Id="23408" Cont="1" Arrival="2015-06-01" Departure="2015-06-15" RoomTypeId="4" Status="R"/>
+    <Booking Id="23488" Cont="1" Arrival="2015-10-10" Departure="2015-10-17" RoomTypeId="4" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-22" Departure="2015-08-23" RoomTypeId="4" Status="C"/>
+  </Hotel>
+  <Hotel Id="430" Name="Boquer">
+    <Booking Id="23639" Cont="1" Arrival="2015-04-23" Departure="2015-04-30" RoomTypeId="4" Status="R"/>
+    <Booking Id="23675" Cont="1" Arrival="2015-05-19" Departure="2015-06-09" RoomTypeId="4" Status="R"/>
+    <Booking Id="23448" Cont="1" Arrival="2015-06-22" Departure="2015-07-02" RoomTypeId="4" Status="R"/>
+    <Booking Id="22330" Cont="1" Arrival="2015-07-09" Departure="2015-07-23" RoomTypeId="4" Status="R"/>
+    <Booking Id="23497" Cont="1" Arrival="2015-07-26" Departure="2015-08-02" RoomTypeId="4" Status="R"/>
+    <Booking Id="23065" Cont="1" Arrival="2015-08-08" Departure="2015-08-22" RoomTypeId="4" Status="R"/>
+  </Hotel>
+  <Hotel Id="440" Name="Tango">
+    <Booking Id="23337" Cont="1" Arrival="2015-06-06" Departure="2015-06-11" RoomTypeId="4" Status="R"/>
+    <Booking Id="23651" Cont="1" Arrival="2015-06-11" Departure="2015-06-16" RoomTypeId="4" Status="R"/>
+    <Booking Id="22902" Cont="1" Arrival="2015-07-24" Departure="2015-08-01" RoomTypeId="4" Status="R"/>
+    <Booking Id="23597" Cont="1" Arrival="2015-08-25" Departure="2015-09-02" RoomTypeId="4" Status="R"/>
+    <Booking Id="23012" Cont="1" Arrival="2015-10-06" Departure="2015-10-15" RoomTypeId="4" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-04-08" Departure="2015-04-12" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-04-15" Departure="2015-04-22" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-05-24" Departure="2015-06-06" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-06-21" Departure="2015-07-24" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-07" Departure="2015-08-22" RoomTypeId="4" Status="C"/>
+  </Hotel>
+  <Hotel Id="443" Name="Petit Moli">
+    <Booking Id="22628" Cont="1" Arrival="2015-05-23" Departure="2015-05-30" RoomTypeId="9" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-05-09" Departure="2015-05-16" RoomTypeId="9" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-05-30" Departure="2015-06-20" RoomTypeId="9" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-25" Departure="2015-08-01" RoomTypeId="9" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-08" Departure="2015-08-15" RoomTypeId="9" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-29" Departure="2015-09-19" RoomTypeId="9" Status="C"/>
+  </Hotel>
+  <Hotel Id="447" Name="Magraner Catalina">
+    <Booking Id="21912" Cont="1" Arrival="2015-04-22" Departure="2015-04-27" RoomTypeId="4" Status="R"/>
+    <Booking Id="23084" Cont="1" Arrival="2015-05-16" Departure="2015-05-20" RoomTypeId="4" Status="R"/>
+    <Booking Id="22633" Cont="1" Arrival="2015-05-24" Departure="2015-05-31" RoomTypeId="4" Status="R"/>
+    <Booking Id="22397" Cont="1" Arrival="2015-06-04" Departure="2015-06-18" RoomTypeId="4" Status="R"/>
+    <Booking Id="21548" Cont="1" Arrival="2015-07-11" Departure="2015-07-18" RoomTypeId="4" Status="R"/>
+    <Booking Id="21549" Cont="1" Arrival="2015-07-18" Departure="2015-07-25" RoomTypeId="4" Status="R"/>
+    <Booking Id="23013" Cont="1" Arrival="2015-07-25" Departure="2015-08-01" RoomTypeId="4" Status="R"/>
+    <Booking Id="23006" Cont="1" Arrival="2015-08-01" Departure="2015-08-08" RoomTypeId="4" Status="R"/>
+    <Booking Id="23007" Cont="1" Arrival="2015-08-08" Departure="2015-08-15" RoomTypeId="4" Status="R"/>
+    <Booking Id="21884" Cont="1" Arrival="2015-08-15" Departure="2015-08-22" RoomTypeId="4" Status="R"/>
+    <Booking Id="21885" Cont="1" Arrival="2015-08-22" Departure="2015-08-29" RoomTypeId="4" Status="R"/>
+    <Booking Id="21994" Cont="1" Arrival="2015-08-29" Departure="2015-09-09" RoomTypeId="4" Status="R"/>
+    <Booking Id="23326" Cont="1" Arrival="2015-09-17" Departure="2015-09-26" RoomTypeId="4" Status="R"/>
+    <Booking Id="22907" Cont="1" Arrival="2015-10-02" Departure="2015-10-13" RoomTypeId="4" Status="R"/>
+  </Hotel>
+  <Hotel Id="448" Name="Salve">
+    <Booking Id="22615" Cont="1" Arrival="2015-06-16" Departure="2015-06-21" RoomTypeId="4" Status="R"/>
+    <Booking Id="22404" Cont="1" Arrival="2015-07-04" Departure="2015-07-11" RoomTypeId="4" Status="R"/>
+    <Booking Id="22405" Cont="1" Arrival="2015-07-11" Departure="2015-07-18" RoomTypeId="4" Status="R"/>
+    <Booking Id="23367" Cont="1" Arrival="2015-07-18" Departure="2015-07-25" RoomTypeId="4" Status="R"/>
+    <Booking Id="23368" Cont="1" Arrival="2015-07-25" Departure="2015-08-01" RoomTypeId="4" Status="R"/>
+    <Booking Id="22850" Cont="1" Arrival="2015-08-01" Departure="2015-08-08" RoomTypeId="4" Status="R"/>
+    <Booking Id="22851" Cont="1" Arrival="2015-08-08" Departure="2015-08-15" RoomTypeId="4" Status="R"/>
+    <Booking Id="21669" Cont="1" Arrival="2015-08-15" Departure="2015-08-22" RoomTypeId="4" Status="R"/>
+    <Booking Id="21670" Cont="1" Arrival="2015-08-22" Departure="2015-08-29" RoomTypeId="4" Status="R"/>
+    <Booking Id="22066" Cont="1" Arrival="2015-09-05" Departure="2015-09-12" RoomTypeId="4" Status="R"/>
+    <Booking Id="22867" Cont="1" Arrival="2015-09-12" Departure="2015-09-19" RoomTypeId="4" Status="R"/>
+    <Booking Id="23067" Cont="1" Arrival="2015-10-03" Departure="2015-10-17" RoomTypeId="4" Status="R"/>
+  </Hotel>
+  <Hotel Id="449" Name="Nadal">
+    <Booking Id="22631" Cont="1" Arrival="2015-03-30" Departure="2015-04-12" RoomTypeId="1" Status="R"/>
+    <Booking Id="23420" Cont="1" Arrival="2015-06-20" Departure="2015-06-27" RoomTypeId="1" Status="R"/>
+    <Booking Id="23477" Cont="1" Arrival="2015-08-15" Departure="2015-08-29" RoomTypeId="1" Status="R"/>
+    <Booking Id="23515" Cont="1" Arrival="2015-09-07" Departure="2015-09-16" RoomTypeId="1" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-04-25" Departure="2015-05-09" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-05-24" Departure="2015-06-01" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-06-10" Departure="2015-06-20" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-04" Departure="2015-08-14" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-10-03" Departure="2015-10-12" RoomTypeId="1" Status="C"/>
+  </Hotel>
+  <Hotel Id="453" Name="Sol Llenaire">
+    <Booking Id="22091" Cont="1" Arrival="2015-05-02" Departure="2015-05-10" RoomTypeId="4" Status="R"/>
+    <Booking Id="23136" Cont="1" Arrival="2015-07-07" Departure="2015-07-14" RoomTypeId="4" Status="R"/>
+    <Booking Id="23596" Cont="1" Arrival="2015-07-14" Departure="2015-07-24" RoomTypeId="4" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-05-26" Departure="2015-06-03" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-25" Departure="2015-08-22" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-09-05" Departure="2015-09-19" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-09-24" Departure="2015-10-01" RoomTypeId="4" Status="C"/>
+  </Hotel>
+  <Hotel Id="454" Name="Jardin">
+    <Booking Id="0" Cont="0" Arrival="2015-03-28" Departure="2015-04-09" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-04-18" Departure="2015-04-26" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-05-02" Departure="2015-06-13" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-06-20" Departure="2015-07-12" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-19" Departure="2015-09-05" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-09-13" Departure="2015-10-11" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-10-17" Departure="2015-10-25" RoomTypeId="1" Status="C"/>
+  </Hotel>
+  <Hotel Id="455" Name="Socies">
+    <Booking Id="0" Cont="0" Arrival="2015-06-24" Departure="2015-07-27" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-28" Departure="2015-08-13" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-14" Departure="2015-09-19" RoomTypeId="4" Status="C"/>
+  </Hotel>
+  <Hotel Id="460" Name="Ivana">
+    <Booking Id="23280" Cont="1" Arrival="2015-05-23" Departure="2015-05-30" RoomTypeId="7" Status="R"/>
+    <Booking Id="22624" Cont="1" Arrival="2015-05-30" Departure="2015-06-04" RoomTypeId="7" Status="R"/>
+    <Booking Id="23038" Cont="1" Arrival="2015-07-12" Departure="2015-07-18" RoomTypeId="7" Status="R"/>
+    <Booking Id="23718" Cont="1" Arrival="2015-07-18" Departure="2015-08-01" RoomTypeId="7" Status="O"/>
+    <Booking Id="23518" Cont="1" Arrival="2015-08-01" Departure="2015-08-15" RoomTypeId="7" Status="O"/>
+    <Booking Id="23197" Cont="1" Arrival="2015-08-15" Departure="2015-08-29" RoomTypeId="7" Status="R"/>
+    <Booking Id="23207" Cont="1" Arrival="2015-09-07" Departure="2015-09-14" RoomTypeId="7" Status="R"/>
+    <Booking Id="23023" Cont="1" Arrival="2015-09-19" Departure="2015-09-26" RoomTypeId="7" Status="R"/>
+    <Booking Id="22620" Cont="1" Arrival="2015-09-27" Departure="2015-10-04" RoomTypeId="7" Status="R"/>
+  </Hotel>
+  <Hotel Id="461" Name="Albis">
+    <Booking Id="23696" Cont="1" Arrival="2015-08-01" Departure="2015-08-15" RoomTypeId="4" Status="O"/>
+    <Booking Id="22970" Cont="1" Arrival="2015-09-03" Departure="2015-09-17" RoomTypeId="4" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-05-27" Departure="2015-06-07" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-06-16" Departure="2015-06-28" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-05" Departure="2015-07-22" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-15" Departure="2015-09-03" RoomTypeId="4" Status="C"/>
+  </Hotel>
+  <Hotel Id="470" Name="Voramar 2F"/>
+  <Hotel Id="471" Name="Voramar 2H"/>
+  <Hotel Id="479" Name="Martina">
+    <Booking Id="0" Cont="0" Arrival="2015-04-01" Departure="2015-04-29" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-01" Departure="2015-07-14" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-15" Departure="2015-07-23" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-24" Departure="2015-08-16" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-17" Departure="2015-08-24" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-09-20" Departure="2015-09-29" RoomTypeId="4" Status="C"/>
+  </Hotel>
+  <Hotel Id="482" Name="Bahia">
+    <Booking Id="23489" Cont="1" Arrival="2015-04-13" Departure="2015-04-20" RoomTypeId="4" Status="R"/>
+    <Booking Id="22254" Cont="1" Arrival="2015-04-20" Departure="2015-04-25" RoomTypeId="4" Status="R"/>
+    <Booking Id="21954" Cont="1" Arrival="2015-04-27" Departure="2015-05-18" RoomTypeId="4" Status="R"/>
+    <Booking Id="23259" Cont="1" Arrival="2015-05-18" Departure="2015-05-23" RoomTypeId="4" Status="R"/>
+    <Booking Id="22225" Cont="1" Arrival="2015-05-27" Departure="2015-06-03" RoomTypeId="4" Status="R"/>
+    <Booking Id="22838" Cont="1" Arrival="2015-06-21" Departure="2015-07-05" RoomTypeId="4" Status="R"/>
+    <Booking Id="22406" Cont="1" Arrival="2015-07-10" Departure="2015-07-16" RoomTypeId="4" Status="R"/>
+    <Booking Id="22828" Cont="1" Arrival="2015-10-03" Departure="2015-10-11" RoomTypeId="4" Status="R"/>
+    <Booking Id="23560" Cont="1" Arrival="2015-10-17" Departure="2015-10-24" RoomTypeId="4" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-08" Departure="2015-08-29" RoomTypeId="4" Status="C"/>
+  </Hotel>
+  <Hotel Id="487" Name="Hostalet">
+    <Booking Id="23386" Cont="1" Arrival="2015-03-28" Departure="2015-04-04" RoomTypeId="1" Status="R"/>
+    <Booking Id="23492" Cont="1" Arrival="2015-04-04" Departure="2015-04-11" RoomTypeId="1" Status="R"/>
+    <Booking Id="23053" Cont="1" Arrival="2015-05-09" Departure="2015-05-16" RoomTypeId="1" Status="R"/>
+    <Booking Id="22221" Cont="1" Arrival="2015-06-06" Departure="2015-06-13" RoomTypeId="1" Status="R"/>
+    <Booking Id="23305" Cont="1" Arrival="2015-06-13" Departure="2015-06-20" RoomTypeId="1" Status="R"/>
+    <Booking Id="23419" Cont="1" Arrival="2015-06-27" Departure="2015-07-04" RoomTypeId="1" Status="R"/>
+    <Booking Id="21863" Cont="1" Arrival="2015-07-04" Departure="2015-07-11" RoomTypeId="1" Status="R"/>
+    <Booking Id="21864" Cont="1" Arrival="2015-07-11" Departure="2015-07-18" RoomTypeId="1" Status="R"/>
+    <Booking Id="21842" Cont="1" Arrival="2015-07-25" Departure="2015-08-01" RoomTypeId="1" Status="R"/>
+    <Booking Id="21843" Cont="1" Arrival="2015-08-01" Departure="2015-08-08" RoomTypeId="1" Status="R"/>
+    <Booking Id="21844" Cont="1" Arrival="2015-08-08" Departure="2015-08-15" RoomTypeId="1" Status="R"/>
+    <Booking Id="22087" Cont="1" Arrival="2015-08-22" Departure="2015-08-29" RoomTypeId="1" Status="R"/>
+    <Booking Id="22840" Cont="1" Arrival="2015-08-29" Departure="2015-09-05" RoomTypeId="1" Status="R"/>
+    <Booking Id="22841" Cont="1" Arrival="2015-09-05" Departure="2015-09-12" RoomTypeId="1" Status="R"/>
+    <Booking Id="23554" Cont="1" Arrival="2015-10-10" Departure="2015-10-17" RoomTypeId="1" Status="R"/>
+    <Booking Id="23555" Cont="1" Arrival="2015-10-17" Departure="2015-10-24" RoomTypeId="1" Status="R"/>
+  </Hotel>
+  <Hotel Id="488" Name="Llop">
+    <Booking Id="22561" Cont="1" Arrival="2015-10-17" Departure="2015-10-24" RoomTypeId="1" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-03-26" Departure="2015-04-14" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-04-30" Departure="2015-05-03" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-05-13" Departure="2015-05-17" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-05" Departure="2015-09-14" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-10-24" Departure="2015-11-09" RoomTypeId="1" Status="C"/>
+  </Hotel>
+  <Hotel Id="491" Name="Carratxet">
+    <Booking Id="22040" Cont="1" Arrival="2015-05-30" Departure="2015-06-06" RoomTypeId="4" Status="R"/>
+    <Booking Id="22041" Cont="1" Arrival="2015-06-06" Departure="2015-06-13" RoomTypeId="4" Status="R"/>
+    <Booking Id="22053" Cont="1" Arrival="2015-06-13" Departure="2015-06-20" RoomTypeId="4" Status="R"/>
+    <Booking Id="23122" Cont="1" Arrival="2015-06-20" Departure="2015-06-27" RoomTypeId="4" Status="R"/>
+    <Booking Id="23123" Cont="1" Arrival="2015-06-27" Departure="2015-07-04" RoomTypeId="4" Status="R"/>
+    <Booking Id="23456" Cont="1" Arrival="2015-10-03" Departure="2015-10-17" RoomTypeId="4" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-05-08" Departure="2015-05-15" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-05-19" Departure="2015-05-27" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-05" Departure="2015-07-18" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-27" Departure="2015-08-17" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-29" Departure="2015-09-12" RoomTypeId="4" Status="C"/>
+  </Hotel>
+  <Hotel Id="492" Name="Virolla">
+    <Booking Id="23582" Cont="1" Arrival="2015-09-12" Departure="2015-09-26" RoomTypeId="1" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-06-27" Departure="2015-07-11" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-24" Departure="2015-08-07" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-19" Departure="2015-08-26" RoomTypeId="1" Status="C"/>
+  </Hotel>
+  <Hotel Id="493" Name="Magraner Paquita">
+    <Booking Id="23008" Cont="1" Arrival="2015-05-10" Departure="2015-05-17" RoomTypeId="9" Status="R"/>
+    <Booking Id="23535" Cont="1" Arrival="2015-06-20" Departure="2015-06-27" RoomTypeId="9" Status="R"/>
+    <Booking Id="23536" Cont="1" Arrival="2015-06-27" Departure="2015-07-04" RoomTypeId="9" Status="R"/>
+    <Booking Id="22501" Cont="1" Arrival="2015-07-04" Departure="2015-07-11" RoomTypeId="9" Status="R"/>
+    <Booking Id="22502" Cont="1" Arrival="2015-07-11" Departure="2015-07-18" RoomTypeId="9" Status="R"/>
+    <Booking Id="23208" Cont="1" Arrival="2015-07-25" Departure="2015-08-01" RoomTypeId="9" Status="R"/>
+    <Booking Id="23209" Cont="1" Arrival="2015-08-01" Departure="2015-08-08" RoomTypeId="9" Status="R"/>
+    <Booking Id="22269" Cont="1" Arrival="2015-08-22" Departure="2015-08-29" RoomTypeId="9" Status="R"/>
+    <Booking Id="22270" Cont="1" Arrival="2015-08-29" Departure="2015-09-05" RoomTypeId="9" Status="R"/>
+    <Booking Id="22025" Cont="1" Arrival="2015-09-05" Departure="2015-09-12" RoomTypeId="9" Status="R"/>
+    <Booking Id="22800" Cont="1" Arrival="2015-09-15" Departure="2015-09-28" RoomTypeId="9" Status="R"/>
+  </Hotel>
+  <Hotel Id="494" Name="Guaita">
+    <Booking Id="23233" Cont="1" Arrival="2015-05-30" Departure="2015-06-13" RoomTypeId="9" Status="R"/>
+    <Booking Id="21232" Cont="1" Arrival="2015-08-29" Departure="2015-09-12" RoomTypeId="9" Status="R"/>
+    <Booking Id="23018" Cont="1" Arrival="2015-09-16" Departure="2015-09-30" RoomTypeId="9" Status="R"/>
+  </Hotel>
+  <Hotel Id="495" Name="Tauro"/>
+  <Hotel Id="497" Name="Laurel">
+    <Booking Id="22317" Cont="1" Arrival="2015-07-26" Departure="2015-08-02" RoomTypeId="1" Status="R"/>
+    <Booking Id="22687" Cont="1" Arrival="2015-08-22" Departure="2015-08-29" RoomTypeId="1" Status="R"/>
+    <Booking Id="22837" Cont="1" Arrival="2015-09-09" Departure="2015-09-19" RoomTypeId="1" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-04-04" Departure="2015-04-11" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-04-29" Departure="2015-06-26" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-06" Departure="2015-07-16" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-18" Departure="2015-07-25" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-02" Departure="2015-08-22" RoomTypeId="1" Status="C"/>
+  </Hotel>
+  <Hotel Id="498" Name="Mitja Pla">
+    <Booking Id="22064" Cont="1" Arrival="2015-03-06" Departure="2015-03-11" RoomTypeId="7" Status="R"/>
+    <Booking Id="23643" Cont="1" Arrival="2015-03-26" Departure="2015-04-02" RoomTypeId="7" Status="R"/>
+    <Booking Id="21849" Cont="1" Arrival="2015-04-02" Departure="2015-04-12" RoomTypeId="7" Status="R"/>
+    <Booking Id="22843" Cont="1" Arrival="2015-04-13" Departure="2015-04-18" RoomTypeId="7" Status="R"/>
+    <Booking Id="22882" Cont="1" Arrival="2015-04-21" Departure="2015-04-26" RoomTypeId="7" Status="R"/>
+    <Booking Id="23680" Cont="1" Arrival="2015-04-30" Departure="2015-05-05" RoomTypeId="7" Status="R"/>
+    <Booking Id="22306" Cont="1" Arrival="2015-05-10" Departure="2015-05-17" RoomTypeId="7" Status="R"/>
+    <Booking Id="22453" Cont="1" Arrival="2015-05-23" Departure="2015-05-30" RoomTypeId="7" Status="R"/>
+    <Booking Id="23222" Cont="1" Arrival="2015-06-05" Departure="2015-06-10" RoomTypeId="7" Status="R"/>
+    <Booking Id="23395" Cont="1" Arrival="2015-06-10" Departure="2015-06-18" RoomTypeId="7" Status="R"/>
+    <Booking Id="22170" Cont="1" Arrival="2015-07-04" Departure="2015-07-11" RoomTypeId="7" Status="R"/>
+    <Booking Id="23717" Cont="1" Arrival="2015-07-11" Departure="2015-07-26" RoomTypeId="7" Status="O"/>
+    <Booking Id="22213" Cont="1" Arrival="2015-07-26" Departure="2015-08-06" RoomTypeId="7" Status="R"/>
+    <Booking Id="22529" Cont="1" Arrival="2015-08-09" Departure="2015-08-16" RoomTypeId="7" Status="R"/>
+    <Booking Id="23702" Cont="1" Arrival="2015-08-16" Departure="2015-08-23" RoomTypeId="7" Status="O"/>
+    <Booking Id="23148" Cont="1" Arrival="2015-08-24" Departure="2015-08-31" RoomTypeId="7" Status="R"/>
+    <Booking Id="22175" Cont="1" Arrival="2015-08-31" Departure="2015-09-10" RoomTypeId="7" Status="R"/>
+    <Booking Id="22391" Cont="1" Arrival="2015-09-13" Departure="2015-09-23" RoomTypeId="7" Status="R"/>
+    <Booking Id="22605" Cont="1" Arrival="2015-09-23" Departure="2015-09-30" RoomTypeId="7" Status="R"/>
+    <Booking Id="23494" Cont="1" Arrival="2015-09-30" Departure="2015-10-08" RoomTypeId="7" Status="R"/>
+    <Booking Id="22592" Cont="1" Arrival="2015-10-08" Departure="2015-10-22" RoomTypeId="7" Status="R"/>
+  </Hotel>
+  <Hotel Id="499" Name="Servera">
+    <Booking Id="23041" Cont="1" Arrival="2015-04-02" Departure="2015-04-07" RoomTypeId="9" Status="R"/>
+    <Booking Id="23105" Cont="1" Arrival="2015-05-24" Departure="2015-06-05" RoomTypeId="9" Status="R"/>
+    <Booking Id="23451" Cont="1" Arrival="2015-06-20" Departure="2015-06-27" RoomTypeId="9" Status="R"/>
+    <Booking Id="23211" Cont="1" Arrival="2015-06-27" Departure="2015-07-11" RoomTypeId="9" Status="R"/>
+    <Booking Id="23714" Cont="1" Arrival="2015-07-27" Departure="2015-08-10" RoomTypeId="9" Status="O"/>
+    <Booking Id="23574" Cont="1" Arrival="2015-08-10" Departure="2015-08-21" RoomTypeId="9" Status="R"/>
+    <Booking Id="23571" Cont="1" Arrival="2015-09-01" Departure="2015-09-06" RoomTypeId="9" Status="R"/>
+    <Booking Id="23104" Cont="1" Arrival="2015-09-07" Departure="2015-09-14" RoomTypeId="9" Status="R"/>
+    <Booking Id="23020" Cont="1" Arrival="2015-10-03" Departure="2015-10-17" RoomTypeId="9" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-04-30" Departure="2015-05-03" RoomTypeId="9" Status="C"/>
+  </Hotel>
+  <Hotel Id="500" Name="Putxet"/>
+  <Hotel Id="501" Name="Cactus">
+    <Booking Id="22707" Cont="1" Arrival="2015-05-01" Departure="2015-05-08" RoomTypeId="7" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-06" Departure="2015-07-13" RoomTypeId="7" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-25" Departure="2015-08-13" RoomTypeId="7" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-25" Departure="2015-09-01" RoomTypeId="7" Status="C"/>
+  </Hotel>
+  <Hotel Id="502" Name="Magic">
+    <Booking Id="22879" Cont="1" Arrival="2015-03-28" Departure="2015-04-04" RoomTypeId="4" Status="R"/>
+    <Booking Id="22966" Cont="1" Arrival="2015-09-15" Departure="2015-09-22" RoomTypeId="4" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-03-21" Departure="2015-03-28" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-04-04" Departure="2015-05-01" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-05-05" Departure="2015-05-12" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-06-22" Departure="2015-07-07" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-08" Departure="2015-07-22" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-01" Departure="2015-08-16" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-10-01" Departure="2015-10-31" RoomTypeId="4" Status="C"/>
+  </Hotel>
+  <Hotel Id="503" Name="Tamarells">
+    <Booking Id="0" Cont="0" Arrival="2015-07-19" Departure="2015-08-22" RoomTypeId="9" Status="C"/>
+  </Hotel>
+  <Hotel Id="505" Name="Angels">
+    <Booking Id="22425" Cont="1" Arrival="2015-05-09" Departure="2015-05-16" RoomTypeId="1" Status="R"/>
+    <Booking Id="23090" Cont="1" Arrival="2015-06-02" Departure="2015-06-16" RoomTypeId="1" Status="R"/>
+    <Booking Id="23706" Cont="1" Arrival="2015-07-17" Departure="2015-08-07" RoomTypeId="1" Status="O"/>
+    <Booking Id="23163" Cont="1" Arrival="2015-08-12" Departure="2015-08-27" RoomTypeId="1" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-03-28" Departure="2015-05-01" RoomTypeId="1" Status="C"/>
+  </Hotel>
+  <Hotel Id="507" Name="Gruta"/>
+  <Hotel Id="509" Name="Pescador">
+    <Booking Id="23249" Cont="1" Arrival="2015-05-02" Departure="2015-05-09" RoomTypeId="9" Status="R"/>
+    <Booking Id="22427" Cont="1" Arrival="2015-05-09" Departure="2015-05-16" RoomTypeId="9" Status="R"/>
+    <Booking Id="23218" Cont="1" Arrival="2015-07-08" Departure="2015-07-15" RoomTypeId="9" Status="R"/>
+    <Booking Id="23252" Cont="1" Arrival="2015-08-22" Departure="2015-08-28" RoomTypeId="9" Status="R"/>
+    <Booking Id="23102" Cont="1" Arrival="2015-10-03" Departure="2015-10-10" RoomTypeId="9" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-21" Departure="2015-08-04" RoomTypeId="9" Status="C"/>
+  </Hotel>
+  <Hotel Id="510" Name="Bona Vida">
+    <Booking Id="0" Cont="0" Arrival="2015-04-01" Departure="2015-04-12" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-04-18" Departure="2015-04-26" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-05-16" Departure="2015-05-31" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-06-27" Departure="2015-09-06" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-09-12" Departure="2015-09-27" RoomTypeId="4" Status="C"/>
+  </Hotel>
+  <Hotel Id="511" Name="Suari">
+    <Booking Id="22918" Cont="1" Arrival="2015-08-16" Departure="2015-08-27" RoomTypeId="1" Status="R"/>
+    <Booking Id="23426" Cont="1" Arrival="2015-09-07" Departure="2015-09-21" RoomTypeId="1" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-12" Departure="2015-07-27" RoomTypeId="1" Status="C"/>
+  </Hotel>
+  <Hotel Id="512" Name="Maria Martin">
+    <Booking Id="21940" Cont="1" Arrival="2015-05-09" Departure="2015-05-16" RoomTypeId="4" Status="R"/>
+    <Booking Id="22258" Cont="1" Arrival="2015-05-16" Departure="2015-05-27" RoomTypeId="4" Status="R"/>
+    <Booking Id="22506" Cont="1" Arrival="2015-06-04" Departure="2015-06-12" RoomTypeId="4" Status="R"/>
+    <Booking Id="22550" Cont="1" Arrival="2015-06-12" Departure="2015-06-26" RoomTypeId="4" Status="R"/>
+    <Booking Id="22154" Cont="1" Arrival="2015-06-27" Departure="2015-07-11" RoomTypeId="4" Status="R"/>
+    <Booking Id="22543" Cont="1" Arrival="2015-07-11" Departure="2015-07-18" RoomTypeId="4" Status="R"/>
+    <Booking Id="22892" Cont="1" Arrival="2015-07-25" Departure="2015-08-01" RoomTypeId="4" Status="R"/>
+    <Booking Id="22893" Cont="1" Arrival="2015-08-01" Departure="2015-08-08" RoomTypeId="4" Status="R"/>
+    <Booking Id="22894" Cont="1" Arrival="2015-08-08" Departure="2015-08-15" RoomTypeId="4" Status="R"/>
+    <Booking Id="23191" Cont="1" Arrival="2015-08-15" Departure="2015-08-22" RoomTypeId="4" Status="R"/>
+    <Booking Id="22403" Cont="1" Arrival="2015-08-26" Departure="2015-09-04" RoomTypeId="4" Status="R"/>
+    <Booking Id="22180" Cont="1" Arrival="2015-09-05" Departure="2015-09-19" RoomTypeId="4" Status="R"/>
+    <Booking Id="22702" Cont="1" Arrival="2015-09-19" Departure="2015-09-26" RoomTypeId="4" Status="R"/>
+  </Hotel>
+  <Hotel Id="515" Name="Verd">
+    <Booking Id="23099" Cont="1" Arrival="2015-06-20" Departure="2015-06-25" RoomTypeId="4" Status="R"/>
+    <Booking Id="23111" Cont="1" Arrival="2015-07-31" Departure="2015-08-07" RoomTypeId="4" Status="R"/>
+    <Booking Id="23442" Cont="1" Arrival="2015-08-21" Departure="2015-09-01" RoomTypeId="4" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-07" Departure="2015-07-21" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-07" Departure="2015-08-14" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-09-05" Departure="2015-09-26" RoomTypeId="4" Status="C"/>
+  </Hotel>
+  <Hotel Id="518" Name="Gabriel">
+    <Booking Id="23358" Cont="1" Arrival="2015-07-04" Departure="2015-07-18" RoomTypeId="1" Status="R"/>
+    <Booking Id="23357" Cont="1" Arrival="2015-07-18" Departure="2015-07-25" RoomTypeId="1" Status="R"/>
+    <Booking Id="22988" Cont="1" Arrival="2015-07-25" Departure="2015-08-04" RoomTypeId="1" Status="R"/>
+    <Booking Id="23272" Cont="1" Arrival="2015-08-08" Departure="2015-08-18" RoomTypeId="1" Status="R"/>
+    <Booking Id="22964" Cont="1" Arrival="2015-08-22" Departure="2015-08-31" RoomTypeId="1" Status="R"/>
+    <Booking Id="23097" Cont="1" Arrival="2015-09-07" Departure="2015-09-14" RoomTypeId="1" Status="R"/>
+    <Booking Id="22722" Cont="1" Arrival="2015-09-16" Departure="2015-09-25" RoomTypeId="1" Status="R"/>
+    <Booking Id="23185" Cont="1" Arrival="2015-10-08" Departure="2015-10-16" RoomTypeId="1" Status="R"/>
+  </Hotel>
+  <Hotel Id="519" Name="Aubellons">
+    <Booking Id="22728" Cont="1" Arrival="2015-03-30" Departure="2015-04-07" RoomTypeId="1" Status="R"/>
+    <Booking Id="22390" Cont="1" Arrival="2015-04-25" Departure="2015-05-02" RoomTypeId="1" Status="R"/>
+    <Booking Id="22771" Cont="1" Arrival="2015-05-17" Departure="2015-05-24" RoomTypeId="1" Status="R"/>
+    <Booking Id="22361" Cont="1" Arrival="2015-07-07" Departure="2015-07-21" RoomTypeId="1" Status="R"/>
+    <Booking Id="22646" Cont="1" Arrival="2015-07-24" Departure="2015-08-04" RoomTypeId="1" Status="R"/>
+    <Booking Id="22415" Cont="1" Arrival="2015-08-06" Departure="2015-08-20" RoomTypeId="1" Status="R"/>
+    <Booking Id="22537" Cont="1" Arrival="2015-08-22" Departure="2015-09-05" RoomTypeId="1" Status="R"/>
+    <Booking Id="23095" Cont="1" Arrival="2015-09-06" Departure="2015-09-15" RoomTypeId="1" Status="R"/>
+    <Booking Id="22762" Cont="1" Arrival="2015-09-21" Departure="2015-10-02" RoomTypeId="1" Status="R"/>
+    <Booking Id="22799" Cont="1" Arrival="2015-10-03" Departure="2015-10-17" RoomTypeId="1" Status="R"/>
+    <Booking Id="22462" Cont="1" Arrival="2015-10-19" Departure="2015-10-28" RoomTypeId="1" Status="R"/>
+  </Hotel>
+  <Hotel Id="526" Name="Selva">
+    <Booking Id="0" Cont="0" Arrival="2015-05-08" Departure="2015-05-16" RoomTypeId="9" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-05-24" Departure="2015-05-31" RoomTypeId="9" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-06-02" Departure="2015-06-19" RoomTypeId="9" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-06-21" Departure="2015-06-28" RoomTypeId="9" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-26" Departure="2015-08-02" RoomTypeId="9" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-03" Departure="2015-08-14" RoomTypeId="9" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-23" Departure="2015-09-18" RoomTypeId="9" Status="C"/>
+  </Hotel>
+  <Hotel Id="527" Name="Moll">
+    <Booking Id="23491" Cont="1" Arrival="2015-05-30" Departure="2015-06-06" RoomTypeId="9" Status="R"/>
+    <Booking Id="23352" Cont="1" Arrival="2015-08-01" Departure="2015-08-11" RoomTypeId="9" Status="R"/>
+    <Booking Id="23659" Cont="1" Arrival="2015-08-11" Departure="2015-08-23" RoomTypeId="9" Status="O"/>
+    <Booking Id="0" Cont="0" Arrival="2015-06-27" Departure="2015-07-11" RoomTypeId="9" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-20" Departure="2015-08-01" RoomTypeId="9" Status="C"/>
+  </Hotel>
+  <Hotel Id="529" Name="Amengual">
+    <Booking Id="23693" Cont="1" Arrival="2015-06-04" Departure="2015-06-07" RoomTypeId="4" Status="R"/>
+    <Booking Id="23701" Cont="1" Arrival="2015-06-14" Departure="2015-06-21" RoomTypeId="4" Status="R"/>
+    <Booking Id="23529" Cont="1" Arrival="2015-09-02" Departure="2015-09-10" RoomTypeId="4" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-03-20" Departure="2015-03-29" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-18" Departure="2015-07-25" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-01" Departure="2015-08-15" RoomTypeId="4" Status="C"/>
+  </Hotel>
+  <Hotel Id="530" Name="Sol Roma">
+    <Booking Id="22531" Cont="1" Arrival="2015-06-16" Departure="2015-06-27" RoomTypeId="4" Status="R"/>
+    <Booking Id="23649" Cont="1" Arrival="2015-07-27" Departure="2015-08-05" RoomTypeId="4" Status="R"/>
+    <Booking Id="22558" Cont="1" Arrival="2015-08-22" Departure="2015-09-05" RoomTypeId="4" Status="R"/>
+    <Booking Id="23037" Cont="1" Arrival="2015-10-17" Departure="2015-10-24" RoomTypeId="4" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-05-19" Departure="2015-06-09" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-04" Departure="2015-07-25" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-09-09" Departure="2015-10-07" RoomTypeId="4" Status="C"/>
+  </Hotel>
+  <Hotel Id="536" Name="Ros Gran">
+    <Booking Id="22429" Cont="1" Arrival="2015-06-20" Departure="2015-06-27" RoomTypeId="1" Status="R"/>
+    <Booking Id="23077" Cont="1" Arrival="2015-07-11" Departure="2015-07-18" RoomTypeId="1" Status="R"/>
+    <Booking Id="23480" Cont="1" Arrival="2015-08-29" Departure="2015-09-05" RoomTypeId="1" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-05-23" Departure="2015-05-31" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-04" Departure="2015-07-11" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-18" Departure="2015-08-29" RoomTypeId="1" Status="C"/>
+  </Hotel>
+  <Hotel Id="538" Name="Costa">
+    <Booking Id="23467" Cont="1" Arrival="2015-05-02" Departure="2015-05-09" RoomTypeId="1" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-05-23" Departure="2015-05-30" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-18" Departure="2015-08-08" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-15" Departure="2015-08-29" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-09-05" Departure="2015-09-19" RoomTypeId="1" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-10-03" Departure="2015-10-14" RoomTypeId="1" Status="C"/>
+  </Hotel>
+  <Hotel Id="539" Name="Begonia">
+    <Booking Id="23697" Cont="1" Arrival="2015-09-29" Departure="2015-10-09" RoomTypeId="4" Status="O"/>
+    <Booking Id="0" Cont="0" Arrival="2015-05-16" Departure="2015-05-30" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-11" Departure="2015-07-25" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-01" Departure="2015-08-15" RoomTypeId="4" Status="C"/>
+  </Hotel>
+  <Hotel Id="542" Name="Caimari">
+    <Booking Id="23720" Cont="1" Arrival="2015-06-04" Departure="2015-06-12" RoomTypeId="4" Status="O"/>
+    <Booking Id="23673" Cont="1" Arrival="2015-06-12" Departure="2015-06-19" RoomTypeId="4" Status="R"/>
+    <Booking Id="0" Cont="0" Arrival="2015-06-20" Departure="2015-06-30" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-07-25" Departure="2015-08-08" RoomTypeId="4" Status="C"/>
+    <Booking Id="0" Cont="0" Arrival="2015-08-09" Departure="2015-08-16" RoomTypeId="4" Status="C"/>
+  </Hotel>
+  <Error>none</Error>
+</Response>

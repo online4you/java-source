@@ -1,0 +1,8 @@
+INDEX VERSION 1.122+C:\stuff\src\pCrs\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2542416808.index
+3810703657.index
+1115576382.index
+2240594477.index
+3177940626.index
+4177516148.index
+3786346222.index

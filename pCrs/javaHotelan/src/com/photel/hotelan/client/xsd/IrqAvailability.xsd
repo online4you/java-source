@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Hotel"/>
+        <xs:element ref="Error"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Hotel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="RoomType"/>
+      </xs:sequence>
+      <xs:attribute name="Id" use="required"/>
+      <xs:attribute name="Name" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RoomType">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Month1"/>
+        <xs:element ref="Month2"/>
+        <xs:element ref="Month3"/>
+        <xs:element ref="Month4"/>
+        <xs:element ref="Month5"/>
+        <xs:element ref="Month6"/>
+        <xs:element ref="Month7"/>
+        <xs:element ref="Month8"/>
+        <xs:element ref="Month9"/>
+        <xs:element ref="Month10"/>
+        <xs:element ref="Month11"/>
+        <xs:element ref="Month12"/>
+      </xs:sequence>
+      <xs:attribute name="Description" use="required"/>
+      <xs:attribute name="Id" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Month1" type="xs:string"/>
+  <xs:element name="Month2" type="xs:string"/>
+  <xs:element name="Month3" type="xs:string"/>
+  <xs:element name="Month4" type="xs:string"/>
+  <xs:element name="Month5" type="xs:string"/>
+  <xs:element name="Month6" type="xs:string"/>
+  <xs:element name="Month7" type="xs:string"/>
+  <xs:element name="Month8" type="xs:string"/>
+  <xs:element name="Month9" type="xs:string"/>
+  <xs:element name="Month10" type="xs:string"/>
+  <xs:element name="Month11" type="xs:string"/>
+  <xs:element name="Month12" type="xs:string"/>
+  <xs:element name="Error" type="xs:string"/>
+</xs:schema>

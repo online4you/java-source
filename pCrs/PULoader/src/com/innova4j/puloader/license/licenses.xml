@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="iso-8859-2" ?>
+<LICENSES>
+  <spanish>
+  <TEXT>
+   <![CDATA[
+   <html>
+    1.- Esta aplicación es propiedad de <strong>Hotelbeds Spain, S.L.U</strong>.  Está prohibida su distribución y/o publicación.<br>
+    2.- <strong>Hotelbeds Spain, S.L.U</strong> no se hace responsable del mal uso que se le pueda dar a la aplicación.<br>
+    3.- <strong>Hotelbeds Spain, S.L.U</strong> no se hace responsable de las posibles extensiones y/o modificaciones que el cliente pueda hacer a la aplicación.<br>
+    4.- <strong>Hotelbeds Spain, S.L.U</strong> se reserva el derecho a realizar modificaciones en la aplicación.<br><br>
+    Si continúa adelante está aceptando estas condiciones legales.
+   </html>
+   ]]>
+  </TEXT>
+ </spanish> 
+  <english>
+  <TEXT>
+   <![CDATA[
+   <html>
+   The use of this application is subject to the following terms and conditions that you should read carefully.<br>
+    1.- This application is property of <strong>Hotelbeds Spain, S.L.U</strong>.  Application distribution and/or publication is prohibited.<br>
+    2.- <strong>Hotelbeds Spain, S.L.U</strong> is not responsible of application bad use.<br>
+    3.- <strong>Hotelbeds Spain, S.L.U</strong> is not responsible of application extensions or modifications done by clients.<br>
+    4.- <strong>Hotelbeds Spain, S.L.U</strong> keeps the right to do application modifications.<br><br>
+    If you do not accept these terms and conditions, please do not use this application.
+ </html>
+   ]]>
+  </TEXT>
+ </english>
+ <french>
+  <TEXT>
+   <![CDATA[
+   <html>
+   The use of this application is subject to the following terms and conditions that you should read carefully.<br>
+    1.- This application is property of <strong>Hotelbeds Spain, S.L.U</strong>.  Application distribution and/or publication is prohibited.<br>
+    2.- <strong>Hotelbeds Spain, S.L.U</strong> is not responsible of application bad use.<br>
+    3.- <strong>Hotelbeds Spain, S.L.U</strong> is not responsible of application extensions or modifications done by clients.<br>
+    4.- <strong>Hotelbeds Spain, S.L.U</strong> keeps the right to do application modifications.<br><br>
+    If you do not accept these terms and conditions, please do not use this application.
+   </html>
+   ]]>
+  </TEXT>
+ </french>
+</LICENSES>

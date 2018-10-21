@@ -1,0 +1,15 @@
+package com.photel.apps.actions.Hotelan;
+
+import com.photel.apps.actions.MainAction;
+
+public class PagoSabadell extends MainAction {
+	
+	private String merchantParameters;
+	private String merchantSignature;
+	private final String merchantSignatureVersion = "HMAC_SHA256_V1";
+	private final String merchantCurrency = "978";// euros
+	private final String merchantTransactionType = "0";
+	private final String merchantTerminal = "001";
+	private final String PATH_TO_CONFIRM ="";
+
+}

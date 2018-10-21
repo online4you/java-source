@@ -1,0 +1,79 @@
+package com.photel.hotelan;
+
+
+
+import java.io.File;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
+import com.photel.hotelan.client.HotelanClientStub;
+import com.photel.hotelan.client.IrqAvailability.IrqAvailabilityResponse;
+import com.photel.hotelan.client.IrqDestinationList.IrqDestinationListResponse;
+import com.photel.hotelan.client.IrqDestinationZoneList.IrqDestinationZoneListResponse;
+import com.photel.hotelan.client.IrqHotelBookingDates.IrqHotelBookingDatesResponse;
+import com.photel.hotelan.client.IrqHotelDetailsList.Hotel;
+import com.photel.hotelan.client.IrqHotelDetailsList.IrqHotelDetailsListResponse;
+import com.photel.hotelan.client.IrqRoomTypesList.IrqRoomTypesListResponse;
+import com.photel.hotelan.client.IrqZoneList.IrqZoneListResponse;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
+
+
+public class MainAvail {
+	private static Logger  oLog=Logger.getLogger(MainAvail.class);
+	public static void main(String[] args) throws Exception {
+		
+		HotelanFacade fac=new HotelanFacade();
+		
+		
+		
+		
+		fac.getBoards();
+		
+		
+		oLog.info("Done!!");
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		/*
+		
+		
+		
+		
+		//ObjectFactory factory=new ObjectFactory();
+		File file = new File("C:\\stuff\\P-Stuff\\pCrs\\javaHotelan\\src\\portVill.xml");
+		//JAXBContext jaxbContext = JAXBContext.newInstance(Response.class);
+ 
+		//Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+		//Response avail = (Response) jaxbUnmarshaller.unmarshal(file);
+		//System.out.println(avail);
+		
+		HotelanClientStub client = new HotelanClientStub();
+		//IrqAvailabilityResponse res = client.getIrqAvailability(null, "2015");
+		String idioma="es";
+		IrqDestinationListResponse destinationList = client.getIrqDestinationList(idioma);
+		IrqZoneListResponse zoneList = client.getIrqZoneList(idioma);
+		String destinationId="1";
+		IrqDestinationZoneListResponse destZone = client.getIrqDestinationZoneList(idioma, destinationId);
+		IrqRoomTypesListResponse roomTypes = client.getIrqRoomTypesList(idioma);
+		
+		IrqHotelDetailsListResponse hotels = client.getIrqHotelDetailsList(null, null, null, null);
+		List<Hotel> aa = hotels.getHotel();
+		IrqHotelBookingDatesResponse dates = client.getIrqHotelBookingDates(null, null, null, null);
+		
+		
+		oLog.info(dates);
+		*/
+	}
+
+}

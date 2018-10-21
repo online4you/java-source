@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Zone.java&apos; to &apos;com.photel.hotelan.client.IrqHotelDetailsList.Zone.java&apos;&#x0D;&#x0A;- Original project: &apos;javaHotelan&apos;&#x0D;&#x0A;- Destination element: &apos;com.photel.hotelan.client.IrqHotelDetailsList.Zone.java&apos;&#x0D;&#x0A;- Original element: &apos;com.photel.hotelan.client.IrqHotelDetailsList.Zone.java&apos;" description="Copy compilation unit" destination="/src&lt;com.photel.hotelan.client.IrqHotelDetailsList{Zone.java" element1="/src&lt;com.photel.hotelan.client.IrqHotelDetailsList{Zone.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1493739220280" units="1" version="1.0"/>
+</session>

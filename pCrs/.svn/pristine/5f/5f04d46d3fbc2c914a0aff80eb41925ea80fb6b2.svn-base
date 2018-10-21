@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<PARAMETERS>
+  <FTP>
+  <SERVERURL>ftp.hotelbeds.com</SERVERURL>
+  <LOGIN>TOclient</LOGIN>
+  <PASSWORD>HB2006</PASSWORD>
+  <WORKINGDIRECTORY>/ExportCSV</WORKINGDIRECTORY>
+  <FILENAME>Extended.zip</FILENAME>
+ </FTP>
+ <DATABASE>
+  <RECREATETABLES>TRUE</RECREATETABLES>
+  <MYSQLPORT>3306</MYSQLPORT>
+  <ORACLEPORT>1521</ORACLEPORT>
+  <MSSQLPORT>1433</MSSQLPORT>
+  <MSACCESSFILE>C:\PULoader\PULoader\test.mdb</MSACCESSFILE>
+ </DATABASE>
+ <PARAMS>
+  <applicationName>PULoader 1.2.4</applicationName>  
+  <dateFormat>yyyy-MM-dd</dateFormat>
+  <!-- Ejemplo... -->
+  <changeLog>Y</changeLog>  
+ </PARAMS>
+</PARAMETERS>

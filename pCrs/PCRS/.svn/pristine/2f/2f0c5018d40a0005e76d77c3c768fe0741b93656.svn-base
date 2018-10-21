@@ -1,0 +1,180 @@
+package com.photel.apps.actions.BDL;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Hashtable;
+import java.util.List;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import com.photel.apps.actions.MainAction;
+import com.photel.commonServices.util.DateTimeUtil;
+import com.photel.commonServices.util.XMLStreamUtil;
+import com.photel.data.hotelan.ddbb.hibernate.pojo.HibernateReservas;
+import com.photel.hotelan.client.IrqVillaAvailablePrice.Villa;
+import com.photel.interfaces.BDL244.IBDLCancelationPrice;
+import com.photel.interfaces.BDL244.IBDLContrato;
+import com.photel.interfaces.BDL244.IBDLDisponibilidad;
+import com.photel.interfaces.BDL244.IBDLDistribucion;
+import com.photel.interfaces.BDL244.IBDLHotel;
+import com.photel.interfaces.BDL244.IBDLPax;
+import com.photel.interfaces.BDL244.IBDLRegimen;
+import com.photel.interfaces.BDL244.IBDLRoom;
+import com.photel.interfaces.data.BDL.IBdlDestinations;
+import com.photel.interfaces.data.BDL.IBdlReservas;
+import com.photel.interfaces.model.gen.sesion.ISesion;
+
+public class RespuestaCeca extends MainAction {
+	private static final String OK_PATERN="$*$OKY$*$";
+	
+	private String num_operacion;
+	private String resultado;
+
+	@Override
+	public String executeHalconAction() throws Exception {
+		resultado=OK_PATERN;
+		//https://comercios.ceca.es
+		//079205084
+		//Francisca69
+		
+		//url:/PCRS/apps/bdl/respuestaCeca.html
+		try{
+			if (num_operacion.contains("B-")){
+				
+				num_operacion=num_operacion.split("-")[1];
+			
+			
+				IBdlReservas res = this.getReserva(Integer.parseInt(num_operacion));
+				
+				String idi=res.getBdlIdioma();
+				
+				String hotelStr=res.getBdlHotel();
+				IBDLHotel pHotel=(IBDLHotel) XMLStreamUtil.xmlLoadObject(hotelStr);
+				
+				
+				String paxes = res.getBdlPaxes();
+				List<List<String>> distribuciones=(List<List<String>>) XMLStreamUtil.xmlLoadObject(paxes);
+				
+				
+				pHotel=this.confirmarReserva(idi, num_operacion, distribuciones, pHotel);
+				
+				if (pHotel.getPurchase().getLocalizador()!=null){
+					if(pHotel.getPurchase().getLocalizador().indexOf("B-")==-1){
+						pHotel.getPurchase().setLocalizador("B-"+pHotel.getPurchase().getLocalizador());
+					}
+				}else{
+					hotelStr=XMLStreamUtil.xmlSaveObject(pHotel);
+					res.setBdlHotel(hotelStr);
+					this.setReserva(res);
+					throw new Exception("Sin localizador del proveedor");
+				}
+				res.setBdlReservaConfirmada("1");
+				hotelStr=XMLStreamUtil.xmlSaveObject(pHotel);
+				res.setBdlHotel(hotelStr);
+				res.setBdlLocata(pHotel.getPurchase().getLocalizador());
+				IBdlReservas reser2 = this.getUltimaFactura();
+				if (res.getBdlCheckFactura().equals("1")){
+					int num=0;
+					if (reser2!=null){
+						num = reser2.getBdlFacturaNumero();
+					}
+					num=num+1;
+					res.setBdlFacturaNumero(num);	
+				}
+				this.setReserva(res);
+				
+				//guillempuigros@gmail.com
+				String idioma=this.getConfigParam(idi);
+				this.sendVoucher(idioma, "", Integer.parseInt(num_operacion));
+			
+		}else if (num_operacion.contains("P-")){
+			
+			num_operacion=num_operacion.split("-")[1];
+		
+		
+			HibernateReservas res = this.service.getReservaHotelan(Integer.parseInt(num_operacion));
+			
+			String idi=res.getHlIdioma();
+			
+			String hotelStr=res.getHlHotel();
+			Villa pHotel=(Villa) XMLStreamUtil.xmlLoadObject(hotelStr);
+			
+			
+		
+			/*
+			pHotel=this.confirmarReserva(idi, num_operacion, distribuciones, pHotel);
+			
+			if (pHotel.getPurchase().getLocalizador()!=null){
+				if(pHotel.getPurchase().getLocalizador().indexOf("B-")==-1){
+					pHotel.getPurchase().setLocalizador("B-"+pHotel.getPurchase().getLocalizador());
+				}
+			}else{
+				hotelStr=XMLStreamUtil.xmlSaveObject(pHotel);
+				res.setBdlHotel(hotelStr);
+				this.setReserva(res);
+				throw new Exception("Sin localizador del proveedor");
+			}
+			*/
+			res.setHlReservaConfirmada("1");
+			hotelStr=XMLStreamUtil.xmlSaveObject(pHotel);
+			res.setHlHotel(hotelStr);
+			//res.setBdlLocata(pHotel.getPurchase().getLocalizador());
+			HibernateReservas reser2 = this.service.getUltimaFacturaHotelan();
+			if (res.getHlCheckFactura().equals("1")){
+				int num=0;
+				if (reser2!=null){
+					num = reser2.getHlFacturaNumero();
+				}
+				num=num+1;
+				res.setHlFacturaNumero(num);	
+			}
+			this.service.setReservaHotelan(res);
+			
+			//guillempuigros@gmail.com
+			this.service.sendVoucherHotelan(idi, "", Integer.parseInt(num_operacion));
+		
+	}
+			
+			
+		}catch (Exception e){
+			
+			e.printStackTrace();
+			StackTraceElement[] trace = e.getStackTrace();
+			resultado="KO\n\n";
+			resultado+=e.getClass()+": "+e.getMessage()+ "\n";
+			for (int i=0; i < trace.length; i++)
+				resultado+="\tat " + trace[i]+"\n";
+		}
+		
+		return SUCCESS;
+	}
+
+
+	public String getNum_operacion() {
+		return num_operacion;
+	}
+
+
+	public void setNum_operacion(String num_operacion) {
+		this.num_operacion = num_operacion;
+	}
+
+
+	public String getResultado() {
+		return resultado;
+	}
+
+
+	public void setResultado(String resultado) {
+		this.resultado = resultado;
+	}
+	
+	
+	
+
+	
+}

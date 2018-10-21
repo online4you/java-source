@@ -1,0 +1,96 @@
+package com.photel.model;
+
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Hashtable;
+import java.util.List;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import com.photel.commonServices.util.DateTimeUtil;
+import com.photel.commonServices.util.XMLStreamUtil;
+import com.photel.interfaces.BDL244.IBDLDisponibilidad;
+import com.photel.interfaces.BDL244.IBDLDistribucion;
+import com.photel.interfaces.BDL244.IBDLFactory244;
+import com.photel.interfaces.BDL244.IBDLHotel;
+import com.photel.interfaces.data.BDL.IBdlReservas;
+import com.photel.interfaces.data.gen.IGenBanners01;
+import com.photel.mail.facade.test.Billetes;
+import com.photel.mail.facade.test.User;
+import com.photel.webserviceClient.BDL244.BDLFactory244;
+
+public class Main {
+
+	/**
+	 * @param args
+	 * @throws Exception 
+	 */
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
+		PCRSModel bdl = new PCRSModel();
+		IBdlReservas res = bdl.getReserva(189);
+	
+		String idi=res.getBdlIdioma();
+
+		IBdlReservas reser2 = bdl.getUltimaFactura();
+		if (res.getBdlCheckFactura().equals("1")){
+			int num=0;
+			if (reser2!=null){
+				num = reser2.getBdlFacturaNumero();
+			}
+			num=num+1;
+			res.setBdlFacturaNumero(num);	
+		}
+		bdl.setReserva(res);
+		
+		
+		
+		String idioma=bdl.getGenConfig().get(idi);
+		bdl.sendVoucher(idioma, "", 189);
+		
+		
+		
+		IBDLHotel hote = bdl.getHotel("100", "CAS");
+		
+		
+		
+		ArrayList<IGenBanners01> bann = bdl.getBanners01("en");
+		String ret=bdl.getVoucher("es","2",17);
+		//String result = bdl.sendTemplate(null,"voucherTPV","any", att,"Reservado!!!", "guillempuigros@gmail.com",null,"guillermo.puigros@globalia-sistemas.com", "reservas@online4you.es");
+		System.out.println(ret);
+		String result = bdl.sendVoucher("es","2",17);
+		
+		System.out.println(ret);
+		
+		System.out.println("Done!!");
+	}
+	
+	public static String formatDate(GregorianCalendar date){
+		String ret=null;
+        try { 
+        	String month = String.valueOf(date.get(Calendar.MONTH)+1);
+        	String day = String.valueOf(date.get(Calendar.DAY_OF_MONTH));
+        	if (month.length()==1){month="0"+month;}
+        	if (day.length()==1){day="0"+day;}
+        	ret= day+"/"+month+"/"+String.valueOf(date.get(Calendar.YEAR));
+        } catch (Exception e) { 
+            return null;} 
+		return ret;
+	}
+	
+	public static String twoDecimalFormat(Double dbl){
+		BigDecimal d=new BigDecimal(dbl);
+		DecimalFormat df = new DecimalFormat("#,###0.00");
+		DecimalFormatSymbols decimal = new DecimalFormatSymbols();
+		decimal.setDecimalSeparator(',');
+		df.setDecimalFormatSymbols(decimal);
+		String n = df.format(d);
+		return df.format(d);
+	}
+
+}

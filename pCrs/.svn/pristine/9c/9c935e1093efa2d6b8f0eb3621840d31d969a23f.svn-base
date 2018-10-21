@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.photel.mail.data.ddbb.hibernate.pojo">
+	<class
+		name="GenMailTemplates"
+		table="GEN_MAIL_TEMPLATES"
+	>
+		<meta attribute="sync-DAO">false</meta>
+
+		<id
+			name="GmtTitle"
+			column="GMT_TITLE"
+			type="string"
+			length="32"
+		/>
+		<property
+			name="GmtTemplate"
+			column="GMT_TEMPLATE"
+			type="stringClobType"
+			not-null="false"
+		/>
+		<property
+			name="GmtVal"
+			column="GMT_VAL"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

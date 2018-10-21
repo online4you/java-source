@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<project name="allModel" default="mainAllModel" basedir=".">
+    <target name="mainAllModel">
+      	<property name="mainDirectori" value="${basedir}/.."/>
+    	
+    	<macrodef name="doAll"> 
+       	  <attribute name="antScript"/> 
+       	  <sequential>
+       	  		<echo message="Executing @{antScript}" />
+       	 		<ant antfile="@{antScript}" dir="." />
+   	 		<echo message="*********************************************************************************************************************************************" />
+   	 		<echo message="*********************************************************************************************************************************************" />
+   	 		<echo message="*********************************************************************************************************************************************" />
+   	 		<echo message="*********************************************************************************************************************************************" />
+   	 		<echo message="*********************************************************************************************************************************************" />
+       	  </sequential> 
+       </macrodef> 
+       
+    	
+    	<!-- Servicios comunes-->
+    	<doAll antScript="${mainDirectori}/javaCommonServices/build_javaCommonServices.xml"/> 
+    	
+    	<!-- Model tier-->
+    	<doAll antScript="${mainDirectori}/javaGENPersistence/build_javaGENPersistence.xml"/>
+    	<doAll antScript="${mainDirectori}/javaGENMail/build_javaGENMail.xml"/>
+    	<doAll antScript="${mainDirectori}/javaGENModel/build_javaGENModel.xml"/> 
+    	<doAll antScript="${mainDirectori}/javaBDLPersistence/build_javaBDLPersistence.xml"/>
+    	<doAll antScript="${mainDirectori}/javaBDLConnector/build_javaBDLConnector.xml"/> 
+    	<doAll antScript="${mainDirectori}/javaPCRSModel/build_javaPCRSModel.xml"/> 
+    	
+    	
+    	<echo message="#############################################################################################################################################" />
+    	<echo message="################################################################# BUILD DONE ################################################################" />
+    	<echo message="#############################################################################################################################################" />
+    	
+
+       	<eclipse.refreshLocal resource="javaGENPersistence" depth="infinite"/>
+       	<eclipse.refreshLocal resource="javaGENMail" depth="infinite"/>
+       	<eclipse.refreshLocal resource="javaGENModel" depth="infinite"/>
+       	<eclipse.refreshLocal resource="javaBDLConnector" depth="infinite"/>
+       	<eclipse.refreshLocal resource="javaPCRSModel" depth="infinite"/>
+       	<eclipse.refreshLocal resource="PCRS" depth="infinite"/>
+    	
+    	<eclipse.refreshLocal resource="appModelAll" depth="infinite"/>
+    	
+    </target>
+</project>

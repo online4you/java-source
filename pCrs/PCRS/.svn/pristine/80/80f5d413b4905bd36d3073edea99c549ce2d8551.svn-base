@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <script>
+      function salta(valorCombo){
+        if (valorCombo == "Seleccione una pregunta") {
+          location.href="#ini";
+        }else {
+          location.href=valorCombo;
+        }
+      }
+    </script>
+    <link href="http://www.halconviajes.com/viajes_mp/appBase/css/HAL/styleHAL.css" rel="stylesheet" type="text/css">
+    <link href="http://www.halconviajes.com/viajes_mp/appBase/css/HAL/esp/styleHAL.css" rel="stylesheet" type="text/css">
+    <link href="http://www.halconviajes.com/viajes_mp/appBase/css/HAL/estiloImprimir.css" rel="stylesheet" type="text/css" media="print" />
+  </head>
+  <body>
+    <table border=0 cellpadding=0 cellspacing=0 class="lineaciudades">
+      <a NAME="2"></a>
+      <tr>
+        <td class="ciudadtitu"><b></b></td>
+      </tr>
+      <tr>
+        <td class="texto_33">
+          <div id="contenedor">
+            <div id="contenido2" style="padding-top:20px;">
+              <div class="contvert03">
+                <div class="barra01">
+                  <div style="float:left; padding-right:4px;">
+                    Confidencialidad y política de privacidad
+                  </div>
+                  <div style="float:left"></div>
+                </div>					
+                <div class="caja" style="padding-left:15px; padding-right:15px; width:734px; padding-top:20px;">
+                  <table cellspacing="0" cellpadding="0">
+                    <tr>
+                      <td>
+                        <p class="texto_4">
+                          VIAJES HALCON S.A. Unip. a trav&eacute;s de su web "www.halconviajes.com" solicita al   Usuario ciertos datos de car&aacute;cter personal. Los datos suministrados por el   Usuario quedar&aacute;n incorporados a un fichero automatizado de datos de car&aacute;cter   personal, titularidad de VIAJES HALCON S.A. Unip., el cual ser&aacute; procesado con el   fin de prestar los servicios solicitados por el Usuario. El Usuario autoriza a   Viajes Halc&oacute;n, S.A.Unip. para incluir sus datos personales en los respectivos   ficheros, as&iacute; como para su utilizaci&oacute;n y tratamiento automatizado o no, para la   gesti&oacute;n y registro de las operaciones suscritas entre las   partes.<BR>
+                          <br>
+                          Asimismo, los usuarios autorizan igualmente, y al margen de la   relaci&oacute;n contractual, el tratamiento de sus datos personales para el env&iacute;o de   ofertas comerciales y publicidad por cualquier medio (correspondencia, tel&eacute;fono,   fax, mailing o cualquier otro medio telem&aacute;tico) propio o de terceros por Viajes   Halc&oacute;n, S.A.Unip.<BR>
+                          El usuario autoriza a Viajes Halc&oacute;n, S.A.Unip. a ceder sus   datos a las sociedades vinculadas directa o indirectamente con Viajes Halc&oacute;n,   S.A.Unip., y en especial a las empresas del Grupo Empresarial Globalia, al que   pertenece, con el fin de que sus datos personales sean tratados por las mismas,   y poder enviarle publicidad y ofertas comerciales, propias o de   terceros.<BR>
+                          <br>
+                          La informaci&oacute;n personal recabada de los usuarios registrados es   almacenada en una base de datos propiedad de Viajes Halcon S.A. Unip, que asume   las medidas de &iacute;ndole t&eacute;cnica, organizativa y de seguridad que garanticen la   confidencialidad e integridad de la informaci&oacute;n de acuerdo con lo establecido en   la Ley Org&aacute;nica 15/1999 de 13 de diciembre, de Protecci&oacute;n de Datos de Car&aacute;cter   Personal, y dem&aacute;s legislaci&oacute;n aplicable.<BR>
+                          Viajes Halc&oacute;n, S.A.Unip. utilizar&aacute;   cookies cuando el Usuario navegue por la web site de Halconviajes. Las cookies   se asocian &uacute;nicamente con un Usuario an&oacute;nimo y su ordenador y no proporcionan   referencias que permitan deducir el nombre y apellidos del Usuario. Gracias a   las cookies, resulta posible que Halconviajes.com reconozca a los Usuarios   registrados despu&eacute;s de que &eacute;stos se hayan registrado por primera vez, sin que   tengan que registrarse en cada visita para acceder a las &aacute;reas y servicios   reservados exclusivamente a ellos. El Usuario tiene la opci&oacute;n de impedir la   generaci&oacute;n de cookies, mediante la selecci&oacute;n de la correspondiente opci&oacute;n en su   programa navegador.<BR>
+                          <br>
+                          Cualquier usuario registrado puede en cualquier   momento ejercer el derecho a acceder, rectificar y, en su caso, cancelar sus   datos de car&aacute;cter personal suministrados a Viajes Halc&oacute;n, S.A.Unip. mediante   comunicaci&oacute;n escrita dirigida a Viajes halc&oacute;n, S.A.Unip., en Llucmajor, Carretera Arenal a Llucmajor Km 21,5 Poligono Son Noguera. Palma de Mallorca (Espa&ntilde;a), esta comunicaci&oacute;n tambi&eacute;n podr&aacute; ser realizada   mediante el env&iacute;o de un correo electr&oacute;nico a la direcci&oacute;n:   infohalcon@halconviajes.com					  <br><br><br>
+                        </p>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>

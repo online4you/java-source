@@ -1,0 +1,26 @@
+package com.photel.data.hotelan.ddbb.hibernate.pojo;
+
+import java.io.Serializable;
+
+
+public class HibernateHotelPK implements Serializable {
+	private static final long serialVersionUID = 1L;
+	private Integer id;
+	private String lang;
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getLang() {
+		return lang;
+	}
+	public void setLang(String lang) {
+		this.lang = lang;
+	}
+	
+	
+
+
+}

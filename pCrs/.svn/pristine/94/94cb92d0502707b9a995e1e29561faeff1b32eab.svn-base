@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ITEMS>
+ <LABELS>
+  <!-- index=0  -->
+  <LABEL>Idioma/Language</LABEL>
+  <!-- index=1  -->
+  <LABEL>Términos y Condiciones</LABEL>
+  <!-- index=2  -->
+  <LABEL>Base de datos</LABEL>
+  <!-- index=3  -->
+  <LABEL>Conexión</LABEL>
+  <!-- index=4  -->
+  <LABEL>Usuario</LABEL>
+  <!-- index=5  -->
+  <LABEL>Contraseña</LABEL>
+  <!-- index=6  -->
+  <LABEL>Servidor</LABEL>
+  <!-- index=7  -->
+  <LABEL>Puerto</LABEL>
+  <!-- index=8  -->
+  <LABEL>Nombre de Base de Datos</LABEL>
+  <!-- index=9  -->
+  <LABEL>Fichero</LABEL>
+  <!-- index=10  -->
+  <LABEL>Ficheros</LABEL>
+  <!-- index=11  -->
+  <LABEL>Carga de Tablas</LABEL>
+  <!-- index=12  -->
+  <LABEL>Tipo de carga</LABEL>
+  <!-- index=13  -->
+  <LABEL>Lista de tablas a procesar</LABEL>
+  <!-- index=14 -->
+  <LABEL>Directorio de almacenamiento</LABEL>
+  <!-- index=15  -->
+  <LABEL>Seleccionar el directorio de almacenamiento</LABEL>
+  <!-- index=16  -->
+  <LABEL>Seleccionar base de datos de Access</LABEL>
+  <!-- index=17  -->
+  <LABEL>Importando registros</LABEL>
+  <!-- index=18  -->
+  <LABEL>Actualizando registros</LABEL>
+  <!-- index=19  -->
+  <LABEL>Descargando de servidor FTP</LABEL>
+  <!-- index=20 Fecha inicial de compromación de los registros a procesar en el proceso de carga incremental -->
+  <LABEL>Fecha de Modificación</LABEL>
+  <!-- index=21 Registro de cambios -->
+  <LABEL>Registro de cambios</LABEL>
+  <LABEL><![CDATA[
+  <html>  
+  <h3>Agosto 2008</h3>
+  <div style="color: #a00;">Ha sido liberado el valor de los campos <strong>Longitude</strong> y <strong>Latitude</strong> de la tabla de <strong>Hoteles</strong> para los usuarios tipo <i>Basic</i>.</div>    
+  <h3>Octubre 2008</h3>
+  <div style="color: #a00;">Se ha implementado un nuevo modo de ejecución de la aplicación por consola.  Esta modificación permite programar la ejecución automática de la aplicación.</div>
+  <h3>Abril 2009</h3>
+  <div style="color: #a00;">Se han insertado todas las filas después de un fallo en un lote para los drivers de Oracle y Access. Se han añadido claves extranjeras dobles en Access. Se ha añadido más información en los logs de la aplicación.</div>
+  <h3>Julio 2009</h3>
+  <div style="color: #a00;">Para la versión básica, se han añadido dos campos a HotelDescriptions: HotelHowToGetThere y HotelComments. Para base de datos SQL Server, no se distingue entre mayusculas y minusculas en el nombre de columnas.</div>
+  </html>
+  ]]></LABEL>
+ </LABELS>
+ <BUTTONS>
+  <BUTTON>Aceptar</BUTTON>
+  <BUTTON>Cancelar</BUTTON>
+  <BUTTON>Descargar Ficheros</BUTTON>
+  <BUTTON>Total</BUTTON>
+  <BUTTON>Updates</BUTTON>
+  <BUTTON>Procesar todas las tablas</BUTTON>
+ </BUTTONS>
+ <DIALOGS>
+  <!-- index=0  -->
+  <DIALOG>Por favor introduzca el usuario de la base de datos</DIALOG>
+  <!-- index=1  -->
+  <DIALOG>Por favor introduzca el password de la base de datos</DIALOG>
+  <!-- index=2  -->
+  <DIALOG>Por favor introduzca el servidor de la base de datos</DIALOG>
+  <!-- index=3  -->
+  <DIALOG>Por favor introduzca la base de datos</DIALOG>
+  <!-- index=4  -->
+  <DIALOG>El fichero de Access no es válido</DIALOG>
+  <!-- index=5  -->
+  <DIALOG>Por favor introduzca el puerto de conexión</DIALOG>
+  <!-- index=6  -->
+  <DIALOG>Por favor seleccione al menos un fichero a procesar</DIALOG>
+  <!-- index=7  -->
+  <DIALOG>Ha ocurrido un error grave, para más detalles consultar el fichero de
+          logs</DIALOG>
+  <!-- index=8  -->
+  <DIALOG>El directorio de almacenamiento especificado no es válido</DIALOG>
+  <!-- index=9  -->
+  <DIALOG>La operación ha concluido exitosamente</DIALOG>
+  <!-- index=10  -->
+  <DIALOG>La operación ha concluido con errores, para más detalles consultar el
+          fichero de logs</DIALOG>
+  <!-- index=11  -->
+  <DIALOG>No se ha podido establecer una conexión a la base de datos, por favor
+          revise los parámetros especificados</DIALOG>
+  <!-- index=12  -->
+  <DIALOG>La operación ha sido cancelada por el usuario</DIALOG>
+  <!-- index=13 Datos acerca de... -->
+  <DIALOG>
+   <![CDATA[PULoader
+   Version 1.2.4
+   
+   Hotelbeds Spain, S.L.U
+   2008.
+   ]]>
+  </DIALOG>
+  <!-- index=14 Error fecha del proceso incremental -->
+  <DIALOG>Por favor verifique la fecha del proceso parcial.</DIALOG>
+  <!-- index=15 Titulo dialogo de confirmación de salida -->
+  <DIALOG>Confirmación.</DIALOG>
+  <!-- index=16 Dialogo de confirmación de salida -->
+  <DIALOG>Desea salir de la aplicación.</DIALOG>
+  <!-- index=17 (Parte 1)Relaciones entre fichero de la carga total. -->
+  <DIALOG>
+   <![CDATA[Algunos de los siguientes ficheros contienen datos, que no permiten la carga total:]]>
+  </DIALOG>
+  <!-- index=18 (Parte 2)Relaciones entre fichero de la carga total. -->
+  <DIALOG>
+   <![CDATA[Por favor seleccione los ficheros para que sean importados, 
+   o elmine las tablas relacionadas en su gestor de base de datos.]]>
+  </DIALOG>
+ </DIALOGS>
+ <TOOLTIPS>
+  <!-- index=0 Tipo de base de BDs -->
+  <TOOLTIP>Motor de base de datos.</TOOLTIP>
+  <!-- index=1 Nombre de la BD -->
+  <TOOLTIP>Nombre de la base de datos a connectar.</TOOLTIP>
+  <!-- index=2 Usuario de base de la BD -->
+  <TOOLTIP>Usuario de base de datos.</TOOLTIP>
+  <!-- index=3 Contraseña de base de la base de datos -->
+  <TOOLTIP>Contraseña de base de datos.</TOOLTIP>
+  <!-- index=4 Nombre del servidor de BD -->
+  <TOOLTIP>Nombre del servidor de base datos.</TOOLTIP>
+  <!-- index=5 Puerto del servidor de BD -->
+  <TOOLTIP>Puerto de la base datos.</TOOLTIP>
+  <!-- index=6 Ruta del fichero .mdb de Access -->
+  <TOOLTIP>Ruta del fichero .mdb de Access.</TOOLTIP>
+  <!-- index=7 Descarga FTP -->
+  <TOOLTIP>Descargar ficheros desde el servidor FTP.</TOOLTIP>
+  <!-- index=8 Ruta fichero .zip -->
+  <TOOLTIP>Ruta del fichero .zip a descargar/procesar.</TOOLTIP>
+  <!-- index=9 Tipo de proceso -->
+  <TOOLTIP>Tipo de carga a realizar.</TOOLTIP>
+  <!-- index=10 Fecha proceso incremental-->
+  <TOOLTIP>Fecha inicial para el proceso de carga parcia o incremental.</TOOLTIP>
+  <!-- index=11 Lista de ficheros-->
+  <TOOLTIP>Seleccionar todos los ficheros/tablas disponibles.</TOOLTIP>
+ </TOOLTIPS>
+</ITEMS>
+

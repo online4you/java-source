@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.photel.data.BDL.ddbb.hibernate.pojo">
+	<class
+		name="BdlvHimages"
+		table="bdlv_himages"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<composite-id name="Id" class="BdlvHimagesPK">
+			<key-property
+				name="HotelCode"
+				column="HOTELCODE"
+				type="string"
+			/>
+			<key-property
+				name="Imagecode"
+				column="IMAGECODE"
+				type="string"
+			/>
+			<key-property
+				name="Order"
+				column="ORDER_"
+				type="string"
+			/>
+			<key-property
+				name="Languagecode"
+				column="LANGUAGECODE"
+				type="string"
+			/>
+		</composite-id>
+		
+		<property
+			name="Visualizationorder"
+			column="VISUALIZATIONORDER"
+			type="string"
+			not-null="false"
+			length="5"
+		/>
+		<property
+			name="Imagepath"
+			column="IMAGEPATH"
+			type="string"
+			not-null="true"
+		/>
+		<property
+			name="Name"
+			column="NAME"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

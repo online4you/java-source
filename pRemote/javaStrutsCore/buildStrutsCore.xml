@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<project name="StrutsCore" default="mainStrutsCore" basedir=".">
+    <!-- this file was created by Fat-Jar Eclipse Plug-in -->
+    <!-- the ANT-Export is in a very early stage, so this -->
+    <!-- is only experimental, ANT 1.6 or above is        -->
+    <!-- required, feedback is always welcome:            -->
+    <!--       http://sourceforge.net/projects/fjep       -->
+    <!-- uncomment the following lines if using ANT outside Eclipse -->
+    <!--
+        <property name="fjepPath" value="reference:file:plugins/net.sf.fjep.fatjar_0.0.31.jarfatjar.jar"/>
+        <taskdef name="fatjar.build" classname="net.sf.fjep.anttask.FJBuildTask" classpath="${fjepPath}"/>
+        <typedef name="fatjar.manifest" classname="net.sf.fjep.anttask.FJManifestType" classpath="${fjepPath}"/>
+        <typedef name="fatjar.exclude" classname="net.sf.fjep.anttask.FJExcludeType" classpath="${fjepPath}"/>
+        <typedef name="fatjar.jarsource" classname="net.sf.fjep.anttask.FJJarSourceType" classpath="${fjepPath}"/>
+        <typedef name="fatjar.filesource" classname="net.sf.fjep.anttask.FJFileSourceType" classpath="${fjepPath}"/>
+    -->
+    <!-- uncomment the above lines to use ANT outside of Eclipse -->
+    <target name="mainStrutsCore">
+     	<property name="projectName" value="javaStrutsCore"/>
+        <property name="mainDir" value="${basedir}/.."/>
+ 
+    	<property name="StrutsCorerootDir" value="${mainDir}\javaStrutsCore"/>
+       	<property name="StrutsCoredestDir" value="${mainDir}\PCRS\WebContent\WEB-INF\lib"/>
+       	
+
+       	<delete>
+            <fileset dir="${StrutsCoredestDir}" includes="**/${projectName}.jar"/>
+        </delete>
+               
+    	<fatjar.build output="${StrutsCorerootDir}\${projectName}.jar">
+            <fatjar.manifest/>
+    		<fatjar.jarsource file="${StrutsCorerootDir}\lib\asm-3.3.jar" relpath=""/>
+    	    <fatjar.jarsource file="${StrutsCorerootDir}\lib\asm-commons-3.3.jar" relpath=""/>
+            <fatjar.jarsource file="${StrutsCorerootDir}\lib\freemarker-2.3.18.jar" relpath=""/>
+	   		<fatjar.jarsource file="${StrutsCorerootDir}\lib\json-lib-2.1-jdk15.jar" relpath=""/>
+    	 	<fatjar.jarsource file="${StrutsCorerootDir}\lib\ognl-3.0.4.jar" relpath=""/>
+    		<fatjar.jarsource file="${StrutsCorerootDir}\lib\struts2-core-2.3.1.2.jar" relpath=""/>
+    		<fatjar.jarsource file="${StrutsCorerootDir}\lib\struts2-convention-plugin-2.3.1.2.jar" relpath=""/>
+        	<fatjar.jarsource file="${StrutsCorerootDir}\lib\struts2-javatemplates-plugin-2.3.1.2.jar" relpath=""/>
+    		<fatjar.jarsource file="${StrutsCorerootDir}\lib\struts2-json-plugin-2.3.1.2.jar" relpath=""/>
+            <fatjar.jarsource file="${StrutsCorerootDir}\lib\struts2-tiles-plugin-2.3.1.2.jar" relpath=""/>
+            <fatjar.jarsource file="${StrutsCorerootDir}\lib\tiles-api-2.1.2.jar" relpath=""/>
+            <fatjar.jarsource file="${StrutsCorerootDir}\lib\tiles-compat-2.1.2.jar" relpath=""/>
+            <fatjar.jarsource file="${StrutsCorerootDir}\lib\tiles-core-2.1.2.jar" relpath=""/>
+            <fatjar.jarsource file="${StrutsCorerootDir}\lib\tiles-jsp-2.1.2.jar" relpath=""/>
+            <fatjar.jarsource file="${StrutsCorerootDir}\lib\tiles-servlet-2.1.2.jar" relpath=""/>
+            <fatjar.jarsource file="${StrutsCorerootDir}\lib\xwork-core-2.3.1.2.jar" relpath=""/>
+           	 	
+        </fatjar.build>
+       	
+    	<copy todir="${StrutsCoredestDir}">
+        		<fileset dir="${StrutsCorerootDir}" includes="**/${projectName}.jar"/>
+        </copy>
+
+    </target>
+</project>

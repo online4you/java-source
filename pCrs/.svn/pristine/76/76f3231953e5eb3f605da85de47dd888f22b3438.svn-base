@@ -1,0 +1,93 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.photel.data.gen.ddbb.hibernate.pojo">
+	<class
+		name="LlamadasCliente"
+		table="LLAMADAS_CLIENTE"
+	>
+		<meta attribute="sync-DAO">false</meta>
+
+		<id
+			name="LlcSeq"
+			column="LLC_SEQ"
+			type="string"
+			length="20"
+		/>
+		<property
+			name="LlcSite"
+			column="LLC_SITE"
+			type="string"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="LlcFecha"
+			column="LLC_FECHA"
+			type="timestamp"
+			not-null="true"
+			length="7"
+			insert="false"
+		/>
+		<property
+			name="LlcNombre"
+			column="LLC_NOMBRE"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+		<property
+			name="LlcTelefono"
+			column="LLC_TELEFONO"
+			type="string"
+			not-null="true"
+			length="20"
+		/>
+		<property
+			name="LlcDiaHora"
+			column="LLC_DIA_HORA"
+			type="timestamp"
+			not-null="true"
+			length="7"
+		/>
+		<property
+			name="LlcDatosError"
+			column="LLC_DATOS_ERROR"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="LlcSwiventa"
+			column="LLC_SWIVENTA"
+			type="string"
+			not-null="false"
+			length="1"
+			insert="false"
+		/>
+		<property
+			name="LlcNumexp"
+			column="LLC_NUMEXP"
+			type="string"
+			not-null="false"
+			length="40"
+		/>
+		<property
+			name="LlcSwirevisada"
+			column="LLC_SWIREVISADA"
+			type="string"
+			not-null="false"
+			length="1"
+			insert="false"
+		/>
+		<property
+			name="LlcIdUsuarioMaquina"
+			column="LLC_ID_USUARIO_MAQUINA"
+			type="string"
+			not-null="false"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

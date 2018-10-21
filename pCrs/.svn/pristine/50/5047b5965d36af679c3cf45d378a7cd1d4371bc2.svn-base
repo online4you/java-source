@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Mon Jul 09 13:33:12 CEST 2012
+onejar.license.required=true
+manifest.classpath=
+manifest.removesigners=true
+onejar.checkbox=false
+jarname=javaBDLConnector.jar
+manifest.mergeall=true
+manifest.mainclass=
+manifest.file=<createnew>
+jarname.isextern=false
+onejar.expand=
+excludes=<jar|javaCommonServices.jar>;<jar|javaCommons.jar>;<jar|javaLibreriasExternas.jar>
+includes=

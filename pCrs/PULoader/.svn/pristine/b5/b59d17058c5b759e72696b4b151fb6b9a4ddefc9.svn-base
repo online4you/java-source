@@ -1,0 +1,409 @@
+<?xml version="1.0" ?>
+<textFileGroup delimiter="|" name="TestReader"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="TextFileConf.xsd">
+ <!-- L A N G U A G E S -->
+ <textFile name="Languages.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="LanguageCode" position="1"/>
+   <column name="LanguageName" position="2"/>
+  </columns>
+ </textFile>
+ <!-- C A T E G O R I E S -->
+ <textFile name="Categories.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="CategoryCode" position="1"/>
+  </columns>
+ </textFile>
+ <!-- C A T E G O R Y   D E S C R I P T I O N S -->
+ <textFile name="CategoryDescriptions.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="CategoryCode" position="1"/>
+   <column name="LanguageCode" position="2"/>
+   <column name="CategoryName" position="3"/>
+  </columns>
+ </textFile> 
+ <!-- H O T E L S -->
+ <textFile name="Hotels.csv" charsetName="ISO-8859-15">
+  <columns>
+   <!-- Ejemplo : VAL_A|VAL_B XXXXX|C XXXXX|N__****XXX -->
+   <column name="HotelCode" position="1"/>
+   <column name="Name" position="2"/>
+   <column name="CategoryCode" position="3"/>
+   <column name="DestinationCode" position="4"/>
+   <column name="ZoneCode" position="5"/>
+   <column name="ChainCode" position="6"/>
+   <column name="Licence" position="7"/>
+   <column name="Latitude" position="8"/>
+   <column name="Longitude" position="9"/>
+  </columns>
+ </textFile>
+ <!-- H O T E L    D E S C R I P T I O N S -->
+ <textFile name="HotelDescriptions.csv" charsetName="ISO-8859-15">
+  <columns>
+   <!-- Ejemplo : VAL_A|VAL_B XXXXX|C XXXXX|N__****XXX -->
+   <column name="HotelCode" position="1"/>
+   <column name="LanguageCode" position="2"/>
+   <column name="HotelFacilities" position="3"/>
+   <!-- Solo version extendida -->
+   <column name="HotelLocationDescription" position="4"/>
+   <column name="HotelRoomDescription" position="5"/>
+   <column name="HolelSportDescription" position="6"/>
+   <column name="HotelMealsDescription" position="7"/>
+   <column name="HotelPaymentMethods" position="8"/>
+    <!-- Las dos versiones -->
+   <column name="HotelHowToGetThere" position="9"/>
+   <column name="HotelComments" position="10"/>   
+  </columns>
+ </textFile>
+ <!-- I M A G E    T Y P E S -->
+ <textFile name="ImageTypes.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="ImageCode" position="1"/>
+  </columns>
+ </textFile>
+ <!-- H O T E L   I M A G E S-->
+ <textFile name="HotelImages.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="HotelCode" position="1"/>
+   <column name="ImageCode" position="2"/>
+   <column name="Order_" position="3"/>
+   <column name="VisualizationOrder" position="4"/>
+   <column name="ImagePath" position="5"/>
+  </columns>
+ </textFile>
+ <!-- I M A G E    D E S C R I P T I O N S -->
+ <textFile name="ImageDescriptions.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="ImageCode" position="1"/>
+   <column name="LanguageCode" position="2"/>
+   <column name="Name" position="3"/>
+  </columns>
+ </textFile>
+  <!-- P H O N E   T Y P E S -->
+ <textFile name="PhoneTypes.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="PhoneType" position="1"/>
+   <column name="Name" position="2"/>   
+  </columns>
+ </textFile>
+ <!-- P H O N E S -->
+ <textFile name="Phones.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="HotelCode" position="1"/>
+   <column name="PhoneType" position="2"/>   
+   <column name="Number_" position="3"/>   
+  </columns>
+ </textFile>
+ <!-- C O U N T R I E S -->
+ <textFile name="Countries.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="CountryCode" position="1"/>   
+  </columns>
+ </textFile>
+ <!-- C O N T A C T S-->
+ <textFile name="Contacts.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="HotelCode" position="1"/>   
+   <column name="Address" position="2"/>   
+   <column name="PostalCode" position="3"/>
+   <column name="City" position="4"/>
+   <column name="CountryCode" position="5"/>
+   <column name="Email" position="6"/>
+   <column name="Web" position="7"/>
+  </columns>
+ </textFile>
+ <!-- D E S T I N A T I O N S -->
+ <textFile name="Destinations.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="DestinationCode" position="1"/>   
+   <column name="CountryCode" position="2"/>
+  </columns>
+ </textFile> 
+  <!-- D E S T I N A T I O N  D E S C R I P T I O N S-->
+ <textFile name="DestinationIDs.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="DestinationCode" position="1"/>   
+   <column name="LanguageCode" position="2"/>
+   <column name="Name" position="3"/>
+  </columns>
+ </textFile> 
+   <!-- C O U N T R I E S  D E S C R I P T I O N S-->
+ <textFile name="CountryIDs.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="CountryCode" position="1"/>   
+   <column name="LanguageCode" position="2"/>
+   <column name="Name" position="3"/>
+   <column name="ShortName" position="4"/>
+  </columns>
+ </textFile> 
+  <!-- C H A I N S -->
+ <textFile name="Chains.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="ChainCode" position="1"/>   
+   <column name="ChainName" position="2"/>
+  </columns>
+ </textFile> 
+ <!-- H O T E L  D E S T I N A T I O N S -->
+ <textFile name="HotelDestinations.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="CountryCode" position="1"/>   
+   <column name="DestinationCode" position="2"/>
+  </columns>
+ </textFile> 
+  <!-- C A R  D E S T I N A T I O N S -->
+ <textFile name="CarDestinations.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="CountryCode" position="1"/>   
+   <column name="DestinationCode" position="2"/>
+  </columns>
+ </textFile> 
+   <!-- T I C K E T  D E S T I N A T I O N S -->
+ <textFile name="TicketDestinations.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="CountryCode" position="1"/>   
+   <column name="DestinationCode" position="2"/>
+  </columns>
+ </textFile> 
+ <!-- H O T E L  I S S U E S -->
+ <textFile name="HotelIssues.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="HotelCode" position="1"/>   
+   <column name="IssueOrder" position="2"/>
+   <column name="DateFrom" position="3"/>
+   <column name="DateTo" position="4"/>
+   <column name="LanguageCode" position="5"/>
+   <column name="Incident" position="6"/>
+  </columns>
+ </textFile> 
+ <!-- Z O N E S -->
+ <textFile name="Zones.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="ZoneCode" position="1"/>   
+   <column name="DestinationCode" position="2"/>
+   <column name="ZoneName" position="3"/>   
+  </columns>
+ </textFile>  
+ <!-- B O A R D  T Y P E S -->
+ <textFile name="BoardTypes.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="BoardType" position="1"/>     
+  </columns>
+ </textFile>   
+ <!-- R E G I M   B Y   D E S T  -->
+ <textFile name="RegimByDest.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="DestinationCode" position="1"/>   
+   <column name="BoardType" position="2"/>  
+  </columns>
+ </textFile>  
+ <!-- B O A R D   D ES C R I P T I O N S  -->
+ <textFile name="BoardDescriptions.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="BoardType" position="1"/>   
+   <column name="LanguageCode" position="2"/>  
+   <column name="ShortName" position="3"/>  
+   <column name="Name" position="4"/>  
+  </columns>
+ </textFile>   
+ <!-- R O O M  T Y P E S  -->
+ <textFile name="RoomTypes.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="RoomType" position="1"/>   
+   <column name="MinOccupation" position="2"/>  
+   <column name="MaxOccupation" position="3"/>  
+   <column name="StandardOccupation" position="4"/>  
+   <column name="MaxAdults" position="5"/>  
+   <column name="MaxChildren" position="6"/>  
+  </columns>
+ </textFile>   
+ <!-- R O O M  D E S C R I P T I O N S  -->
+ <textFile name="RoomDescriptions.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="RoomType" position="1"/>   
+   <column name="LanguageCode" position="2"/>  
+   <column name="ShortName" position="3"/>  
+   <column name="Name" position="4"/>  
+  </columns>
+ </textFile>   
+ <!-- T E R M I N A L S  -->
+ <textFile name="Terminals.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="TerminalCode" position="1"/>   
+   <column name="TerminalName" position="2"/>     
+  </columns>
+ </textFile> 
+ <!-- H O T E L  T E R M I N A L S  -->
+ <textFile name="HotelTerminals.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="HotelCode" position="1"/>   
+   <column name="TerminalCode" position="2"/>  
+   <column name="DistKm" position="3"/>  
+   <column name="DistMin" position="4"/>  
+  </columns>
+ </textFile>    
+ <!-- C H A R A C T E R I S T I C S  -->
+ <textFile name="Characteristics.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="CharacteristicCode" position="1"/>      
+  </columns>
+ </textFile> 
+ <!-- C H A R A C T E R I S T I C   D E S C R I P T I O N S  -->
+ <textFile name="CharacteristicDescriptions.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="CharacteristicCode" position="1"/>   
+   <column name="LanguageCode" position="2"/>  
+   <column name="Description" position="3"/>  
+  </columns>
+ </textFile>   
+   <!-- Z O N E   G R O U P S -->
+ <textFile name="ZoneGroup.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="InterfaceCode" position="1"/>   
+   <column name="GroupZoneCode" position="2"/>  
+  </columns>
+ </textFile>
+ <!-- Z O N E   B Y   G R O U P  -->
+ <textFile name="ZoneByGroup.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="InterfaceCode" position="1"/>   
+   <column name="GroupZoneCode" position="2"/>  
+   <column name="DestinationCode" position="3"/>  
+   <column name="ZoneCode" position="4"/>  
+  </columns>
+ </textFile>
+<!-- Z O N E   G R O U P S  D E S C R I P T I O N S -->
+ <textFile name="ZoneGroupDescriptions.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="InterfaceCode" position="1"/>  
+   <column name="GroupZoneCode" position="2"/>   
+   <column name="LanguageCode" position="3"/>  
+   <column name="Description" position="4"/>  
+  </columns>
+ </textFile>
+<!-- F A C I L I T Y  G R O U P S -->
+ <textFile name="FacilityGroups.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="Group_" position="1"/>  
+  </columns>
+ </textFile>
+<!-- F A C I L I T Y  T Y P O L O G I E S -->
+ <textFile name="FacilityTypologies.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="TypologyCode" position="1"/>  
+   <column name="TextFlag" position="2"/> 
+   <column name="NumberFlag" position="3"/>
+   <column name="LogicFlag" position="4"/>
+   <column name="FeeFlag" position="5"/>
+   <column name="DistanceFlag" position="6"/>
+   <column name="WalkingDistanceFlag" position="7"/>
+   <column name="TransportDistanceFlag" position="8"/>
+   <column name="CarDistanceFlag" position="9"/>
+   <column name="AgeFromFlag" position="10"/>
+   <column name="AgeToFlag" position="11"/>
+   <column name="BeachAccessFlag" position="12"/>
+   <column name="BeachApartFlag" position="13"/>
+   <column name="DynamicFlag" position="14"/>
+   <column name="ConceptFlag" position="15"/>   
+  </columns>
+ </textFile> 
+<!-- F A C I L I T Y   T Y P E S -->
+ <textFile name="FacilityTypes.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="Group_" position="1"/>  
+   <column name="Code" position="2"/>   
+   <column name="TypologyCode" position="3"/>  
+   <column name="BasicFlag" position="4"/>  
+  </columns>
+ </textFile> 
+<!-- F A C I L I T Y   D E S C R I P T I O N S -->
+ <textFile name="FacilityDescriptions.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="Code" position="1"/>  
+   <column name="Group_" position="2"/>   
+   <column name="LanguageCode" position="3"/>  
+   <column name="Name" position="4"/>  
+  </columns>
+ </textFile>  
+<!-- F A C I L I T Y   G R O U P S  D E S C R I P T I O N S -->
+ <textFile name="FacilityGroupsDescriptions.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="Group_" position="1"/>  
+   <column name="LanguageCode" position="2"/>   
+   <column name="Name" position="3"/>     
+  </columns>
+ </textFile>
+<!-- F A C I L I T I E S -->
+ <textFile name="Facilities.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="HotelCode" position="1"/>  
+   <column name="Code" position="2"/>   
+   <column name="Group_" position="3"/>     
+   <column name="Order_" position="4"/>     
+   <column name="Number_" position="5"/>     
+   <column name="Logic" position="6"/>    
+   <column name="Fee" position="7"/>
+   <column name="Distance" position="8"/>    
+   <column name="WalkingDistance" position="9"/>    
+   <column name="TransportDistance" position="10"/>       
+   <column name="CarDistance" position="11"/>       
+   <column name="AgeFrom" position="12"/>       
+   <column name="AgeTo" position="13"/>       
+   <column name="BeachAccess" position="14"/>       
+   <column name="BeachApart" position="15"/>       
+   <column name="Concept" position="16"/>
+  </columns>
+ </textFile> 
+ <!--T R A N S F E R   Z O N E -->
+ <textFile name="TransferZone.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="ZoneTransfer" position="1"/>     
+  </columns>
+ </textFile>            
+ <!-- T R A N S F E R   Z O N E  D E S C R I P T I O N -->
+ <textFile name="TransferZoneDescription.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="ZoneTransfer" position="1"/>     
+   <column name="LanguageCode" position="2"/>     
+   <column name="Name" position="3"/>     
+  </columns>
+ </textFile>         
+ <!-- T E R M I N A L   T R A N S F E R   Z O N E -->
+ <textFile name="TerminalTransferZone.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="ZoneTransferTerminal" position="1"/>     
+   <column name="TerminalCode" position="2"/>     
+   <column name="ZoneTransfer" position="3"/>     
+   <column name="DestinationCode" position="4"/>    
+  </columns>
+ </textFile>         
+ <!-- H O T E L   T R A N S F E R   Z O N E -->
+ <textFile name="HotelTransferZone.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="ZoneTransfer" position="1"/>     
+   <column name="HotelCode" position="2"/>     
+  </columns>
+ </textFile>    
+ <!-- T R A N S F E R   Z O N E  P O S T A L   C O D E -->
+ <textFile name="TransferZonePostalCode.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="ZoneTransfer" position="1"/>     
+   <column name="PostalCode" position="2"/>     
+  </columns>
+ </textFile>   
+ <!-- T I C K E T S   C L A S S I F I C A T I O N -->
+ <textFile name="TicketsClassification.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="ClassificationCode" position="1"/>        
+  </columns>
+ </textFile> 
+ <!-- T I C K E T S   C L A S S I F I C A T I O N   D E S C R I P T I O N-->
+ <textFile name="TicketsClassificationDescription.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="ClassificationCode" position="1"/>    
+   <column name="LanguageCode" position="2"/>  
+   <column name="Description" position="3"/>  
+  </columns>
+ </textFile> 
+</textFileGroup>
+
+

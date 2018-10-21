@@ -1,0 +1,64 @@
+<textFileGroup name="TestReader" delimiter="|"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:noNamespaceSchemaLocation="TextFileConf.xsd">
+ <!--L A N G U A G E S -->
+ <!--textFile name="LanguagesUpdates.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="LanguageCode" position="1"/>
+   <column name="Date" position="2"/>
+   <column name="UpdateType" position="3"/>
+  </columns>
+ </textFile-->
+ <!-- C A T E G O R I E S -->
+ <!--textFile name="CategoriesUpdates.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="CategoryCode" position="1"/>
+   <column name="Date" position="2"/>
+   <column name="UpdateType" position="3"/>
+  </columns>
+ </textFile-->
+ <!-- H O T E L S -->
+ <!--textFile name="HotelsUpdates.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="HotelCode" position="1"/>
+   <column name="Date" position="2"/>
+   <column name="UpdateType" position="3"/>
+  </columns>
+ </textFile-->
+ <!-- H O T E L    D E S C R I P T I O N S -->
+ <!--textFile name="HotelDescriptionsUpdates.csv" charsetName="ISO-8859-15">
+  <columns>   
+   <column name="HotelCode" position="1"/>
+   <column name="LanguageCode" position="2"/>
+   <column name="Date" position="3"/>
+   <column name="UpdateType" position="4"/>
+  </columns>
+ </textFile-->
+ <!-- I M A G E    T Y P E S -->
+ <!--textFile name="ImagesTypesUpdates.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="ImageCode" position="1"/>
+   <column name="Date" position="2"/>
+   <column name="UpdateType" position="3"/>
+  </columns>
+ </textFile-->
+ <!-- H O T E L   I M A G E S -->
+ <!--textFile name="HotelImagesUpdates.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="HotelCode" position="1"/>
+   <column name="ImageCode" position="2"/>
+   <column name="Order_" position="3"/>
+   <column name="Date" position="4"/>
+   <column name="UpdateType" position="5"/>
+  </columns>
+ </textFile-->
+ <!-- I M A G E    D E S C R I P T I O N S -->
+ <!--textFile name="ImagesDescriptionsUpdates.csv" charsetName="ISO-8859-15">
+  <columns>
+   <column name="ImageCode" position="1"/>
+   <column name="LanguageCode" position="2"/>
+   <column name="Date" position="3"/>
+   <column name="UpdateType" position="4"/>
+  </columns>
+ </textFile-->
+</textFileGroup>

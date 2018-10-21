@@ -1,0 +1,56 @@
+<html>
+<link rel="stylesheet" type="text/css" href="../style.css"/>
+<head>
+<title>Tiempos de carga</title>
+</head>
+<body>
+<h1>Tiempos de carga</h1>
+<h2>Tipo de carga total</h2>
+<h3>Usuario BASIC</h3>
+<table align="center" border="1" cellpadding="0" cellspacing="0" bgcolor="#ffffff" width="400">
+<tr id="cabecera">
+<td>Base de datos</td>
+<td>Tiempo</td>
+</tr>
+<tr>
+<td><i>Oracle</i></td>
+<td align="center">1,69 minutos</td>
+</tr>
+<tr>
+<td><i>SQL Server</i></td>
+<td align="center">3,55 minutos</td>
+</tr>
+<tr>
+<td><i>MySQL</i></td>
+<td align="center">11 minutos</td>
+</tr>
+</table>
+<br><br>
+<h3>Usuario EXTENDED</h3>
+<table align="center" border="1" cellpadding="0" cellspacing="0" bgcolor="#ffffff" width="400">
+<tr id="cabecera">
+<td>Base de datos</td>
+<td>Tiempo</td>
+</tr>
+<tr>
+<td><i>Oracle</i></td>
+<td align="center">2,3 minutos</td>
+</tr>
+<tr>
+<td><i>SQL Server</i></td>
+<td align="center">6 minutos</td>
+</tr>
+<tr>
+<td><i>MySQL</i></td>
+<td align="center">18 minutos</td>
+</tr>
+</table>
+<br><br>
+Este tiempo ha sido calculado a partir de un sistema con las siguientes características:<br>
+CPU 3,00 GHz<br>
+2,00 GB de RAM<br>
+S.O. Windows Xp<br>
+<br>
+<center><a href="index.html">Volver</a></center>
+</body>
+</html>

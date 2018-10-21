@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.photel.data.BDL.ddbb.hibernate.pojo">
+	<class
+		name="BdlHotels"
+		table="bdl_hotels"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="string"
+			column="BDL_CODE"
+		/>
+		<property
+			name="BdlName"
+			column="BDL_NAME"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="BdlCat"
+			column="BDL_CAT"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="BdlDestination"
+			column="BDL_DESTINATION"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="BdlZone"
+			column="BDL_ZONE"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="BdlChain"
+			column="BDL_CHAIN"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="BdlLicence"
+			column="BDL_LICENCE"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="BdlLatitude"
+			column="BDL_LATITUDE"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="BdlLongitude"
+			column="BDL_LONGITUDE"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

@@ -1,0 +1,10 @@
+----------------------------------------------------------------
+Mon Aug 06 06:25:06 PDT 2012:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.1.2 - (1095077): instance a816c00e-0138-fc1c-3fb3-000004f50438 
+on database directory memory:/export1/cruise/jenkins/workspace/quartz_quartz-2.1.6_kitbuilder/quartz-2.1.6/quartz/MeSchedulerDatabase  with class loader sun.misc.Launcher$AppClassLoader@3182f0db 
+Loaded from file:/export1/cruise/.m2/repository/org/apache/derby/derby/10.8.1.2/derby-10.8.1.2.jar
+java.vendor=Sun Microsystems Inc.
+java.runtime.version=1.6.0_31-b04
+user.dir=/export1/cruise/jenkins/workspace/quartz_quartz-2.1.6_kitbuilder/quartz-2.1.6/quartz
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

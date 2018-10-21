@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Villa"/>
+        <xs:element ref="Error"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Villa">
+    <xs:complexType>
+      <xs:attribute name="BoardId" use="required"/>
+      <xs:attribute name="CathegoryId" use="required"/>
+      <xs:attribute name="DestinationId" use="required"/>
+      <xs:attribute name="Id" use="required"/>
+      <xs:attribute name="Name" use="required"/>
+      <xs:attribute name="Price" use="required"/>
+      <xs:attribute name="RoomId" use="required"/>
+      <xs:attribute name="TypeId" use="required"/>
+      <xs:attribute name="ZoneId" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Error" type="xs:string"/>
+</xs:schema>

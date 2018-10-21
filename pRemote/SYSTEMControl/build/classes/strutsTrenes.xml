@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+  
+    <package name="trenes" namespace="/apps/trenes" extends="gen">
+		<result-types>
+            <result-type name="json" class="org.apache.struts2.json.JSONResult"/>
+        </result-types>
+
+		<action name="AutocompleteFieldJson" class="com.globalia.apps.actions.trenes.utils.AutocompleteFieldJson" >
+		    <interceptor-ref name="genStackNoSession"/> 
+		    <param name="query"/>
+		    <result type="json">
+		    	<param name="charSet">UTF-8</param>
+		    	<param name="root">AutocompleteFieldJson</param>
+		    </result>
+		 </action>
+
+ 		<action name="buscadorViajesMP" class="com.globalia.apps.actions.trenes.buscadorViajesmp.BuscadorViajesMp" >
+ 			<result name="success" type="tiles">
+          		<param name="location">buscadorViajesMP</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+ 		</action>
+		
+		<action name="lupa" class="com.globalia.apps.actions.trenes.disponibilidad.Lupa" >
+          <interceptor-ref name="genStackNoSession"/> 
+          <param name="provinciaOrigenKey"></param>
+          <param name="destinosOrigenKey"></param>
+          	<result name="success" type="tiles">
+          		<param name="location">lupa</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+		</action>
+		
+		<action name="Disponibilidad" class="com.globalia.apps.actions.trenes.disponibilidad.MainDisponibilidadAction" >
+		    <param name="provinciaOrigenKey"></param>
+        	<param name="destinosOrigenKey"></param>
+        	<param name="provinciaDestinoKey"></param>
+        	<param name="destinosDestinoKey"></param>
+            <param name="provinciaOrigen"></param>
+        	<param name="provinciaDestino"></param>
+        	<param name="destinosOrigen"></param>
+        	<param name="destinosDestino"></param>
+        	<param name="fechaIda"></param>
+        	<param name="fechaVuelta"></param>
+        	<param name="soloIda"></param>
+        	<param name="adultosKey"></param>
+        	<param name="ninosKey"></param>
+        	<param name="filtroClase"></param>
+        	<param name="filtroHoraIda"></param>
+        	<param name="filtroHoraVuelta"></param>
+        	<param name="filtroPrecioDesde"></param>
+        	<param name="filtroPrecioHasta"></param>
+        	<param name="filtroDuracion"></param>
+        	<param name="removeFiltro"></param>
+        	<param name="pagina"></param>
+          	<result name="success" type="tiles">
+          		<param name="location">disponibilidadTrenes</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+          	<result name="disponibilidadTrenesParcial" type="tiles">
+          		<param name="location">disponibilidadTrenesParcial</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+          	<result name="error" type="tiles">
+          		<param name="location">errorTrenes</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+		</action>
+			
+         <action name="DisponibilidadRenfe" class="com.globalia.apps.actions.trenes.disponibilidad.MainDisponibilidadAction" >
+		    <param name="provinciaOrigenKey"></param>
+        	<param name="destinosOrigenKey"></param>
+        	<param name="provinciaDestinoKey"></param>
+        	<param name="destinosDestinoKey"></param>
+            <param name="provinciaOrigen"></param>
+        	<param name="provinciaDestino"></param>
+        	<param name="destinosOrigen"></param>
+        	<param name="destinosDestino"></param>
+        	<param name="fechaIda"></param>
+        	<param name="fechaVuelta"></param>
+        	<param name="soloIda"></param>
+        	<param name="adultosKey"></param>
+        	<param name="ninosKey"></param>
+        	<param name="filtroClase"></param>
+        	<param name="filtroHoraIda"></param>
+        	<param name="filtroHoraVuelta"></param>
+        	<param name="filtroPrecioDesde"></param>
+        	<param name="filtroPrecioHasta"></param>
+        	<param name="filtroDuracion"></param>
+        	<param name="removeFiltro"></param>
+        	<param name="pagina"></param>
+          	
+
+	        <result name="success" type="tiles">
+          		<param name="location">DisponibilidadRenfe</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+          	<result name="error" type="tiles">
+          		<param name="location">errorTrenes</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+		</action>
+       
+		
+		<action name="PaginacionDisponibilidadRenfe" class="com.globalia.apps.actions.trenes.disponibilidad.MainDisponibilidadAction" >
+		    <param name="provinciaOrigenKey"></param>
+        	<param name="destinosOrigenKey"></param>
+        	<param name="provinciaDestinoKey"></param>
+        	<param name="destinosDestinoKey"></param>
+            <param name="provinciaOrigen"></param>
+        	<param name="provinciaDestino"></param>
+        	<param name="destinosOrigen"></param>
+        	<param name="destinosDestino"></param>
+        	<param name="fechaIda"></param>
+        	<param name="fechaVuelta"></param>
+        	<param name="soloIda"></param>
+        	<param name="adultosKey"></param>
+        	<param name="ninosKey"></param>
+        	<param name="filtroClase"></param>
+        	<param name="filtroHoraIda"></param>
+        	<param name="filtroHoraVuelta"></param>
+        	<param name="filtroPrecioDesde"></param>
+        	<param name="filtroPrecioHasta"></param>
+        	<param name="filtroDuracion"></param>
+        	<param name="removeFiltro"></param>
+        	<param name="pagina"></param>
+          	
+
+	        <result name="success" type="tiles">
+          		<param name="location">PaginacionDisponibilidadRenfe</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+         	<result name="error" type="tiles">
+          		<param name="location">errorTrenes</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+		</action>
+		
+		<action name="Pasajeros" class="com.globalia.apps.actions.trenes.pasajeros.MainPasajerosAction" >
+			<param name="fechaIda"></param>
+			<param name="origenIda"></param>
+			<param name="destinoIda"></param> 
+			<param name="origenIdaDes"></param> 
+			<param name="destinoIdaDes"></param>
+			<param name="trenIda"></param>
+			<param name="claseIda"></param>
+			<param name="tarifaIda"></param> 
+			<param name="precioIda"></param>
+			<param name="precioTotal"></param>
+			<param name="fechaVuelta"></param>
+			<param name="origenVuelta"></param>
+			<param name="destinoVuelta"></param>
+			<param name="origenVueltaDes"></param>
+			<param name="destinoVueltaDes"></param>
+			<param name="tarifaVuelta"></param>
+			<param name="trenVuelta"></param>
+			<param name="claseVuelta"></param>
+			<param name="precioVuelta"></param>
+			<param name="soloIda"></param>
+			<param name="adultosKey"></param>
+			<param name="ninosKey"></param>
+
+         	<result name="success" type="tiles">
+          		<param name="location">pasajerosTrenes</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+          	<result name="error" type="tiles">
+          		<param name="location">errorTrenes</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+		</action>
+		
+		
+		<action name="Confirmacion" class="com.globalia.apps.actions.trenes.confirmacion.MainConfirmacionAction" >
+		    <param name="provinciaOrigenKey"></param>
+        	<param name="destinosOrigenKey"></param>
+        	<param name="provinciaDestinoKey"></param>
+        	<param name="destinosDestinoKey"></param>
+            <param name="provinciaOrigen"></param>
+        	<param name="provinciaDestino"></param>
+        	<param name="destinosOrigen"></param>
+        	<param name="destinosDestino"></param>
+        	<param name="fechaIda"></param>
+        	<param name="fechaVuelta"></param>
+        	<param name="soloIda"></param>
+        	<param name="adultosKey"></param>
+        	<param name="ninosKey"></param>
+        	<param name="filtroClase"></param>
+        	<param name="filtroHoraIda"></param>
+        	<param name="filtroHoraVuelta"></param>
+        	<param name="filtroPrecioDesde"></param>
+        	<param name="filtroPrecioHasta"></param>
+        	<param name="filtroDuracion"></param>
+        	<param name="removeFiltro"></param>
+        	<param name="pagina"></param>
+        	<!-- eduard 20110519 -->
+        	<param name="formaPago"></param>
+		    <param name="nombreTitular"></param>
+		    <param name="numTarjeta"></param>
+		    <param name="numMes"></param>
+		    <param name="numAno"></param>
+		    <param name="numCCV"></param>
+		    <param name="observaciones"></param>
+		    <param name="donacion"></param>
+		    <param name="importeDonacion"></param>
+		    <param name="factura"></param>
+		    <param name="checkCondiciones"></param>
+		    <param name="nombreFactura"></param>
+		    <param name="docFactura"></param>
+		    <param name="dirFactura"></param>
+		    <param name="derecha">false</param>
+	        <result name="success" type="tiles">
+          		<param name="location">confirmacionTrenes</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+          	<result name="error" type="tiles">
+          		<param name="location">errorTrenes</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+		</action>
+		
+	
+		 
+		<action name="Calendario" class="com.globalia.apps.actions.trenes.disponibilidad.Calendario" >
+		    <param name="fecIni"></param>
+		    <param name="fecFin"></param>
+		    <param name="mesSel"></param>
+		    <param name="tipoCal">IDA</param>
+          	<result name="success" type="tiles">
+          		<param name="location">Calendario</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+		   </action>
+		<action name="CalendarioHome" class="com.globalia.apps.actions.trenes.disponibilidad.Calendario" >
+		    <param name="fecIni"></param>
+		    <param name="fecFin"></param>
+		    <param name="mesSel"></param>
+		    <param name="tipoCal">IDA</param>
+		    <result name="success" type="tiles">
+          		<param name="location">CalendarioHome</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+		   </action>
+		<!-- eduard 20110517 -->
+		<action name="Pago" class="com.globalia.apps.actions.trenes.pago.MainPagoAction" >
+		    <param name="provinciaOrigenKey"></param>
+        	<param name="destinosOrigenKey"></param>
+        	<param name="provinciaDestinoKey"></param>
+        	<param name="destinosDestinoKey"></param>
+            <param name="provinciaOrigen"></param>
+        	<param name="provinciaDestino"></param>
+        	<param name="destinosOrigen"></param>
+        	<param name="destinosDestino"></param>
+        	<param name="fechaIda"></param>
+        	<param name="fechaVuelta"></param>
+        	<param name="soloIda"></param>
+        	<param name="adultosKey"></param>
+        	<param name="ninosKey"></param>
+        	<param name="filtroClase"></param>
+        	<param name="filtroHoraIda"></param>
+        	<param name="filtroHoraVuelta"></param>
+        	<param name="filtroPrecioDesde"></param>
+        	<param name="filtroPrecioHasta"></param>
+        	<param name="filtroDuracion"></param>
+        	<param name="removeFiltro"></param>
+        	<param name="pagina"></param>
+        	<param name="idSesion"></param>
+        	<param name="aceptaLOPD"></param>
+			<param name="deseaInfo"></param>
+	          <result name="success" type="tiles">
+	          		<param name="location">pagoTrenes</param>
+	      			<param name="charSet">UTF-8</param>
+	          	</result>
+	          	<result name="error" type="tiles">
+	          		<param name="location">errorTrenes</param>
+	      			<param name="charSet">UTF-8</param>
+	          	</result>
+		</action>
+
+    </package>
+</struts>

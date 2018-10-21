@@ -1,0 +1,27 @@
+<html>
+<link rel="stylesheet" type="text/css" href="../../style.css"/>
+<head>
+<title>SQL Server (esp)</title>
+</head>
+<body>
+<h1>SQL Server</h1>
+<center>
+<img src="../images/sqlserverA.png" border="1">
+</center>
+<br>
+Para conectar con una base de datos SQL Server, se requiere la información:
+<ul>
+<li><strong>Usuario</strong></li>
+<li><strong>Contraseña</strong></li>
+<li><strong>Servidor</strong>: Nombre del servidor de base de datos</li>
+<li><strong>Puerto</strong>: El valor por defecto para SQL Server es 1433</li>
+<li><strong>Nombre de Base de Datos</strong></li>
+</ul>
+<br>
+El campo <strong>'Nombre de Base de Datos'</strong> aparecerá vacío.  La aplicación PuLoader no puede decidir el nombre de la base de datos donde va a realizarse la creación y la carga de las tablas del Product Update.
+<br><br>
+Se recomienda que la base de datos donde vamos a realizar la carga sea distinta a la base de datos usada normalmente en su sistema, de esta manera se evitará el borrado de los datos de las tablas con el mismo nombre. 
+<br><br>
+<center><a href="../connection.html">Volver</a></center>
+</body>
+</html>

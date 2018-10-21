@@ -1,0 +1,1140 @@
+package com.photel.model;
+
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
+import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+
+import com.photel.commonServices.thread.ThreadException;
+import com.photel.commonServices.util.AppModelProperties;
+import com.photel.commonServices.util.SerializableHelper;
+import com.photel.commonServices.util.XMLStreamUtil;
+import com.photel.data.hotelan.ddbb.hibernate.pojo.HibernateReservas;
+import com.photel.data.hotelan.ddbb.hibernate.pojo.HibernateReservasMails;
+import com.photel.hotelan.HotelanFacade;
+import com.photel.hotelan.client.IrqDestinationList.IrqDestinationListResponse;
+import com.photel.hotelan.client.IrqDestinationZoneList.IrqDestinationZoneListResponse;
+import com.photel.hotelan.client.IrqVillaAvailablePrice.IrqVillaAvailablePriceResponse;
+import com.photel.hotelan.client.IrqVillaAvailablePrice.Villa;
+import com.photel.hotelan.client.IrqVillaConfirmReservation.IrqVillaConfirmReservationResponse;
+import com.photel.hotelan.client.IrqVillaPreReservation.IrqVillaPreReservationResponse;
+import com.photel.interfaces.BDL244.IBDLContrato;
+import com.photel.interfaces.BDL244.IBDLDisponibilidad;
+import com.photel.interfaces.BDL244.IBDLDistribucion;
+import com.photel.interfaces.BDL244.IBDLFactory244;
+import com.photel.interfaces.BDL244.IBDLHotel;
+import com.photel.interfaces.data.BDL.IBdlCountries;
+import com.photel.interfaces.data.BDL.IBdlDestinations;
+import com.photel.interfaces.data.BDL.IBdlHotelDescriptions;
+import com.photel.interfaces.data.BDL.IBdlHotelDestinations;
+import com.photel.interfaces.data.BDL.IBdlReservas;
+import com.photel.interfaces.data.BDL.IBdlReservasMails;
+import com.photel.interfaces.data.gen.IGenBanners01;
+import com.photel.interfaces.data.gen.IGenCache;
+import com.photel.interfaces.data.gen.IGenErrores;
+import com.photel.interfaces.data.gen.IGenImages;
+import com.photel.interfaces.data.gen.IGenLanResource;
+import com.photel.interfaces.data.gen.IGenMenus;
+import com.photel.interfaces.data.gen.IGenMetas;
+import com.photel.interfaces.data.gen.IGenMonitor;
+import com.photel.interfaces.data.gen.IGenScripts;
+import com.photel.interfaces.data.gen.IGenStyles;
+import com.photel.interfaces.data.gen.IGenTracking;
+import com.photel.interfaces.data.gen.IMenu;
+import com.photel.interfaces.model.gen.sesion.ISesion;
+import com.photel.model.gen.facade.ModelGenFacade;
+import com.photel.webserviceClient.BDL244.BDLFactory244;
+
+public class PCRSModel extends UnicastRemoteObject implements java.io.Serializable {
+	private ModelGenFacade modelGen;
+	private AppModelProperties appModelproperties;
+	private IBDLFactory244 bdl;
+	private HotelanFacade hotelan;
+	
+	public PCRSModel() throws Exception {
+		super();
+		appModelproperties=new AppModelProperties();
+		modelGen=new ModelGenFacade("OL4U");
+		bdl = new BDLFactory244("OL4U");
+		hotelan=new HotelanFacade();
+	}
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	
+	public Map<String,String> getFacilities(String lang) throws Exception{
+		return hotelan.getFacilities(lang);
+	}
+	public Map<String,String> getHotelTypes(String lang) throws Exception{
+		return this.hotelan.getHotelTypes(lang);
+	}
+	public String formatDate(Calendar date){
+		String ret=null;
+        try { 
+        	String month = String.valueOf(date.get(Calendar.MONTH)+1);
+        	String day = String.valueOf(date.get(Calendar.DAY_OF_MONTH));
+        	if (month.length()==1){month="0"+month;}
+        	if (day.length()==1){day="0"+day;}
+        	ret= day+"/"+month+"/"+String.valueOf(date.get(Calendar.YEAR));
+        } catch (Exception e) { 
+            return null;} 
+		return ret;
+	}
+	
+	public String twoDecimalFormat(Double dbl){
+		BigDecimal d=new BigDecimal(dbl);
+		DecimalFormat df = new DecimalFormat("#,###0.00");
+		DecimalFormatSymbols decimal = new DecimalFormatSymbols();
+		decimal.setDecimalSeparator(',');
+		df.setDecimalFormatSymbols(decimal);
+		String n = df.format(d);
+		return df.format(d);
+	}
+
+	private Hashtable<String,Object> getAtt(String idi, String numCuenta, int idReserva)throws Exception{
+		String ret="";
+		IBdlReservas reser = bdl.getReserva(idReserva);
+		String hotelStr=reser.getBdlHotel();
+		IBDLHotel hotel = (IBDLHotel) XMLStreamUtil.xmlLoadObject(hotelStr);
+		
+		Hashtable<String,Object> att=new Hashtable<String,Object>();
+		
+		
+		att.put("hotel",hotel);
+		att.put("reserva",reser);
+		att.put("urlMaps","https://maps.google.com/maps?q="+hotel.getLatitud()+","+hotel.getLongitud()+"&hl="+idi+"&z=19");
+		att.put("hoy", formatDate(new GregorianCalendar()));
+		
+		GregorianCalendar cal=new GregorianCalendar();
+		Date fecha = reser.getBdlEntrada();
+		cal.setTime(fecha);
+		att.put("fechaEntrada", formatDate(cal));
+		cal=new GregorianCalendar();
+		fecha = reser.getBdlSalida();
+		cal.setTime(fecha);
+		att.put("fechaSalida", formatDate(cal));
+		List<IBDLDistribucion> distribuciones = hotel.getContratos().get(0).getDistribuciones();
+		att.put("numHabitaciones", distribuciones.size());
+		
+		
+		
+		
+		String strTemplate="<tr>\n";
+		strTemplate+="<td colspan=\"2\">&nbsp;</td>\n";
+		strTemplate+="<td>\n";
+		strTemplate+="<font color=\"#666666\" face=\"Arial\" size=\"2\">&datos&</font></td>\n";
+		strTemplate+="<td>&nbsp;</td>\n";
+		strTemplate+="</tr>\n";
+	
+		
+
+		String ivaStr=getGenConfig().get("IVA");
+		Double iva=Double.parseDouble(ivaStr);
+		
+		Double pagado = reser.getBdlImportePagado();
+		Double total = reser.getBdlImporteTotal();
+		Double resto = total-pagado;
+		Double impGastos=reser.getBdlGastos();
+		
+		Double importeIva=pagado*(iva/100);
+		Double baseImponible=pagado-importeIva;
+		
+		
+		
+		att.put("iva", ivaStr.replace(".", ","));
+		att.put("total", twoDecimalFormat(total));
+		att.put("gastos", twoDecimalFormat(impGastos));
+		att.put("pagado", twoDecimalFormat(pagado));
+		att.put("resto", twoDecimalFormat(resto));
+		att.put("importeIva", twoDecimalFormat(importeIva));
+		att.put("baseImponible", twoDecimalFormat(baseImponible));
+		
+		att.put("BDLLocata", reser.getBdlLocata().split("-")[1]);
+		
+		
+		Hashtable<String, String> textos = getHashResources(idi);
+		
+		for(Entry<String, String>  txt:textos.entrySet()){
+			String key = txt.getKey().replace(".", "_");
+			att.put(key, txt.getValue());
+
+		}
+		
+		
+		String comentarios="";
+		IBDLContrato contract = hotel.getContratos().get(0);
+		if (contract.getComentarios()!=null && contract.getComentarios().size()>0){
+			for(int i=0;i<contract.getComentarios().size();i++){
+				String coment=contract.getComentarios().get(i);
+				coment=coment.split("##TYPE##")[1];
+				comentarios+=coment+"\n";
+			}
+		}
+		comentarios=comentarios.replace("\n", "<br>");
+		if (!comentarios.equals("")){
+			comentarios="<strong>"+att.get("lang_gen_crs_i_comentarios")+":</strong><br>"+comentarios;
+			att.put("comentarios", comentarios);
+		}
+		
+		
+		
+		
+		
+		
+		String antesDe=(String) att.get("lang_gen_crs_i_aPagarAntesDe");
+		Date gastos = reser.getBdlFechaGastos();
+		cal.setTime(gastos);
+		String diasAntes=getGenConfig().get("diasDeAntelacionAcobrarTodoTransfer");
+		if (reser.getBdlRadioTipoPago().equals("1")){
+			diasAntes=getGenConfig().get("diasDeAntelacionAcobrarTodoTPV");
+			att.put("tipoTPV", reser.getBdlRadioTipoPago());
+		}else if(reser.getBdlRadioTipoPago().equals("2")){
+			diasAntes=getGenConfig().get("diasDeAntelacionAcobrarTodoTransfer");
+			att.put("tipoTransfer", reser.getBdlRadioTipoPago());
+			att.put("nombreBanco", textos.get("lang.gen.glo.nombreBanco"));
+			att.put("nombreCuenta", textos.get("lang.gen.glo."+numCuenta+"nombreCuenta"));
+			att.put("numerobic", textos.get("lang.gen.glo."+numCuenta+"numerobic"));
+		}
+		cal.add(Calendar.DAY_OF_YEAR, -Integer.parseInt(diasAntes) );
+		String fechaGastos=formatDate(cal);
+		antesDe+=" "+ fechaGastos;
+		att.put("aPagarAntesDe",antesDe);
+		att.put("fechaGastos", fechaGastos);
+		
+		att.put("contrato",hotel.getContratos().get(0));
+		String codContract="";
+		try{
+			codContract=hotel.getContratos().get(0).getCodigoClasificacion().replace("FFFO4UFFF","-");
+		}catch(Exception e){
+			e.printStackTrace();
+			codContract=hotel.getContratos().get(0).getCodigoClasificacion();
+		}
+		att.put("contratoId",codContract);
+		
+		if(reser.getBdlCheckContacto().equals("1")){
+			att.put("contacto", reser.getBdlCheckContacto());
+		}
+		if(reser.getBdlCheckAceptoCondidiones().equals("1")){
+			att.put("aceptoCondiciones", reser.getBdlCheckAceptoCondidiones());
+		}
+		if(reser.getBdlCheckRecibirOfertas().equals("1")){
+			att.put("recibirOfertas", reser.getBdlCheckRecibirOfertas());
+		}
+		if(reser.getBdlCheckFactura().equals("1")){
+			att.put("factura", reser.getBdlCheckFactura());
+			if (reser.getBdlRadioTipoPago().equals("1")){
+				cal.setTime(reser.getBdlTimcre());
+				String fact=+cal.get(Calendar.YEAR)+"-"+getGenConfig().get("prefijoFactura")+"-"+reser.getBdlFacturaNumero();
+				att.put("numfactura", fact);
+			}else{
+				att.put("numfactura", "-");
+			}
+		}
+		
+		
+		
+		String str;
+		List<String> distri = new ArrayList<String>();
+		
+		ArrayList<String> textosLenguas=new ArrayList<String>();
+		textosLenguas.add(textos.get("lang.gen.glo.Adultos")==null?"":textos.get("lang.gen.glo.Adultos"));
+		textosLenguas.add(textos.get("lang.gen.glo.Adulto")==null?textos.get("lang.gen.glo.Adultos"):textos.get("lang.gen.glo.Adulto"));
+		textosLenguas.add(textos.get("lang.gen.glo.ninos")==null?"":textos.get("lang.gen.glo.ninos"));
+		textosLenguas.add(textos.get("lang.gen.glo.nino")==null?textos.get("lang.gen.glo.ninos"):textos.get("lang.gen.glo.nino"));
+		textosLenguas.add(textos.get("lang.gen.crs.i_anyos")==null?"":textos.get("lang.gen.crs.i_anyos"));
+		
+		
+		
+		for (int i=0;i<distribuciones.size();i++){
+			str="<b>Habitacion&nbsp;" + (i+1) +":&nbsp;";
+			distribuciones.get(i).setTextosLenguas(textosLenguas);
+			str+=distribuciones.get(i).getStringOcupacion();
+			str=str.replace(" ", "&nbsp;");
+			str+="</b>";
+			str=strTemplate.replace("&datos&", str);
+			distri.add(str);
+			ArrayList<String> objs = distribuciones.get(i).getStringHabitaciones();
+			for (int h=0;h<objs.size();h++){
+				str=objs.get(h);
+				str=strTemplate.replace("&datos&", str);
+				distri.add(str);
+			}
+			/*
+			objs = distribuciones.get(i).getStringPaxes();
+			for (int h=0;h<objs.size();h++){
+				str="&nbsp;&nbsp;&nbsp;"+objs.get(h);
+				str=strTemplate.replace("&datos&", str);
+				distri.add(str);
+			}
+			*/
+		}
+		
+		att.put("distribuciones", distri);
+
+		return att;
+	}
+	
+	public String getVoucher(String idi, String numCuenta, int idReserva) throws Exception{
+		Hashtable<String, Object> att = this.getAtt(idi, numCuenta, idReserva);
+		String ret= this.renderTemplate("voucherTPV", "any", att);
+		return ret;
+		
+	}
+	
+	public String sendVoucher(String idi, String numCuenta, int IdReserva, String cc,String cco, String template,boolean cancelacion)throws Exception{
+		Hashtable<String, Object> att = this.getAtt(idi, numCuenta, IdReserva);
+		String asunto=(String) att.get("lang_gen_crs_i_confireserva");
+		if (cancelacion){
+			asunto=(String) att.get("lang_gen_glo_textoCancelacionReserva");
+		}
+		if (att.get("tipoTransfer")!=null){
+			asunto=(String) att.get("lang_gen_glo_reservaPorTransferencia");
+		}
+		IBdlReservas reser=(IBdlReservas) att.get("reserva");
+		if(reser.getBdlLocata().split("-").length==2){
+			asunto+=" "+reser.getBdlLocata()+"-"+reser.getId()+" "+reser.getBdlNombreHotel();
+		}else{
+			asunto+=" "+reser.getBdlLocata()+" "+reser.getBdlNombreHotel();
+		}
+		String to=reser.getBdlEmail();
+		//to="guillempugros@gmail.com";
+		String from=this.getGenConfig().get("voucherFROM");
+		String result = sendTemplate(null,template,"any", att,asunto, to,cc,cco, from);
+		boolean ok=result!=null && !result.equals("")?true:false;
+		if(!ok){
+			asunto="Error en el envio a "+to+" (" + asunto +")";
+			result = sendTemplate(null,template,"any", att,asunto, from,cc,cco, from);
+			IBdlReservasMails mail = bdl.getReservaMail(0);
+			mail.setBdlAsunto(asunto);
+			mail.setBdlCc(cc);
+			mail.setBdlCco(cco);
+			mail.setBdlFrom(from);
+			mail.setBdlIdReserva(IdReserva);
+			mail.setBdlMail(result);
+			mail.setBdlTo(from);
+			bdl.setReservaMails(mail);
+		}else{
+			IBdlReservasMails mail = bdl.getReservaMail(0);
+			mail.setBdlAsunto(asunto);
+			mail.setBdlCc(cc);
+			mail.setBdlCco(cco);
+			mail.setBdlFrom(from);
+			mail.setBdlIdReserva(IdReserva);
+			mail.setBdlMail(result);
+			mail.setBdlTo(to);
+			bdl.setReservaMails(mail);
+		}
+		
+		return result;
+	}
+	private Hashtable<String,Object> getAtthotelan(String idi, String numCuenta, int idReserva)throws Exception{
+		String ret="";
+		HibernateReservas reser = hotelan.getReserva(idReserva);
+		String hotelStr=reser.getHlHotel();
+		Villa hotel = (Villa) XMLStreamUtil.xmlLoadObject(hotelStr);
+		
+		Hashtable<String,Object> att=new Hashtable<String,Object>();
+		
+		
+		att.put("hotel",hotel);
+		att.put("reserva",reser);
+		att.put("hoy", formatDate(new GregorianCalendar()));
+		
+		GregorianCalendar cal=new GregorianCalendar();
+		Date fecha = reser.getHlEntrada();
+		cal.setTime(fecha);
+		att.put("fechaEntrada", formatDate(cal));
+		cal=new GregorianCalendar();
+		fecha = reser.getHlSalida();
+		cal.setTime(fecha);
+		att.put("fechaSalida", formatDate(cal));
+		
+		
+		
+		
+		String strTemplate="<tr>\n";
+		strTemplate+="<td colspan=\"2\">&nbsp;</td>\n";
+		strTemplate+="<td>\n";
+		strTemplate+="<font color=\"#666666\" face=\"Arial\" size=\"2\">&datos&</font></td>\n";
+		strTemplate+="<td>&nbsp;</td>\n";
+		strTemplate+="</tr>\n";
+	
+		
+
+		String ivaStr=getGenConfig().get("IVA");
+		Double iva=Double.parseDouble(ivaStr);
+		
+		Double pagado = reser.getHlImportePagado();
+		Double total = reser.getHlImporteTotal();
+		Double resto = total-pagado;
+		Double impGastos=reser.getHlGastos();
+		
+		Double importeIva=pagado*(iva/100);
+		Double baseImponible=pagado-importeIva;
+		
+		
+		
+		att.put("iva", ivaStr.replace(".", ","));
+		att.put("total", twoDecimalFormat(total));
+		att.put("gastos", twoDecimalFormat(impGastos));
+		att.put("pagado", twoDecimalFormat(pagado));
+		att.put("resto", twoDecimalFormat(resto));
+		att.put("importeIva", twoDecimalFormat(importeIva));
+		att.put("baseImponible", twoDecimalFormat(baseImponible));
+		
+		att.put("PortVillLocata", reser.getHlLocata().split("-")[1]);
+		
+		
+		Hashtable<String, String> textos = getHashResources(idi);
+		
+		for(Entry<String, String>  txt:textos.entrySet()){
+			String key = txt.getKey().replace(".", "_");
+			att.put(key, txt.getValue());
+
+		}
+		
+		
+		
+		
+		
+		
+		
+		String antesDe=(String) att.get("lang_gen_crs_i_aPagarAntesDe");
+		Date gastos = reser.getHlFechaGastos();
+		cal.setTime(gastos);
+		String diasAntes=getGenConfig().get("diasDeAntelacionAcobrarTodoTransfer");
+		if (reser.getHlRadioTipoPago().equals("1")){
+			diasAntes=getGenConfig().get("diasDeAntelacionAcobrarTodoTPV");
+			att.put("tipoTPV", reser.getHlRadioTipoPago());
+		}else if(reser.getHlRadioTipoPago().equals("2")){
+			diasAntes=getGenConfig().get("diasDeAntelacionAcobrarTodoTransfer");
+			att.put("tipoTransfer", reser.getHlRadioTipoPago());
+			att.put("nombreBanco", textos.get("lang.gen.glo.nombreBanco"));
+			att.put("nombreCuenta", textos.get("lang.gen.glo."+numCuenta+"nombreCuenta"));
+			att.put("numerobic", textos.get("lang.gen.glo."+numCuenta+"numerobic"));
+		}
+		cal.add(Calendar.DAY_OF_YEAR, -Integer.parseInt(diasAntes) );
+		Calendar cal2=Calendar.getInstance();
+		DateFormat format=new SimpleDateFormat("yyyy/mm/dd");
+		format.format(reser.getHlFechaGastos());
+		cal2=format.getCalendar();
+		String fechaGastos=formatDate(cal2);
+		antesDe+=" "+ fechaGastos;
+		att.put("aPagarAntesDe",antesDe);
+		att.put("fechaGastos", fechaGastos);
+		
+		
+		if(reser.getHlCheckContacto().equals("1")){
+			att.put("contacto", reser.getHlCheckContacto());
+		}
+		if(reser.getHlCheckAceptoCondidiones().equals("1")){
+			att.put("aceptoCondiciones", reser.getHlCheckAceptoCondidiones());
+		}
+		if(reser.getHlCheckRecibirOfertas().equals("1")){
+			att.put("recibirOfertas", reser.getHlCheckRecibirOfertas());
+		}
+		if(reser.getHlCheckFactura().equals("1")){
+			att.put("factura", reser.getHlCheckFactura());
+			if (reser.getHlRadioTipoPago().equals("1")){
+				cal.setTime(reser.getHlTimcre());
+				String fact=+cal.get(Calendar.YEAR)+"-"+getGenConfig().get("prefijoFacturaPortVill")+"-"+reser.getHlFacturaNumero();
+				att.put("numfactura", fact);
+			}else{
+				att.put("numfactura", "-");
+			}
+		}
+		
+		
+		
+		String str;
+		List<String> distri = new ArrayList<String>();
+		
+		ArrayList<String> textosLenguas=new ArrayList<String>();
+		textosLenguas.add(textos.get("lang.gen.glo.Adultos")==null?"":textos.get("lang.gen.glo.Adultos"));
+		textosLenguas.add(textos.get("lang.gen.glo.Adulto")==null?textos.get("lang.gen.glo.Adultos"):textos.get("lang.gen.glo.Adulto"));
+		textosLenguas.add(textos.get("lang.gen.glo.ninos")==null?"":textos.get("lang.gen.glo.ninos"));
+		textosLenguas.add(textos.get("lang.gen.glo.nino")==null?textos.get("lang.gen.glo.ninos"):textos.get("lang.gen.glo.nino"));
+		textosLenguas.add(textos.get("lang.gen.crs.i_anyos")==null?"":textos.get("lang.gen.crs.i_anyos"));
+		
+		
+		
+
+		return att;
+	}
+	public String sendVoucherHotelan(String idi, String numCuenta, int IdReserva, String cc,String cco, String template,boolean cancelacion)throws Exception{
+		Hashtable<String, Object> att = this.getAtthotelan(idi, numCuenta, IdReserva);
+		String asunto=(String) att.get("lang_gen_crs_i_confireserva");
+		if (cancelacion){
+			asunto=(String) att.get("lang_gen_glo_textoCancelacionReserva");
+		}
+		if (att.get("tipoTransfer")!=null){
+			asunto=(String) att.get("lang_gen_glo_reservaPorTransferencia");
+		}
+		HibernateReservas reser=(HibernateReservas) att.get("reserva");
+		if(reser.getHlLocata().split("-").length==2){
+			asunto+=" "+reser.getHlLocata()+"-"+reser.getId()+" "+reser.getHlNombreHotel();
+		}else{
+			asunto+=" "+reser.getHlLocata()+" "+reser.getHlNombreHotel();
+		}
+		String to=reser.getHlEmail();
+		//to="guillempugros@gmail.com";
+		String from=this.getGenConfig().get("voucherFROM");
+		String result = sendTemplate(null,template,"any", att,asunto, to,cc,cco, from);
+		boolean ok=result!=null && !result.equals("")?true:false;
+		if(!ok){
+			asunto="Error en el envio a "+to+" (" + asunto +")";
+			result = sendTemplate(null,template,"any", att,asunto, from,cc,cco, from);
+			HibernateReservasMails mail = hotelan.getReservaMail(0);
+			mail.setHlAsunto(asunto);
+			mail.setHlCc(cc);
+			mail.setHlCco(cco);
+			mail.setHlFrom(from);
+			mail.setHlIdReserva(IdReserva);
+			mail.setHlMail(result);
+			mail.setHlTo(from);
+			hotelan.setReservaMails(mail);
+		}else{
+			HibernateReservasMails mail = hotelan.getReservaMail(0);
+			mail.setHlAsunto(asunto);
+			mail.setHlCc(cc);
+			mail.setHlCco(cco);
+			mail.setHlFrom(from);
+			mail.setHlIdReserva(IdReserva);
+			mail.setHlMail(result);
+			mail.setHlTo(to);
+			hotelan.setReservaMails(mail);
+		}
+		
+		return result;
+	}
+	public String sendVoucherHotelan(String idi, String numCuenta, int IdReserva)throws Exception{
+		String cco=this.getGenConfig().get("voucherCCO");
+		String cc=this.getGenConfig().get("voucherCC");
+		cco="guillempugros@gmail.com";
+		cc="guillempugros@gmail.com";
+		String ret=sendVoucherHotelan(idi, numCuenta, IdReserva, cc,cco,"voucherTPVPortVill",false);
+		return ret;
+	}
+	public String sendVoucher(String idi, String numCuenta, int IdReserva)throws Exception{
+		String cco=this.getGenConfig().get("voucherCCO");
+		String cc=this.getGenConfig().get("voucherCC");
+		String ret=sendVoucher(idi, numCuenta, IdReserva, cc,cco,"voucherTPV",false);
+		return ret;
+	}
+	public String reSendVoucher(String idi, String numCuenta, int IdReserva)throws Exception{
+		String cco=null;
+		String cc=null;
+		String ret=sendVoucher(idi, numCuenta, IdReserva, cc,cco,"voucherTPV",false);
+		return ret;
+	}
+	public String sendCancelVoucher(String idi, String numCuenta, int IdReserva)throws Exception{
+		String cco=this.getGenConfig().get("voucherCCO");
+		String cc=this.getGenConfig().get("voucherCC");
+		String ret=sendVoucher(idi, numCuenta, IdReserva, cc,cco,"voucherTPVCancel",true);
+		return ret;
+	}
+	/* (non-Javadoc)
+	 * @see com.photel.model.IPCRSModel#getGenConfig()
+	 */
+	
+	public Hashtable<String, String> getGenConfig() throws RemoteException {
+		return modelGen.getGenConfig();
+	}
+	
+	
+	/* (non-Javadoc)
+	 * @see com.photel.model.IPCRSModel#getProperty(java.lang.String)
+	 */
+	
+	public String getProperty(String param)  {
+		String path;
+		String ret="";
+		try {
+		    ret=appModelproperties.getProperty(param);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "";
+		}
+		return ret;
+		
+	}
+	public String getProperty(String file, String param)  {
+		String path;
+		String ret="";
+		try {
+			AppModelProperties properties = new AppModelProperties();
+			properties.setPropetyFile(file);
+			ret=properties.getProperty(param);
+
+		} catch (Exception e) {
+			e.printStackTrace();
+			return "";
+		}
+		return ret;
+		
+	}
+
+	/* (non-Javadoc)
+	 * @see com.photel.model.IPCRSModel#getAllResources()
+	 */
+	
+	public Hashtable<String, StringBuffer> getAllResources() throws SQLException, Exception {
+		Hashtable<String, StringBuffer> gen = modelGen.getGeneralResources();
+		StringBuffer aux;
+		/*
+		Hashtable<String, StringBuffer> tren = modelTrenes.getTrenesResources();
+		for(Map.Entry<String, StringBuffer> entry : tren.entrySet()){     
+			if(!gen.containsKey(entry.getKey())){        
+				gen.put(entry.getKey(), entry.getValue());    
+			} else{
+				aux=entry.getValue();
+				aux.append(gen.get(entry.getKey()));
+				gen.put(entry.getKey(), aux); 
+			}
+		}
+		//gen=getDecoderHtml(gen);
+		*/
+		
+		
+		return gen;
+	}
+	
+	
+	public Hashtable<String, String> getHashResources(String idioma)
+			throws SQLException, Exception {
+		return modelGen.getHashResources(idioma);
+	}
+
+
+	public IGenMonitor setMonitor(int id, String url, String urlFrom,
+			String headers, String params, String session, String ip,
+			String host, String action, String toString) {
+		return modelGen.setMonitor(id, url, urlFrom, headers, params, session, ip, host, action, toString);
+	}
+	
+	public ISesion getGenSesion(String idSesion) throws Exception {
+		return modelGen.getGenSesion(idSesion);
+	}
+	public void setGenSesion(String idSesion, Hashtable<String, Object> sesion)
+			throws SQLException, Exception,RemoteException {
+		modelGen.setGenSesion(idSesion, sesion);
+	}
+
+
+	public IGenCache getCacheById(String id) {
+		return modelGen.getCacheById(id);
+	}
+
+
+	public void setThreadTracking(String nivelTracking, String gtrIdeses,
+			String gtrTmpven, String gtrIdven, String gtrNumexp,
+			String gtrOricla, String gtrOrimet, String gtrDesgtr,
+			String gtrTipgtr, Object gtrDatos, String gtrMaquina,
+			String gtrSite, String gtrLine) throws InterruptedException,
+			ThreadException {
+		modelGen.setThreadTracking(nivelTracking, gtrIdeses, gtrTmpven,
+				gtrIdven, gtrNumexp, gtrOricla, gtrOrimet, gtrDesgtr,
+				gtrTipgtr, gtrDatos, gtrMaquina, gtrSite, gtrLine);
+	}
+
+
+	public IGenTracking setTracking(String nivelTracking, String gtrIdeses,
+			String gtrTmpven, String gtrIdven, String gtrNumexp,
+			String gtrOricla, String gtrOrimet, String gtrDesgtr,
+			String gtrTipgtr, String gtrDatos, String gtrMaquina,
+			String gtrSite, String gtrLine) throws SQLException, Exception {
+		return modelGen.setTracking(nivelTracking, gtrIdeses, gtrTmpven,
+				gtrIdven, gtrNumexp, gtrOricla, gtrOrimet, gtrDesgtr,
+				gtrTipgtr, gtrDatos, gtrMaquina, gtrSite, gtrLine);
+	}
+
+
+	public IGenCache setCache(String id, String toLob, GregorianCalendar cal)
+			throws SQLException, Exception {
+		return modelGen.setCache(id, toLob, cal);
+	}
+	
+
+	public IGenErrores setErrorToDDBB(Hashtable<String,String> env, Exception e) {
+			try {
+				String urlFrom=env.get("urlFrom");
+				String url=env.get("url");
+				String headers=env.get("headers");
+				String params=env.get("params");
+				String preSession=env.get("preSession");
+				String ip=env.get("ip");
+				String host=env.get("host");
+				String action=env.get("Action");
+				
+				String error=null;
+				String msg=null;
+				error=XMLStreamUtil.xmlSaveObject(e.getCause());
+				msg=e.getMessage();
+				
+				String toString="";
+				
+				if (env!=null){
+					Iterator<String> paramNames = env.keySet().iterator();
+					String paramName ;
+				    while(paramNames.hasNext()) {
+				        paramName = paramNames.next();
+				        toString+= paramName+"="+env.get(paramName)+"\n";
+				    }	
+				}
+				
+				msg= (msg==null)?"":msg;
+				if (msg.length()>2000){
+					msg=msg.substring(0, 2000);
+				}
+				headers=headers.length()>4000?headers.substring(0, 3997)+"...":headers;
+				preSession=preSession.length()>4000?preSession.substring(0, 3997)+"...":preSession;
+				params=params.length()>4000?params.substring(0, 3997)+"...":params;
+				url=url.length()>250?url.substring(0, 247)+"...":url;
+				urlFrom=urlFrom.length()>250?urlFrom.substring(0, 247)+"...":urlFrom;
+				url=url.length()>250?url.substring(0, 247)+"...":url;
+
+				IGenErrores err = modelGen.setErrores(0, url, urlFrom, headers, params, preSession, ip, host, action, toString, msg,error);
+				
+				return err;
+				
+				} catch (Exception er) {
+					er.printStackTrace();
+					return null;}
+		
+	}
+
+
+	public ArrayList<IGenImages> getGenImages() throws Exception, SQLException {
+		return modelGen.getGenImages();
+	}
+
+
+	public ArrayList<IGenMenus> getGenMenus(int idClase) throws Exception,
+			SQLException {
+		return modelGen.getGenMenus(idClase);
+	}
+
+
+	public ArrayList<IGenMetas> getGenMetas() throws Exception, SQLException {
+		return modelGen.getGenMetas();
+	}
+
+
+	public ArrayList<IGenScripts> getGenScripts() throws Exception,
+			SQLException {
+		return modelGen.getGenScripts();
+	}
+
+
+	public ArrayList<IGenStyles> getGenStyles() throws Exception, SQLException {
+		return modelGen.getGenStyles();
+	}
+	
+	public ArrayList<IMenu> getMenus(String idi, String codMenu) {
+		return modelGen.getMenus(idi, codMenu);
+	}
+
+
+	public IBDLDisponibilidad getDisponibilidad(List<List<String>> distribuciones,List<String> roomCount, Calendar fechaIni,
+			Calendar fechaFin, String idSesion, String numero_pagina,
+			String codIdioma, String codZgeSup, boolean multihilo,String codigosDeHotel, String sessionId) throws Exception {
+		
+		IBDLDisponibilidad ret=null;
+		
+		if(sessionId!=null){
+			ret=getCache(distribuciones, fechaIni,fechaFin, numero_pagina,codIdioma, codZgeSup,sessionId);
+		}
+		if (ret==null){
+			ret=bdl.getDisponibilidad( distribuciones, roomCount, fechaIni,
+					fechaFin, idSesion, numero_pagina,
+					codIdioma, codZgeSup, multihilo,codigosDeHotel);
+			if (ret!=null && ret.getHoteles()!=null && ret.getHoteles().size()>0 && sessionId!=null){
+				setCache(ret,distribuciones, fechaIni,fechaFin, numero_pagina,codIdioma, codZgeSup,sessionId);
+			}
+		}
+		return ret;
+		
+	}
+	private String getIdDisponibilidad(List<List<String>> distribuciones, Calendar fechaIni,
+			Calendar fechaFin, String numero_pagina,
+			String codIdioma, String codZgeSup,String sessionId){
+		String id="_distribuciones="+distribuciones.toString();
+		id+="_entrada="+fechaIni.get(Calendar.YEAR)+fechaIni.get(Calendar.MONTH)+fechaIni.get(Calendar.DAY_OF_MONTH);
+		id+="_salida="+fechaFin.get(Calendar.YEAR)+fechaFin.get(Calendar.MONTH)+fechaFin.get(Calendar.DAY_OF_MONTH);
+		id+="_numero_pagina"+numero_pagina;
+		id+="_codIdioma"+codIdioma;
+		id+="codZgeSup"+codZgeSup;
+		id+="sessionId"+sessionId;
+		return id;
+	}
+	private String getIdDisponibilidadHotelan(String idioma,
+			String hotelId, String destinationId, String zoneId,
+			Calendar arrival, Integer nights, Integer adults, Integer children,
+			Integer infants,String sessionId){
+		String id="idioma="+idioma;
+		id+="hotelId"+hotelId;
+		id+="destinationId"+destinationId;
+		id+="zoneId"+zoneId;
+		id+="_entrada="+arrival.get(Calendar.YEAR)+arrival.get(Calendar.MONTH)+arrival.get(Calendar.DAY_OF_MONTH);
+		id+="nights"+nights;
+		id+="adults"+adults;
+		id+="children"+children;
+		id+="infants"+infants;
+		id+="sessionId"+sessionId;
+		return id;
+	}
+	private void setCache(IBDLDisponibilidad dispo, List<List<String>> distribuciones, Calendar fechaIni,
+			Calendar fechaFin, String numero_pagina,
+			String codIdioma, String codZgeSup, String sessionId) throws SQLException, Exception {
+				String setCache = modelGen.getGenConfig().get("cachearDisponibilidades");
+				if (setCache!=null && setCache.equalsIgnoreCase("true")){
+					String id=getIdDisponibilidad(distribuciones, fechaIni,fechaFin, numero_pagina,codIdioma, codZgeSup, sessionId);
+					id = "DISPO_" + id;
+					GregorianCalendar cal = new GregorianCalendar();
+					SerializableHelper help = new SerializableHelper();
+	
+					Hashtable<String, Object> content = new Hashtable<String, Object>();
+					content.put("dispo", dispo);
+					modelGen.setCache(id, help.serialize(content), cal);
+				}
+
+			}
+
+	private IBDLDisponibilidad getCache(List<List<String>> distribuciones, Calendar fechaIni,
+			Calendar fechaFin, String numero_pagina,
+			String codIdioma, String codZgeSup, String sessionId) throws SQLException, Exception {
+				
+				IBDLDisponibilidad dispo = null;
+				String setCache = modelGen.getGenConfig().get("cachearDisponibilidades");
+				if (setCache!=null && setCache.equalsIgnoreCase("true")){
+					String minutosCache = modelGen.getGenConfig().get("tiempoMinutosCaheDispo");
+					
+	
+					if (minutosCache != null) {
+						IGenCache cache = null;
+	
+						String id=getIdDisponibilidad(distribuciones, fechaIni,fechaFin, numero_pagina,codIdioma, codZgeSup, sessionId);
+						
+						id = "DISPO_" + id;
+						
+						SerializableHelper help = new SerializableHelper();
+						
+						if (minutosCache.equalsIgnoreCase("0")) {
+							cache = modelGen.getCacheById(id);
+						} else {
+							GregorianCalendar calDesde = new GregorianCalendar();
+							GregorianCalendar calHasta = (GregorianCalendar) help.clone(calDesde);
+							calDesde.add(Calendar.MINUTE, -Integer.parseInt(minutosCache));
+							ArrayList<IGenCache> cacheList = modelGen.getCache(id, calDesde, calHasta);
+							if (cacheList != null && cacheList.size() != 0) {
+								cache = cacheList.get(0);
+							}
+						}
+	
+						if (cache != null) {
+								Hashtable<String, Object> content = (Hashtable<String, Object>) help.unserialize(cache.getTrdDetalle());
+								dispo = (IBDLDisponibilidad) content.get("dispo");
+						}
+					}
+				}
+				return dispo;
+			}
+	private void setCacheHotelan(IrqVillaAvailablePriceResponse dispo, String idioma,
+			String hotelId, String destinationId, String zoneId,
+			Calendar arrival, Integer nights, Integer adults, Integer children,
+			Integer infants,String sessionId) throws SQLException, Exception {
+		
+				String setCache = modelGen.getGenConfig().get("cachearDisponibilidades");
+				if (setCache!=null && setCache.equalsIgnoreCase("true")){
+					String id=getIdDisponibilidadHotelan(idioma, hotelId, destinationId, zoneId, arrival, nights, adults, children, infants, sessionId);
+					id = "DISPO_" + id;
+					GregorianCalendar cal = new GregorianCalendar();
+					SerializableHelper help = new SerializableHelper();
+	
+					Hashtable<String, Object> content = new Hashtable<String, Object>();
+					content.put("dispo", dispo);
+					modelGen.setCache(id, help.serialize(content), cal);
+				}
+
+			}
+	private IrqVillaAvailablePriceResponse getCacheHotelan(String idioma,
+			String hotelId, String destinationId, String zoneId,
+			Calendar arrival, Integer nights, Integer adults, Integer children,
+			Integer infants,String sessionId) throws SQLException, Exception {
+				
+			IrqVillaAvailablePriceResponse dispo = null;
+				String setCache = modelGen.getGenConfig().get("cachearDisponibilidades");
+				if (setCache!=null && setCache.equalsIgnoreCase("true")){
+					String minutosCache = modelGen.getGenConfig().get("tiempoMinutosCaheDispo");
+					
+	
+					if (minutosCache != null) {
+						IGenCache cache = null;
+	
+						String id=this.getIdDisponibilidadHotelan(idioma, hotelId, destinationId, zoneId, arrival, nights, adults, children, infants, sessionId);
+						
+						id = "DISPO_" + id;
+						
+						SerializableHelper help = new SerializableHelper();
+						
+						if (minutosCache.equalsIgnoreCase("0")) {
+							cache = modelGen.getCacheById(id);
+						} else {
+							GregorianCalendar calDesde = new GregorianCalendar();
+							GregorianCalendar calHasta = (GregorianCalendar) help.clone(calDesde);
+							calDesde.add(Calendar.MINUTE, -Integer.parseInt(minutosCache));
+							ArrayList<IGenCache> cacheList = modelGen.getCache(id, calDesde, calHasta);
+							if (cacheList != null && cacheList.size() != 0) {
+								cache = cacheList.get(0);
+							}
+						}
+	
+						if (cache != null) {
+								Hashtable<String, Object> content = (Hashtable<String, Object>) help.unserialize(cache.getTrdDetalle());
+								dispo = (IrqVillaAvailablePriceResponse) content.get("dispo");
+						}
+					}
+				}
+				return dispo;
+			}
+	
+	public IBDLDisponibilidad ordenaHotelesASC(IBDLDisponibilidad arg0)
+			throws Exception {
+		return bdl.ordenaHotelesASC(arg0);
+	}
+
+
+	public IBDLDisponibilidad ordenaHotelesDESC(IBDLDisponibilidad arg0)
+			throws Exception {
+		return bdl.ordenaHotelesDESC(arg0);
+	}
+
+
+	public IBDLHotel bloquearReserva(IBDLHotel hotel,Calendar fechaEntrada,
+			Calendar fechaSalida, List<List<String>> distribuciones, int ofi,
+			String nombreContrato, String idi, String codigoHotel,
+			String codigoZona, String codigoClasificacion,
+			List<String> seleccion, String tokenDeDispo) throws Exception {
+		return bdl.bloquearReserva(hotel,fechaEntrada,
+				fechaSalida,  distribuciones,  ofi,
+				 nombreContrato,  idi,  codigoHotel,
+				 codigoZona,  codigoClasificacion,
+				 seleccion,  tokenDeDispo);
+	}
+
+
+	public IBDLHotel confirmarReserva(String idi,String idReserva,
+			List<List<String>> distribuciones, IBDLHotel pHotel) throws Exception {
+		return bdl.confirmarReserva(idi, idReserva, distribuciones, pHotel);
+	}
+
+
+	public IBdlCountries getCountry(String arg0, String arg1) {
+		return bdl.getCountry(arg0, arg1);
+	}
+
+
+	public IBdlDestinations getDestination(String arg0, String arg1) {
+		return bdl.getDestination(arg0, arg1);
+	}
+
+
+	public IBdlHotelDescriptions getHotelDescription(String arg0, String arg1) {
+		return bdl.getHotelDescription(arg0, arg1);
+	}
+
+
+	public IBdlHotelDestinations getHotelDestination(String arg0, String arg1) {
+		return bdl.getHotelDestination(arg0, arg1);
+	}
+
+
+	public boolean delReserva(IBdlReservas arg0) {
+		return bdl.delReserva(arg0);
+	}
+
+
+	public IBdlReservas getReserva(int arg0) {
+		return bdl.getReserva(arg0);
+	}
+
+
+	public ArrayList<IBdlReservas> getReservas() {
+		return bdl.getReservas();
+	}
+
+
+	public IBdlReservas getUltimaFactura() {
+		return bdl.getUltimaFactura();
+	}
+
+
+	public IBdlReservas setReserva(IBdlReservas arg0) {
+		return bdl.setReserva(arg0);
+	}
+	
+	
+	public String sendTemplate(String images, String template, String lang,
+			Hashtable<String, Object> att, String asuntoMensaje,
+			String destinoMensaje, String destinoMensajeCC,
+			String destinoMensajeCCO, String from) {
+		return modelGen.sendTemplate(images, template, lang, att, asuntoMensaje,
+				destinoMensaje, destinoMensajeCC, destinoMensajeCCO, from);
+	}
+
+	public String renderTemplate(String template, String lang,
+			Hashtable<String, Object> att) {
+		return modelGen.renderTemplate(template, lang, att);
+	}
+
+	public ArrayList<IGenBanners01> getBanners01(String idi) throws SQLException, Exception {
+		return modelGen.getBanners01(idi);
+	}
+
+	public void clearSession() {
+		modelGen.clearSession();
+		bdl.clearSession();
+	}
+
+	public void closeSession() {
+		modelGen.closeSession();
+		bdl.closeSession();
+	}
+
+	public IBDLHotel getHotelDetails(IBDLHotel hotel, String languageCode) {
+		return bdl.getHotelDetails(hotel, languageCode);
+	}
+
+	public IBDLHotel getHotelDetails(String languageCode) {
+		return bdl.getHotelDetails(languageCode);
+	}
+
+	public IBDLHotel cancelValuation(IBDLHotel hotel, String language,
+			String locata, int officeCode) throws Exception {
+		return bdl.cancelValuation(hotel, language, locata, officeCode);
+	}
+
+	public IBDLHotel cancelConfirm(IBDLHotel hotel, String language,
+			String locata, int officeCode) throws Exception {
+		return bdl.cancelConfirm(hotel, language, locata, officeCode);
+	}
+
+	public IBDLHotel getHDetailFacilitesGrouped(IBDLHotel hotel,
+			String LanguageCode) throws Exception {
+		return bdl.getHDetailFacilitesGrouped(hotel, LanguageCode);
+	}
+
+	public IBDLHotel getHotelImages(IBDLHotel hotel, String languageCode) {
+		return bdl.getHotelImages(hotel, languageCode);
+	}
+
+	public ArrayList<IBdlDestinations> getDestinations(String languageCode) {
+		return bdl.getDestinations(languageCode);
+	}
+
+	public ArrayList<IBDLHotel> getDestinationHotels(String destination) {
+		return bdl.getDestinationHotels(destination);
+	}
+
+	public IBDLHotel getHDetailImagesGrouped(IBDLHotel hotel,
+			String LanguageCode) {
+		return bdl.getHDetailImagesGrouped(hotel, LanguageCode);
+	}
+
+	public IBDLHotel getHotel(String code, String languageCode) {
+		return bdl.getHotel(code, languageCode);
+	}
+
+	public void updateHotels() throws Exception {
+		hotelan.updateHotels();
+	}
+
+	public IrqVillaAvailablePriceResponse getVillaAvailableRich(String idioma,
+			String hotelId, String destinationId, String zoneId,
+			Calendar arrival, Integer nights, Integer adults, Integer children,
+			Integer infants, String sessionId) throws Exception {
+		
+		IrqVillaAvailablePriceResponse ret=null;
+		
+		if(sessionId!=null){
+			ret=this.getCacheHotelan(idioma, hotelId, destinationId, zoneId, arrival, nights, adults, children, infants, sessionId);
+		}
+		if (ret==null){
+			String prepagoDefault=modelGen.getGenConfig().get("portVillDefaultComision"); 
+			ret=hotelan.getVillaAvailableRich(prepagoDefault,idioma, hotelId, destinationId,zoneId, arrival, nights, adults, children, infants);
+			if (ret!=null && ret.getVilla()!=null && ret.getVilla().size()>0 && sessionId!=null){
+				this.setCacheHotelan(ret, idioma, hotelId, destinationId, zoneId, arrival, nights, adults, children, infants, sessionId);
+			}
+		}
+		return ret;
+	}
+
+	public IrqDestinationListResponse getDestinationList(String idioma)
+			throws Exception {
+		return hotelan.getDestinationList(idioma);
+	}
+
+	public IrqDestinationZoneListResponse getDestinationZoneList(String idioma,
+			String destinationId) throws Exception {
+		return hotelan.getDestinationZoneList(idioma, destinationId);
+	}
+	public Villa getVilla(Villa vill, String lang) {
+		return hotelan.getVilla(vill, lang);
+	}
+	public Villa getVilla(String vill, String lang) {
+		return hotelan.getVilla(vill, lang);
+	}
+	public IrqVillaPreReservationResponse getIrqVillaPreReservation(
+			String idioma, String hotelId, Calendar arrival, String nights,
+			String roomId, String boardId, String adults, String children,
+			String infants, String clientName, String clientSurname,
+			String clientDocument, String clientAddress, String clientZipCode,
+			String clientCity, String clientRegion, String clientCountry,
+			String clientEmail, String clientTelephone, String remarks)
+			throws Exception {
+		return hotelan.getIrqVillaPreReservation(idioma, hotelId, arrival,
+				nights, roomId, boardId, adults, children, infants, clientName,
+				clientSurname, clientDocument, clientAddress, clientZipCode,
+				clientCity, clientRegion, clientCountry, clientEmail,
+				clientTelephone, remarks);
+	}
+	
+	public IrqVillaConfirmReservationResponse getIrqVillaConfirmReservation(
+			String hotelId, String year, String countryId) throws Exception {
+		return hotelan.getIrqVillaConfirmReservation(hotelId, year, countryId);
+	}
+	public HibernateReservas getReservaHotelan(int idReserva) {
+		return hotelan.getReserva(idReserva);
+	}
+	public HibernateReservas setReservaHotelan(HibernateReservas res) {
+		return hotelan.setReserva(res);
+	}
+	public HibernateReservasMails getReservaMailHotelan(int idReservaMail) {
+		return hotelan.getReservaMail(idReservaMail);
+	}
+	public HibernateReservasMails setReservaMailsHotelan(HibernateReservasMails res) {
+		return hotelan.setReservaMails(res);
+	}
+	public HibernateReservas getUltimaFacturaHotelan() {
+		return hotelan.getUltimaFactura();
+	}
+	
+	
+}

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory >
+		<mapping resource="com/photel/data/gen/ddbb/hibernate/xml/TypeDefs.hbm.xml" />
+		<mapping resource="com/photel/data/gen/ddbb/hibernate/xml/GenConfig.hbm.xml" />
+		<mapping resource="com/photel/data/gen/ddbb/hibernate/xml/GenLanresource.hbm.xml" />
+		<mapping resource="com/photel/data/gen/ddbb/hibernate/xml/GenMetas.hbm.xml" />
+		<mapping resource="com/photel/data/gen/ddbb/hibernate/xml/GenStyles.hbm.xml" />
+		<mapping resource="com/photel/data/gen/ddbb/hibernate/xml/GenScripts.hbm.xml" />
+		<mapping resource="com/photel/data/gen/ddbb/hibernate/xml/GenImages.hbm.xml" />
+		<mapping resource="com/photel/data/gen/ddbb/hibernate/xml/GenvMenus.hbm.xml" />
+		<mapping resource="com/photel/data/gen/ddbb/hibernate/xml/GenvOpciones.hbm.xml" />
+		<mapping resource="com/photel/data/gen/ddbb/hibernate/xml/GenMonitor.hbm.xml" />
+		<mapping resource="com/photel/data/gen/ddbb/hibernate/xml/GenErrores.hbm.xml" />
+		<mapping resource="com/photel/data/gen/ddbb/hibernate/xml/GenSesiones.hbm.xml" />
+		<mapping resource="com/photel/data/gen/ddbb/hibernate/xml/LlamadasCliente.hbm.xml" />
+		<mapping resource="com/photel/data/gen/ddbb/hibernate/xml/TrackingBusqueda.hbm.xml" />
+		<mapping resource="com/photel/data/gen/ddbb/hibernate/xml/LlamadasClienteBusqueda.hbm.xml" />
+		<mapping resource="com/photel/data/gen/ddbb/hibernate/xml/GenMenus.hbm.xml" />
+		<mapping resource="com/photel/data/gen/ddbb/hibernate/xml/GenClasesMenu.hbm.xml" />
+		<mapping resource="com/photel/data/gen/ddbb/hibernate/xml/GenConfigSite.hbm.xml" />
+		<mapping resource="com/photel/data/gen/ddbb/hibernate/xml/GenLanresourceSite.hbm.xml" />
+		<mapping resource="com/photel/data/gen/ddbb/hibernate/xml/GenStylesSite.hbm.xml" />
+		<mapping resource="com/photel/data/gen/ddbb/hibernate/xml/GenScriptsSite.hbm.xml" />
+		<mapping resource="com/photel/data/gen/ddbb/hibernate/xml/GenImagesSite.hbm.xml" />
+		<mapping resource="com/photel/data/gen/ddbb/hibernate/xml/GenCache.hbm.xml" />
+		<mapping resource="com/photel/data/gen/ddbb/hibernate/xml/GenTracking.hbm.xml" />
+		<mapping resource="com/photel/data/gen/ddbb/hibernate/xml/GenTrackingLevel.hbm.xml" />
+		<mapping resource="com/photel/data/gen/ddbb/hibernate/xml/GenBanners01.hbm.xml" />
+		<mapping resource="com/photel/data/gen/ddbb/hibernate/xml/GenJomfish.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

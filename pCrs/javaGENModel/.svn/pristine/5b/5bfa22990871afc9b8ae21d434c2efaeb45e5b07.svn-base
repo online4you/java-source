@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.photel.data.gen.ddbb.hibernate.pojo">
+	<class
+		name="GenScripts"
+		table="GEN_SCRIPTS"
+	>
+		<meta attribute="sync-DAO">false</meta>
+
+		<id
+			name="GenParam"
+			column="GEN_PARAM"
+			type="string"
+			length="50"
+		/>
+		<property
+			name="GenValue"
+			column="GEN_VALUE"
+			type="string"
+			not-null="false"
+			length="200"
+		/>
+		<property
+			name="GenOrder"
+			column="GEN_ORDER"
+			type="integer"
+			not-null="false"
+			length="22"
+		/>
+		<property
+			name="GenVal"
+			column="GEN_VAL"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

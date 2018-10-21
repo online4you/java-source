@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<project name="ModuloLibreriasExternas" default="ModuloLibreriasExternas" basedir=".">
+    <!-- this file was created by Fat-Jar Eclipse Plug-in -->
+    <!-- the ANT-Export is in a very early stage, so this -->
+    <!-- is only experimental, ANT 1.6 or above is        -->
+    <!-- required, feedback is always welcome:            -->
+    <!--       http://sourceforge.net/projects/fjep       -->
+    <!-- uncomment the following lines if using ANT outside Eclipse -->
+    <!--
+        <property name="fjepPath" value="reference:file:plugins/net.sf.fjep.fatjar_0.0.31.jarfatjar.jar"/>
+        <taskdef name="fatjar.build" classname="net.sf.fjep.anttask.FJBuildTask" classpath="${fjepPath}"/>
+        <typedef name="fatjar.manifest" classname="net.sf.fjep.anttask.FJManifestType" classpath="${fjepPath}"/>
+        <typedef name="fatjar.exclude" classname="net.sf.fjep.anttask.FJExcludeType" classpath="${fjepPath}"/>
+        <typedef name="fatjar.jarsource" classname="net.sf.fjep.anttask.FJJarSourceType" classpath="${fjepPath}"/>
+        <typedef name="fatjar.filesource" classname="net.sf.fjep.anttask.FJFileSourceType" classpath="${fjepPath}"/>
+    -->
+    <!-- uncomment the above lines to use ANT outside of Eclipse -->
+    <target name="ModuloLibreriasExternas">
+    	<property name="projectName" value="javaLibreriasExternas"/>
+        <property name="mainDir" value="${basedir}/.."/>
+ 
+    	<property name="ModuloLibreriasExternas" value="${mainDir}\javaLibreriasExternas"/>
+    	
+      	<macrodef name="deleteLibs"> 
+        	  <attribute name="dirTarget"/> 
+        	  <sequential>
+        	  	<echo message="Deleting from @{dirTarget}" />
+        	  	<delete>
+        	  		<fileset dir="@{dirTarget}" includes="**/${projectName}.jar"/>
+        	  	</delete>
+        	  </sequential> 
+        </macrodef> 
+		<!--deleteLibs dirTarget="${mainDir}/00101_javaAppModel/lib"/> 
+    	<deleteLibs dirTarget="${mainDir}/00202_javaModelGen/lib"/> 
+    	<deleteLibs dirTarget="${mainDir}/00203_javaVenta/lib"/> 
+    	<deleteLibs dirTarget="${mainDir}/00204_javaPersistenceGen/lib"/> 
+    	<deleteLibs dirTarget="${mainDir}/00302_javaModelTrenes/lib"/> 
+    	<deleteLibs dirTarget="${mainDir}/00304_javaPersistenceTrenes/lib"/> 
+    	<deleteLibs dirTarget="${mainDir}/00304_javaWebServicesTrenes/lib"/> 
+    	<deleteLibs dirTarget="${mainDir}/00203_javaVenta/lib"/>
+    	<deleteLibs dirTarget="${mainDir}/00604_javaPersistencePepePromo/lib"/>
+    	<deleteLibs dirTarget="${mainDir}/00602_javaModelPepePromo/lib"/>
+    	<deleteLibs dirTarget="${mainDir}/00101_javaAppPepeModel/lib"/>
+        <deleteLibs dirTarget="${mainDir}/0000000_webApp/WebContent/WEB-INF/lib"/>
+    	<deleteLibs dirTarget="${mainDir}/0000000_webPepeApp/WebContent/WEB-INF/lib"/-->
+    	
+    	<fatjar.build output="${ModuloLibreriasExternas}\${projectName}.jar">
+            <fatjar.manifest mergemanifests="false"/>
+            <fatjar.filesource path="${ModuloLibreriasExternas}\bin" relpath=""/>
+            <fatjar.jarsource file="${ModuloLibreriasExternas}\lib\activation.jar" relpath=""/>
+            <fatjar.jarsource file="${ModuloLibreriasExternas}\lib\axis.jar" relpath=""/>
+            <fatjar.jarsource file="${ModuloLibreriasExternas}\lib\dwr.jar" relpath=""/>
+            <fatjar.jarsource file="${ModuloLibreriasExternas}\lib\jaxb-api.jar" relpath=""/>
+            <fatjar.jarsource file="${ModuloLibreriasExternas}\lib\jaxb-impl.jar" relpath=""/>
+            <fatjar.jarsource file="${ModuloLibreriasExternas}\lib\jaxb-libs.jar" relpath=""/>
+            <fatjar.jarsource file="${ModuloLibreriasExternas}\lib\jaxb-xjc.jar" relpath=""/>
+            <fatjar.jarsource file="${ModuloLibreriasExternas}\lib\jaxb1-impl.jar" relpath=""/>
+            <fatjar.jarsource file="${ModuloLibreriasExternas}\lib\jaxp-api.jar" relpath=""/>
+            <fatjar.jarsource file="${ModuloLibreriasExternas}\lib\jaxp.jar" relpath=""/>
+            <fatjar.jarsource file="${ModuloLibreriasExternas}\lib\jaxrpc.jar" relpath=""/>
+            <fatjar.jarsource file="${ModuloLibreriasExternas}\lib\jsr173_1.0_api.jar" relpath=""/>
+            <fatjar.jarsource file="${ModuloLibreriasExternas}\lib\log4j-1.2.14.jar" relpath=""/>
+            <fatjar.jarsource file="${ModuloLibreriasExternas}\lib\ojdbc14.jar" relpath=""/>
+    		<fatjar.jarsource file="${ModuloLibreriasExternas}\lib\mysql-connector-java-5.1.19-bin.jar" relpath=""/>
+            <fatjar.jarsource file="${ModuloLibreriasExternas}\lib\saaj.jar" relpath=""/>
+            <fatjar.jarsource file="${ModuloLibreriasExternas}\lib\wsdl4j.jar" relpath=""/>
+ <!-- Hibernate -->
+        	<fatjar.jarsource file="${ModuloLibreriasExternas}\lib\antlr-2.7.6.jar" relpath=""/>
+            <fatjar.jarsource file="${ModuloLibreriasExternas}\lib\dom4j-1.6.1.jar" relpath=""/>
+    		<fatjar.jarsource file="${ModuloLibreriasExternas}\lib\jaxen-1.1-beta-5.jar" relpath=""/>
+            <fatjar.jarsource file="${ModuloLibreriasExternas}\lib\hibernate3.jar" relpath=""/>
+            <fatjar.jarsource file="${ModuloLibreriasExternas}\lib\hibernate-jpa-2.0-api-1.0.0.Final.jar" relpath=""/>
+            <fatjar.jarsource file="${ModuloLibreriasExternas}\lib\javassist-3.12.0.GA.jar" relpath=""/>
+            <fatjar.jarsource file="${ModuloLibreriasExternas}\lib\javassist-3.7.ga.jar" relpath=""/>
+            <fatjar.jarsource file="${ModuloLibreriasExternas}\lib\jta-1.1.jar" relpath=""/>
+            <fatjar.jarsource file="${ModuloLibreriasExternas}\lib\slf4j-api-1.6.1.jar" relpath=""/>
+            <fatjar.jarsource file="${ModuloLibreriasExternas}\lib\slf4j-log4j12-1.6.1.jar" relpath=""/>
+
+            <fatjar.jarsource file="${ModuloLibreriasExternas}\lib\taglibs-i18n.jar" relpath=""/>
+            <fatjar.jarsource file="${ModuloLibreriasExternas}\lib\mail.jar" relpath=""/>
+    		
+<!-- Hibernate --> 		
+    		<fatjar.jarsource file="${ModuloLibreriasExternas}\lib\xstream-1.2.2.jar" relpath=""/>
+    		<fatjar.jarsource file="${ModuloLibreriasExternas}\lib\antlr-3.3-complete.jar" relpath=""/>
+			<fatjar.jarsource file="${ModuloLibreriasExternas}\lib\ST-4.0.2.jar" relpath=""/>
+<!-- c3p0 --> 		
+    		<fatjar.jarsource file="${ModuloLibreriasExternas}\lib\c3p0-0.9.2-pre4.jar" relpath=""/>
+    		<fatjar.jarsource file="${ModuloLibreriasExternas}\lib\c3p0-oracle-thin-extras-0.9.2-pre4.jar" relpath=""/>
+			<fatjar.jarsource file="${ModuloLibreriasExternas}\lib\mchange-commons-java-0.2.2.jar" relpath=""/>
+			
+<!-- Excel --> 		   		
+    		<fatjar.jarsource file="${ModuloLibreriasExternas}\lib\poi-3.7-20101029.jar" relpath=""/>
+    		 
+<!-- pCell --> 		   		
+    		<fatjar.jarsource file="${ModuloLibreriasExternas}\lib\quartz-2.1.6.jar" relpath=""/>
+    		<!--fatjar.jarsource file="${ModuloLibreriasExternas}\lib\RXTXcomm.jar" relpath=""/-->
+   		
+
+        </fatjar.build>
+    	
+    	
+       	<macrodef name="copyLibs"> 
+        	  <attribute name="dirTarget"/> 
+        	  <sequential> 
+        	    <copy todir="@{dirTarget}"> 
+        	      <fileset dir="${ModuloLibreriasExternas}" includes="**/${projectName}.jar"/> 
+        	    </copy> 
+        	  </sequential> 
+        	</macrodef> 
+    	
+    	
+    	
+		<!--copyLibs dirTarget="${mainDir}/00101_javaAppModel/lib"/> 
+    	<copyLibs dirTarget="${mainDir}/00202_javaModelGen/lib"/> 
+    	<copyLibs dirTarget="${mainDir}/00203_javaVenta/lib"/> 
+    	<copyLibs dirTarget="${mainDir}/00204_javaPersistenceGen/lib"/> 
+    	<copyLibs dirTarget="${mainDir}/00302_javaModelTrenes/lib"/> 
+    	<copyLibs dirTarget="${mainDir}/00304_javaPersistenceTrenes/lib"/> 
+    	<copyLibs dirTarget="${mainDir}/00304_javaWebServicesTrenes/lib"/> 
+    	<copyLibs dirTarget="${mainDir}/00203_javaVenta/lib"/>
+    	<copyLibs dirTarget="${mainDir}/00604_javaPersistencePepePromo/lib"/>
+    	<copyLibs dirTarget="${mainDir}/00602_javaModelPepePromo/lib"/>
+    	<copyLibs dirTarget="${mainDir}/00101_javaAppPepeModel/lib"/>
+        <copyLibs dirTarget="${mainDir}/0000000_webApp/WebContent/WEB-INF/lib"/>
+    	<copyLibs dirTarget="${mainDir}/0000000_webPepeApp/WebContent/WEB-INF/lib"/-->
+    	
+    	
+    	<delete dir="${basedir}/__"/>
+    	<eclipse.refreshLocal resource="${projectName}" depth="infinite"/>
+		<!--eclipse.refreshLocal resource="00101_javaAppModel" depth="infinite"/>
+       	<eclipse.refreshLocal resource="00202_javaModelGen" depth="infinite"/>
+       	<eclipse.refreshLocal resource="00302_javaModelTrenes" depth="infinite"/>
+       	<eclipse.refreshLocal resource="00204_javaPersistenceGen" depth="infinite"/>
+      	<eclipse.refreshLocal resource="00304_javaPersistenceTrenes" depth="infinite"/>
+      	<eclipse.refreshLocal resource="00304_javaWebServicesTrenes" depth="infinite"/>
+      	<eclipse.refreshLocal resource="0000000_webApp" depth="infinite"/>
+      	<eclipse.refreshLocal resource="0000000_webPepeApp" depth="infinite"/>
+      	<eclipse.refreshLocal resource="00101_javaAppPepeModel" depth="infinite"/>
+      	<eclipse.refreshLocal resource="00602_javaModelPepePromo" depth="infinite"/>
+      	<eclipse.refreshLocal resource="00604_javaPersistencePepePromo" depth="infinite"/-->
+    	
+    </target>
+</project>

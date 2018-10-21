@@ -1,0 +1,21 @@
+<link rel="stylesheet" type="text/css" href="../style.css"/>
+<head>
+<title>Contenido de las tablas</title>
+</head>
+<body>
+<h1>Contenido de las tablas</h1>
+<h2>Diferencias entre usuarios Basic y Extended</h2>
+<br>
+Los usuarios del Product Update que sean de tipo Basic, tendrán algunos campos vacíos en ciertas tablas.  Sólo los usuarios Extended tendrán acceso a esta información.
+<br><br>
+<strong>HOTEL_DESCRIPTIONS</strong>
+<ul>
+<li>HOTELLOCATIONDESCRIPTION</li>
+<li>HOTELROOMDESCRIPTION</li>
+<li>HOTELSPORTDESCRIPTION</li>
+<li>HOTELMEALSDESCRIPTION</li>
+<li>HOTELPAYMENTMETHODS</li>
+</ul>
+<br><br>
+<center><a href="index.html">Volver</a></center>
+</body>

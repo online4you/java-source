@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.photel.data.gen.ddbb.hibernate.pojo">
+	<class
+		name="GenJomfish"
+		table="gen_jomfish"
+	>
+		<meta attribute="sync-DAO">false</meta>
+
+		<id
+			name="Id"
+			column="id"
+			type="integer"
+		/>
+		
+		<property
+			name="Shortcode"
+			column="shortcode"
+			type="string"
+			not-null="false"
+			length="20"
+		/>
+		
+		<property
+			name="LanguageId"
+			column="language_id"
+			type="integer"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="ReferenceId"
+			column="reference_id"
+			type="integer"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="ReferenceTable"
+			column="reference_table"
+			type="string"
+			not-null="true"
+			length="100"
+		/>
+		<property
+			name="ReferenceField"
+			column="reference_field"
+			type="string"
+			not-null="true"
+			length="100"
+		/>
+		<property
+			name="Value"
+			column="value"
+			type="string"
+			not-null="true"
+		/>
+		<property
+			name="OriginalValue"
+			column="original_value"
+			type="string"
+			not-null="false"
+			length="255"
+		/>
+		<property
+			name="OriginalText"
+			column="original_text"
+			type="string"
+			not-null="true"
+		/>
+		<property
+			name="Modified"
+			column="modified"
+			type="timestamp"
+			not-null="true"
+			length="19"
+		/>
+		<property
+			name="ModifiedBy"
+			column="modified_by"
+			type="integer"
+			not-null="true"
+			length="10"
+		/>
+		<property
+			name="Published"
+			column="published"
+			type="boolean"
+			not-null="true"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

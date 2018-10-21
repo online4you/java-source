@@ -1,0 +1,30 @@
+package com.photel.hotelan.client;
+
+
+
+import java.io.File;
+
+import org.apache.log4j.Logger;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.JAXBException;
+import javax.xml.bind.Unmarshaller;
+
+
+public class MainAvail {
+	private static Logger  oLog=Logger.getLogger(MainAvail.class);
+	public static void main(String[] args) throws Exception {
+		//ObjectFactory factory=new ObjectFactory();
+		File file = new File("C:\\stuff\\P-Stuff\\pCrs\\javaHotelan\\src\\portVill.xml");
+		//JAXBContext jaxbContext = JAXBContext.newInstance(Response.class);
+ 
+		//Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+		//Response avail = (Response) jaxbUnmarshaller.unmarshal(file);
+		//System.out.println(avail);
+		
+		HotelanClientStub client = new HotelanClientStub();
+		String res = client.getIrqAvailability(null, "2015");
+		oLog.info(res);
+	}
+
+}

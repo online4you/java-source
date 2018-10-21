@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.photel.data.gen.ddbb.hibernate.pojo">
+	<class
+		name="GenClasesMenu"
+		table="GEN_CLASES_MENU"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="GCM_ID"
+		>
+			<generator class="increment" />
+		</id>
+
+		<property
+			name="GcmDes"
+			column="GCM_DES"
+			type="string"
+			not-null="false"
+			length="250"
+		/>
+	
+		<property
+			name="GcmIdi"
+			column="GCM_IDI"
+			type="string"
+			not-null="false"
+			length="2"
+		/>
+
+
+
+	</class>	
+</hibernate-mapping>

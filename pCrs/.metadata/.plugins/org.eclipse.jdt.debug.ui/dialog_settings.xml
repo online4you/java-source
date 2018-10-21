@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="83" key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth0"/>
+	<item value="1" key="org.eclipse.jdt.debug.ui.jre_preference_page_context.sortColumn"/>
+	<item value="141" key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth1"/>
+	<item value="73" key="org.eclipse.jdt.debug.ui.jre_preference_page_context.columnWidth2"/>
+	<section name="EXPRESSION_INPUT_DIALOG">
+		<item value="401" key="DIALOG_WIDTH"/>
+		<item value="297" key="DIALOG_Y_ORIGIN"/>
+		<item value="444" key="DIALOG_X_ORIGIN"/>
+		<item value="308" key="DIALOG_HEIGHT"/>
+		<item value="1|Tahoma|8.25|0|WINDOWS|1|-11|0|0|0|400|0|0|0|1|0|0|0|0|Tahoma" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="org.eclipse.jdt.internal.debug.ui.ExpressionInformationControlCreator$ExpressionInformationControl">
+		<item value="500" key="SashWeightDetails"/>
+		<item value="500" key="SashWeightTree"/>
+		<item value="342" key="HEIGHT"/>
+		<item value="498" key="WIDTH"/>
+	</section>
+	<section name="conditionHistory">
+		<item value="1" key="conditionHistoryEntryCount"/>
+		<item value="minPrice==null" key="conditionHistoryEntry_0"/>
+	</section>
+</section>

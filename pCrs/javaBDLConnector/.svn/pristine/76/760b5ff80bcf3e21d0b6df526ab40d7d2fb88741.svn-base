@@ -1,0 +1,2 @@
+SET CLASSPATH=.;C:/dev/Java/workspace/javaBDLConnector/bin;C:/dev/Java/workspace/javaBDLConnector/lib/javaCommonServices.jar;C:/dev/Java/workspace/javaBDLConnector/lib/javaCommons.jar;C:/dev/Java/workspace/javaBDLConnector/lib/javaLibreriasExternas.jar;C:/dev/Java/workspace/javaBDLConnector/lib/javaBDLPersistence.jar
+java com.photel.main.Main

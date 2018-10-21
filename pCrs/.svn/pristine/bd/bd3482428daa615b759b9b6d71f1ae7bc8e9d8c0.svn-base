@@ -1,0 +1,17 @@
+<link rel="stylesheet" type="text/css" href="../style.css"/>
+<head>
+<title>User Options</title>
+</head>
+<body>
+<h1>User Options</h1>
+<h2>File</h2>
+<center>
+<img src="./images/save_options.png" border="1">
+</center>
+<br>
+Option <strong>Save Options</strong> from <strong>File</strong> menu is used to save <strong>Connection</strong> and <strong>Files</strong> options.
+<br>
+You must use this option after inform all fields.
+<br><br>
+<center><a href="index.html">Back</a></center>
+</body>

@@ -1,0 +1,20 @@
+<html>
+<link rel="stylesheet" type="text/css" href="../style.css"/>
+<head>
+<title>Ficheros FTP</title>
+</head>
+<body>
+<h1>Ficheros FTP</h1>
+<center>
+<img src="./images/ftpFilesA.png" border="1">
+</center>
+<br>
+<strong>Descargar ficheros</strong>: El usuario decide si desea descargar o no los ficheros csv del ftp (comprimidos en un fichero .zip).
+<br><br>
+El campo '<strong>Directorio de almacenamiento</strong>' es obligatorio.  Indica la localización de los ficheros csv en la máquina.
+<br><br>
+<strong>PULoader</strong> verificará si el fichero .zip se encuentra en el directorio de almacenamiento indicado y continuará el proceso normalmente.  En el caso de que no se encuentre el fichero, la aplicación devolverá un mensaje de error y el proceso se parará.
+<br><br>
+<center><a href="index.html">Volver</a></center>
+</body>
+</html>

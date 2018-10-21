@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.photel.data.BDL.ddbb.hibernate.pojo">
+	<class
+		name="BdlReservasMails"
+		table="bdl_reservas_mails"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="BDL_ID_MAIL"
+		>
+			<generator class="increment" />
+		</id>
+
+		<property
+			name="BdlIdReserva"
+			column="BDL_ID_RESERVA"
+			type="integer"
+			not-null="false"
+			length="10"
+		/>
+		<property
+			name="BdlTimcre"
+			column="BDL_TIMCRE"
+			type="timestamp"
+			not-null="true"
+			insert="false"
+			length="19"
+		/>
+		<property
+			name="BdlFrom"
+			column="BDL_FROM"
+			type="string"
+			not-null="false"
+			length="500"
+		/>
+		<property
+			name="BdlTo"
+			column="BDL_TO"
+			type="string"
+			not-null="false"
+			length="500"
+		/>
+		<property
+			name="BdlCc"
+			column="BDL_CC"
+			type="string"
+			not-null="false"
+			length="500"
+		/>
+		<property
+			name="BdlCco"
+			column="BDL_CCO"
+			type="string"
+			not-null="false"
+			length="500"
+		/>
+		<property
+			name="BdlAsunto"
+			column="BDL_ASUNTO"
+			type="string"
+			not-null="false"
+			length="500"
+		/>
+		<property
+			name="BdlMail"
+			column="BDL_MAIL"
+			type="string"
+			not-null="false"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.hotelbeds.com/schemas/2005/06/messages" targetNamespace="http://www.hotelbeds.com/schemas/2005/06/messages" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="HotelbedsCommonTypes.xsd"/>
+	<xs:element name="CarCountryListRQ">
+		<xs:annotation>
+			<xs:documentation>Request data to obtain a list of available countries for car services.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CoreRequest">
+					<xs:choice minOccurs="0">
+						<xs:annotation>
+							<xs:documentation>If none of CountryCode or Destination are provided all countries are returned.</xs:documentation>
+						</xs:annotation>
+						<xs:element name="CountryCode">
+							<xs:annotation>
+								<xs:documentation>If a country code is provided, only this country with all its destinations will be returned.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:minLength value="1"/>
+									<xs:maxLength value="3"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="Destination" type="Destination">
+							<xs:annotation>
+								<xs:documentation>If a destination is provided the list will contain only the country assigned to the provided destination.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:choice>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

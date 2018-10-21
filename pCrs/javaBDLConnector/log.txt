@@ -1,0 +1,160 @@
+
+C:\DEV\java\workspace\javaBDLConnector>SET CLASSPATH=.;C:/dev/Java/workspace/javaBDLConnector/bin;C:/dev/Java/workspace/javaBDLConnector/lib/javaCommonServices.jar;C:/dev/Java/workspace/javaBDLConnector/lib/javaCommons.jar;C:/dev/Java/workspace/javaBDLConnector/lib/javaLibreriasExternas.jar;C:/dev/Java/workspace/javaBDLConnector/lib/javaBDLPersistence.jar 
+
+C:\DEV\java\workspace\javaBDLConnector>java com.photel.main.Main 
+<PurchaseConfirmRS xmlns="http://www.hotelbeds.com/schemas/2005/06/messages" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.hotelbeds.com/schemas/2005/06/messages PurchaseConfirmRS.xsd"><AuditData><ProcessTime>9536</ProcessTime><Timestamp>2012-08-17 15:13:49.871</Timestamp><RequestHost>82.223.216.227:227</RequestHost><ServerName>FORM</ServerName><ServerId>FO</ServerId><SchemaRelease>2005/06</SchemaRelease><HydraCoreRelease>2.0.201205251332</HydraCoreRelease><HydraEnumerationsRelease>1.0.201205251332</HydraEnumerationsRelease><MerlinRelease>N/A</MerlinRelease></AuditData><ErrorList><Error><Code>B99-99-999-FO</Code><Timestamp>1345209229866</Timestamp><Message>XXX</Message><DetailedMessage>Se ha producido un error en el sistema. Por favor, compruebe el estado de su petici&#243;n.</DetailedMessage></Error><Error><Code>B99-99-999-FO</Code><Timestamp>1345209229866</Timestamp><Message>CONF_COMM_001</Message><DetailedMessage>El carrito no se ha confirmado. Por favor, int&#233;ntelo nuevamente.</DetailedMessage></Error></ErrorList><Purchase purchaseToken="FO031323804" timeToExpiration="1773880"><Status>SHOPPING_CART</Status><Agency><Code>53317</Code><Branch>1</Branch></Agency><Language>CAS</Language><CreationDate date="20120817"/><CreationUser>ONLINE4YOU53317</CreationUser><Holder type="AD"><Age>30</Age><Name>111cd</Name><LastName>5223a</LastName></Holder><AgencyReference>47</AgencyReference><ServiceList><Service xsi:type="ServiceHotel" SPUI="1#H#1"><Status>NEW</Status><ContractList><Contract><Name>CG-TODOS SC2</Name><IncomingOffice code="1"></IncomingOffice></Contract></ContractList><Supplier name="HOTELBEDS SPAIN S.L.U." vatNumber="B28916765"/><DateFrom date="20121009"/><DateTo date="20121015"/><Currency code="EUR">Euro</Currency><TotalAmount>628.980</TotalAmount><DiscountList><Price unitCount="6" paxCount="1"><Amount>0.000</Amount><DateTimeFrom date="20121009"/><DateTimeTo date="20121015"/><Description>NI&#209;O Primero Ni&#241;o</Description></Price></DiscountList><AdditionalCostList><AdditionalCost type="AG_COMMISSION"><Price><Amount>94.350</Amount></Price></AdditionalCost><AdditionalCost type="COMMISSION_VAT"><Price><Amount>16.980</Amount></Price></AdditionalCost></AdditionalCostList><ErrorList><Error><Code>B99-99-999-FO</Code><Timestamp>1345209229866</Timestamp><Message>REC-05537</Message><DetailedMessage>. Se ha sobrepasado el cupo maximo permitido por hotel en la fecha 20121009.</DetailedMessage></Error></ErrorList><ModificationPolicyList><ModificationPolicy>Cancellation</ModificationPolicy><ModificationPolicy>Confirmation</ModificationPolicy><ModificationPolicy>Modification</ModificationPolicy></ModificationPolicyList><HotelInfo xsi:type="ProductHotel"><Code>1535</Code><Name>BelleVue Club</Name><Category type="SIMPLE" code="3EST">3 ESTRELLAS</Category><Destination type="SIMPLE" code="PMI"><Name>Mallorca</Name><ZoneList><Zone type="SIMPLE" code="40">Puerto de Alcudia</Zone></ZoneList></Destination></HotelInfo><AvailableRoom><HotelOccupancy><RoomCount>1</RoomCount><Occupancy><AdultCount>2</AdultCount><ChildCount>1</ChildCount><GuestList><Customer type="AD"><CustomerId>1</CustomerId><Age>30</Age><Name>111cd</Name><LastName>5223a</LastName><BirthDate date="19760125"/></Customer><Customer type="AD"><CustomerId>2</CustomerId><Age>30</Age><Name>76c6a</Name><LastName>aa9a8</LastName><BirthDate date="19760125"/></Customer><Customer type="CH"><CustomerId>3</CustomerId><Age>4</Age><Name>2b18f</Name><LastName>1a3a7</LastName><BirthDate date="20080125"/></Customer></GuestList></Occupancy></HotelOccupancy><HotelRoom SHRUI="0fZQ8R8WvffsraXvqJ+9CQ==" availCount="1" status="NEW"><Board type="SIMPLE" code="SC-E10">SOLO ALOJAMIENTO</Board><RoomType type="SIMPLE" code="STU-E10" characteristic="ST">Studio STANDARD</RoomType><Price><Amount>137.340</Amount></Price><CancellationPolicy><Price><Amount>22.890</Amount><DateTimeFrom date="20121006" time="2359"/><DateTimeTo date="20121009"/></Price></CancellationPolicy></HotelRoom></AvailableRoom><AvailableRoom><HotelOccupancy><RoomCount>2</RoomCount><Occupancy><AdultCount>4</AdultCount><ChildCount>0</ChildCount><GuestList><Customer type="AD"><CustomerId>4</CustomerId><Age>30</Age><Name>2b9d3</Name><LastName>16bae</LastName><BirthDate date="19760125"/></Customer><Customer type="AD"><CustomerId>5</CustomerId><Age>30</Age><Name>9c590</Name><LastName>82f77</LastName><BirthDate date="19760125"/></Customer><Customer type="AD"><CustomerId>6</CustomerId><Age>30</Age><Name>16ac8</Name><LastName>a999c</LastName><BirthDate date="19760125"/></Customer><Customer type="AD"><CustomerId>7</CustomerId><Age>30</Age><Name>1fdd0</Name><LastName>442b4</LastName><BirthDate date="19760125"/></Customer><Customer type="AD"><CustomerId>8</CustomerId><Age>30</Age></Customer><Customer type="AD"><CustomerId>9</CustomerId><Age>30</Age></Customer><Customer type="AD"><CustomerId>10</CustomerId><Age>30</Age></Customer><Customer type="AD"><CustomerId>11</CustomerId><Age>30</Age></Customer></GuestList></Occupancy></HotelOccupancy><HotelRoom SHRUI="iBvhwbABXOWr3SHono4ujw==" availCount="2" status="NEW"><Board type="SIMPLE" code="SC-E10">SOLO ALOJAMIENTO</Board><RoomType type="SIMPLE" code="APT-E10" characteristic="2R-C6">APARTAMENTO 2 DORMITORIOS-6 PAX</RoomType><Price><Amount>491.640</Amount></Price><CancellationPolicy><Price><Amount>81.940</Amount><DateTimeFrom date="20121006" time="2359"/><DateTimeTo date="20121009"/></Price></CancellationPolicy></HotelRoom></AvailableRoom></Service></ServiceList><Currency code="EUR"></Currency><TotalPrice>137.340</TotalPrice></Purchase></PurchaseConfirmRS>
+05:47:37,253  INFO DBL:61 - endpoint=http://212.170.239.71/appservices/ws/FrontendService
+05:47:37,256  INFO DBL:62 - user=ONLINE4YOU53317
+05:47:37,256  INFO DBL:63 - password=ONLINE4YOU53317
+05:47:38,618  INFO Version:37 - Hibernate Commons Annotations 3.2.0.Final
+05:47:38,625  INFO Environment:593 - Hibernate 3.6.1.Final
+05:47:38,628  INFO Environment:611 - loaded properties from resource hibernate.properties: {hibernate.connection.username=gen, hibernate.connection.password=****, hibernate.dialect=org.hibernate.dialect.MySQLDialect, hibernate.show_sql=false, hibernate.connection.url=jdbc:mysql://localhost:3306/gen, hibernate.bytecode.use_reflection_optimizer=false, hibernate.connection.driver_class=com.mysql.jdbc.Driver, hibernate.format_sql=false}
+05:47:38,630  INFO Environment:804 - Bytecode provider name : javassist
+05:47:38,633  INFO Environment:685 - using JDK 1.4 java.sql.Timestamp handling
+05:47:38,692  INFO Configuration:2126 - configuring from resource: /com/photel/config/data/hibernate.BDL.cfg.xml
+05:47:38,692  INFO Configuration:2145 - Configuration resource: /com/photel/config/data/hibernate.BDL.cfg.xml
+05:47:38,746  INFO Configuration:759 - Reading mappings from resource : com/photel/data/BDL/ddbb/hibernate/xml/TypeDefs.hbm.xml
+05:47:38,775  WARN DTDEntityResolver:73 - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+05:47:38,813  INFO Configuration:759 - Reading mappings from resource : com/photel/data/BDL/ddbb/hibernate/xml/BdlConfig.hbm.xml
+05:47:38,815  WARN DTDEntityResolver:73 - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+05:47:38,849  INFO Configuration:759 - Reading mappings from resource : com/photel/data/BDL/ddbb/hibernate/xml/BdlConfigSite.hbm.xml
+05:47:38,851  WARN DTDEntityResolver:73 - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+05:47:38,881  INFO Configuration:759 - Reading mappings from resource : com/photel/data/BDL/ddbb/hibernate/xml/BdlLanguages.hbm.xml
+05:47:38,884  WARN DTDEntityResolver:73 - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+05:47:38,902  INFO Configuration:759 - Reading mappings from resource : com/photel/data/BDL/ddbb/hibernate/xml/BdlCountries.hbm.xml
+05:47:38,904  WARN DTDEntityResolver:73 - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+05:47:38,918  INFO Configuration:759 - Reading mappings from resource : com/photel/data/BDL/ddbb/hibernate/xml/BdlDestinations.hbm.xml
+05:47:38,922  WARN DTDEntityResolver:73 - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+05:47:38,936  INFO Configuration:759 - Reading mappings from resource : com/photel/data/BDL/ddbb/hibernate/xml/BdlHotelDestinations.hbm.xml
+05:47:38,938  WARN DTDEntityResolver:73 - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+05:47:38,953  INFO Configuration:759 - Reading mappings from resource : com/photel/data/BDL/ddbb/hibernate/xml/BdlHotelDescriptions.hbm.xml
+05:47:38,956  WARN DTDEntityResolver:73 - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+05:47:38,977  INFO Configuration:759 - Reading mappings from resource : com/photel/data/BDL/ddbb/hibernate/xml/BdlReservas.hbm.xml
+05:47:38,982  WARN DTDEntityResolver:73 - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+05:47:39,007  INFO Configuration:759 - Reading mappings from resource : com/photel/data/BDL/ddbb/hibernate/xml/BdlReservasMails.hbm.xml
+05:47:39,010  WARN DTDEntityResolver:73 - recognized obsolete hibernate namespace http://hibernate.sourceforge.net/. Use namespace http://www.hibernate.org/dtd/ instead. Refer to Hibernate 3.6 Migration Guide!
+05:47:39,029  INFO Configuration:2267 - Configured SessionFactory: null
+05:47:39,088  INFO HbmBinder:350 - Mapping class: com.photel.data.BDL.ddbb.hibernate.pojo.BdlConfig -> BDL_CONFIG
+05:47:39,123  INFO HbmBinder:350 - Mapping class: com.photel.data.BDL.ddbb.hibernate.pojo.BdlConfigSite -> BDL_CONFIG_SITE
+05:47:39,126  INFO HbmBinder:350 - Mapping class: com.photel.data.BDL.ddbb.hibernate.pojo.BdlLanguages -> bdl_languages
+05:47:39,127  INFO HbmBinder:350 - Mapping class: com.photel.data.BDL.ddbb.hibernate.pojo.BdlCountries -> bdl_countries
+05:47:39,127  INFO HbmBinder:350 - Mapping class: com.photel.data.BDL.ddbb.hibernate.pojo.BdlDestinations -> bdl_destinations
+05:47:39,128  INFO HbmBinder:350 - Mapping class: com.photel.data.BDL.ddbb.hibernate.pojo.BdlHotelDestinations -> bdl_hotel_destinations
+05:47:39,129  INFO HbmBinder:350 - Mapping class: com.photel.data.BDL.ddbb.hibernate.pojo.BdlHotelDescriptions -> bdl_hotels_descriptions
+05:47:39,129  INFO HbmBinder:350 - Mapping class: com.photel.data.BDL.ddbb.hibernate.pojo.BdlReservas -> bdl_reservas
+05:47:39,133  INFO HbmBinder:350 - Mapping class: com.photel.data.BDL.ddbb.hibernate.pojo.BdlReservasMails -> bdl_reservas_mails
+05:47:39,143  INFO Configuration:1646 - Hibernate Validator not found: ignoring
+05:47:39,143  INFO HibernateSearchEventListenerRegister:75 - Unable to find org.hibernate.search.event.FullTextIndexEventListener on the classpath. Hibernate Search is not enabled.
+05:47:39,192  INFO DriverManagerConnectionProvider:64 - Using Hibernate built-in connection pool (not for production use!)
+05:47:39,192  INFO DriverManagerConnectionProvider:65 - Hibernate connection pool size: 20
+05:47:39,192  INFO DriverManagerConnectionProvider:68 - autocommit mode: false
+05:47:39,198  INFO DriverManagerConnectionProvider:103 - using driver: com.mysql.jdbc.Driver at URL: jdbc:mysql://localhost:3306/gen
+05:47:39,198  INFO DriverManagerConnectionProvider:109 - connection properties: {user=gen, password=****}
+05:47:39,453  INFO SettingsFactory:117 - Database ->
+       name : MySQL
+    version : 5.5.9
+      major : 5
+      minor : 5
+05:47:39,455  INFO SettingsFactory:123 - Driver ->
+       name : MySQL-AB JDBC Driver
+    version : mysql-connector-java-5.1.19 ( Revision: tonci.grgin@oracle.com-20111003110438-qfydx066wsbydkbw )
+      major : 5
+      minor : 1
+05:47:39,476  INFO Dialect:135 - Using dialect: org.hibernate.dialect.MySQLDialect
+05:47:39,494  INFO TransactionFactoryFactory:59 - Using default transaction strategy (direct JDBC transactions)
+05:47:39,496  INFO TransactionManagerLookupFactory:80 - No TransactionManagerLookup configured (in JTA environment, use of read-write or transactional second-level cache is not recommended)
+05:47:39,496  INFO SettingsFactory:179 - Automatic flush during beforeCompletion(): disabled
+05:47:39,496  INFO SettingsFactory:183 - Automatic session close at end of transaction: disabled
+05:47:39,497  INFO SettingsFactory:190 - JDBC batch size: 15
+05:47:39,497  INFO SettingsFactory:193 - JDBC batch updates for versioned data: disabled
+05:47:39,497  INFO SettingsFactory:198 - Scrollable result sets: enabled
+05:47:39,497  INFO SettingsFactory:206 - JDBC3 getGeneratedKeys(): enabled
+05:47:39,497  INFO SettingsFactory:214 - Connection release mode: auto
+05:47:39,499  INFO SettingsFactory:238 - Maximum outer join fetch depth: 2
+05:47:39,499  INFO SettingsFactory:241 - Default batch fetch size: 1
+05:47:39,499  INFO SettingsFactory:245 - Generate SQL with comments: disabled
+05:47:39,499  INFO SettingsFactory:249 - Order SQL updates by primary key: disabled
+05:47:39,499  INFO SettingsFactory:253 - Order SQL inserts for batching: disabled
+05:47:39,499  INFO SettingsFactory:431 - Query translator: org.hibernate.hql.ast.ASTQueryTranslatorFactory
+05:47:39,502  INFO ASTQueryTranslatorFactory:47 - Using ASTQueryTranslatorFactory
+05:47:39,502  INFO SettingsFactory:261 - Query language substitutions: {}
+05:47:39,502  INFO SettingsFactory:266 - JPA-QL strict compliance: disabled
+05:47:39,502  INFO SettingsFactory:271 - Second-level cache: enabled
+05:47:39,502  INFO SettingsFactory:275 - Query cache: disabled
+05:47:39,503  INFO SettingsFactory:406 - Cache region factory : org.hibernate.cache.impl.NoCachingRegionFactory
+05:47:39,504  INFO SettingsFactory:285 - Optimize cache for minimal puts: disabled
+05:47:39,504  INFO SettingsFactory:294 - Structured second-level cache entries: disabled
+05:47:39,508  INFO SettingsFactory:323 - Statistics: disabled
+05:47:39,510  INFO SettingsFactory:327 - Deleted entity synthetic identifier rollback: disabled
+05:47:39,510  INFO SettingsFactory:343 - Default entity-mode: pojo
+05:47:39,510  INFO SettingsFactory:347 - Named query checking : enabled
+05:47:39,510  INFO SettingsFactory:351 - Check Nullability in Core (should be disabled when Bean Validation is on): enabled
+05:47:39,536  INFO SessionFactoryImpl:202 - building session factory
+05:47:39,543  INFO BasicTypeRegistry:150 - Type registration [materialized_clob] overrides previous : org.hibernate.type.MaterializedClobType@6308385
+05:47:39,543  INFO BasicTypeRegistry:150 - Type registration [blob] overrides previous : org.hibernate.type.BlobType@13765e9b
+05:47:39,543  INFO BasicTypeRegistry:150 - Type registration [java.sql.Blob] overrides previous : org.hibernate.type.BlobType@13765e9b
+05:47:39,544  INFO BasicTypeRegistry:150 - Type registration [materialized_blob] overrides previous : org.hibernate.type.MaterializedBlobType@566809da
+05:47:39,544  INFO BasicTypeRegistry:150 - Type registration [wrapper_materialized_blob] overrides previous : org.hibernate.type.WrappedMaterializedBlobType@51c6492f
+05:47:39,544  INFO BasicTypeRegistry:150 - Type registration [clob] overrides previous : org.hibernate.type.ClobType@104b318f
+05:47:39,544  INFO BasicTypeRegistry:150 - Type registration [java.sql.Clob] overrides previous : org.hibernate.type.ClobType@104b318f
+05:47:39,544  INFO BasicTypeRegistry:150 - Type registration [wrapper_characters_clob] overrides previous : org.hibernate.type.CharacterArrayClobType@6e91dce3
+05:47:39,544  INFO BasicTypeRegistry:150 - Type registration [characters_clob] overrides previous : org.hibernate.type.PrimitiveCharacterArrayClobType@7a9aa17
+05:47:39,833  INFO SessionFactoryObjectFactory:105 - Not binding factory to JNDI, no JNDI name configured
+05:47:41,465  INFO DBL:325 - peticion=<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<HotelValuedAvailRQ sessionId="4" xmlns="http://www.hotelbeds.com/schemas/2005/06/messages">
+    <Language>ENG</Language>
+    <Credentials>
+        <User>ONLINE4YOU53317</User>
+        <Password>ONLINE4YOU53317</Password>
+    </Credentials>
+    <PaginationData pageNumber="0"/>
+    <CheckInDate date="20121009"/>
+    <CheckOutDate date="20121015"/>
+    <Destination code="PMI" type="SIMPLE"/>
+    <OccupancyList>
+        <HotelOccupancy>
+            <RoomCount>1</RoomCount>
+            <Occupancy>
+                <AdultCount>2</AdultCount>
+                <ChildCount>2</ChildCount>
+                <GuestList>
+                    <Customer type="AD"/>
+                    <Customer type="AD"/>
+                    <Customer type="CH">
+                        <Age>5</Age>
+                    </Customer>
+                    <Customer type="CH">
+                        <Age>6</Age>
+                    </Customer>
+                </GuestList>
+            </Occupancy>
+        </HotelOccupancy>
+        <HotelOccupancy>
+            <RoomCount>2</RoomCount>
+            <Occupancy>
+                <AdultCount>2</AdultCount>
+                <ChildCount>1</ChildCount>
+                <GuestList>
+                    <Customer type="AD"/>
+                    <Customer type="AD"/>
+                    <Customer type="CH">
+                        <Age>6</Age>
+                    </Customer>
+                </GuestList>
+            </Occupancy>
+        </HotelOccupancy>
+        <HotelOccupancy>
+            <RoomCount>3</RoomCount>
+            <Occupancy>
+                <AdultCount>2</AdultCount>
+                <ChildCount>0</ChildCount>
+                <GuestList>
+                    <Customer type="AD"/>
+                    <Customer type="AD"/>
+                </GuestList>
+            </Occupancy>
+        </HotelOccupancy>
+    </OccupancyList>
+</HotelValuedAvailRQ>
+
+05:47:41,775  INFO DBL:330 - respuesta=<HotelValuedAvailRS xmlns="http://www.hotelbeds.com/schemas/2005/06/messages" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.hotelbeds.com/schemas/2005/06/messages HotelValuedAvailRS.xsd"><AuditData><ProcessTime>117</ProcessTime><Timestamp>2012-08-20 10:48:09.223</Timestamp><RequestHost>82.223.216.189:189</RequestHost><ServerName>FORM</ServerName><ServerId>FO</ServerId><SchemaRelease>2005/06</SchemaRelease><HydraCoreRelease>2.0.201205251332</HydraCoreRelease><HydraEnumerationsRelease>1.0.201205251332</HydraEnumerationsRelease><MerlinRelease>N/A</MerlinRelease></AuditData><ErrorList><Error><Code>B99-99-048-FO</Code><Timestamp>1345452489223</Timestamp><Message>You must specify the children and their ages. Please include this information.</Message><DetailedMessage>ERR_230</DetailedMessage></Error></ErrorList></HotelValuedAvailRS>

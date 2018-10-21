@@ -1,0 +1,38 @@
+package com.photel.hotelan;
+
+import java.io.IOException;
+import java.util.List;
+
+import org.apache.log4j.Logger;
+
+import com.photel.commonServices.util.AppModelProperties;
+import com.photel.data.hotelan.ddbb.HelperHibernateDDBBHotelan;
+import com.photel.data.hotelan.ddbb.hibernate.pojo.HibernateHotel;
+import com.photel.hotelan.client.HotelanClientStub;
+import com.photel.hotelan.client.IrqHotelDetailsList.IrqHotelDetailsListResponse;
+
+public class HotelanFacade {
+	private static Logger  oLog=Logger.getLogger(HotelanFacade.class);
+	private static AppModelProperties prop;
+	private HotelanClientStub client = new HotelanClientStub();
+	private HelperHibernateDDBBHotelan ddbb=new HelperHibernateDDBBHotelan();
+	
+	public HotelanFacade() throws IOException{
+		prop=prop==null?new AppModelProperties():prop;
+	}
+	public void updateHotels() throws Exception{
+		String[] langs=prop.getProperty("com.photel.HotelanLanguages").split("##");
+		List<HibernateHotel> result=null;
+		for (String lang:langs){
+			IrqHotelDetailsListResponse hotels = client.getIrqHotelDetailsList(lang, "2", null, null);
+			result = ddbb.setHotels(hotels.getHotel());
+		}
+		if (result!=null){
+			oLog.info(result.size()+" hotels inserted");
+		}else{
+			oLog.info("0 hotels inserted!!!");
+		}
+	}
+	
+	
+}

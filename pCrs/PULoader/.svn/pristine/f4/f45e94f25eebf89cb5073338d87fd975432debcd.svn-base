@@ -1,0 +1,31 @@
+<html>
+<link rel="stylesheet" type="text/css" href="../style.css"/>
+<head>
+<title>Load Tables</title>
+</head>
+<body>
+<h1>Load tables</h1>
+<h2>Load type</h2>
+<center>
+<img src="./images/loadTablesA.png" border="1">
+</center>
+<br>
+There are two different load types:<br><br>
+- <strong>Full</strong>: All records from tables will be imported.<br>
+- <strong>Updates*</strong>: Only modified records will be updated.<br>
+<br>
+<i>* Not available in this version.</i>
+<br><br>
+<h2>Table list to process</h2>
+<center>
+<img src="./images/loadTablesB.png" border="1">
+</center>
+<br>
+You can choose the tables you want to load into your database.  All referencing tables will be loaded too. Example:<br><br>
+If you choose <i>HotelDescriptions</i>, tables <i>Languages</i>, <i>Categories</i>, <i>Hotels</i>, <i>Countries</i>, <i>Destinations</i>, <i>Chains</i> and <i>Zones</i> are activated automatically. 
+<br><br>
+If you want to load all tables you can use option <strong>Process all tables</strong>.
+<br><br>
+<center><a href="index.html">Back</a></center>
+</body>
+</html>

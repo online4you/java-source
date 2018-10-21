@@ -1,0 +1,14 @@
+com.photel.segundosEjecucionHiloBDL=10
+com.photel.BDLUser=ONLINE4YOU53317
+com.photel.BDLPassword=ONLINE4YOU53317
+#com.photel.BDLUser=HALCOCOM
+#com.photel.BDLPassword=HALCOCOM
+com.photel.struts.interceptors.datosPeticion=parametrosPeticion
+com.globalia.gen.tamanoIdSesion=32
+
+#PRE
+#com.photel.BDLEndpoint=http://212.170.239.71/appservices/ws/FrontendService
+#PRO
+com.photel.BDLEndpoint=http://212.170.239.18/appservices/ws/FrontendService
+#AcceptanceTest
+#com.photel.BDLEndpoint=http://212.170.239.71/appservices/ws/AcceptanceTest

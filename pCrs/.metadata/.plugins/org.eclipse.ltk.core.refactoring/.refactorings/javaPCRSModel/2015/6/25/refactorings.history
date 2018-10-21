@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;javaPCRSModel&apos;&#x0D;&#x0A;- Original project: &apos;javaPCRSModel&apos;&#x0D;&#x0A;- Original element: &apos;javaPCRSModel/src/com.photel.interfaces.model&apos;" description="Delete element" element1="/src&lt;com.photel.interfaces.model" element2="/src&lt;com.photel.interfaces" elements="2" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1434531834215" subPackages="false" version="1.0"/>
+</session>

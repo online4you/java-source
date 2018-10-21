@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.photel.data.gen.ddbb.hibernate.pojo">
+
+<class
+		name="GenSesiones"
+		table="GEN_SESIONES"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="gseId"
+			type="integer"
+			column="GSE_ID"
+		>
+			
+			<generator class="increment" />
+        </id>
+		<property
+			name="gseIdSesion"
+			type="string"
+			column="GSE_IDSESION"
+			length="100"
+			not-null="false"
+		/>
+		<property
+			name="gseSesion"
+			type="stringClobType"
+			column="GSE_SESION"
+			not-null="false"
+		/>
+
+		<property
+			name="gseTimCre"
+			column="GSE_TIMCRE"
+			type="timestamp"
+			not-null="false"
+			length="7"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

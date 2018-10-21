@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="PCRS">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <dependent-module archiveName="javaGENModel.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/javaGENModel/javaGENModel">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="javaBDLConnector.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/javaBDLConnector/javaBDLConnector">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="javaGENMail.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/javaGENMail/javaGENMail">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="javaCommonServices.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/javaCommonServices/javaCommonServices">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="javaGENPersistence.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/javaGENPersistence/javaGENPersistence">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="javaPCRSModel.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/javaPCRSModel/javaPCRSModel">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="javaBDLPersistence.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/javaBDLPersistence/javaBDLPersistence">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="javaCommons.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/javaCommons/javaCommons.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="javaLibreriasExternas.jar" deploy-path="/WEB-INF/lib" handle="module:/classpath/lib/javaLibreriasExternas/javaLibreriasExternas.jar">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="PCRS"/>
+        <property name="java-output-path" value="/PCRS/build/classes"/>
+    </wb-module>
+</project-modules>

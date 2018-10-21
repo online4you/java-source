@@ -1,0 +1,20 @@
+#confirm {display:none;}
+
+/* Overlay */
+#confirm-overlay {background-color:#eee; cursor:wait;}
+
+/* Container */
+#confirm-container .simplemodal-wrap{}
+#confirm-container {height:140px; width:420px; font: 16px/22px 'Trebuchet MS', Verdana, Arial; text-align:left; background:#fff; border:1px solid #FFBB00;padding:5px}
+#confirm-container .header {height:30px; line-height:30px; width:100%; background:url(../img/confirm/header.gif) repeat-x;font-size:20px;font-weight:bold;}
+#confirm-container .header span {padding-left:8px;}
+#confirm-container .body {color:#333; font-size:14px; margin:0; padding:5px; border:2px solid #FFBB00;margin:5px 0 0 0;overflow:hidden}
+#confirm-container .message {color:#333; font-size:14px; margin:0; padding:0;height:60px;}
+#confirm-container .buttons {line-height:26px; width:160px; float:right; padding:5px 0 0 0;} 
+#confirm-container .buttons div {float:right; margin-left:4px; width:70px; height:26px; color::#8F8792;background-color:#FFF; font-weight:bold; text-align:center;  border:1px solid #666; cursor:pointer;}
+#confirm-container .buttons div:hover{color:#fff;background-color:#8F8792;border-color:#FFBB00} 
+#confirm-container a.simplemodal-close{position:absolute;z-index:10000;left:395px}
+#confirm-container a.modal-close:link,
+#confirm-container a.modal-close:active,
+#confirm-container a.modal-close:visited {text-decoration:none; font-weight:bold;  right:10px; top:2px; color:#fff;}
+#confirm-container a.modal-close:hover {color:#ccc;}

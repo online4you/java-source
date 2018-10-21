@@ -1,0 +1,19 @@
+<html>
+<link rel="stylesheet" type="text/css" href="../style.css"/>
+<head>
+<title>Opciones de usuario</title>
+</head>
+<body>
+<h1>Opciones de usuario</h1>
+<h2>File</h2>
+<center>
+<img src="./images/save_options.png" border="1">
+</center>
+<br>
+La opción <strong>Save Options</strong> del menú <strong>File</strong> se utiliza para guardar los valores de las opciones <strong>Conexión</strong> y <strong>Ficheros</strong>.
+<br>
+Esta opción se debe utilizar después de llenar todos los campos.
+<br><br>
+<center><a href="index.html">Volver</a></center>
+</body>
+</html>

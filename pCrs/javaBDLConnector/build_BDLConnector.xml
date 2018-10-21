@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<project name="BDLConnector" default="BDLConnector" basedir=".">
+    <!-- this file was created by Fat-Jar Eclipse Plug-in -->
+    <!-- the ANT-Export is in a very early stage, so this -->
+    <!-- is only experimental, ANT 1.6 or above is        -->
+    <!-- required, feedback is always welcome:            -->
+    <!--       http://sourceforge.net/projects/fjep       -->
+    <!-- uncomment the following lines if using ANT outside Eclipse -->
+    <!--
+        <property name="fjepPath" value="reference:file:plugins/net.sf.fjep.fatjar_0.0.31.jarfatjar.jar"/>
+        <taskdef name="fatjar.build" classname="net.sf.fjep.anttask.FJBuildTask" classpath="${fjepPath}"/>
+        <typedef name="fatjar.manifest" classname="net.sf.fjep.anttask.FJManifestType" classpath="${fjepPath}"/>
+        <typedef name="fatjar.exclude" classname="net.sf.fjep.anttask.FJExcludeType" classpath="${fjepPath}"/>
+        <typedef name="fatjar.jarsource" classname="net.sf.fjep.anttask.FJJarSourceType" classpath="${fjepPath}"/>
+        <typedef name="fatjar.filesource" classname="net.sf.fjep.anttask.FJFileSourceType" classpath="${fjepPath}"/>
+    -->
+    <!-- uncomment the above lines to use ANT outside of Eclipse -->
+    <target name="BDLConnector">
+    	<property name="projectName" value="javaBDLConnector"/>
+        <property name="mainDir" value="${basedir}/.."/>
+ 
+    	<property name="ServiciosComunes" value="${mainDir}\javaBDLConnector"/>
+    	
+    		<property name="sourceCode" value="${mainDir}/appModelAll/src"/>
+    		<copy todir="${sourceCode}" overwrite="true">
+	  	     <fileset dir="${mainDir}/${projectName}/src">
+	  	        <include name="**/*.properties"/>
+	  	     	<include name="**/*.xml"/>
+	  	     	<include name="**/*.java"/>
+	  	     </fileset>
+	  	  	</copy>
+    	
+      	 <copy todir="${mainDir}/${projectName}/bin">
+      	     <fileset dir="${mainDir}/${projectName}/src">
+      	        <include name="**/*.properties"/>
+      	     	<include name="**/*.xml"/>
+      	     </fileset>
+      	  </copy>
+    	
+        <javac srcdir="${mainDir}/${projectName}/src" destdir="${mainDir}/${projectName}/bin" includeantruntime="false"  nowarn="true" failonerror="true" debug="on" >
+          <classpath>
+                     <fileset dir="${mainDir}/${projectName}/lib"/>
+          </classpath>
+        </javac>
+        <echo message="All Compiled" />
+    	
+       	<macrodef name="deleteLibs"> 
+        	  <attribute name="dirTarget"/> 
+        	  <sequential>
+        	  	<echo message="Deleting from @{dirTarget}" />
+        	  	<delete failonerror="No">
+        	  		<fileset dir="@{dirTarget}" includes="**/${projectName}.jar"/>
+        	  	</delete>
+        	  </sequential> 
+        </macrodef> 
+		<!--deleteLibs dirTarget="${mainDir}/00101_javaAppModel/lib"/> 
+    	<deleteLibs dirTarget="${mainDir}/00202_javaModelGen/lib"/> 
+    	<deleteLibs dirTarget="${mainDir}/00203_javaVenta/lib"/> 
+    	<deleteLibs dirTarget="${mainDir}/00204_javaPersistenceGen/lib"/> 
+    	<deleteLibs dirTarget="${mainDir}/00302_javaModelTrenes/lib"/> 
+    	<deleteLibs dirTarget="${mainDir}/00304_javaPersistenceTrenes/lib"/> 
+    	<deleteLibs dirTarget="${mainDir}/00304_javaWebServicesTrenes/lib"/> 
+    	<deleteLibs dirTarget="${mainDir}/00403_javaPersistence/lib"/> 
+    	<deleteLibs dirTarget="${mainDir}/00503_javaWebServices/lib"/>
+    	<deleteLibs dirTarget="${mainDir}/00203_javaVenta/lib"/>
+    	<deleteLibs dirTarget="${mainDir}/00604_javaPersistencePepePromo/lib"/>
+    	<deleteLibs dirTarget="${mainDir}/00602_javaModelPepePromo/lib"/>
+    	<deleteLibs dirTarget="${mainDir}/00101_javaAppPepeModel/lib"/>
+        <deleteLibs dirTarget="${mainDir}/0000000_webApp/WebContent/WEB-INF/lib"/-->
+    	
+    	<deleteLibs dirTarget="${mainDir}/javaPCRSModel/lib"/>
+    	
+    	<fatjar.build output="${ServiciosComunes}\${projectName}.jar">
+            <fatjar.manifest mergemanifests="false"/>
+        	<fatjar.filesource path="${ServiciosComunes}\bin" relpath=""/>
+    		<!--<fatjar.filesource path="${ServiciosComunes}\src" relpath="src"/>-->
+        </fatjar.build>
+    	
+    	
+    	<macrodef name="copyLibs"> 
+    	  <attribute name="dirTarget"/> 
+    	  <sequential> 
+    	    <copy todir="@{dirTarget}"> 
+    	      <fileset dir="${ServiciosComunes}" includes="**/${projectName}.jar"/> 
+    	    </copy> 
+    	  </sequential> 
+    	</macrodef> 
+    
+    	
+    	<delete dir="${basedir}/__"/>
+    	<eclipse.refreshLocal resource="${projectName}" depth="infinite"/>
+    	
+    	<copyLibs dirTarget="${mainDir}/javaPCRSModel/lib"/>
+    	
+		<!--copyLibs dirTarget="${mainDir}/00101_javaAppModel/lib"/> 
+    	<copyLibs dirTarget="${mainDir}/00202_javaModelGen/lib"/> 
+    	<copyLibs dirTarget="${mainDir}/00203_javaVenta/lib"/> 
+    	<copyLibs dirTarget="${mainDir}/00204_javaPersistenceGen/lib"/> 
+    	<copyLibs dirTarget="${mainDir}/00302_javaModelTrenes/lib"/> 
+    	<copyLibs dirTarget="${mainDir}/00304_javaPersistenceTrenes/lib"/> 
+    	<copyLibs dirTarget="${mainDir}/00304_javaWebServicesTrenes/lib"/> 
+    	<copyLibs dirTarget="${mainDir}/00203_javaVenta/lib"/>
+    	<copyLibs dirTarget="${mainDir}/00604_javaPersistencePepePromo/lib"/>
+    	<copyLibs dirTarget="${mainDir}/00602_javaModelPepePromo/lib"/>
+    	<copyLibs dirTarget="${mainDir}/00101_javaAppPepeModel/lib"/>
+    	
+    	
+    	<delete dir="${basedir}/__"/>
+    	<eclipse.refreshLocal resource="${projectName}" depth="infinite"/>
+		<eclipse.refreshLocal resource="00101_javaAppModel" depth="infinite"/>
+       	<eclipse.refreshLocal resource="00202_javaModelGen" depth="infinite"/>
+       	<eclipse.refreshLocal resource="00302_javaModelTrenes" depth="infinite"/>
+       	<eclipse.refreshLocal resource="00204_javaPersistenceGen" depth="infinite"/>
+      	<eclipse.refreshLocal resource="00304_javaPersistenceTrenes" depth="infinite"/>
+      	<eclipse.refreshLocal resource="00304_javaWebServicesTrenes" depth="infinite"/>
+      	<eclipse.refreshLocal resource="00101_javaAppPepeModel" depth="infinite"/>
+      	<eclipse.refreshLocal resource="00602_javaModelPepePromo" depth="infinite"/>
+      	<eclipse.refreshLocal resource="00604_javaPersistencePepePromo" depth="infinite"/-->
+    	
+    	
+    	
+
+    </target>
+</project>

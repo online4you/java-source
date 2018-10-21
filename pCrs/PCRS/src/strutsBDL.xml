@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+  
+    <package name="bdl" namespace="/apps/bdl" extends="gen">
+		<result-types>
+            <result-type name="json" class="org.apache.struts2.json.JSONResult"/>
+        </result-types>
+		<action name="cancelaReserva" class="com.photel.apps.actions.BDL.JsonCancelaReserva" >
+		    <interceptor-ref name="genStackNoSession"/> 
+		    <param name="localizador"/>
+		    <result type="json">
+		    	<param name="charSet">UTF-8</param>
+		    	<param name="root">JsonCancelaReserva</param>
+		    </result>
+		 </action>
+		 <action name="enviaReserva" class="com.photel.apps.actions.BDL.JsonEnviaReserva" >
+		    <interceptor-ref name="genStackNoSession"/> 
+		    <param name="localizador"/>
+		    <result type="json">
+		    	<param name="charSet">UTF-8</param>
+		    	<param name="root">JsonEnviaReserva</param>
+		    </result>
+		 </action>
+
+ 		<action name="disponibilidad" class="com.photel.apps.actions.BDL.Disponibilidad" >
+ 			<result name="success" type="tiles">
+          		<param name="location">disponibilidadBDL</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+ 		</action>
+		
+		<action name="datosPasajeros" class="com.photel.apps.actions.BDL.DatosPasajeros" >
+ 			<result name="success" type="tiles">
+          		<param name="location">datosPasajerosBDL</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+ 		</action>
+ 		
+ 		<action name="detalleHotel" class="com.photel.apps.actions.BDL.DetalleHotel" >
+ 			<result name="success" type="tiles">
+          		<param name="location">detalleHotelBDL</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+			<result name="error" type="tiles">
+          		<param name="location">notFoundMoved</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+ 		</action>
+ 		<action name="destinos" class="com.photel.apps.actions.BDL.Destinos" >
+ 			<result name="success" type="tiles">
+          		<param name="location">destinosBDL</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+ 		</action>
+ 		<action name="hotelesDestino" class="com.photel.apps.actions.BDL.HotelesDestino" >
+ 			<result name="success" type="tiles">
+          		<param name="location">hotelesDestinoBDL</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+ 		</action>
+ 		
+ 		<action name="preReserva" class="com.photel.apps.actions.BDL.BloquearReserva" >
+ 			<result name="success" type="tiles">
+          		<param name="location">preReservaBDL</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+          	<result name="showMessage" type="tiles">
+          		<param name="location">showMessage</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+ 		</action>
+ 		
+ 		<action name="respuestaSab" class="com.photel.apps.actions.BDL.RespuestaSab" >
+ 			<result name="success" type="tiles">
+          		<param name="location">respuestaSAB</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+ 		</action>
+ 		
+		<action name="respuestaCeca" class="com.photel.apps.actions.BDL.RespuestaCeca" >
+ 			<result name="success" type="tiles">
+          		<param name="location">respuestaCecaBDL</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+ 		</action>
+ 		<!-- 
+ 		<action name="pago" class="com.photel.apps.actions.BDL.Pago" >
+ 			<result name="success" type="tiles">
+          		<param name="location">pago</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+ 		</action>
+ 		-->
+ 		
+ 		<!--colocar el nuevo action PagoSabadell -->
+ <action name="pago" class="com.photel.apps.actions.BDL.PagoSabadell" >
+ 			<result name="success" type="tiles">
+          		<param name="location">pagosab</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+ 		</action>
+ 		
+ 		
+ 		
+ 		<action name="pagoTransfer" class="com.photel.apps.actions.BDL.PagoTransfer" >
+ 			<result name="success" type="tiles">
+          		<param name="location">pagoTransfer</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+ 		</action>
+ 		<action name="cancelaImprimeEnvia" class="com.photel.apps.actions.BDL.CancelaIprimeEnvia" >
+ 			<result name="success" type="tiles">
+          		<param name="location">cancelaImprimeEnvia</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+          	
+ 		</action>
+ 		<action name="operacionKO" class="com.photel.apps.actions.BDL.OperacionKO" >
+ 			<result name="success" type="tiles">
+          		<param name="location">pagoKO</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+ 		</action>
+ 		<action name="operacionOK" class="com.photel.apps.actions.BDL.OperacionOK" >
+ 			<result name="success" type="tiles">
+          		<param name="location">pagoOK</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+ 		</action>
+    </package>
+</struts>

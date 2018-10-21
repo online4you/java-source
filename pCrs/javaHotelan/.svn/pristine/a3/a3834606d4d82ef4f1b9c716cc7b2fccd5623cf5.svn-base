@@ -1,0 +1,64 @@
+package com.photel.hotelan.client;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
+import com.photel.commonServices.util.AppModelProperties;
+
+public class HotelanClientStub {
+	public static String endpoint;
+	public static String user;
+	public static String password;
+	public static String agencia;
+	public static String urlBase;
+	public HotelanClientStub(){
+		AppModelProperties prop;
+		try {
+			prop = new AppModelProperties();
+			endpoint=prop.getProperty("com.photel.HotelanEndpoint");
+			user=prop.getProperty("com.photel.HotelanUser");
+			password=prop.getProperty("com.photel.HotelanPassword");
+			agencia=prop.getProperty("com.photel.HotelanIdAgencia");
+			urlBase=endpoint+"?"+"us="+user+"&pw="+password+"&id_agencia="+agencia;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	private String doCall(String urlQueryString) throws Exception {
+		URL url = new URL(urlBase+urlQueryString);
+		HttpURLConnection huc = (HttpURLConnection)url.openConnection();
+		huc.setDoOutput(true);
+		huc.setDoInput(true);
+		huc.setRequestMethod("GET");
+		huc.setConnectTimeout(120000);
+		OutputStream out = huc.getOutputStream();
+		out.flush();
+		//Read the response
+		BufferedReader in = new BufferedReader( new InputStreamReader(huc.getInputStream()));
+		String ret="";
+		while (true) {
+			String line = in.readLine();
+			if (line == null) break;
+			ret += line;
+		}
+		
+		in.close();
+		out.close();
+		huc.disconnect();
+		return ret;
+}
+	public String getIrqAvailability(String hotelid, String year) throws Exception{
+		String pet="&peticion=IrqAvailability";
+		pet=hotelid!=null?pet+"&hotelid="+hotelid:pet;
+		pet=year!=null?pet+"&year="+year:pet;
+		String res = doCall(pet);
+		
+		return res;
+		
+	}
+}

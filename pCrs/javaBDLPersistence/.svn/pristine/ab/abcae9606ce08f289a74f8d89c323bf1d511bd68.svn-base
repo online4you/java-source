@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.photel.data.BDL.ddbb.hibernate.pojo">
+	<class
+		name="BdlHdetailDescriptions"
+		table="bdlv_hdetail_descriptions"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<composite-id name="Id" class="BdlHdetailDescriptionsPK">
+			<key-property
+				name="HotelCode"
+				column="HotelCode"
+				type="string"
+			/>
+			<key-property
+				name="LanguageCode"
+				column="LanguageCode"
+				type="string"
+			/>
+		</composite-id>
+		
+		<property
+			name="HotelFacilities"
+			column="HotelFacilities"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="HotelLocationDescription"
+			column="HotelLocationDescription"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="HotelRoomDescription"
+			column="HotelRoomDescription"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="HolelSportDescription"
+			column="HolelSportDescription"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="HotelMealsDescription"
+			column="HotelMealsDescription"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="HotelPaymentMethods"
+			column="HotelPaymentMethods"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="HotelHowToGetThere"
+			column="HotelHowToGetThere"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="HotelComments"
+			column="HotelComments"
+			type="string"
+			not-null="false"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

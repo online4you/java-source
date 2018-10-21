@@ -1,0 +1,22 @@
+<html>
+<link rel="stylesheet" type="text/css" href="../style.css"/>
+<head>
+<title>FTP Files</title>
+</head>
+<body>
+<h1>FTP files</h1>
+<center>
+<img src="./images/ftpFilesA.png" border="1">
+</center>
+<br>
+<strong>Download files</strong>: User decide to download csv files or not from ftp server(compressed into an .zip). 
+<br><br>
+Field '<strong>Storage directory</strong>' is required too.  It indicates the location of csv files in your machine.
+<br><br>
+<strong>PULoader</strong> will check if .zip file exists in <i>Storage directory</i> and will continue the process of the application normally, otherwise, a message of error will be showed and the process will be stopped.
+<br>
+
+<br><br>
+<center><a href="index.html">Back</a></center>
+</body>
+</html>

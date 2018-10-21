@@ -1,0 +1,69 @@
+package com.photel.data.gen.ddbb;
+
+import java.util.Comparator;
+import java.util.function.Function;
+import java.util.function.ToDoubleFunction;
+import java.util.function.ToIntFunction;
+import java.util.function.ToLongFunction;
+
+import com.photel.interfaces.data.gen.IGenScripts;
+
+public class ScriptsComparator implements Comparator<IGenScripts> {
+
+	@Override
+	public int compare(IGenScripts s1, IGenScripts s2) {
+		int ret = s1.getGenOrder().compareTo(s2.getGenOrder());
+		return ret;
+	}
+
+	@Override
+	public Comparator<IGenScripts> reversed() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Comparator<IGenScripts> thenComparing(
+			Comparator<? super IGenScripts> other) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <U> Comparator<IGenScripts> thenComparing(
+			Function<? super IGenScripts, ? extends U> keyExtractor,
+			Comparator<? super U> keyComparator) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public <U extends Comparable<? super U>> Comparator<IGenScripts> thenComparing(
+			Function<? super IGenScripts, ? extends U> keyExtractor) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Comparator<IGenScripts> thenComparingInt(
+			ToIntFunction<? super IGenScripts> keyExtractor) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Comparator<IGenScripts> thenComparingLong(
+			ToLongFunction<? super IGenScripts> keyExtractor) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Comparator<IGenScripts> thenComparingDouble(
+			ToDoubleFunction<? super IGenScripts> keyExtractor) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+}

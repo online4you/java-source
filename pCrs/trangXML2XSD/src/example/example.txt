@@ -1,0 +1,1 @@
+java -cp C:\stuff\P-Stuff\pCrs\trangXML2XSD\trangXML2XSD_fat.jar com.thaiopensource.relaxng.translate.Driver  -I xml -O xsd C:\stuff\P-Stuff\pCrs\trangXML2XSD\xml\portVill.xml C:\stuff\P-Stuff\pCrs\trangXML2XSD\xsd\portVill.xsd

@@ -1,0 +1,22 @@
+<html>
+<link rel="stylesheet" type="text/css" href="../style.css"/>
+<head>
+<title>Conexión</title>
+</head>
+<body>
+<h1>Conexión</h1>
+<center>
+<img src="./images/connectionA.png" border="1">
+</center>
+<br>
+Lo primero que debemos hacer es elegir el tipo de base de datos donde se llevará a cabo la carga.
+<ul>
+<li><a href="./bbdd/mysql.html">MySQL</a></li>
+<li><a href="./bbdd/oracle.html">Oracle</a></li>
+<li><a href="./bbdd/sqlserver.html">SQL Server</a></li>
+<li><a href="./bbdd/access.html">Access</a></li>
+</ul>
+<br><br>
+<center><a href="index.html">Volver</a></center>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<project name="ModuloLibreriasExternas" default="ModuloLibreriasExternas" basedir=".">
+    <!-- this file was created by Fat-Jar Eclipse Plug-in -->
+    <!-- the ANT-Export is in a very early stage, so this -->
+    <!-- is only experimental, ANT 1.6 or above is        -->
+    <!-- required, feedback is always welcome:            -->
+    <!--       http://sourceforge.net/projects/fjep       -->
+    <!-- uncomment the following lines if using ANT outside Eclipse -->
+    <!--
+        <property name="fjepPath" value="reference:file:plugins/net.sf.fjep.fatjar_0.0.31.jarfatjar.jar"/>
+        <taskdef name="fatjar.build" classname="net.sf.fjep.anttask.FJBuildTask" classpath="${fjepPath}"/>
+        <typedef name="fatjar.manifest" classname="net.sf.fjep.anttask.FJManifestType" classpath="${fjepPath}"/>
+        <typedef name="fatjar.exclude" classname="net.sf.fjep.anttask.FJExcludeType" classpath="${fjepPath}"/>
+        <typedef name="fatjar.jarsource" classname="net.sf.fjep.anttask.FJJarSourceType" classpath="${fjepPath}"/>
+        <typedef name="fatjar.filesource" classname="net.sf.fjep.anttask.FJFileSourceType" classpath="${fjepPath}"/>
+    -->
+    <!-- uncomment the above lines to use ANT outside of Eclipse -->
+    <target name="ModuloLibreriasExternas">
+    	<property name="projectName" value="javaCommons"/>
+        <property name="mainDir" value="${basedir}/.."/>
+ 
+    	<property name="ModuloLibreriasExternas" value="${mainDir}\javaCommons"/>
+    	
+      	<macrodef name="deleteLibs"> 
+        	  <attribute name="dirTarget"/> 
+        	  <sequential>
+        	  	<echo message="Deleting from @{dirTarget}" />
+        	  	<delete>
+        	  		<fileset dir="@{dirTarget}" includes="**/${projectName}.jar"/>
+        	  	</delete>
+        	  </sequential> 
+        </macrodef> 
+		<!--deleteLibs dirTarget="${mainDir}/00101_javaAppModel/lib"/> 
+    	<deleteLibs dirTarget="${mainDir}/00202_javaModelGen/lib"/> 
+    	<deleteLibs dirTarget="${mainDir}/00203_javaVenta/lib"/> 
+    	<deleteLibs dirTarget="${mainDir}/00204_javaPersistenceGen/lib"/> 
+    	<deleteLibs dirTarget="${mainDir}/00302_javaModelTrenes/lib"/> 
+    	<deleteLibs dirTarget="${mainDir}/00304_javaPersistenceTrenes/lib"/> 
+    	<deleteLibs dirTarget="${mainDir}/00304_javaWebServicesTrenes/lib"/> 
+    	<deleteLibs dirTarget="${mainDir}/00203_javaVenta/lib"/>
+    	<deleteLibs dirTarget="${mainDir}/00604_javaPersistencePepePromo/lib"/>
+    	<deleteLibs dirTarget="${mainDir}/00602_javaModelPepePromo/lib"/>
+    	<deleteLibs dirTarget="${mainDir}/00101_javaAppPepeModel/lib"/>
+        <deleteLibs dirTarget="${mainDir}/0000000_webApp/WebContent/WEB-INF/lib"/>
+    	<deleteLibs dirTarget="${mainDir}/0000000_webPepeApp/WebContent/WEB-INF/lib"/-->
+    	
+    	<fatjar.build output="${ModuloLibreriasExternas}\${projectName}.jar">
+            <fatjar.manifest mergemanifests="false"/>
+            <fatjar.filesource path="${ModuloLibreriasExternas}\bin" relpath=""/>
+                <fatjar.jarsource file="${ModuloLibreriasExternas}\lib\commons-beanutils-1.7.0.jar" relpath=""/>
+                <fatjar.jarsource file="${ModuloLibreriasExternas}\lib\commons-codec-1.5.jar" relpath=""/>
+                <fatjar.jarsource file="${ModuloLibreriasExternas}\lib\commons-collections-3.1.jar" relpath=""/>
+            	<fatjar.jarsource file="${ModuloLibreriasExternas}\lib\commons-digester-2.0.jar" relpath=""/>
+            	<fatjar.jarsource file="${ModuloLibreriasExternas}\lib\commons-discovery-0.2.jar" relpath=""/>
+            	<fatjar.jarsource file="${ModuloLibreriasExternas}\lib\commons-fileupload-1.2.2.jar" relpath=""/>
+            	<fatjar.jarsource file="${ModuloLibreriasExternas}\lib\commons-io-2.0.1.jar" relpath=""/>
+    			<fatjar.jarsource file="${ModuloLibreriasExternas}\lib\commons-lang-2.5.jar" relpath=""/>
+    			<fatjar.jarsource file="${ModuloLibreriasExternas}\lib\commons-logging-1.1.1.jar" relpath=""/>
+    			<fatjar.jarsource file="${ModuloLibreriasExternas}\lib\commons-lang3-3.1.jar" relpath=""/> 
+        </fatjar.build>
+    	
+    	
+       	<macrodef name="copyLibs"> 
+        	  <attribute name="dirTarget"/> 
+        	  <sequential> 
+        	    <copy todir="@{dirTarget}"> 
+        	      <fileset dir="${ModuloLibreriasExternas}" includes="**/${projectName}.jar"/> 
+        	    </copy> 
+        	  </sequential> 
+        	</macrodef> 
+    	
+    	
+    	
+		<!--copyLibs dirTarget="${mainDir}/00101_javaAppModel/lib"/> 
+    	<copyLibs dirTarget="${mainDir}/00202_javaModelGen/lib"/> 
+    	<copyLibs dirTarget="${mainDir}/00203_javaVenta/lib"/> 
+    	<copyLibs dirTarget="${mainDir}/00204_javaPersistenceGen/lib"/> 
+    	<copyLibs dirTarget="${mainDir}/00302_javaModelTrenes/lib"/> 
+    	<copyLibs dirTarget="${mainDir}/00304_javaPersistenceTrenes/lib"/> 
+    	<copyLibs dirTarget="${mainDir}/00304_javaWebServicesTrenes/lib"/> 
+    	<copyLibs dirTarget="${mainDir}/00203_javaVenta/lib"/>
+    	<copyLibs dirTarget="${mainDir}/00604_javaPersistencePepePromo/lib"/>
+    	<copyLibs dirTarget="${mainDir}/00602_javaModelPepePromo/lib"/>
+    	<copyLibs dirTarget="${mainDir}/00101_javaAppPepeModel/lib"/>
+        <copyLibs dirTarget="${mainDir}/0000000_webApp/WebContent/WEB-INF/lib"/>
+    	<copyLibs dirTarget="${mainDir}/0000000_webPepeApp/WebContent/WEB-INF/lib"/-->
+    	
+    	
+    	<delete dir="${basedir}/__"/>
+    	<eclipse.refreshLocal resource="${projectName}" depth="infinite"/>
+		<!--eclipse.refreshLocal resource="00101_javaAppModel" depth="infinite"/>
+       	<eclipse.refreshLocal resource="00202_javaModelGen" depth="infinite"/>
+       	<eclipse.refreshLocal resource="00302_javaModelTrenes" depth="infinite"/>
+       	<eclipse.refreshLocal resource="00204_javaPersistenceGen" depth="infinite"/>
+      	<eclipse.refreshLocal resource="00304_javaPersistenceTrenes" depth="infinite"/>
+      	<eclipse.refreshLocal resource="00304_javaWebServicesTrenes" depth="infinite"/>
+      	<eclipse.refreshLocal resource="0000000_webApp" depth="infinite"/>
+      	<eclipse.refreshLocal resource="0000000_webPepeApp" depth="infinite"/>
+      	<eclipse.refreshLocal resource="00101_javaAppPepeModel" depth="infinite"/>
+      	<eclipse.refreshLocal resource="00602_javaModelPepePromo" depth="infinite"/>
+      	<eclipse.refreshLocal resource="00604_javaPersistencePepePromo" depth="infinite"/-->
+    	
+    </target>
+</project>

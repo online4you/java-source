@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.photel.data.BDL.ddbb.hibernate.pojo">
+	<class
+		name="BdlHotelDestinations"
+		table="bdl_hotel_destinations"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		
+		<composite-id name="Id" class="BdlHotelDestinationsPK">
+			<key-property
+				name="BdlCountryCode"
+				column="BDL_COUNTRY_CODE"
+				type="string"
+			/>
+			<key-property
+				name="BdlDestinationCode"
+				column="BDL_DESTINATION_CODE"
+				type="string"
+			/>
+		</composite-id>
+
+
+	</class>	
+</hibernate-mapping>

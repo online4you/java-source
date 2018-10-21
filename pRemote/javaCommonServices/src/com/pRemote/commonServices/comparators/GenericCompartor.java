@@ -1,0 +1,98 @@
+package com.pRemote.commonServices.comparators;
+
+import java.util.Comparator;
+import java.lang.reflect.Method;
+
+
+
+public class GenericCompartor implements Comparator<Object>{
+	private String sortBy="id";
+	private boolean sortDesc=false;
+
+
+	public int compare(Object o1, Object o2) {       
+	    String metodo="get"+sortBy.substring(0, 1).toUpperCase()+sortBy.substring(1, sortBy.length());
+	    Method m1=null;
+	    Method m2=null;
+	    Method[] allMethods;
+	    allMethods = o1.getClass().getMethods();
+	    for (Method m : allMethods) {
+	    	String mname = m.getName();
+	    	if (mname.equalsIgnoreCase(metodo)) {
+	    		m1=m;
+	    		break;
+	    	}
+ 		}
+	   allMethods = o2.getClass().getMethods();
+	    for (Method m : allMethods) {
+	    	String mname = m.getName();
+	    	if (mname.equalsIgnoreCase(metodo)) {
+	    		m2=m;
+	    		break;
+	    	}
+ 		}
+	    if (m1!=null && m2!=null){
+	    	 m1.setAccessible(true);
+	    	 m2.setAccessible(true);
+			 Object r1;
+			 try {
+				 	r1 = m1.invoke(o1);
+					Object r2 = m2.invoke(o2);
+					
+					Class<? extends Object> cr1 = r1.getClass();
+					allMethods = cr1.getMethods();
+					for (Method m : allMethods) {
+				    	String mname = m.getName();
+				    	if (mname.equalsIgnoreCase("compareTo")) {
+							Object ret = m.invoke(r1, r2);
+							Integer retorno = (Integer) ret;
+							if (sortDesc){
+								retorno=retorno*(-1);
+							}
+							
+							return retorno;
+				    	}
+			 		}
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			 
+			
+	    }
+		return 0;
+	}
+	
+
+
+	public boolean isSortDesc() {
+		return sortDesc;
+	}
+
+
+
+	public void setSortDesc(boolean sortDesc) {
+		this.sortDesc = sortDesc;
+	}
+
+
+
+	/**
+	 * @return the sortBy
+	 */
+	public String getSortBy() {
+		return sortBy;
+	}
+
+	/**
+	 * @param sortBy the sortBy to set
+	 */
+	public void setSortBy(String sortBy) {
+		this.sortBy = sortBy;
+	}
+
+
+
+
+
+}
+ 

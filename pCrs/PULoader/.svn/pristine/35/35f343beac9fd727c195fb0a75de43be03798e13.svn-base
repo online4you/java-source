@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<files>
+   <!-- L A N G U A G E S -->
+   <file name="Languages.csv" tableName="LANGUAGES">
+         <!--updateFileName="LanguagesUpdates.csv"-->
+      <key>
+         <column>LanguageCode</column>
+      </key>
+      <relationships>
+         <detail-relation>HotelDescriptions.csv</detail-relation>
+         <detail-relation>ImageDescriptions.csv</detail-relation>
+         <detail-relation>DestinationIDs.csv</detail-relation>     
+         <detail-relation>CountryIDs.csv</detail-relation>
+         <detail-relation>HotelIssues.csv</detail-relation>
+         <detail-relation>BoardDescriptions.csv</detail-relation>
+         <detail-relation>RoomDescriptions.csv</detail-relation>    
+         <detail-relation>CharacteristicDescriptions.csv</detail-relation>     
+         <detail-relation>ZoneGroupDescriptions.csv</detail-relation>  
+         <detail-relation>FacilityDescriptions.csv</detail-relation>   
+         <detail-relation>FacilityGroupsDescriptions.csv</detail-relation>
+         <detail-relation>CategoryDescriptions.csv</detail-relation>
+         <detail-relation>TransferZoneDescription.csv</detail-relation>
+         <detail-relation>TicketsClassificationDescription.csv</detail-relation>         
+      </relationships>
+   </file>
+   <!-- C A T E G O R I E S -->
+   <file name="Categories.csv" tableName="CATEGORIES">
+         <!--updateFileName="CategoriesUpdates.csv"-->
+      <key>
+         <column>CategoryCode</column>
+      </key>
+      <relationships>
+         <detail-relation>Hotels.csv</detail-relation>
+         <detail-relation>CategoryDescriptions.csv</detail-relation>
+      </relationships>
+   </file>
+    <!-- C A T E G O R Y   D E S C R I P T I O N S -->
+   <file name="CategoryDescriptions.csv" tableName="CATEGORY_DESCRIPTIONS">
+         <!--updateFileName="CategoryDescriptionsUpdates.csv"-->
+      <key>
+         <column>CategoryCode</column>
+         <column>LanguageCode</column>
+      </key>
+   </file>
+   <!-- H O T E L S -->
+   <file name="Hotels.csv" tableName="HOTELS">
+         <!--updateFileName="HotelsUpdates.csv"-->
+      <key>
+         <column>HotelCode</column>
+      </key>
+      <relationships>
+         <detail-relation>HotelDescriptions.csv</detail-relation>
+         <detail-relation>HotelImages.csv</detail-relation>
+         <detail-relation>Contacts.csv</detail-relation> <!-- Revisar, relación 1:1-->
+         <detail-relation>HotelIssues.csv</detail-relation>
+         <detail-relation>HotelTerminals.csv</detail-relation>  
+         <detail-relation>Phones.csv</detail-relation>
+         <detail-relation>Facilities.csv</detail-relation>
+         <detail-relation>HotelTransferZone.csv</detail-relation>  
+      </relationships>
+   </file>
+   <!-- H O T E L    D E S C R I P T I O N S -->
+   <file name="HotelDescriptions.csv" tableName="HOTEL_DESCRIPTIONS">
+         <!--updateFileName="HotelDescriptionsUpdates.csv"-->
+      <key>
+         <column>HotelCode</column>
+         <column>LanguageCode</column>
+      </key>
+   </file>
+   <!-- I M A G E    T Y P E S -->
+   <file name="ImageTypes.csv" tableName="IMAGE_TYPES">
+         <!--updateFileName="ImagesTypesUpdates.csv"-->
+      <key>
+         <column>ImageCode</column>
+      </key>
+      <relationships>
+         <detail-relation>HotelImages.csv</detail-relation>
+         <detail-relation>ImageDescriptions.csv</detail-relation>
+      </relationships>
+   </file>
+   <!-- H O T E L   I M A G E S -->
+   <file name="HotelImages.csv" tableName="HOTEL_IMAGES">
+         <!--updateFileName="HotelImagesUpdates.csv"-->
+      <key>
+         <column>HotelCode</column>
+         <column>ImageCode</column>
+         <column>Order_</column>         
+      </key>
+   </file>
+   <!-- I M A G E    D E S C R I P T I O N S -->
+   <file name="ImageDescriptions.csv" tableName="IMAGE_DESCRIPTIONS">
+         <!--updateFileName="ImagesDescriptionsUpdates.csv"-->
+      <key>
+         <column>ImageCode</column>
+         <column>LanguageCode</column>
+      </key>
+   </file>
+     <!-- P H O N E   T Y P E S -->
+   <file name="PhoneTypes.csv" tableName="PHONE_TYPES"> <!--No tiene fichero de actualización-->
+      <key>
+         <column>PhoneType</column>
+      </key>
+    <relationships>
+         <detail-relation>Phones.csv</detail-relation>         
+         </relationships>
+   </file>
+     <!-- P H O N E S -->
+   <file name="Phones.csv" tableName="PHONES"> <!--No tiene fichero de actualización-->
+      <key>
+         <column>HotelCode</column>
+         <column>PhoneType</column>
+      </key>
+   </file>   
+    <!-- C O U N T R I E S -->
+   <file name="Countries.csv" tableName="COUNTRIES">
+         <!--updateFileName="CountriesUpdates.csv">-->
+      <key>
+         <column>CountryCode</column>         
+      </key>
+      <relationships>
+         <detail-relation>Contacts.csv</detail-relation>         
+         <detail-relation>Destinations.csv</detail-relation>     
+         <detail-relation>CountryIDs.csv</detail-relation>
+         <detail-relation>HotelDestinations.csv</detail-relation>
+         <detail-relation>CarDestinations.csv</detail-relation>
+         <detail-relation>TicketDestinations.csv</detail-relation>
+      </relationships>
+   </file>    
+    <!-- C O N T A C T S-->
+   <file name="Contacts.csv" tableName="CONTACTS"> <!--No tiene fichero de actualización-->
+      <key>
+         <column>HotelCode</column>         
+      </key>
+      <!--<relationships>-->
+         <!--<detail-relation>Hotels.csv</detail-relation>-->   <!-- Revisar, relación 1:1-->
+      <!--</relationships>-->
+   </file>    
+  <!-- D E S T I N A T I O N S -->
+   <file name="Destinations.csv" tableName="DESTINATIONS">
+         <!--updateFileName="DestinationsUpdates.csv">-->
+      <key>
+         <column>DestinationCode</column>         
+      </key>
+      <relationships>
+         <detail-relation>Hotels.csv</detail-relation>   
+         <detail-relation>DestinationIDs.csv</detail-relation>   
+         <detail-relation>HotelDestinations.csv</detail-relation>
+         <detail-relation>CarDestinations.csv</detail-relation>
+         <detail-relation>TicketDestinations.csv</detail-relation>
+         <detail-relation>Zones.csv</detail-relation>    
+         <detail-relation>RegimByDest.csv</detail-relation>
+         <detail-relation>TerminalTransferZone.csv</detail-relation>       
+      </relationships>
+   </file>  
+  <!-- D E S T I N A T I O N  D E S C R I P T I O N S-->
+   <file name="DestinationIDs.csv" tableName="DESTINATION_IDS">
+         <!--updateFileName="DestinationIDsUpdates.csv">-->
+      <key>
+         <column>DestinationCode</column>         
+         <column>LanguageCode</column>         
+      </key>
+   </file>  
+   <!-- C O U N T R I E S  D E S C R I P T I O N S-->
+   <file name="CountryIDs.csv" tableName="COUNTRY_IDS">
+         <!--updateFileName="CountryIDsUpdates.csv">-->
+      <key>
+         <column>CountryCode</column>         
+         <column>LanguageCode</column>         
+      </key>
+   </file>     
+   <!-- C H A I N S-->
+   <file name="Chains.csv" tableName="CHAINS">
+         <!--updateFileName="ChainsUpdates.csv">-->
+      <key>
+         <column>CountryCode</column>         
+         <column>LanguageCode</column>         
+      </key>
+      <relationships>
+         <detail-relation>Hotels.csv</detail-relation>   
+      </relationships>
+   </file>    
+    <!-- H O T E L  D E S T I N A T I O N S -->
+   <file name="HotelDestinations.csv" tableName="HOTEL_DESTINATIONS">
+         <!--updateFileName="HotelDestinationsUpdates.csv">-->
+      <key>
+         <column>CountryCode</column>         
+         <column>DestinationCode</column>         
+      </key>
+   </file>     
+    <!-- C A R  D E S T I N A T I O N S -->
+   <file name="CarDestinations.csv" tableName="CAR_DESTINATIONS">
+         <!--updateFileName="CarDestinationsUpdates.csv">-->
+      <key>
+         <column>CountryCode</column>         
+         <column>DestinationCode</column>         
+      </key>
+   </file>     
+    <!-- T I C K E T  D E S T I N A T I O N S -->
+   <file name="TicketDestinations.csv" tableName="TICKET_DESTINATIONS">
+         <!--updateFileName="TicketDestinationsUpdates.csv">-->
+      <key>
+         <column>CountryCode</column>         
+         <column>DestinationCode</column>         
+      </key>
+   </file>     
+    <!-- H O T E L  I S S U E S -->
+    <file name="HotelIssues.csv" tableName="HOTEL_ISSUES">
+         <!--updateFileName="HotelIssuesUpdates.csv">-->
+      <key>
+         <column>HotelCode</column>         
+         <column>IssueOrder</column>      
+         <column>LanguageCode</column>
+      </key>
+   </file>     
+    <!-- Z O N E S -->
+    <file name="Zones.csv" tableName="ZONES">
+         <!--updateFileName="ZonesUpdates.csv">-->
+      <key>
+         <column>ZoneCode</column>         
+         <column>DestinationCode</column>         
+      </key>
+      <relationships>
+         <detail-relation>ZoneByGroup.csv</detail-relation>  
+         <detail-relation>Hotels.csv</detail-relation>  
+      </relationships>
+   </file>      
+    <!-- B O A R D  T Y P E S -->
+    <file name="BoardTypes.csv" tableName="BOARD_TYPES">
+         <!--updateFileName="BoardTypesUpdates.csv">-->
+      <key>
+         <column>BoardType</column>                  
+      </key>
+      <relationships>
+         <detail-relation>RegimByDest.csv</detail-relation>  
+         <detail-relation>BoardDescriptions.csv</detail-relation>
+      </relationships>
+   </file>      
+    <!-- R E G I M   B Y   D E S T  -->
+    <file name="RegimByDest.csv" tableName="REGIM_BY_DEST">
+      <key>
+         <column>DestinationCode</column>                  
+         <column>BoardType</column>                  
+      </key>
+   </file>      
+    <!-- B O A R D   D ES C R I P T I O N S  -->
+    <file name="BoardDescriptions.csv" tableName="BOARD_DESCRIPTIONS">
+         <!--updateFileName="BoardDescriptionsUpdates.csv">-->
+      <key>
+         <column>BoardType</column>                  
+         <column>LanguageCode</column>                  
+      </key>
+   </file>   
+ <!-- R O O M  T Y P E S  -->   
+    <file name="RoomTypes.csv" tableName="ROOM_TYPES">
+         <!--updateFileName="RoomTypesUpdates.csv">-->
+      <key>
+         <column>RoomType</column>                           
+      </key>
+      <relationships>
+         <detail-relation>RoomDescriptions.csv</detail-relation>           
+      </relationships>
+   </file>   
+    <!-- R O O M  D E S C R I P T I O N S  -->
+    <file name="RoomDescriptions.csv" tableName="ROOM_DESCRIPTIONS">
+         <!--updateFileName="RoomDescriptionsUpdates.csv">-->
+      <key>
+         <column>RoomType</column>
+         <column>LanguageCode</column>      
+      </key>
+   </file>   
+    <!-- T E R M I N A L S  -->
+    <file name="Terminals.csv" tableName="TERMINALS">
+         <!--updateFileName="TerminalsUpdates.csv">-->
+      <key>
+         <column>TerminalCode</column>         
+      </key>
+      <relationships>
+         <detail-relation>HotelTerminals.csv</detail-relation>   
+         <detail-relation>TerminalTransferZone.csv</detail-relation>       
+      </relationships>
+   </file>       
+    <!-- H O T E L  T E R M I N A L S  -->
+   <file name="HotelTerminals.csv" tableName="HOTEL_TERMINALS">
+         <!--updateFileName="HotelTerminalsUpdates.csv">-->
+      <key>
+         <column>HotelCode</column>         
+         <column>TerminalCode</column>         
+      </key>
+   </file>       
+    <!-- C H A R A C T E R I S T I C S  -->
+   <file name="Characteristics.csv" tableName="CHARACTERISTICS">
+         <!--updateFileName="CharacteristicsUpdates.csv">-->
+      <key>
+         <column>CharacteristicCode</column>                  
+      </key>
+      <relationships>
+         <detail-relation>CharacteristicDescriptions.csv</detail-relation>           
+      </relationships>      
+   </file>   
+    <!-- C H A R A C T E R I S T I C   D E S C R I P T I O N S  -->
+   <file name="CharacteristicDescriptions.csv" tableName="CHARACTERISTIC_DESCRIPTIONS">
+         <!--updateFileName="CharacteristicDescriptionsUpdates.csv">-->
+      <key>
+         <column>CharacteristicCode</column>          
+         <column>LanguageCode</column>           
+      </key>
+   </file>    
+   <!-- Z O N E   G R O U P S -->
+   <file name="ZoneGroup.csv" tableName="ZONE_GROUP">
+         <!--updateFileName="ZoneGroupUpdates.csv">-->
+      <key>
+         <column>InterfaceCode</column>       
+         <column>GroupZoneCode</column> 
+      </key>
+      <relationships>
+         <detail-relation>ZoneByGroup.csv</detail-relation>        
+         <detail-relation>ZoneGroupDescriptions.csv</detail-relation>        
+      </relationships>
+   </file> 
+    <!-- Z O N E   B Y   G R O U P  -->
+   <file name="ZoneByGroup.csv" tableName="ZONE_BY_GROUP">
+         <!--updateFileName="ZoneByGroupUpdates.csv">-->
+      <key>
+         <column>InterfaceCode</column>       
+         <column>GroupZoneCode</column> 
+         <column>DestinationCode</column> 
+         <column>ZoneCode</column>  
+      </key>
+   </file>        
+   <!-- Z O N E   G R O U P S  D E S C R I P T I O N S -->
+   <file name="ZoneGroupDescriptions.csv" tableName="ZONE_GROUP_DESCRIPTIONS">
+         <!--updateFileName="ZoneGroupDescriptionsUpdates.csv">-->
+      <key>
+         <column>InterfaceCode</column>       
+         <column>GroupZoneCode</column> 
+         <column>LanguageCode</column> 
+      </key>
+   </file> 
+   <!-- F A C I L I T Y  G R O U P S -->
+   <file name="FacilityGroups.csv" tableName="FACILITY_GROUPS">
+         <!--updateFileName="FacilityGroupsUpdates.csv">-->
+      <key>
+         <column>Group_</column>       
+      </key>
+      <relationships>
+         <detail-relation>FacilityTypes.csv</detail-relation>
+         <detail-relation>FacilityGroupsDescriptions.csv</detail-relation>
+      </relationships>
+   </file> 
+   <!-- F A C I L I T Y  T Y P O L O G I E S -->
+   <file name="FacilityTypologies.csv" tableName="FACILITY_TYPOLOGIES">
+         <!--updateFileName="FacilityTypologiesUpdates.csv">-->
+      <key>
+         <column>TypologyCode</column>          
+      </key>
+      <relationships>
+         <detail-relation>FacilityTypes.csv</detail-relation>             
+      </relationships>
+   </file>    
+    <!-- F A C I L I T Y   T Y P E S -->
+   <file name="FacilityTypes.csv" tableName="FACILITY_TYPES">
+         <!--updateFileName="FacilityTypesUpdates.csv">-->
+      <key>
+         <column>Group_</column>       
+         <column>Code</column>       
+      </key>
+      <relationships>
+         <detail-relation>FacilityDescriptions.csv</detail-relation>  
+         <detail-relation>Facilities.csv</detail-relation>
+      </relationships>
+   </file>       
+   <!-- F A C I L I T Y   D E S C R I P T I O N S -->
+   <file name="FacilityDescriptions.csv" tableName="FACILITY_DESCRIPTIONS">
+         <!--updateFileName="FacilityDescriptionsUpdates.csv">-->
+      <key>
+         <column>Group_</column>       
+         <column>Code</column>    
+         <column>LanguageCode</column>    
+      </key>      
+   </file>      
+   <!-- F A C I L I T Y   G R O U P S  D E S C R I P T I O N S -->
+   <file name="FacilityGroupsDescriptions.csv" tableName="FACILITY_GROUPS_DESCRIPTIONS">
+         <!--updateFileName="FacilityGroupsDescriptionsUpdates.csv">-->
+      <key>
+         <column>Group_</column>     
+         <column>LanguageCode</column>    
+      </key>
+   </file>
+   
+   <!--F A C I L I T I E S-->
+   <file name="Facilities.csv" tableName="FACILITIES">
+         <!--updateFileName="FacilitiesUpdates.csv">-->
+      <key>
+         <column>HotelCode</column>     
+         <column>Code</column>     
+         <column>Group_</column>     
+         <column>Order_</column>    
+      </key>
+   </file>
+    <!--T R A N S F E R   Z O N E -->
+   <file name="TransferZone.csv" tableName="TRANSFER_ZONE">         
+      <key>
+         <column>ZoneTransfer</column>     
+      </key>
+      <relationships>
+         <detail-relation>TransferZoneDescription.csv</detail-relation>         
+         <detail-relation>TerminalTransferZone.csv</detail-relation>  
+         <detail-relation>HotelTransferZone.csv</detail-relation>  
+         <detail-relation>TransferZonePostalCode.csv</detail-relation>  
+      </relationships>      
+   </file>    
+    <!--T R A N S F E R   Z O N E  D E S C R I P T I O N -->
+   <file name="TransferZoneDescription.csv" tableName="TRANSFER_ZONE_DESCRIPTION">         
+      <key>
+         <column>ZoneTransfer</column>     
+         <column>LanguageCode</column>     
+      </key>
+   </file>    
+   <!--T E R M I N A L   T R A N S F E R   Z O N E -->  
+   <file name="TerminalTransferZone.csv" tableName="TERMINAL_TRANSFER_ZONE">    
+      <key>
+         <column>ZoneTransferTerminal</column>     
+         <column>TerminalCode</column>     
+         <column>ZoneTransfer</column>     
+      </key>
+   </file>        
+    <!-- H O T E L   T R A N S F E R   Z O N E --> 
+   <file name="HotelTransferZone.csv" tableName="HOTEL_TRANSFER_ZONE">    
+      <key>
+         <column>ZoneTransfer</column>     
+         <column>HotelCode</column>       
+      </key>
+   </file>      
+ <!-- T R A N S F E R   Z O N E  P O S T A L   C O D E -->
+   <file name="TransferZonePostalCode.csv" tableName="TRANSFER_ZONE_POSTAL_CODE">    
+      <key>
+         <column>ZoneTransfer</column>     
+         <column>PostalCode</column>       
+      </key>
+   </file>         
+   <!-- T I C K E T S   C L A S S I F I C A T I O N -->
+   <file name="TicketsClassification.csv" tableName="TICKETS_CLASSIFICATION">    
+      <key>
+         <column>ClassificationCode</column>
+      </key>
+      <relationships>
+         <detail-relation>TicketsClassificationDescription.csv</detail-relation>                  
+      </relationships> 
+   </file>      
+   <!-- T I C K E T S   C L A S S I F I C A T I O N   D E S C R I P T I O N -->
+   <file name="TicketsClassificationDescription.csv" tableName="TICKETS_CLASSIFICATION_DESC">    
+      <key>
+         <column>ClassificationCode</column>
+         <column>LanguageCode</column>         
+      </key>
+   </file> 
+</files>

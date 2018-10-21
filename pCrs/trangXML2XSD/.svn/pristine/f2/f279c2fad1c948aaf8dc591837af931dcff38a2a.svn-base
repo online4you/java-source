@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Tue Feb 17 10:44:25 CET 2015
+onejar.license.required=true
+manifest.classpath=
+manifest.removesigners=true
+onejar.checkbox=false
+jarname=trangXML2XSD_fat.jar
+manifest.mergeall=true
+manifest.mainclass=
+manifest.file=<createnew>
+jarname.isextern=false
+onejar.expand=
+excludes=
+includes=

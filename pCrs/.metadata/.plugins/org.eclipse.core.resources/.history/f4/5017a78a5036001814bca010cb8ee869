@@ -1,0 +1,158 @@
+package com.photel.apps.actions.BDL;
+
+import java.util.List;
+
+import org.json.JSONObject;
+
+import com.photel.apps.actions.MainAction;
+import com.photel.commonServices.util.XMLStreamUtil;
+import com.photel.interfaces.BDL244.IBDLHotel;
+import com.photel.interfaces.data.BDL.IBdlReservas;
+import com.sis.redsys.api.ApiMacSha256;
+
+public class RespuestaSab extends MainAction {
+
+	private static final long serialVersionUID = 1L;
+	private String Ds_SignatureVersion;
+	private String Ds_MerchantParameters;
+	private String idReserva;
+	private String idComercio;
+	private final String TRANSACCION_AUTORIZADA_DEVOLUCIONES_CONFIRMACIONES="900";
+	private final String TRANSACCION_AUTORIZADA_ANULACIONES="400";
+	
+	
+	private static final String OK_PATERN="$*$OKY$*$";
+	private String resultado;
+	
+	@Override
+	public synchronized String executeHalconAction() throws Exception {
+		
+		 resultado="KO\n\nError booking!!";
+		ApiMacSha256 apiMacSha256 = new ApiMacSha256();
+		String decodec = apiMacSha256.decodeMerchantParameters(Ds_MerchantParameters);
+		JSONObject jsonObject = new JSONObject(decodec);
+		String response = (String)jsonObject.get("Ds_Response");
+		//si no da una response correcta no se genera reserva
+		if( !TRANSACCION_AUTORIZADA_DEVOLUCIONES_CONFIRMACIONES.equals(response) && 
+				!TRANSACCION_AUTORIZADA_ANULACIONES.equals(response) && 
+				Integer.valueOf(response) >99){//distinto de trasacciones autorizadas
+			return SUCCESS;
+		}
+		String order =(String) jsonObject.get("Ds_Order");
+		String merchantCode = (String) jsonObject.get("Ds_MerchantCode");
+		
+		if(order.equals(idReserva) && merchantCode.equals(idComercio) )
+		{
+			try{
+				
+				if (num_operacion.contains("B-")){
+					
+				}
+			String idReserva = order;
+			
+			IBdlReservas res = this.getReserva(Integer.parseInt(idReserva));
+			
+			String idi=res.getBdlIdioma();
+			
+			String hotelStr=res.getBdlHotel();
+			IBDLHotel pHotel=(IBDLHotel) XMLStreamUtil.xmlLoadObject(hotelStr);
+			
+			
+			String paxes = res.getBdlPaxes();
+			List<List<String>> distribuciones=(List<List<String>>) XMLStreamUtil.xmlLoadObject(paxes);
+			
+			
+			pHotel=this.confirmarReserva(idi, idReserva, distribuciones, pHotel);
+			
+			if (pHotel.getPurchase().getLocalizador()!=null){
+				if(pHotel.getPurchase().getLocalizador().indexOf("B-")==-1){
+					pHotel.getPurchase().setLocalizador("B-"+pHotel.getPurchase().getLocalizador());
+				}
+			}else{
+				hotelStr=XMLStreamUtil.xmlSaveObject(pHotel);
+				res.setBdlHotel(hotelStr);
+				this.setReserva(res);
+				throw new Exception("Sin localizador del proveedor");
+			}
+			res.setBdlReservaConfirmada("1");
+			hotelStr=XMLStreamUtil.xmlSaveObject(pHotel);
+			res.setBdlHotel(hotelStr);
+			res.setBdlLocata(pHotel.getPurchase().getLocalizador());
+			IBdlReservas reser2 = this.getUltimaFactura();
+			if (res.getBdlCheckFactura().equals("1")){
+				int num=0;
+				if (reser2!=null){
+					num = reser2.getBdlFacturaNumero();
+				}
+				num=num+1;
+				res.setBdlFacturaNumero(num);	
+			}
+			this.setReserva(res);
+			
+			
+			String idioma=this.getConfigParam(idi);
+			this.sendVoucher(idioma, "", Integer.parseInt(idReserva));
+			
+			resultado = OK_PATERN;
+			} catch(Exception e){
+				resultado="KO\n\n";
+				e.printStackTrace();
+				StackTraceElement[] trace = e.getStackTrace();
+				resultado+=e.getClass()+": "+e.getMessage()+ "\n";
+				for (int i=0; i < trace.length; i++)
+					resultado+="\tat " + trace[i]+"\n";
+			}
+		}
+		
+		return SUCCESS;
+	}
+
+	public String getDs_SignatureVersion() {
+		return Ds_SignatureVersion;
+	}
+
+	public void setDs_SignatureVersion(String ds_SignatureVersion) {
+		Ds_SignatureVersion = ds_SignatureVersion;
+	}
+
+	public String getResultado() {
+		return resultado;
+	}
+
+	public void setDs_MerchantParameters(String ds_MerchantParameters) {
+		Ds_MerchantParameters = ds_MerchantParameters;
+	}
+
+	/**
+	 * @return the idReserva
+	 */
+	public String getIdReserva() {
+		return idReserva;
+	}
+
+	/**
+	 * @param idReserva the idReserva to set
+	 */
+	public void setIdReserva(String idReserva) {
+		this.idReserva = idReserva;
+	}
+
+	/**
+	 * @return the idComercio
+	 */
+	public String getIdComercio() {
+		return idComercio;
+	}
+
+	/**
+	 * @param idComercio the idComercio to set
+	 */
+	public void setIdComercio(String idComercio) {
+		this.idComercio = idComercio;
+	}
+
+
+	
+	
+
+}

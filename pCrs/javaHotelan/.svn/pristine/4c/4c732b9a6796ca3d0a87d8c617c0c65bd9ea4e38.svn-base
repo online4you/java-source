@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="Response">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="Hotel"/>
+        <xs:element ref="Error"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Hotel">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="Id"/>
+        <xs:element ref="Name"/>
+        <xs:element ref="Type"/>
+        <xs:element ref="Category"/>
+        <xs:element ref="Destination"/>
+        <xs:element ref="Zone"/>
+        <xs:element ref="Address"/>
+        <xs:element ref="ZipCode"/>
+        <xs:element ref="City"/>
+        <xs:element ref="Region"/>
+        <xs:element ref="Country"/>
+        <xs:element ref="Telephone"/>
+        <xs:element ref="Fax"/>
+        <xs:element ref="Web"/>
+        <xs:element ref="Email"/>
+        <xs:element ref="Active"/>
+        <xs:element ref="Images"/>
+        <xs:element ref="Details"/>
+        <xs:element ref="Acces"/>
+        <xs:element ref="Conditions"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Id" type="xs:string"/>
+  <xs:element name="Name" type="xs:string"/>
+  <xs:element name="Type">
+    <xs:complexType>
+      <xs:attribute name="Description" use="required"/>
+      <xs:attribute name="Id" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Category">
+    <xs:complexType>
+      <xs:attribute name="Description" use="required"/>
+      <xs:attribute name="Id" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Destination">
+    <xs:complexType>
+      <xs:attribute name="Description" use="required"/>
+      <xs:attribute name="Id" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Zone">
+    <xs:complexType>
+      <xs:attribute name="Description" use="required"/>
+      <xs:attribute name="Id" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Address" type="xs:string"/>
+  <xs:element name="ZipCode" type="xs:string"/>
+  <xs:element name="City" type="xs:string"/>
+  <xs:element name="Region">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="Country" type="xs:string"/>
+  <xs:element name="Telephone" type="xs:string"/>
+  <xs:element name="Fax">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="Web" type="xs:string"/>
+  <xs:element name="Email" type="xs:string"/>
+  <xs:element name="Active" type="xs:string"/>
+  <xs:element name="Images">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="Image"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Image" type="xs:string"/>
+  <xs:element name="Details" type="xs:string"/>
+  <xs:element name="Acces" type="xs:string"/>
+  <xs:element name="Conditions">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="Error" type="xs:string"/>
+</xs:schema>

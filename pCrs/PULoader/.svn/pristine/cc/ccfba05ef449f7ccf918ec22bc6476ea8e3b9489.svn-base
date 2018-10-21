@@ -1,0 +1,202 @@
+<html>
+<link rel="stylesheet" type="text/css" href="../style.css"/>
+<head>
+<title>Relation between tables and csv files</title>
+</head>
+<body>
+<h1>Relation between tables and csv files</h1>
+<br><br>
+<table align="center" border="1" cellpadding="0" cellspacing="0" bgcolor="#ffffff" width="400">
+<tr id="cabecera">
+<td>CSV File</td>
+<td>Table</td>
+</tr>
+<tr>
+<td><i>Languages.csv</i></td>
+<td align="center">LANGUAGES</td>
+</tr>
+<tr>
+<td><i>Categories.csv</i></td>
+<td align="center">CATEGORIES</td>
+</tr>
+<tr>
+<td><i>CategoryDescriptions.csv</i></td>
+<td align="center">CATEGORY_DESCRIPTIONS</td>
+</tr>
+<tr>
+<td><i>Hotels.csv</i></td>
+<td align="center">HOTELS</td>
+</tr>
+<tr>
+<td><i>HotelDescriptions.csv</i></td>
+<td align="center">HOTEL_DESCRIPTIONS</td>
+</tr>
+<tr>
+<td><i>ImageTypes.csv</i></td>
+<td align="center">IMAGE_TYPES</td>
+</tr>
+<tr>
+<td><i>HotelImages.csv</i></td>
+<td align="center">HOTEL_IMAGES</td>
+</tr>
+<tr>
+<td><i>ImageDescriptions.csv</i></td>
+<td align="center">IMAGE_DESCRIPTIONS</td>
+</tr>
+<tr>
+<td><i>PhoneTypes.csv</i></td>
+<td align="center">PHONE_TYPES</td>
+</tr>
+<tr>
+<td><i>Phones.csv</i></td>
+<td align="center">PHONES</td>
+</tr>
+<tr>
+<td><i>Countries.csv</i></td>
+<td align="center">COUNTRIES</td>
+</tr>
+<tr>
+<td><i>Contacts.csv</i></td>
+<td align="center">CONTACTS</td>
+</tr>
+<tr>
+<td><i>Destinations.csv</i></td>
+<td align="center">DESTINATIONS</td>
+</tr>
+<tr>
+<td><i>DestinationIDs.csv</i></td>
+<td align="center">DESTINATION_IDS</td>
+</tr>
+<tr>
+<td><i>CountryIDs.csv</i></td>
+<td align="center">COUNTRY_IDS</td>
+</tr>
+<tr>
+<td><i>Chains.csv</i></td>
+<td align="center">CHAINS</td>
+</tr>
+<tr>
+<td><i>HotelDestinations.csv</i></td>
+<td align="center">HOTEL_DESTINATIONS</td>
+</tr>
+<tr>
+<td><i>CarDestinations.csv</i></td>
+<td align="center">CAR_DESTINATIONS</td>
+</tr>
+<tr>
+<td><i>TicketDestinations.csv</i></td>
+<td align="center">TICKET_DESTINATIONS</td>
+</tr>
+<tr>
+<td><i>HotelIssues.csv</i></td>
+<td align="center">HOTEL_ISSUES</td>
+</tr>
+<tr>
+<td><i>Zones.csv</i></td>
+<td align="center">ZONES</td>
+</tr>
+<tr>
+<td><i>BoardTypes.csv</i></td>
+<td align="center">BOARD_TYPES</td>
+</tr>
+<tr>
+<td><i>RegimByDest.csv</i></td>
+<td align="center">REGIM_BY_DEST</td>
+</tr>
+<tr>
+<td><i>BoardDescriptions.csv</i></td>
+<td align="center">BOARD_DESCRIPTIONS</td>
+</tr>
+<tr>
+<td><i>RoomTypes.csv</i></td>
+<td align="center">ROOM_TYPES</td>
+</tr>
+<tr>
+<td><i>RoomDescriptions.csv</i></td>
+<td align="center">ROOM_DESCRIPTIONS</td>
+</tr>
+<tr>
+<td><i>Terminals.csv</i></td>
+<td align="center">TERMINALS</td>
+</tr>
+<tr>
+<td><i>HotelTerminals.csv</i></td>
+<td align="center">HOTEL_TERMINALS</td>
+</tr>
+<tr>
+<td><i>Characteristics.csv</i></td>
+<td align="center">CHARACTERISTICS</td>
+</tr>
+<tr>
+<td><i>CharacteristicDescriptions.csv</i></td>
+<td align="center">CHARACTERISTIC_DESCRIPTIONS</td>
+</tr>
+<tr>
+<td><i>ZoneGroup.csv</i></td>
+<td align="center">ZONE_GROUP</td>
+</tr>
+<tr>
+<td><i>ZoneByGroup.csv</i></td>
+<td align="center">ZONE_BY_GROUP</td>
+</tr>
+<tr>
+<td><i>ZoneGroupDescriptions.csv</i></td>
+<td align="center">ZONE_GROUP_DESCRIPTIONS</td>
+</tr>
+<tr>
+<td><i>FacilityGroups.csv</i></td>
+<td align="center">FACILITY_GROUPS</td>
+</tr>
+<tr>
+<td><i>FacilityTypologies.csv</i></td>
+<td align="center">FACILITY_TYPOLOGIES</td>
+</tr>
+<tr>
+<td><i>FacilityTypes.csv</i></td>
+<td align="center">FACILITY_TYPES</td>
+</tr>
+<tr>
+<td><i>FacilityDescriptions.csv</i></td>
+<td align="center">FACILITY_DESCRIPTIONS</td>
+</tr>
+<tr>
+<td><i>FacilityGroupsDescriptions.csv</i></td>
+<td align="center">FACILITY_GROUPS_DESCRIPTIONS</td>
+</tr>
+<tr>
+<td><i>Facilities.csv</i></td>
+<td align="center">FACILITIES</td>
+</tr>
+<tr>
+<td><i>TransferZone.csv</i></td>
+<td align="center">TRANSFER_ZONE</td>
+</tr>
+<tr>
+<td><i>TransferZoneDescription.csv</i></td>
+<td align="center">TRANSFER_ZONE_DESCRIPTION</td>
+</tr>
+<tr>
+<td><i>TerminalTransferZone.csv</i></td>
+<td align="center">TERMINAL_TRANSFER_ZONE</td>
+</tr>
+<tr>
+<td><i>HotelTransferZone.csv</i></td>
+<td align="center">HOTEL_TRANSFER_ZONE</td>
+</tr>
+<tr>
+<td><i>TransferZonePostalCode.csv</i></td>
+<td align="center">TRANSFER_ZONE_POSTAL_CODE</td>
+</tr>
+<tr>
+<td><i>TicketsClassification.csv</i></td>
+<td align="center">TICKETS_CLASSIFICATION</td>
+</tr>
+<tr>
+<td><i>TicketsClassificationDescription.csv</i></td>
+<td align="center">TICKETS_CLASSIFICATION_DESC</td>
+</tr>
+</table>
+<br><br>
+<center><a href="index.html">Back</a></center>
+</body>
+</html>

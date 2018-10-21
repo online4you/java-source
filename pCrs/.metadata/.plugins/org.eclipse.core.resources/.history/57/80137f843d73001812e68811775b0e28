@@ -1,0 +1,116 @@
+package com.photel.apps.actions.BDL;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.struts2.ServletActionContext;
+
+import com.photel.apps.actions.MainAction;
+import com.photel.interfaces.data.BDL.IBdlReservas;
+import com.sis.redsys.api.ApiMacSha256;
+
+public class PagoSabadell extends MainAction {
+
+	private String merchantParameters;
+	private String merchantSignature;
+	private final String merchantSignatureVersion = "HMAC_SHA256_V1";
+	private String idReserva;
+	//
+	private String debugInfo;
+	private final String merchantCurrency = "978";// euros
+	private final String merchantTransactionType = "0";
+	private final String merchantTerminal = "001";
+	private final String PATH_TO_CONFIRM ="/apps/bdl/respuestaSab.html";
+	//private final String URL_PRUEBAS_SAB= "https://sis-t.redsys.es:25443/sis/realizarPago";//pruebas
+	//private final String CLAVE="sq7HjrUOBfKmC576ILgskD5srU870gJ7";//pruebas
+	private final String URL_SAB ="https://sis.redsys.es/sis/realizarPago";//real
+	private final String CLAVE = "Vj9aBonkfr04DWEEPyYk/fUFzlS6Rm1x";//real
+	private final String urlCeca = URL_SAB;
+	private final String merchantCode = "336848593";// codigo de comercio
+	
+	
+	
+
+	@Override
+	public synchronized String executeHalconAction() throws Exception {
+		debugInfo = debugInfo == null ? "" : debugInfo;
+		debugInfo = debugInfo.equals("") ? "false" : debugInfo;
+		
+		HttpServletRequest request = ServletActionContext.getRequest();
+		String ip = request.getRemoteAddr();
+		if("207.189.28.61".equals(ip)){
+			return SUCCESS;
+		}
+		
+		IBdlReservas res = this.getReserva(Integer.parseInt(idReserva));
+		Double toPay = res.getBdlImportePagado() * 100;
+		String amount = String.valueOf((toPay.intValue()));
+		
+
+		String merchantOrder = idReserva;
+		
+		String config = this.getConfigParam("datosTerminalTPV_PRO");
+		String[] datosTPV = config.split("##");
+		datosTPV[0]="http://82.223.216.227:8080/";
+		String merchantUrlOK = datosTPV[0] + this.getContextPath()
+				+ datosTPV[1] + "?idReserva=" + idReserva + "&request_locale="
+				+ this.getLocale().getLanguage();
+		String merchantUrlKO = datosTPV[0] + this.getContextPath()		+ datosTPV[2] + "?idReserva=" + idReserva + "&request_locale="
+				+ this.getLocale().getLanguage();
+
+		ApiMacSha256 apiMacSha256 = new ApiMacSha256();
+		
+		idReserva="B-"+idReserva;
+		String merchantURL =  datosTPV[0] + this.getContextPath() + 
+									PATH_TO_CONFIRM + "?idReserva="+idReserva+"&idComercio="+merchantCode;	
+	
+		apiMacSha256.setParameter("DS_MERCHANT_AMOUNT", amount);
+		apiMacSha256.setParameter("DS_MERCHANT_ORDER", merchantOrder);
+		apiMacSha256.setParameter("DS_MERCHANT_MERCHANTCODE", merchantCode);
+		apiMacSha256.setParameter("DS_MERCHANT_CURRENCY", merchantCurrency);
+		apiMacSha256.setParameter("DS_MERCHANT_TRANSACTIONTYPE",
+				merchantTransactionType);
+		apiMacSha256.setParameter("DS_MERCHANT_TERMINAL", merchantTerminal);
+		apiMacSha256.setParameter("Ds_Merchant_MerchantURL", merchantURL);
+		apiMacSha256.setParameter("DS_MERCHANT_URLOK", merchantUrlOK);
+		apiMacSha256.setParameter("DS_MERCHANT_URLKO", merchantUrlKO);
+	
+		merchantParameters = apiMacSha256.createMerchantParameters();
+		
+		// clave secreta del comercio encriptada
+		merchantSignature = apiMacSha256.createMerchantSignature(CLAVE);
+		
+		return SUCCESS;
+
+	}
+
+	public String getMerchantParameters() {
+		return merchantParameters;
+	}
+
+
+	public String getMerchantSignature() {
+		return merchantSignature;
+	}	
+
+	public String getMerchantSignatureVersion() {
+		return merchantSignatureVersion;
+	}
+
+	public String getUrlCeca() {
+		return urlCeca;
+	}
+
+	public String getDebugInfo() {
+		return debugInfo;
+	}
+
+	public String getIdReserva() {
+		return idReserva;
+	}
+
+	public void setIdReserva(String idReserva) {
+		this.idReserva = idReserva;
+	}
+
+
+}

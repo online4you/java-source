@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+  
+    <package name="hotelan" namespace="/apps/portvill" extends="gen">
+		<result-types>
+            <result-type name="json" class="org.apache.struts2.json.JSONResult"/>
+        </result-types>
+		
+
+ 		<action name="disponibilidad" class="com.photel.apps.actions.Hotelan.Disponibilidad" >
+ 			<result name="success" type="tiles">
+          		<param name="location">disponibilidadHotelan</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+ 		</action>
+		<action name="detalleHotel" class="com.photel.apps.actions.Hotelan.DetalleHotel" >
+ 			<result name="success" type="tiles">
+          		<param name="location">detalleHotelHotelan</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+			<result name="error" type="tiles">
+          		<param name="location">notFoundMoved</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+ 		</action>
+		<action name="datosPasajeros" class="com.photel.apps.actions.Hotelan.DatosPasajeros" >
+ 			<result name="success" type="tiles">
+          		<param name="location">datosPasajerosHotelan</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+ 		</action>
+ 		
+ 		<action name="pago" class="com.photel.apps.actions.Hotelan.Pago" >
+ 			<result name="success" type="tiles">
+          		<param name="location">pagoHotelan</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+ 		</action>
+ 		<action name="pagoTransfer" class="com.photel.apps.actions.Hotelan.PagoTransfer" >
+ 			<result name="success" type="tiles">
+          		<param name="location">pagoTransferHotelan</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+ 		</action>
+ 		<action name="operacionKO" class="com.photel.apps.actions.Hotelan.OperacionKO" >
+ 			<result name="success" type="tiles">
+          		<param name="location">pagoKOHotelan</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+ 		</action>
+ 		<action name="operacionOK" class="com.photel.apps.actions.Hotelan.OperacionOK" >
+ 			<result name="success" type="tiles">
+          		<param name="location">pagoOKHotelan</param>
+      			<param name="charSet">UTF-8</param>
+          	</result>
+ 		</action>
+    </package>
+</struts>

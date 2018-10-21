@@ -1,0 +1,866 @@
+package com.photel.apps.actions.BDL;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.Hashtable;
+import java.util.List;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import com.photel.apps.actions.MainAction;
+import com.photel.commonServices.util.DateTimeUtil;
+import com.photel.commonServices.util.XMLStreamUtil;
+import com.photel.interfaces.BDL244.IBDLCancelationPrice;
+import com.photel.interfaces.BDL244.IBDLContrato;
+import com.photel.interfaces.BDL244.IBDLDisponibilidad;
+import com.photel.interfaces.BDL244.IBDLDistribucion;
+import com.photel.interfaces.BDL244.IBDLHotel;
+import com.photel.interfaces.BDL244.IBDLPax;
+import com.photel.interfaces.BDL244.IBDLRegimen;
+import com.photel.interfaces.BDL244.IBDLRoom;
+import com.photel.interfaces.data.BDL.IBdlDestinations;
+import com.photel.interfaces.data.BDL.IBdlReservas;
+import com.photel.interfaces.model.gen.sesion.ISesion;
+
+public class BloquearReserva extends MainAction {
+	
+	private String distribucionesSeleccinada;//0___APT-E10__1B-ST__SC-E10||1___APT-E10__1B-ST__SC-E10
+	private String contratoSeleccinado;
+	private String hotelSeleccionado;
+	private IBDLHotel hotel;
+	private IBDLHotel hotelBloqueado;
+	private String hotelBloqueadoStr;
+	
+	private ArrayList<String> seleccion;
+	private String entrada;//20/08/2012
+	private String salida;//25/08/2012
+	private String noches;
+	private int paso;
+	private List<IBDLDistribucion> detalleDistribuciones;
+	private String zona;
+	private String idioma;
+	
+	
+	private String ape;
+	private String nom;
+	private String tipoDocu;
+	private String tipoDocuId;
+	private String documento;
+	private String tel;
+	private String email;
+	private String coments;
+	private String paxes;
+	private String checkFactura;
+	private String factNombre;
+	private String factCifNif;
+	private String factCP;
+	private String factDir;
+	private String factLoc;
+	private String factPais;
+	private String factEmail;
+	private String checkPersonaContacto;
+	private String apeContact;
+	private String nomContact;
+	private String telContact;
+	private String deseoRecibirOfertas;
+	private String informacion;
+	private String acepto;
+	private String typeOfPaymentID;
+	private String idReserva;
+	private BigDecimal toPayBefore;
+	
+	private String message;
+	private String urlPago;
+	private String mostrarReservar;
+	private final String BANNED_DOMAIN="yopmail";
+	//roomCode##clasification##boardCode --> STU-E10##ST##SC-E10 APT-E10##1B-C4##SC-E10
+
+	@Override
+	public String executeHalconAction() throws Exception {
+		
+		//SI se trata de algun email de dominio n permitido rechazamos la reserva
+		if(email.contains(BANNED_DOMAIN)) return SUCCESS;
+		if(factEmail.contains(BANNED_DOMAIN)) return SUCCESS;
+		
+		if (hotelSeleccionado!=null && !hotelSeleccionado.equals("")){
+			paso=3;
+			hotelSeleccionado=org.apache.commons.lang.StringEscapeUtils.unescapeHtml(hotelSeleccionado);
+			hotelSeleccionado=hotelSeleccionado.replace("&", "&amp;");
+			hotel=(IBDLHotel) com.photel.commonServices.util.XMLStreamUtil.xmlLoadObject(hotelSeleccionado);
+
+			GregorianCalendar availTime = hotel.getAvailTimeStamp();
+			GregorianCalendar now=new GregorianCalendar();
+			long elapsed=DateTimeUtil.getElapsetTime(availTime, now);
+			long diffMinutes = elapsed / (60 * 1000); 
+			long tiempoMinutosDeSessionBDL=Long.parseLong(this.getConfigParam("tiempoMinutosDeSessionBDL"));
+			if (diffMinutes>tiempoMinutosDeSessionBDL) {
+				message=getText("lang.gen.crs.i_sessionDispoTimedOut").replace("%1", this.getConfigParam("tiempoMinutosDeSessionBDL"));
+				return "showMessage";
+			}
+			
+			ArrayList<String> textosLenguas=new ArrayList<String>();
+			textosLenguas.add(this.getText("lang.gen.glo.Adultos").equals("lang.gen.glo.Adultos")?"":this.getText("lang.gen.glo.Adultos"));
+			textosLenguas.add(this.getText("lang.gen.glo.Adulto").equals("lang.gen.glo.Adulto")?this.getText("lang.gen.glo.Adultos"):this.getText("lang.gen.glo.Adulto"));
+			textosLenguas.add(this.getText("lang.gen.glo.ninos").equals("lang.gen.glo.ninos")?"":this.getText("lang.gen.glo.ninos"));
+			textosLenguas.add(this.getText("lang.gen.glo.nino").equals("lang.gen.glo.nino")?this.getText("lang.gen.glo.ninos"):this.getText("lang.gen.glo.nino"));
+			textosLenguas.add(this.getText("lang.gen.crs.i_anyos")==null?"":this.getText("lang.gen.crs.i_anyos"));
+			
+			seleccion=new ArrayList<String>();
+			String[] distribuciones = distribucionesSeleccinada.split("DISTRIBUCION");
+			String roomCode;
+			String clasification;
+			String boardCode;
+			for(int i=0;i<distribuciones.length;i++){
+				String[] datos = distribuciones[i].split("___")[1].split("__");
+				roomCode = datos[0];
+				clasification = datos[1];
+				boardCode = datos[2];
+				seleccion.add(roomCode+"##"+clasification+"##"+boardCode);
+				getContratoSeleccionado().getDistribuciones().get(i).setTextosLenguas(textosLenguas);
+			}
+		}
+		detalleDistribuciones=getContratoSeleccionado().getDistribuciones();
+		
+		
+		String fechaEntrada=(entrada.substring(6,10)+entrada.substring(3,5)+entrada.substring(0,2));
+		String fechaSalida=(salida.substring(6,10)+salida.substring(3,5)+salida.substring(0,2));
+		
+		Calendar fini=DateTimeUtil.getCalendar(fechaEntrada, "0000");
+		Calendar ffin=DateTimeUtil.getCalendar(fechaSalida, "0000");
+		
+		
+		//###pax_0_0_ad_nom##nom1###pax_0_0_ad_ape##nom1###pax_0_0_ad_data##ape1###pax_0_1_ad_nom##date1###pax_0_1_ad_ape##nom2###pax_0_1_ad_data##ape2###pax_0_0_nin_nom##date2###pax_0_0_nin_ape##nom3###pax_0_0_nin_data##ape3###pax_1_0_ad_nom##date3###pax_1_0_ad_ape##nom4###pax_1_0_ad_data##ape4###pax_1_1_ad_nom##date4###pax_1_1_ad_ape##nom5###pax_1_1_ad_data##ape5###pax_1_2_ad_nom##date5###pax_1_2_ad_ape##nom6###pax_1_2_ad_data##ape6###pax_1_3_ad_nom##date6###pax_1_3_ad_ape##nom7###pax_1_3_ad_data##ape7
+		/*
+		List<List<String>> distribuciones=new ArrayList<List<String>>();
+		ArrayList<String> paxes = null;
+		paxes = new ArrayList<String>();
+		paxes.add("ADT#0#Nom#Cognom1 Cognom2#19760312");
+		paxes.add("ADT#0#Nom2#Cognom12 Cognom22#19750312");
+		paxes.add("NIN#5#Nom3#Cognom13 Cognom23#20070312");
+		distribuciones.add(paxes);
+		*/
+		
+		List<List<String>> distribuciones=getDatosPaxes(this.paxes, detalleDistribuciones.size());
+		//String oficina=this.getConfigParam("OFICINA");
+		String oficina=this.getContratoSeleccionado().getCodigoOficina();
+		
+		IBDLContrato contrato = this.getContratoSeleccionado();
+		idioma=this.getConfigParam(this.getLocale().getLanguage());
+		
+		
+		
+		List<IBDLDistribucion> distribucion = contrato.getDistribuciones();
+		for (int i=0;i<distribuciones.size();i++){
+			List<IBDLRoom> rooms=new ArrayList<IBDLRoom>();
+			IBDLRoom hab = this.getHabitacionSeleccionada(i);
+			IBDLRegimen reg = this.getRegimenSeleccionado(i);
+			List<IBDLRegimen> regs=new ArrayList<IBDLRegimen>();
+			hab.setRegimenesAlimentarios(regs);
+			rooms.add(hab);
+			distribucion.get(i).setRooms(rooms);
+			contrato.getDistribuciones().set(i,distribucion.get(i));
+		}
+		
+		List<IBDLContrato> contratos = new ArrayList<IBDLContrato>();
+		contratos.add(contrato);
+		hotel.setContratos(contratos);
+		
+		hotelBloqueado = bloquearReserva(hotel, fini, ffin, distribuciones, Integer.parseInt(oficina), contrato.getNombre(),idioma, hotel.getServicioCodigo(), hotel.getZonaCodigo(), contrato.getCodigoClasificacion().split("FFFO4UFFF")[0], seleccion, hotel.getAvailToken());
+		
+		for (int i=0;i<distribuciones.size();i++){
+			List<String> distri = distribuciones.get(i);
+			for (int p=0;p<distri.size();p++){
+				IBDLPax pax = hotelBloqueado.getContratos().get(0).getDistribuciones().get(i).getPaxes().get(p);
+				String[] paxStr=distri.get(p).split("#");
+				pax.setTipoPax(paxStr[0]);
+				if (!paxStr[2].equals("void")){
+					pax.setNombre(paxStr[2]);}
+				if (!paxStr[3].equals("void")){
+					pax.setApellidos(paxStr[3]);}
+				if (!paxStr[4].equals("void")){
+					GregorianCalendar cal=(GregorianCalendar) DateTimeUtil.getCalendar(paxStr[4], "0000");
+					pax.setFechaNacimiento(cal);
+				}
+			}
+		}
+		/*
+		1-pago con transferencia. En ningún caso dejamos reservar con este método si la reserva se hace antes de gastos-7 dias, en este caso se podria reservar por transfer el 09/07
+		2-pago TPV. A pesar de que se cobra el prepago en el bono ponemos como fecha retsto la fecha mínima de gastos menos 5 dias, es decir el 09/07. Con esto conseguimos hacer la venta pero justificar en el bono que debe ser abonada inmediatamente puesto que ya pasa de fecha.
+		*/
+		//Quitado al introducir la comisión en el descuento
+		//hotelBloqueado.getPurchase().setToPay(getGastosTotalesCancelacion(hotelBloqueado));
+		hotelBloqueado.getPurchase().setToPay(this.getPrecioDescuento(hotelBloqueado.getPurchase().getTotalPrice()).subtract(hotelBloqueado.getPurchase().getTotalPrice()));
+		boolean gastosSuperados=(hotelBloqueado.getPurchase().getToPay().compareTo(this.getPrecioDescuento(hotelBloqueado.getPurchase().getTotalPrice()))>0);
+		boolean noReembolsable=false;
+		String tarifasNoReembolsables=this.getConfigParam("tarifasNoReembolsables");
+		String[] tNOR=tarifasNoReembolsables.split("##");
+		for (int i=0;i<tNOR.length;i++){
+			if (hotelBloqueado.getContratos().get(0).getCodigoClasificacion().split("FFFO4UFFF")[0].equals(tNOR[i])){
+				noReembolsable=true;
+				break;
+			}
+		}
+		//A pagar
+		//Quitado al introducir la comisión en el descuento
+		toPayBefore = this.getPrecioDescuento(hotelBloqueado.getPurchase().getTotalPrice()).subtract(hotelBloqueado.getPurchase().getToPay());
+		
+		if (toPayBefore.compareTo(BigDecimal.ZERO)<=0 || noReembolsable){
+			toPayBefore=null;
+		}
+		
+		//Solo se paga todo para tarifas no reembolsables. Dado lo improbable que se produzca una reserva de un dia para otro si paga con tarjeta, entonces dejamos que se haga
+		if (gastosSuperados || noReembolsable){
+			hotelBloqueado.getPurchase().setToPay(this.getPrecioDescuento(hotelBloqueado.getPurchase().getTotalPrice()));
+		}
+		
+		typeOfPaymentID=typeOfPaymentID==null?"":typeOfPaymentID;
+		if (typeOfPaymentID.equals("2")){
+			GregorianCalendar now=new GregorianCalendar();
+			GregorianCalendar fechaMasCercana=getPrimeraFechaCancelacion(hotelBloqueado);
+			long elapsed=DateTimeUtil.getElapsetTime(now, fechaMasCercana);
+			long diffDays = elapsed / (24 * 60 * 60 * 1000); 
+			long tiempoMinutosDeSessionBDL=Long.parseLong(this.getConfigParam("diasMinimosDeAntelacionGastosParaTransferencia"));
+			if (diffDays<tiempoMinutosDeSessionBDL || noReembolsable) {
+				message=getText("lang.gen.crs.i_fechaDemasiadoCercana");
+				return "showMessage";
+			}
+			urlPago=getContextPath()+"/apps/bdl/pagoTransfer.html";
+		}else{
+			//Cambio para considerar el total 7 dias ante. Correo de Tue, Jul 16, 2013 at 12:06 PM
+			GregorianCalendar now=new GregorianCalendar();
+			GregorianCalendar fechaMasCercana=getPrimeraFechaCancelacion(hotelBloqueado);
+			long elapsed=DateTimeUtil.getElapsetTime(now, fechaMasCercana);
+			long diffDays = elapsed / (24 * 60 * 60 * 1000); 
+			long tiempoMinutosDeSessionBDL=Long.parseLong(this.getConfigParam("diasMinimosDeAntelacionGastosParaTransferencia"));
+			if (diffDays<tiempoMinutosDeSessionBDL || noReembolsable) {
+				toPayBefore=null;
+				hotelBloqueado.getPurchase().setToPay(this.getPrecioDescuento(hotelBloqueado.getPurchase().getTotalPrice()));
+			}
+			urlPago=getContextPath()+"/apps/bdl/pago.html";
+		}
+		
+		
+		IBdlReservas res = this.getReserva(0);
+		this.setReserva(res);
+		idReserva=String.valueOf(res.getId());
+		/*
+		String locata=hotelBloqueado.getPurchase().getLocalizador();
+		locata=locata==null?"":locata;
+		locata=res.getId()+"###"+locata;
+		hotelBloqueado.getPurchase().setLocalizador(locata);
+		*/
+		
+		hotelBloqueadoStr=XMLStreamUtil.xmlSaveObject(hotelBloqueado);
+		res.setBdlHotel(hotelBloqueadoStr);
+		
+		/*
+		IBdlReservas res = this.getReserva(4);
+		String hotelStr=res.getBdlHotel();
+		hotelBloqueado=(IBDLHotel) XMLStreamUtil.xmlLoadObject(hotelStr);
+		*/
+		
+		res.setBdlAgComission(hotelBloqueado.getPurchase().getAgComission().doubleValue());
+		res.setBdlApellidos(ape);
+		res.setBdlCheckAceptoCondidiones(informacion);
+		res.setBdlCheckAceptoPolitica(acepto);
+		res.setBdlCheckContacto(checkPersonaContacto);
+		res.setBdlCheckFactura(checkFactura);
+		res.setBdlCheckRecibirOfertas(deseoRecibirOfertas);
+		res.setBdlComentarios(coments);
+		res.setBdlComissionVat(hotelBloqueado.getPurchase().getComissionVAT().doubleValue());
+		res.setBdlContactoApellidos(apeContact);
+		res.setBdlContactoNombre(nomContact);
+		res.setBdlContactoTelefono(telContact);
+		res.setBdlDocumento(documento);
+		res.setBdlEmail(email);
+		res.setBdlEntrada(fini.getTime());
+		res.setBdlSalida(ffin.getTime());
+		res.setBdlFacturaCp(factCP);
+		res.setBdlFacturaDireccion(factDir);
+		res.setBdlFacturaDocumento(factCifNif);
+		res.setBdlFacturaEmail(factEmail);
+		res.setBdlFacturaLocalidad(factLoc);
+		res.setBdlFacturaPais(factPais);
+		res.setBdlFacturaNombre(factNombre);
+		GregorianCalendar fechaMasCercana = getPrimeraFechaCancelacion(hotelBloqueado);
+		BigDecimal gastos=getGastosTotalesCancelacion(hotelBloqueado);
+		res.setBdlFechaGastos(fechaMasCercana.getTime());
+		res.setBdlGastos(gastos.doubleValue());
+		res.setBdlHotel(hotelBloqueadoStr);
+		res.setBdlIdHotel(hotelBloqueado.getServicioCodigo());
+		res.setBdlIdioma(idioma);
+		
+		res.setBdlImportePagado(hotelBloqueado.getPurchase().getToPay().doubleValue());
+		res.setBdlImporteTotal(this.getPrecioDescuento(hotelBloqueado.getPurchase().getTotalPrice()).doubleValue());
+		res.setBdlDescuento(descuento);
+		
+		
+		res.setBdlNoches(Integer.parseInt(noches));
+		res.setBdlNombre(nom);
+		res.setBdlNombreHotel(hotelBloqueado.getNombre());
+		res.setBdlPaxes(getDatosPaxesString(distribuciones));
+		res.setBdlRadioTipoPago(typeOfPaymentID);
+		res.setBdlReservaConfirmada("0");
+		res.setBdlTelefono(tel);
+		res.setBdlTipoDocumento(tipoDocu);
+		res.setBdlTipoDocumentoId(tipoDocuId);
+		res.setBdlUrl(this.getParametrosPeticion().get("urlFrom"));
+		res.setBdlZona(zona);
+				
+		this.setReserva(res);
+		
+		
+		
+		return SUCCESS;
+	}
+	
+	public String getComentarios(){
+		String ret="";
+		IBDLContrato contract = getContratoSeleccionado();
+		if (contract.getComentarios()!=null && contract.getComentarios().size()>0){
+			for(int i=0;i<contract.getComentarios().size();i++){
+				String coment=contract.getComentarios().get(i);
+				coment=coment.split("##TYPE##")[1];
+				ret+=coment+"\n";
+			}
+		}
+		return ret;
+	}
+	public String getMessage() {
+		return message;
+	}
+
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
+
+
+	
+	public BigDecimal getGastosTotalesCancelacion(IBDLHotel hotelBloqueado){
+		BigDecimal gastos=BigDecimal.ZERO;
+		GregorianCalendar fecha=null;
+		for (int i=0;i<hotelBloqueado.getContratos().get(0).getDistribuciones().size();i++){
+			IBDLDistribucion distri = hotelBloqueado.getContratos().get(0).getDistribuciones().get(i);
+			List<IBDLCancelationPrice> precios = distri.getRooms().get(0).getPreciosCancelacion();
+			for (int p=0;p<precios.size();p++){
+				if (fecha!=null && fecha.compareTo(precios.get(p).getCancelationFrom())>0){
+					gastos=gastos.add(precios.get(p).getCancelationAmount());
+					//Esto es para solo tener en cuenta los gastos más próximos. Desactivado por correo 02/04/2013.
+					//fecha = precios.get(p).getCancelationFrom();
+				}else if (fecha==null){
+					gastos=gastos.add(precios.get(p).getCancelationAmount());
+					//fecha = precios.get(p).getCancelationFrom();
+				}
+			}
+		}
+		//gastos=this.getPrecioDescuento(gastos);
+		
+		if (BigDecimal.ZERO.equals(gastos)){
+			gastos=getPrecioDescuento(hotelBloqueado.getPurchase().getTotalPrice());
+		}
+		
+				
+		return gastos;
+	}
+	private List<List<String>> getDatosPaxes(String paxesStr,int numDistribuciones){
+		String[] paxesTmp = paxesStr.split("###");
+		String campo;
+		String[] paxID;
+		String valor;
+		String nomPax;
+		String apePax;
+		String dataPax;
+		String edadPax;
+		int distri;
+
+		Hashtable<String, Hashtable<String, String>> distriTemp=new Hashtable<String, Hashtable<String, String>>();
+		for (int i=0;i<paxesTmp.length;i++){
+			if(paxesTmp[i] !=null && !paxesTmp[i].equals("")){
+				campo=paxesTmp[i].split("##")[0];
+				paxID=campo.split("_");
+				Hashtable<String, String> paxTable=distriTemp.get(paxID[0]+"_"+paxID[1]+"_"+paxID[2]+"_"+paxID[3]);
+				paxTable=paxTable==null?new Hashtable<String, String>():paxTable;
+				
+				valor=paxesTmp[i].split("##")[1];
+				paxTable.put(paxID[4], valor);
+				
+				distriTemp.put(paxID[0]+"_"+paxID[1]+"_"+paxID[2]+"_"+paxID[3],paxTable);
+			}
+			
+		}
+		
+		List<List<String>> distribuciones=new ArrayList<List<String>>();
+		List<List<String>> distribucionesNin=new ArrayList<List<String>>();
+		for (int i=0;i<numDistribuciones;i++){
+			distribuciones.add(new ArrayList<String>());
+			distribucionesNin.add(new ArrayList<String>());
+		}
+		for(Entry<String, Hashtable<String, String>> p : distriTemp.entrySet()){
+			paxID=p.getKey().split("_");
+			nomPax=p.getValue().get("nom");
+			apePax=p.getValue().get("ape");
+			dataPax=p.getValue().get("data");
+			edadPax=p.getValue().get("edad");
+			valor=paxID[2]+"#"+paxID[3]+"#"+edadPax+"#"+nomPax+"#"+apePax+"#"+dataPax;
+			distri=Integer.parseInt(paxID[1]);
+			if(paxID[3].equals(this.TIPO_PAX_ADULTO)){
+				List<String> paxes = distribuciones.get(distri);
+				paxes.add(valor);
+				distribuciones.set(distri,paxes);
+			}else if(paxID[3].equals(this.TIPO_PAX_NINO)){
+				List<String> paxes = distribucionesNin.get(distri);
+				paxes.add(valor);
+				distribucionesNin.set(distri,paxes);
+			}
+			
+		}
+		for (int i=0;i<numDistribuciones;i++){
+			List<String> paxesList=distribuciones.get(i);
+			Collections.sort(paxesList);
+			paxesList=distribucionesNin.get(i);
+			Collections.sort(paxesList);
+			
+		}
+		for (int i=0;i<numDistribuciones;i++){
+			if (distribucionesNin.get(i).size()>0){
+				distribuciones.get(i).addAll(distribucionesNin.get(i));
+			}
+			List<String> paxesList=distribuciones.get(i);
+			for(int p=0;p<paxesList.size();p++){
+				valor=paxesList.get(p);
+				valor=valor.substring(valor.indexOf("#")+1,valor.length());
+				String[] vals = valor.split("#");
+				//"ADT#0#Nom#Cognom1 Cognom2#19760312"
+				String age="0";
+				if (!vals[1].equals("void")){
+					age=vals[1];
+				}
+				
+				if(!vals[4].equals("void")){
+					age = String.valueOf(getAge(vals[4]));
+				}
+				if (i==0 && p==0){
+					valor=vals[0]+"#"+age+"#"+nom+"#"+ape+"#"+vals[4];
+				}else{
+					valor=vals[0]+"#"+age+"#"+vals[2]+"#"+vals[3]+"#"+vals[4];
+				}
+				paxesList.set(p,valor);
+			}
+		}
+		return distribuciones;
+	}
+	
+	private String getDatosPaxesString(List<List<String>> paxesToStr){
+		String ret="";
+		/*
+		for (int i=0;i<paxesToStr.size();i++){
+			List<String> paxesList=paxesToStr.get(i);
+			for(int p=0;p<paxesList.size();p++){
+				ret+=i+"#"+paxesList.get(p)+"##";
+			}
+		}
+		ret=ret.substring(0,ret.length()-2);
+		*/
+		ret=XMLStreamUtil.xmlSaveObject(paxesToStr);
+		return ret;
+	}
+	public String getDestinationDescription() throws Exception{
+		String ret="";
+		IBdlDestinations destination = this.getDestination(zona, idioma);
+		ret=destination.getBdlDescription();
+		return ret;
+	}
+	public IBDLContrato getContratoSeleccionado(){
+		IBDLContrato ret=null;
+		for (int i=0;i<hotel.getContratos().size();i++){
+			if (contratoSeleccinado!=null && contratoSeleccinado.endsWith(hotel.getContratos().get(i).getCodigoClasificacion())){
+				ret=hotel.getContratos().get(i);
+				break;
+			}
+			
+		}
+		return ret;
+	}
+	
+	public IBDLRoom getHabitacionSeleccionada(int distribucion){
+		IBDLContrato con=getContratoSeleccionado();
+		IBDLDistribucion distri = con.getDistribuciones().get(distribucion);
+		String[] select = seleccion.get(distribucion).split("##");
+		String roomCode=select[0];
+		String clasification=select[1];
+		String boardCode=select[2];
+		IBDLRoom ret=null;
+		for (int i=0;i<distri.getRooms().size();i++){
+			if (roomCode!=null && roomCode.equals(distri.getRooms().get(i).getHabitacionCodigo())){
+				if (clasification!=null && clasification.equals(distri.getRooms().get(i).getHabitacionCaracteristica())){
+					ret=distri.getRooms().get(i);
+					break;
+				}
+			}
+		}
+		return ret;
+	}
+	public IBDLRegimen getRegimenSeleccionado(int distribucion){
+		String[] select = seleccion.get(distribucion).split("##");
+		String roomCode=select[0];
+		String clasification=select[1];
+		String boardCode=select[2];
+		IBDLRoom room=getHabitacionSeleccionada(distribucion);
+		IBDLRegimen ret=null;
+		for (int i=0;i<room.getRegimenesAlimentarios().size();i++){
+			if (boardCode!=null && boardCode.equals(room.getRegimenesAlimentarios().get(i).getCodigo())){
+				ret=room.getRegimenesAlimentarios().get(i);
+				break;
+			}
+		}
+		return ret;
+	}
+	public List<IBDLPax> getAdultos(int distribucion){
+		List<IBDLPax> ret=getPaxes(distribucion,this.TIPO_PAX_ADULTO);
+		return ret;
+	}
+	public List<IBDLPax> getNinos(int distribucion){
+		List<IBDLPax> ret=getPaxes(distribucion,this.TIPO_PAX_NINO);
+		return ret;
+	}
+	public List<IBDLPax> getBebes(int distribucion){
+		List<IBDLPax> ret=getPaxes(distribucion,this.TIPO_PAX_BEBE);
+		return ret;
+	}
+	public List<IBDLPax> getPaxes(int distribucion, String tipoPax){
+		List<IBDLPax> ret=new ArrayList<IBDLPax>();
+		IBDLContrato con=getContratoSeleccionado();
+		IBDLDistribucion distri = con.getDistribuciones().get(distribucion);
+		List<IBDLPax> paxes = distri.getPaxes();
+		for (int i=0;i<paxes.size();i++){
+			if (paxes.get(i).getTipoPax().equals(tipoPax)){
+				ret.add(paxes.get(i));
+			}
+		}
+		return ret;
+		
+	}
+	public boolean reservarAvaliable(){
+		if (mostrarReservar!=null && mostrarReservar.equalsIgnoreCase("true")){
+			return true;
+		}else {
+			return false;
+		}
+		
+	}
+	public IBDLHotel getHotel() {
+		return hotel;
+	}
+
+
+	public void setHotel(IBDLHotel hotel) {
+		this.hotel = hotel;
+	}
+
+
+
+	public String getDistribucionesSeleccinada() {
+		return distribucionesSeleccinada;
+	}
+
+
+
+	public void setDistribucionesSeleccinada(String distribucionesSeleccinada) {
+		this.distribucionesSeleccinada = distribucionesSeleccinada;
+	}
+
+
+
+	public String getContratoSeleccinado() {
+		return contratoSeleccinado;
+	}
+
+
+
+	public void setContratoSeleccinado(String contratoSeleccinado) {
+		this.contratoSeleccinado = contratoSeleccinado;
+	}
+
+
+
+	public String getHotelSeleccionado() {
+		return hotelSeleccionado;
+	}
+
+
+
+	public void setHotelSeleccionado(String hotelSeleccionado) {
+		this.hotelSeleccionado = hotelSeleccionado;
+	}
+
+	public String getEntrada() {
+		return entrada;
+	}
+
+	public void setEntrada(String entrada) {
+		this.entrada = entrada;
+	}
+
+	public String getSalida() {
+		return salida;
+	}
+
+	public void setSalida(String salida) {
+		this.salida = salida;
+	}
+
+	public String getNoches() {
+		return noches;
+	}
+
+	public void setNoches(String noches) {
+		this.noches = noches;
+	}
+
+	public List<IBDLDistribucion> getDetalleDistribuciones() {
+		return detalleDistribuciones;
+	}
+
+	public void setDetalleDistribuciones(
+			List<IBDLDistribucion> detalleDistribuciones) {
+		this.detalleDistribuciones = detalleDistribuciones;
+	}
+
+	public int getPaso() {
+		return paso;
+	}
+
+	public void setPaso(int paso) {
+		this.paso = paso;
+	}
+
+	public String getZona() {
+		return zona;
+	}
+
+	public void setZona(String zona) {
+		this.zona = zona;
+	}
+
+
+	public ArrayList<String> getSeleccion() {
+		return seleccion;
+	}
+	public void setSeleccion(ArrayList<String> seleccion) {
+		this.seleccion = seleccion;
+	}
+	public String getApe() {
+		return ape;
+	}
+	public void setApe(String ape) {
+		this.ape = ape;
+	}
+	public String getNom() {
+		return nom;
+	}
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+	public String getTipoDocu() {
+		return tipoDocu;
+	}
+	public void setTipoDocu(String tipoDocu) {
+		this.tipoDocu = tipoDocu;
+	}
+	public String getTipoDocuId() {
+		return tipoDocuId;
+	}
+	public void setTipoDocuId(String tipoDocuId) {
+		this.tipoDocuId = tipoDocuId;
+	}
+	public String getDocumento() {
+		return documento;
+	}
+	public void setDocumento(String documento) {
+		this.documento = documento;
+	}
+	public String getTel() {
+		return tel;
+	}
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getComents() {
+		return coments;
+	}
+	public void setComents(String coments) {
+		this.coments = coments;
+	}
+	public String getPaxes() {
+		return paxes;
+	}
+	public void setPaxes(String paxes) {
+		this.paxes = paxes;
+	}
+	public String getCheckFactura() {
+		return checkFactura;
+	}
+	public void setCheckFactura(String checkFactura) {
+		this.checkFactura = checkFactura;
+	}
+	public String getFactNombre() {
+		return factNombre;
+	}
+	public void setFactNombre(String factNombre) {
+		this.factNombre = factNombre;
+	}
+	public String getFactCifNif() {
+		return factCifNif;
+	}
+	public void setFactCifNif(String factCifNif) {
+		this.factCifNif = factCifNif;
+	}
+	public String getFactCP() {
+		return factCP;
+	}
+	public void setFactCP(String factCP) {
+		this.factCP = factCP;
+	}
+	public String getFactDir() {
+		return factDir;
+	}
+	public void setFactDir(String factDir) {
+		this.factDir = factDir;
+	}
+	public String getFactLoc() {
+		return factLoc;
+	}
+	public void setFactLoc(String factLoc) {
+		this.factLoc = factLoc;
+	}
+	public String getFactPais() {
+		return factPais;
+	}
+	public void setFactPais(String factPais) {
+		this.factPais = factPais;
+	}
+	public String getFactEmail() {
+		return factEmail;
+	}
+	public void setFactEmail(String factEmail) {
+		this.factEmail = factEmail;
+	}
+	public String getCheckPersonaContacto() {
+		return checkPersonaContacto;
+	}
+	public void setCheckPersonaContacto(String checkPersonaContacto) {
+		this.checkPersonaContacto = checkPersonaContacto;
+	}
+	public String getApeContact() {
+		return apeContact;
+	}
+	public void setApeContact(String apeContact) {
+		this.apeContact = apeContact;
+	}
+	public String getNomContact() {
+		return nomContact;
+	}
+	public void setNomContact(String nomContact) {
+		this.nomContact = nomContact;
+	}
+	public String getTelContact() {
+		return telContact;
+	}
+	public void setTelContact(String telContact) {
+		this.telContact = telContact;
+	}
+	public String getDeseoRecibirOfertas() {
+		return deseoRecibirOfertas;
+	}
+	public void setDeseoRecibirOfertas(String deseoRecibirOfertas) {
+		this.deseoRecibirOfertas = deseoRecibirOfertas;
+	}
+	public String getInformacion() {
+		return informacion;
+	}
+	public void setInformacion(String informacion) {
+		this.informacion = informacion;
+	}
+	public String getAcepto() {
+		return acepto;
+	}
+	public void setAcepto(String acepto) {
+		this.acepto = acepto;
+	}
+	public String getTypeOfPaymentID() {
+		return typeOfPaymentID;
+	}
+	public void setTypeOfPaymentID(String typeOfPaymentID) {
+		this.typeOfPaymentID = typeOfPaymentID;
+	}
+
+	public IBDLHotel getHotelBloqueado() {
+		return hotelBloqueado;
+	}
+
+	public void setHotelBloqueado(IBDLHotel hotelBloqueado) {
+		this.hotelBloqueado = hotelBloqueado;
+	}
+
+
+	public String getHotelBloqueadoStr() {
+		return hotelBloqueadoStr;
+	}
+
+
+	public void setHotelBloqueadoStr(String hotelBloqueadoStr) {
+		this.hotelBloqueadoStr = hotelBloqueadoStr;
+	}
+
+
+	public String getIdReserva() {
+		return idReserva;
+	}
+
+
+	public void setIdReserva(String idReserva) {
+		this.idReserva = idReserva;
+	}
+
+
+	public String getUrlPago() {
+		return urlPago;
+	}
+
+
+	public void setUrlPago(String urlPago) {
+		this.urlPago = urlPago;
+	}
+
+	public String getMostrarReservar() {
+		return mostrarReservar;
+	}
+
+	public void setMostrarReservar(String mostrarReservar) {
+		this.mostrarReservar = mostrarReservar;
+	}
+
+	public BigDecimal getToPayBefore() {
+		return toPayBefore;
+	}
+
+	public void setToPayBefore(BigDecimal toPayBefore) {
+		this.toPayBefore = toPayBefore;
+	}
+	
+
+
+	
+}

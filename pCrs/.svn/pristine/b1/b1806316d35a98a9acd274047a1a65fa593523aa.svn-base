@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<project name="ModelGen" default="mainModelGen" basedir=".">
+    <!-- this file was created by Fat-Jar Eclipse Plug-in -->
+    <!-- the ANT-Export is in a very early stage, so this -->
+    <!-- is only experimental, ANT 1.6 or above is        -->
+    <!-- required, feedback is always welcome:            -->
+    <!--       http://sourceforge.net/projects/fjep       -->
+    <!-- uncomment the following lines if using ANT outside Eclipse -->
+    <!--
+        <property name="fjepPath" value="reference:file:plugins/net.sf.fjep.fatjar_0.0.31.jarfatjar.jar"/>
+        <taskdef name="fatjar.build" classname="net.sf.fjep.anttask.FJBuildTask" classpath="${fjepPath}"/>
+        <typedef name="fatjar.manifest" classname="net.sf.fjep.anttask.FJManifestType" classpath="${fjepPath}"/>
+        <typedef name="fatjar.exclude" classname="net.sf.fjep.anttask.FJExcludeType" classpath="${fjepPath}"/>
+        <typedef name="fatjar.jarsource" classname="net.sf.fjep.anttask.FJJarSourceType" classpath="${fjepPath}"/>
+        <typedef name="fatjar.filesource" classname="net.sf.fjep.anttask.FJFileSourceType" classpath="${fjepPath}"/>
+    -->
+    <!-- uncomment the above lines to use ANT outside of Eclipse -->
+    <target name="mainModelGen">
+    	<property name="projectName" value="PULoader"/>
+    	<property name="mainDir" value="${basedir}/.."/>
+ 
+    	
+    		
+     	 <copy todir="${mainDir}/${projectName}/bin">
+      	     <fileset dir="${mainDir}/${projectName}/src">
+      	        <include name="**/*.properties"/>
+      	     	<include name="**/*.xml"/>
+      	     </fileset>
+      	  </copy>  
+
+          	<javac srcdir="${mainDir}/${projectName}/src" destdir="${mainDir}/${projectName}/bin" includeantruntime="false"  nowarn="true" failonerror="true" debug="on" >
+                   <classpath>
+                              <fileset dir="${mainDir}/${projectName}/lib"/>
+                   </classpath>
+            </javac>
+            <echo message="All Compiled" />
+            	
+
+           
+    	<fatjar.build output="${mainDir}/${projectName}/${projectName}.jar">
+    		<fatjar.manifest mergemanifests="false"/>
+            <fatjar.filesource path="${mainDir}/${projectName}/bin" relpath=""/>
+    		<fatjar.jarsource file="${mainDir}/${projectName}/lib/commons-lang-2.3.jar" relpath=""/>   
+    		<fatjar.jarsource file="${mainDir}/${projectName}/lib/CVSUtilJibx-1.2.jar" relpath=""/>      
+    		<fatjar.jarsource file="${mainDir}/${projectName}/lib/jcalendar-1.3.2.jar" relpath=""/>  
+    		<fatjar.jarsource file="${mainDir}/${projectName}/lib/log4j-1.2.14.jar" relpath=""/>  
+    		<fatjar.jarsource file="${mainDir}/${projectName}/lib/mysql-connector-java-5.0.5-bin.jar" relpath=""/>  
+    		<!--
+    		<fatjar.jarsource file="${mainDir}/${projectName}/lib/sqljdbc.jar" relpath=""/>
+    		-->
+    		<fatjar.jarsource file="${mainDir}/${projectName}/lib/commons-net-1.4.1.jar" relpath=""/>  
+    		<fatjar.jarsource file="${mainDir}/${projectName}/lib/innova4j-util-1.6.4.jar" relpath=""/>  
+    		<fatjar.jarsource file="${mainDir}/${projectName}/lib/jibx-run.jar" relpath=""/>         
+    		<fatjar.jarsource file="${mainDir}/${projectName}/lib/looks-2.0.1.jar" relpath=""/>   
+    		<fatjar.jarsource file="${mainDir}/${projectName}/lib/ojdbc14.jar" relpath=""/>                         
+    		<fatjar.jarsource file="${mainDir}/${projectName}/lib/xpp3.jar" relpath=""/>
+	
+        </fatjar.build>
+ 
+    	
+    	<delete dir="${basedir}/__"/>
+    	<eclipse.refreshLocal resource="${projectName}" depth="infinite"/>
+		
+
+    </target>
+</project>

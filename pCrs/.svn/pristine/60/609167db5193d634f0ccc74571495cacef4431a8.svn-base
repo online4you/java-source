@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.photel.data.BDL.ddbb.hibernate.pojo">
+	<class
+		name="BdlConfigSite"
+		table="BDL_CONFIG_SITE"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<composite-id name="Id" class="GenConfigSitePK">
+			<key-property
+				name="BdlParam"
+				column="BDL_PARAM"
+				type="string"
+			/>
+			<key-property
+				name="BdlSite"
+				column="BDL_SITE"
+				type="string"
+			/>
+		</composite-id>
+
+
+		<property
+			name="bdlValue"
+			column="BDL_VALUE"
+			type="string"
+			not-null="false"
+			length="100"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

@@ -1,0 +1,182 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Reserva HalconViajes.com</title>
+        <style type="text/css" media="screen">
+            body{margin:0;font-family:Arial, Helvetica, sans-serif;}
+            a img {border:none;}
+            table.contenedor-general{background:#EDEDED;padding-bottom:20px;overflow:hidden;width:100%}
+            table.caja-contenido-mail{background:#FFF;border:3px solid #D1D1D1;overflow:hidden;padding:20px;width:775px;font-size:12px;}
+            table.datos-tabulados{font-size:12px;border:2px solid #FFBB00;margin:0 auto;width: 100%;}
+            table.datos-tabulados caption{background:#3D3D3D;font-size:18px;padding:10px 5px;text-transform:uppercase;color:#fff;}            
+            table.datos-tabulados th, .cabecera-1{padding:5px;text-align:left;background:#FFBB00;color:#fff;font-weight:700;text-transform:uppercase;}
+            table.datos-tabulados tr td{padding:8px 5px;}
+            table.datos-tabulados tr td.destacado-1{font-size:16px;color:#AC1E36;font-weight:700;}
+            table.datos-tabulados tr td.destacado-2{color:#3D3D3D;font-weight:700;}            
+            table.datos-tabulados tr td.destacado-3, .cabecera-2{background:#B8B8B8;color:#fff;font-size:14px;font-weight:700;padding:3px 15px;}        
+            table.datos-tabulados td.encabezado-1{background:#EDEDED;font-weight:700;padding:3px 5px;}                                
+            table.datos-tabulados tr td.dato-1{text-align:right;}
+            .resalta-1{color:#36AE01;font-weight:700;}                
+            .resalta-2{color:#AC1E36;font-weight:700;}
+            .resalta-3{font-weight:700;}            
+            .resalta-4{color:#AC1E36;font-size:16px;font-weight:700;}            
+            .leyenda{font-size:11px;color:#B8B8B8;}                            
+            .estrella-gris-1{background:transparent url(images/HAL/estrellas-hotel.gif) no-repeat 0 0;height:15px;width:80px;float:left;}
+            .estrella-gris-2{background:transparent url(images/HAL/estrellas-hotel.gif) no-repeat 0 -15px;height:15px;width:80px;float:left;}
+            .estrella-gris-3{background:transparent url(images/HAL/estrellas-hotel.gif) no-repeat 0 -30px;height:15px;width:80px;float:left;}
+            .estrella-gris-4{background:transparent url(images/HAL/estrellas-hotel.gif) no-repeat 0 -45px;height:15px;width:80px;float:left;}
+            .estrella-gris-5{background:transparent url(images/HAL/estrellas-hotel.gif) no-repeat 0 -60px;height:15px;width:80px;float:left;}    
+            ul li{padding:5px 0;}
+            .enlace-2{color:#b99000;text-decoration:underline;font-weight:700;}
+            .enlace-2:hover{color:#000;}    
+            .boton-2{background:#FFBB00;border:1px solid #fff;color:#000;cursor:pointer;width:auto;overflow:visible;padding:0 5px;}                    
+            .boton-2:hover{color:#FFF;}             
+        </style>
+    </head>
+    <body>        
+        <table cellspacing="0" cellpadding="0" class="contenedor-general">
+            <tr>
+                <td align="center"> 
+                    <table cellspacing="0" cellpadding="0" class="caja-contenido-mail"> 
+                        <tr id="header"><img src="cid:cabecera-mail.jpg" alt="Logo Halc&oacute;n Viajes"></tr>      
+                        <tr>
+                            <td>
+                                <p class="cabecera-1">Confirmaci&oacute;n de su reserva HALCONVIAJES.COM</p>
+                                <p>Sr. $nombreCliente$, gracias por reservar a trav&eacute;s de <a href="#" title="Ir a la web HALCONVIAJES.COM" class="enlace-2">www.halconviajes.com</a></p>        
+                                <p>Su reserva ha sido realizada correctamente.</p>
+                                
+                                <table cellspacing="0" cellpadding="0" class="datos-tabulados">
+                                    <caption>Datos de su Reserva</caption>
+                                    <tr>
+                                        <th colspan="6">LOCALIZADOR</th> 
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6" class="destacado-1">$localizador$</td>                                     
+                                    </tr>
+                                    <tr class="titulo-1">
+                                        <th colspan="6">DATOS DEL COMPRADOR</th> 
+                                    </tr>
+                                    <tr>
+                                        <td class="destacado-2">E-mail:</td> 
+                                        <td colspan="2">$emailCliente$</td> 
+                                        <td class="destacado-2">Tel&eacute;fono:</td> 
+                                        <td  colspan="2" class="dato-1">$tlfCliente$</td>                                         
+                                    </tr>
+                                    <tr class="titulo-1">
+                                        <th colspan="6">PASAJEROS</th> 
+                                    </tr>
+                                    $pasajeros:{
+                                        <tr>
+                                            <td class="destacado-2">Pasajero $it.id$:</td> 
+                                            <td colspan="2">$it.nombre$</td> 
+                                            <td class="destacado-2">DNI:</td>
+                                            <td colspan="2" class="dato-1">$it.dni$</td> 
+                                        </tr>  
+                                    }$
+                                                                                                                   
+                                    <tr class="titulo-1">
+                                        <th colspan="6">RESUMEN DE SU RESERVA</th> 
+                                    </tr>
+                                    <tr>
+                                        <td colspan="6" class="destacado-3">Tren</td> 
+                                    </tr>                                    
+                                    <tr>
+                                        <td class="destacado-2">IDA</td> 
+                                        <td class="destacado-2"><span class="resalta-1">Servicio Confirmado</span></td> 
+                                    </tr>  
+                                    <tr>
+                                        <td class="destacado-2">Salida:</td> 
+                                        <td>$salidaIda$</td> 
+                                    </tr>
+                                                                        
+                                    <tr>
+                                        <td class="destacado-2">Llegada:</td> 
+                                        <td>$llegadaIda$</td> 
+                                    </tr> 
+                                    <tr>
+                                        <td class="destacado-2">VUELTA</td> 
+                                        <td class="destacado-2"><span class="resalta-1">Servicio Confirmado</span></td> 
+                                    </tr>  
+                                    <tr>
+                                        <td class="destacado-2">Salida:</td> 
+                                        <td>$salidaVuelta$</td> 
+                                    </tr>
+                                    <tr>
+                                        <td class="destacado-2">Llegada:</td> 
+                                        <td>$llegadaVuelta$</td> 
+                                    </tr>
+                                                                     
+                                    <tr class="titulo-1">
+                                        <th colspan="6">IMPORTE DE MI COMPRA</th> 
+                                    </tr>
+                                    
+                                   $billetes:{
+                                       <tr>
+                                            <td class="destacado-2">Billete $it.idBillete$:</td> 
+                                            <td class="dato-1">$it.precio$ &euro;</td>                                         
+                                        </tr> 
+                                    }$
+                                  
+                                    <tr>
+                                        <td class="destacado-2">Total:</td> 
+                                        <td class="dato-1">$total$ &euro;</td>                                         
+                                    </tr>
+                                                                        
+                                                                              
+                                </table>
+                                <p class="leyenda">* Este servicio se encuentra bajo petici&oacute;n. En caso que no fuera posible confirmarlo le ofrecemos otra alternativa similar.</p>
+                                <p class="leyenda">** En el momento de confirmar su reserva estos 10 euros se DESCONTAR&Aacute;N del precio total de su viaje; si decide no continuar con la reserva, los 10 euros se cobraran en concepto de gastos de gesti&oacute;n.</p>                                
+                                <p class="cabecera-1">Documentaci&oacute;n de su reserva</p>
+                                <p><span class="resalta-3">Vacacional</span> Una vez realizado el pago total de su reserva recibir&aacute; su documentaci&oacute;n en su correo electr&oacute;nico.</p>
+                                <p class="cabecera-1">Observaciones para su viaje</p>
+                                   <p class="cabecera-2">Documentaci&oacute;n</p>
+                                    Le informamos que de acuerdo a la legislaci&oacute;n vigente y en relaci&oacute;n al viaje que le estamos tramitando es    absolutamente imprescindible llevar la siguiente documentaci&oacute;n a la hora de su viaje:
+                                </p>                                    
+                                <ul>
+                                    <li>
+                                        D.N.I., Pasaporte, Visado, Pasaporte de Lectura Mec&aacute;nica, en vigor.
+                                    (Para las personas residentes en Canarias, Baleares, Ceuta y Melilla, es obligatorio llevar la documentaci&oacute;n necesaria que acredite la residencia del pasajero) Ser&aacute; responsabilidad del cliente portar la documentaci&oacute;n en vigor necesaria para la entrada en el pa&iacute;s de su destino. Le recomendamos consultar con la embajada o consulado seg&uacute;n su nacionalidad.
+                                    </li>
+                                    <li>
+                                        En caso de viajar con ni&ntilde;os estos deben llevar su D.N.I. o Pasaporte en vigor. 
+                                    (Si el menor no viaja acompa&ntilde;ado por sus tutores, deber&aacute; de llevar tambi&eacute;n la autorizaci&oacute;n legal de los mismos). 
+                                    </li>
+                                    <li>
+                                        El tel&eacute;fono de informaci&oacute;n sobre D.N.I. o Pasaporte es 900 150 000. 
+                                    </li>
+                                </ul>
+                                <p class="cabecera-2">Otros datos de inter&eacute;s</p>
+                                <ul>
+                                    <li>                                        
+                                        Moneda: Consulte con su banco la moneda a utilizar en su viaje. 
+                                    </li>
+                                    <li>
+                                        Tarjetas de Cr&eacute;dito: Consulte con su banco que tipos de tarjetas son aceptadas dependiendo del destino y no olvide la ampliaci&oacute;n de cr&eacute;dito en su tarjeta si fuese necesario. 
+                                    </li>
+                                    <li>                                        
+                                        Sanidad: En ciertos destinos es necesario vacunarse previamente a la realizaci&oacute;n de su viaje informarse en atenci&oacute;n al ciudadano en el tel&eacute;fono: 914 532 672. Si su destino es Europeo consulte la posibilidad de obtener la tarjeta sanitaria europea en los centros de atenci&oacute;n e informaci&oacute;n del Instituto Nacional de la Seguridad Social (tel&eacute;fono: 900 16 65 65).
+                                    </li>
+                                </ul>
+                                <p>Le rogamos que confirme el horario de sus vuelos con 48 horas de antelaci&oacute;n, tanto a la ida como a la vuelta.</p>
+                                <p><span class="resalta-3">Importante:</span> Le informamos que las compa&ntilde;&iacute;as a&eacute;reas cierran sus mostradores de facturaci&oacute;n 45 minutos antes de la salida del vuelo. Le recomendamos acuda al aeropuerto con bastante antelaci&oacute;n ya que en ciertas ocasiones hay que recorrer distancias de m&aacute;s de 20 minutos entre una y otra terminal.
+                                <br />
+                                <span class="resalta-3">Vuelos Nacionales:</span> M&iacute;nimo 90 minutos antes.
+                                <br />
+                                <span class="resalta-3">Vuelos Internacionales:</span> M&iacute;nimo 2 horas antes.
+                                <br />
+                                </p>
+                                <p>
+                                En el caso de que el cliente realice su reserva en un d&iacute;a no laborable, entendiendo como tal s&aacute;bado por la tarde, domingo, festivo nacional o regional, se advierte que la misma no ser&aacute; tratada por nuestros agentes hasta el primer d&iacute;a laboral consecutivo.
+                                </p>
+                                <p>Por seguridad, el departamento de atenci&oacute;n al cliente se podr&aacute; poner en contacto con usted para comprobar que no haya fraude en su compra.</p>
+                                <p class="cabecera-2">Descuentos/Promociones aplicadas</p>
+                                <p>- Promoci&oacute;n si paga con la Visa Halcon del 7%.</p>
+                                <button class="boton-2" type="button">Imprimir</button>
+                            </td>    
+                        </tr>        
+                    </table>
+                </td>
+            </tr>                            
+        </table>        
+    </body>            
+</html>

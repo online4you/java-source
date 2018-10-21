@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.photel.data.gen.ddbb.hibernate.pojo">
+	<class
+		name="GenMonitor"
+		table="GEN_MONITOR"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="GEM_ERROR_ID"
+		>
+			<generator class="increment" />
+		</id>
+
+		<property
+			name="GerUrl"
+			column="GEM_URL"
+			type="string"
+			not-null="false"
+			length="250"
+		/>
+		<property
+			name="GerUrlfrom"
+			column="GEM_URLFROM"
+			type="string"
+			not-null="false"
+			length="250"
+		/>
+		<property
+			name="GerHeaders"
+			column="GEM_HEADERS"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="GerParams"
+			column="GEM_PARAMS"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="GerSession"
+			column="GEM_SESSION"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="GerIp"
+			column="GEM_IP"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="GerHost"
+			column="GEM_HOST"
+			type="string"
+			not-null="false"
+			length="250"
+		/>
+		<property
+			name="GerAction"
+			column="GEM_ACTION"
+			type="string"
+			not-null="false"
+			length="250"
+		/>
+		<property
+			name="GerTostring"
+			column="GEM_TOSTRING"
+			type="string"
+			not-null="false"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

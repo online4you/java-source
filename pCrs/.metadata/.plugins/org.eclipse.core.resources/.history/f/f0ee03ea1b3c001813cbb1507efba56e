@@ -1,0 +1,21 @@
+package com.photel.apps.actions.BDL.test;
+
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
+import org.junit.Test;
+
+public class TestingDNS {
+
+	@Test
+	public void test1(){
+		try {
+			InetAddress address = InetAddress.getByName("api.interface-xml.com");
+			System.out.println(address.getAddress());
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+}

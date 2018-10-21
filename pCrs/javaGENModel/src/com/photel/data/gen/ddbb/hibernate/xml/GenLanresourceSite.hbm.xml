@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.photel.data.gen.ddbb.hibernate.pojo">
+	<class
+		name="GenLanresourceSite"
+		table="GEN_LANRESOURCE_SITE"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<composite-id name="Id" class="GenLanresourceSitePK">
+			<key-property
+				name="GenRes"
+				column="GEN_RES"
+				type="string"
+			/>
+			<key-property
+				name="GenLang"
+				column="GEN_LANG"
+				type="string"
+			/>
+			<key-property
+				name="GenSite"
+				column="GEN_SITE"
+				type="string"
+			/>
+		</composite-id>
+
+		<property
+			name="GenDes"
+			column="GEN_DES"
+			type="string"
+			not-null="false"
+			length="250"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.photel.data.gen.ddbb.hibernate.pojo">
+	<class
+		name="GenErrores"
+		table="GEN_ERRORES"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<id
+			name="Id"
+			type="integer"
+			column="GER_ERROR_ID"
+		>
+			<generator class="increment" />
+		</id>
+
+		<property
+			name="GerUrl"
+			column="GER_URL"
+			type="string"
+			not-null="false"
+			length="250"
+		/>
+		<property
+			name="GerUrlfrom"
+			column="GER_URLFROM"
+			type="string"
+			not-null="false"
+			length="250"
+		/>
+		<property
+			name="GerHeaders"
+			column="GER_HEADERS"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="GerParams"
+			column="GER_PARAMS"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="GerSession"
+			column="GER_SESSION"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="GerIp"
+			column="GER_IP"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="GerHost"
+			column="GER_HOST"
+			type="string"
+			not-null="false"
+			length="250"
+		/>
+		<property
+			name="GerAction"
+			column="GER_ACTION"
+			type="string"
+			not-null="false"
+			length="250"
+		/>
+		<property
+			name="GerTostring"
+			column="GER_TOSTRING"
+			type="stringClobType"
+			not-null="false"
+		/>
+		<property
+			name="GerSerialized"
+			column="GER_MSG"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="GerError"
+			column="GER_ERROR"
+			type="stringClobType"
+			not-null="false"
+		/>
+		<property
+			name="GerSite"
+			column="GER_SITE"
+			type="string"
+			not-null="false"
+		/>
+
+	</class>	
+</hibernate-mapping>

@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<project name="BDLPersistence" default="BDLPersistence" basedir=".">
+    <!-- this file was created by Fat-Jar Eclipse Plug-in -->
+    <!-- the ANT-Export is in a very early stage, so this -->
+    <!-- is only experimental, ANT 1.6 or above is        -->
+    <!-- required, feedback is always welcome:            -->
+    <!--       http://sourceforge.net/projects/fjep       -->
+    <!-- uncomment the following lines if using ANT outside Eclipse -->
+    <!--
+        <property name="fjepPath" value="reference:file:plugins/net.sf.fjep.fatjar_0.0.31.jarfatjar.jar"/>
+        <taskdef name="fatjar.build" classname="net.sf.fjep.anttask.FJBuildTask" classpath="${fjepPath}"/>
+        <typedef name="fatjar.manifest" classname="net.sf.fjep.anttask.FJManifestType" classpath="${fjepPath}"/>
+        <typedef name="fatjar.exclude" classname="net.sf.fjep.anttask.FJExcludeType" classpath="${fjepPath}"/>
+        <typedef name="fatjar.jarsource" classname="net.sf.fjep.anttask.FJJarSourceType" classpath="${fjepPath}"/>
+        <typedef name="fatjar.filesource" classname="net.sf.fjep.anttask.FJFileSourceType" classpath="${fjepPath}"/>
+    -->
+    <!-- uncomment the above lines to use ANT outside of Eclipse -->
+    <target name="BDLPersistence">
+    	<property name="projectName" value="javaBDLPersistence"/>
+        <property name="mainDir" value="${basedir}/.."/>
+ 
+    	<property name="projectPath" value="${mainDir}\${projectName}"/>
+    	
+    		<property name="sourceCode" value="${mainDir}/appModelAll/src"/>
+    		<copy todir="${sourceCode}" overwrite="true">
+	  	     <fileset dir="${mainDir}/${projectName}/src">
+	  	        <include name="**/*.properties"/>
+	  	     	<include name="**/*.xml"/>
+	  	     	<include name="**/*.java"/>
+	  	     </fileset>
+	  	  	</copy>
+    	
+      	 <copy todir="${mainDir}/${projectName}/bin">
+      	     <fileset dir="${mainDir}/${projectName}/src">
+      	        <include name="**/*.properties"/>
+      	     	<include name="**/*.xml"/>
+      	     </fileset>
+      	  </copy>
+    	
+        <javac srcdir="${mainDir}/${projectName}/src" destdir="${mainDir}/${projectName}/bin" includeantruntime="false"  nowarn="true" failonerror="true" debug="on" >
+          <classpath>
+                     <fileset dir="${mainDir}/${projectName}/lib"/>
+          </classpath>
+        </javac>
+        <echo message="All Compiled" />
+    	
+       	<macrodef name="deleteLibs"> 
+        	  <attribute name="dirTarget"/> 
+        	  <sequential>
+        	  	<echo message="Deleting from @{dirTarget}" />
+        	  	<delete failonerror="No">
+        	  		<fileset dir="@{dirTarget}" includes="**/${projectName}.jar"/>
+        	  	</delete>
+        	  </sequential> 
+        </macrodef> 
+   	
+    	<deleteLibs dirTarget="${mainDir}/javaPCRSModel/lib"/>
+    	
+    	<fatjar.build output="${projectPath}\${projectName}.jar">
+            <fatjar.manifest mergemanifests="false"/>
+        	<fatjar.filesource path="${projectPath}\bin" relpath=""/>
+    		<!--<fatjar.filesource path="${projectPath}\src" relpath="src"/>-->
+        </fatjar.build>
+    	
+    	
+    	<macrodef name="copyLibs"> 
+    	  <attribute name="dirTarget"/> 
+    	  <sequential> 
+    	    <copy todir="@{dirTarget}"> 
+    	      <fileset dir="${projectPath}" includes="**/${projectName}.jar"/> 
+    	    </copy> 
+    	  </sequential> 
+    	</macrodef> 
+    
+    	
+    	<delete dir="${basedir}/__"/>
+    	<eclipse.refreshLocal resource="${projectName}" depth="infinite"/>
+    	
+    	<copyLibs dirTarget="${mainDir}/javaBDLConnector/lib"/>
+    	
+    	<eclipse.refreshLocal resource="javaBDLConnector" depth="infinite"/>
+    	<eclipse.refreshLocal resource="appModelAll" depth="infinite"/>
+    	<eclipse.refreshLocal resource="${projectName}" depth="infinite"/>
+		
+    	
+    	
+    	
+    	
+    	
+
+    </target>
+</project>

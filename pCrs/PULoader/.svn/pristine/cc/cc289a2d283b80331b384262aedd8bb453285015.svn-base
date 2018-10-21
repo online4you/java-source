@@ -1,0 +1,25 @@
+<html>
+<link rel="stylesheet" type="text/css" href="../style.css"/>
+<head>
+<title>Introducción</title>
+</head>
+<body>
+<h1>Introducción</h1>
+<strong>PULoader</strong> es una aplicación cuyo propósito es importar ficheros de texto en formato <strong>CSV</strong> (separado por algún carácter específico), a <strong>tablas</strong> en bases de datos.
+<br><br>
+<center>
+<img src="./images/introductionB.JPG" border="1">
+</center>
+<br><br>
+Los ficheros <strong>CSV</strong> están comprimidos en un fichero <strong>.zip</strong> y deben ser descargados desde un <strong>servidor FTP</strong>.
+<br><br>
+<center>
+<img src="./images/introductionA.JPG" border="1">
+</center>
+<br><br>
+Una vez generadas en la base de datos, las tablas se llenan con la información de Producto.  El cliente debe utilizar estos datos para consultarlos y volcarlos en su base de datos, nunca para modificarlos.  Se debe tener en cuenta que el Product Update se actualiza cada semana, lo que significa que las tablas de base de datos generadas por el <strong>PULoader</strong> se vaciarán y volverán a llenar <strong>semanalmente</strong>.
+<br><br>
+<center><a href="index.html">Volver</a></center>
+</body>
+</html>
+    

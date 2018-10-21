@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Mon Jul 09 16:57:25 CEST 2012
+onejar.license.required=true
+manifest.classpath=
+manifest.removesigners=true
+onejar.checkbox=false
+jarname=javaGENPersistence.jar
+manifest.mergeall=true
+manifest.mainclass=
+manifest.file=<createnew>
+jarname.isextern=false
+onejar.expand=
+excludes=<jar|javaCommons.jar>;<jar|javaCommonServices.jar>;<jar|javaLibreriasExternas.jar>
+includes=

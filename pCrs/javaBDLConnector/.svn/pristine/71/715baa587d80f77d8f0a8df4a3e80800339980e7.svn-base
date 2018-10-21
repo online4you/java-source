@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.hotelbeds.com/schemas/2005/06/messages" targetNamespace="http://www.hotelbeds.com/schemas/2005/06/messages" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="HotelbedsCommonTypes.xsd"/>
+	<xs:element name="PurchaseCancelRS">
+		<xs:annotation>
+			<xs:documentation>Response data containing purchase cancellation data.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CoreResponse">
+					<xs:sequence>
+						<xs:element name="Purchase" type="Purchase" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>If some services could not be cancelled, they will appear here.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Currency" type="Currency" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Currency data.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Amount" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Total amount for the purchase cancellation.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:decimal">
+									<xs:fractionDigits value="3"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="date" type="YYYYMMDDDate">
+						<xs:annotation>
+							<xs:documentation>Cancellation date.</xs:documentation>
+						</xs:annotation>
+					</xs:attribute>
+					<xs:attribute name="type" use="required">
+						<xs:annotation>
+							<xs:documentation>Type of cancellation requested.'C' or 'V'</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:length value="1"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+<project name="Deploy" default="mainDeploy" basedir=".">
+	<target name="initProperties" >
+        <property name="rootDir" value="${basedir}/../../.."/>
+		<property name="des" value="${rootDir}/des/trenes"/>
+		<property name="pre" value="${rootDir}/pre/trenes"/>
+		<property name="pro" value="${rootDir}/pro/trenes"/>
+		
+		   <echo message="########################################################################################################################################" />
+		   <echo message="###################################################### Copy To PRE ##########################################################################" />
+		   <echo message="########################################################################################################################################" />
+    </target>
+	<target name="mainDeploy" depends="initProperties">
+			<echo message="Delete from ${pre}" />
+		 <delete>
+		 	<fileset dir="${pre}">
+		 					<exclude name="**/*.properties"/>
+		 					<exclude name="**/*.jar"/>
+		 					<include name="**/0000000_webApp/src/**"/>
+		 					<include name="**/0000000_webApp/WebContent/**"/>
+		 					<include name="**/00101_javaAppModel/src/**"/>
+		 					<include name="**/00202_javaModelGen/src/**"/>
+		 					<include name="**/00203_javaVenta/src/**"/>
+		 					<include name="**/00204_javaPersistenceGen/src/**"/>
+		 					<include name="**/00302_javaModelTrenes/src/**"/>
+		 					<include name="**/00304_javaPersistenceTrenes/src/**"/>
+		 					<include name="**/00304_javaWebServicesTrenes/src/**"/>
+		 					<include name="**/99999_javaServiciosComunes/src/**"/>
+		 					<include name="**/99999_javaMail/src/**"/>
+		 					<include name="**/99999_javaLibreriasExternas/lib/**"/>
+		 					<include name="**/99999_javaCommons/lib/**"/>
+		 		
+		 					<include name="**/00101_javaAppModel/*.xml"/>
+		 					<include name="**/00202_javaModelGen/*.xml"/>
+		 					<include name="**/00203_javaVenta/*.xml"/>
+		 					<include name="**/00204_javaPersistenceGen/*.xml"/>
+		 					<include name="**/00302_javaModelTrenes/*.xml"/>
+		 					<include name="**/00304_javaPersistenceTrenes/*.xml"/>
+		 					<include name="**/00304_javaWebServicesTrenes/*.xml"/>
+		 					<include name="**/99999_javaServiciosComunes/*.xml"/>
+		 					<include name="**/99999_javaMail/*.xml"/>
+		 					<include name="**/99999_javaLibreriasExternas/*.xml"/>
+		 					<include name="**/99999_javaCommons/*.xml"/>
+		 				</fileset>
+		  </delete>
+<echo message="From ${des} to ${pre}" />
+		<copy todir="${pre}" overwrite="true"> 
+			<fileset dir="${des}">
+				<exclude name="**/*.properties"/>
+				<exclude name="**/*.jar"/>
+				<include name="**/0000000_webApp/src/**"/>
+				<include name="**/0000000_webApp/WebContent/**"/>
+				<include name="**/00101_javaAppModel/src/**"/>
+				<include name="**/00202_javaModelGen/src/**"/>
+				<include name="**/00203_javaVenta/src/**"/>
+				<include name="**/00204_javaPersistenceGen/src/**"/>
+				<include name="**/00302_javaModelTrenes/src/**"/>
+				<include name="**/00304_javaPersistenceTrenes/src/**"/>
+				<include name="**/00304_javaWebServicesTrenes/src/**"/>
+				<include name="**/99999_javaServiciosComunes/src/**"/>
+				<include name="**/99999_javaMail/src/**"/>
+				<include name="**/99999_javaLibreriasExternas/lib/**"/>
+				<include name="**/99999_javaCommons/**"/>
+				
+				<include name="**/00101_javaAppModel/*.xml"/>
+				<include name="**/00202_javaModelGen/*.xml"/>
+				<include name="**/00203_javaVenta/*.xml"/>
+				<include name="**/00204_javaPersistenceGen/*.xml"/>
+				<include name="**/00302_javaModelTrenes/*.xml"/>
+				<include name="**/00304_javaPersistenceTrenes/*.xml"/>
+				<include name="**/00304_javaWebServicesTrenes/*.xml"/>
+				<include name="**/99999_javaServiciosComunes/*.xml"/>
+				<include name="**/99999_javaMail/*.xml"/>
+				<include name="**/99999_javaCommons/*.xml"/>
+			</fileset>
+ 	    </copy>
+ 	    
+    </target>
+	
+</project>

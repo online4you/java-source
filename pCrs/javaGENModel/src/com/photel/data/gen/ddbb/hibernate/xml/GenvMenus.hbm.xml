@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.photel.data.gen.ddbb.hibernate.pojo">
+	<class
+		name="GenvMenus"
+		table="GENV_MENUS"
+	>
+		<meta attribute="sync-DAO">false</meta>
+		<composite-id name="Id" class="GenvMenusPK">
+				<key-property
+					name="GmeSite"
+					column="GME_SITE"
+					type="string"
+				/>
+				<key-property
+					name="GmeCodsecc"
+					column="GME_CODSECC"
+					type="string"
+				/>
+				<key-property
+					name="GmeCodmenu"
+					column="GME_CODMENU"
+					type="string"
+				/>
+				<key-property
+					name="GmeIdi"
+					column="GME_IDI"
+					type="string"
+				/>
+		</composite-id>
+		
+		<property
+			name="GmeDes"
+			column="GME_DES"
+			type="string"
+			not-null="false"
+			length="1000"
+		/>
+		<property
+			name="GmeOrd"
+			column="GME_ORD"
+			type="integer"
+			not-null="false"
+			length="22"
+		/>
+		<property
+			name="GmeMouseout"
+			column="GME_MOUSEOUT"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="GmeMouseover"
+			column="GME_MOUSEOVER"
+			type="string"
+			not-null="false"
+			length="50"
+		/>
+		<property
+			name="GmeLinksecc"
+			column="GME_LINKSECC"
+			type="string"
+			not-null="false"
+			length="1000"
+		/>
+		
+
+
+	</class>	
+</hibernate-mapping>

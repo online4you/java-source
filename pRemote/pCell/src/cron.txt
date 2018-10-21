@@ -1,0 +1,4 @@
+#Device##Operation##CRON
+#0001##ON##0/5 * * * * ?
+0000##ONOFF_ON_AUTO##0 10 20 * * ?
+0000##ONOFF_OFF_FORCED##0 50 20 * * ?

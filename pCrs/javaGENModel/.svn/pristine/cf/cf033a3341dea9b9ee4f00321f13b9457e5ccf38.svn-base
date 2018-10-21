@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.photel.data.gen.ddbb.hibernate.pojo">
+	<class
+		name="GenvOpciones"
+		table="GENV_OPCIONES"
+	>
+		<meta attribute="sync-DAO">false</meta>
+	
+	<composite-id name="Id" class="GenvOpcionesPK">
+			<key-property
+					name="GopSite"
+					column="GOP_SITE"
+					type="string"
+			/>
+			<key-property
+				name="GopIdopc"
+				column="GOP_IDOPC"
+				type="integer"
+			/>
+			<key-property
+				name="GopCodsec"
+				column="GOP_CODSEC"
+				type="string"
+
+			/>
+			<key-property
+				name="GopCodmenu"
+				column="GOP_CODMENU"
+				type="string"
+			/>
+			<key-property
+				name="GopIdioma"
+				column="GOP_IDIOMA"
+				type="string"
+			/>
+		</composite-id>
+		
+		<property
+			name="GopLnkopc"
+			column="GOP_LNKOPC"
+			type="string"
+			not-null="false"
+			length="1000"
+		/>
+		<property
+			name="GopDes"
+			column="GOP_DES"
+			type="string"
+			not-null="false"
+			length="1000"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

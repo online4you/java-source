@@ -1,0 +1,32 @@
+body {
+	font-family: Tahoma, Arial, sans-serif;
+	font-size: 10px;
+	padding: 15px 10px 10px 10px;
+	background-color: #FFFFCC;
+}
+
+h1 {
+	font-weight: bold;
+	font-size: 14px;
+	margin: 10px 0px 10px;
+}
+
+h2 {
+	font-weight: bold;
+	font-size: 12px;
+	margin: 10px 0px 10px;
+}
+
+h3 {
+	font-weight: bold;
+	font-size: 11px;
+	margin: 10px 0px 10px;
+	text-align: center;
+}
+
+tr#cabecera {
+	background-color:#C38EC7;
+	text-align: center;
+	color:#ffffff;
+	font-weight:bold;
+}

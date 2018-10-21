@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	
+  	<definition name="index" template="/apps/pRemote/general/index.jsp"/>
+  	<definition name="dashBoard" template="/apps/pRemote/general/dashBoard.jsp"/>
+  	<definition name="deviceDetail" template="/apps/pRemote/devices/deviceDetail.jsp"/>
+  	<definition name="dashBoardTemplate" template="/apps/pRemote/general/dashBoardTemplate.jsp"/>
+  	<definition name="chek" template="/apps/pRemote/default.jsp"/>
+	<definition name="login" template="/apps/pRemote/login/login.jsp"/>
+</tiles-definitions>

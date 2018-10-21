@@ -1,0 +1,28 @@
+<html>
+<link rel="stylesheet" type="text/css" href="../../style.css"/>
+<head>
+<title>Oracle (eng)</title>
+</head>
+<body>
+<h1>Oracle</h1>
+<center>
+<img src="../images/oracleA.png" border="1">
+</center>
+<br>
+To connect with Oracle server, the following information is required:
+<ul>
+<li><strong>User</strong></li>
+<li><strong>Password</strong></li>
+<li><strong>Server</strong>: Name of database server</li>
+<li><strong>Port</strong>: Oracle default value is 1521</li>
+<li><strong>Database Name</strong>: Name of database</li>
+</ul>
+<br>
+Note <strong>'Database Name'</strong> field is empty.  PuLoader application can not decide
+database name where you are going to create Product Update tables.  
+<br><br>
+It's recommended that the database name where you are going to make the load is different from the database name normally used in your system, thus avoiding the erasure of data tables with the same name.
+<br><br>
+<center><a href="../connection.html">Back</a></center>
+</body>
+</html>

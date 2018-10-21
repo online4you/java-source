@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory >
+		<mapping resource="com/photel/data/BDL/ddbb/hibernate/xml/TypeDefs.hbm.xml" />
+		<mapping resource="com/photel/data/BDL/ddbb/hibernate/xml/BdlConfig.hbm.xml" />
+		<mapping resource="com/photel/data/BDL/ddbb/hibernate/xml/BdlConfigSite.hbm.xml" />
+		<mapping resource="com/photel/data/BDL/ddbb/hibernate/xml/BdlLanguages.hbm.xml" />
+		<mapping resource="com/photel/data/BDL/ddbb/hibernate/xml/BdlCountries.hbm.xml" />
+		<mapping resource="com/photel/data/BDL/ddbb/hibernate/xml/BdlDestinations.hbm.xml" />
+		<mapping resource="com/photel/data/BDL/ddbb/hibernate/xml/BdlHotelDestinations.hbm.xml" />
+		<mapping resource="com/photel/data/BDL/ddbb/hibernate/xml/BdlHotelDescriptions.hbm.xml" />
+		<mapping resource="com/photel/data/BDL/ddbb/hibernate/xml/BdlReservas.hbm.xml" />
+		<mapping resource="com/photel/data/BDL/ddbb/hibernate/xml/BdlReservasMails.hbm.xml" />
+		<mapping resource="com/photel/data/BDL/ddbb/hibernate/xml/BdlHotels.hbm.xml" />
+		<mapping resource="com/photel/data/BDL/ddbb/hibernate/xml/BdlHdetailDescriptions.hbm.xml" />
+		<mapping resource="com/photel/data/BDL/ddbb/hibernate/xml/BdlvHdetailFacilities.hbm.xml" />
+		<mapping resource="com/photel/data/BDL/ddbb/hibernate/xml/BdlvHimages.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

@@ -1,0 +1,33 @@
+package com.photel.commonServices.util;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
+
+public class AppModelProperties {
+	private Properties AppModelproperties=null;
+	
+	public AppModelProperties() throws IOException{
+		setPropetyFile("appModel.properties");
+	}
+
+	public void setPropetyFile(String file) throws IOException  {
+		String path;
+		String ret="";
+		if (AppModelproperties==null){
+			AppModelproperties = new Properties();}
+		AppModelproperties.load(this.getClass().getClassLoader().getResourceAsStream(file));
+		
+	}
+	public String getProperty(String param) throws IOException  {
+		String path;
+		String ret="";
+		if (AppModelproperties==null){
+			setPropetyFile("appModel.properties");}
+		
+		ret=(String) AppModelproperties.get(param);
+
+		return ret;
+		
+	}
+}

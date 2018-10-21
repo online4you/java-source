@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="Request">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="HotelId"/>
+        <xs:element ref="Reserve"/>
+        <xs:element maxOccurs="unbounded" ref="Room"/>
+        <xs:element ref="Error"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="HotelId" type="xs:string"/>
+  <xs:element name="Reserve">
+    <xs:complexType>
+      <xs:attribute name="Cs" use="required"/>
+      <xs:attribute name="Id" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Room">
+    <xs:complexType>
+      <xs:attribute name="Number" use="required"/>
+      <xs:attribute name="Price" use="required"/>
+      <xs:attribute name="boardId" use="required"/>
+      <xs:attribute name="roomId" use="required"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="Error" type="xs:string"/>
+</xs:schema>

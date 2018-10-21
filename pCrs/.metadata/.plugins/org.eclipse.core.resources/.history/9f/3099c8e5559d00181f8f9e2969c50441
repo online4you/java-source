@@ -1,0 +1,921 @@
+package com.photel.apps.actions;
+
+
+
+
+
+import java.io.UnsupportedEncodingException;
+import java.math.BigDecimal;
+import java.math.BigInteger;
+import java.net.URLDecoder;
+import java.rmi.RemoteException;
+import java.security.SecureRandom;
+import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.HashMap;
+import java.util.Hashtable;
+import java.util.List;
+import java.util.Map;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.commons.lang.StringEscapeUtils;
+import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
+import org.apache.struts2.interceptor.ServletRequestAware;
+import org.apache.struts2.interceptor.ServletResponseAware;
+import org.apache.struts2.interceptor.SessionAware;
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.util.LocalizedTextUtil;
+import com.opensymphony.xwork2.util.ValueStack;
+import com.photel.hotelan.client.IrqVillaAvailablePrice.IrqVillaAvailablePriceResponse;
+import com.photel.hotelan.client.IrqVillaAvailablePrice.Villa;
+import com.photel.interfaces.BDL244.IBDLCancelationPrice;
+import com.photel.interfaces.BDL244.IBDLDisponibilidad;
+import com.photel.interfaces.BDL244.IBDLDistribucion;
+import com.photel.interfaces.BDL244.IBDLHotel;
+import com.photel.interfaces.data.BDL.IBdlDestinations;
+import com.photel.interfaces.data.BDL.IBdlReservas;
+import com.photel.interfaces.data.gen.IGenBanners01;
+import com.photel.interfaces.data.gen.IGenErrores;
+import com.photel.interfaces.data.gen.IGenImages;
+import com.photel.interfaces.data.gen.IGenMetas;
+import com.photel.interfaces.data.gen.IGenScripts;
+import com.photel.interfaces.data.gen.IGenStyles;
+import com.photel.interfaces.data.gen.IMenu;
+import com.photel.interfaces.model.gen.sesion.ISesion;
+import com.photel.model.PCRSModel;
+
+
+ 
+
+
+public abstract class MainAction extends ActionSupport implements SessionAware, ServletRequestAware, ServletResponseAware  {
+	protected boolean debug=false;
+	
+	private static final long serialVersionUID = 1L;
+	public static final String TIPO_PAX_ADULTO= "ADT";
+	public static final String TIPO_PAX_NINO= "NIN";
+	public static final String TIPO_PAX_BEBE= "INF";
+	protected static final String BANNED_DOMAIN="yopmail.com";
+	protected PCRSModel service; 
+    protected Map<String, Object> paramMap;
+    protected static Hashtable<String, String> config;
+    protected String result;
+    protected Map<String, String> cookiesMapGet;
+    protected Map<String, String> cookiesMapPut;
+    protected HttpServletResponse servletResponse;
+    protected HttpServletRequest servletRequest;
+    protected ArrayList<IGenBanners01> leftBanners;
+    protected String metaTitle;
+    protected String metaDescription;
+    protected String metaKeywords;
+    
+    
+    public static final int SECONDS_PER_YEAR = 60*60*24*365;
+    Logger  log = Logger.getRootLogger();
+    
+    protected Double descuento;
+    
+    
+    //Template
+     protected  String title;
+     protected String contenidoCargandoInicial;
+     protected String tamanoCargandoInicial;
+    //Head
+	 private IGenImages logo;
+	 private  ArrayList<IMenu> menus;
+	//footer
+	 private  ArrayList<IMenu> menusPieGrupo1;
+	 private  ArrayList<IMenu> menusPieGrupo2;
+    //Metas
+	 private ArrayList<IGenMetas> metas;
+    //Scripts 
+	 private ArrayList<IGenScripts> scripts;
+	 //Styles
+	 private ArrayList<IGenStyles> styles;
+	 
+    public boolean isDebug() {
+		return debug;
+	}
+	public final String execute() throws Exception{
+    	String result=ERROR;
+    	try{
+    	ValueStack stack = ActionContext.getContext().getValueStack();    
+		Object obj = stack.findValue("pcrsModel");
+		if (obj instanceof PCRSModel){
+			service=(PCRSModel) obj;
+			config=loadParams();
+		}else{
+			return ERROR;
+		}
+		
+		getCookiesMap();
+		setActionNameToStack();
+		
+		init();
+		result=executeHalconAction();
+		
+		//service=null;
+		this.result=result;
+		
+		
+    	}catch(Exception e){
+			Hashtable<String, String> pet = this.getParametrosPeticion();
+			String msg=e.getMessage();
+			msg=(msg==null)?"":msg;
+			pet.put("error", msg);
+			IGenErrores err = service.setErrorToDDBB(pet, e);
+			e.printStackTrace();
+			this.result=ERROR;
+			return ERROR;
+		}
+		return result;
+    }
+	public Map getParameters(){
+		return ActionContext.getContext().getParameters();
+	}
+	private void init() throws Exception{
+		title=this.getText("lang.gen.cabecera.titulo");
+		descuento=0.0;
+		
+		String descuentoBDLPorCiento=this.getConfigParam("descuentoBDLPorCiento");
+		if(descuentoBDLPorCiento!=null && !descuentoBDLPorCiento.equals("")){
+			try{descuento=Double.parseDouble(descuentoBDLPorCiento);}
+			catch(Exception e){}
+		}
+		//Head
+		ArrayList<IGenImages> imgs = this.getGenImages();
+		for (int i=0;i<imgs.size();i++){
+			if ((imgs.get(i).getId().getGenIdi()+ imgs.get(i).getId().getGenParam()).equalsIgnoreCase(this.getLocale().getLanguage()+"mainLogo")){
+				logo=imgs.get(i);
+			}
+		}
+		
+		
+		//Metas
+		metas=this.getGenMetas();
+		
+		//Scripts
+		scripts=this.getGenScripts();
+		
+		//Styles
+		styles=this.getGenStyles();
+		
+		//Banners
+		this.leftBanners=this.getBanners01(this.getLocale().getLanguage());
+		
+		String debug=this.getConfigParam("debug");
+		if (debug!=null && debug.equals("true")){
+			this.debug=true;
+		}else{
+			this.debug=false;
+		}
+	}
+	
+	
+	
+	
+	
+	public String getMetaTitle() {
+		return metaTitle;
+	}
+	public void setMetaTitle(String metaTitle) {
+		this.metaTitle = metaTitle;
+	}
+	public String getMetaDescription() {
+		return metaDescription;
+	}
+	public void setMetaDescription(String metaDescription) {
+		this.metaDescription = metaDescription;
+	}
+
+	public String getMetaKeywords() {
+		return metaKeywords;
+	}
+	public void setMetaKeywords(String metaKeywords) {
+		this.metaKeywords = metaKeywords;
+	}
+	public GregorianCalendar getPrimeraFechaCancelacion(IBDLHotel hotelBloqueado){
+		GregorianCalendar fechaMasCercana=null;
+		for (int i=0;i<hotelBloqueado.getContratos().get(0).getDistribuciones().size();i++){
+			IBDLDistribucion distri = hotelBloqueado.getContratos().get(0).getDistribuciones().get(i);
+			List<IBDLCancelationPrice> precios = distri.getRooms().get(0).getPreciosCancelacion();
+			for (int p=0;p<precios.size();p++){
+				if (fechaMasCercana==null){
+					fechaMasCercana=precios.get(p).getCancelationFrom();
+				}else{
+					if(fechaMasCercana.compareTo(precios.get(p).getCancelationFrom())>0){
+						fechaMasCercana=precios.get(p).getCancelationFrom();
+					}
+				}
+			}
+		}
+		return fechaMasCercana;
+	}
+	public GregorianCalendar getPrimeraFechaCancelacionFicticia(IBDLHotel hotelBloqueado){
+		GregorianCalendar fechaMasCercana=getPrimeraFechaCancelacion(hotelBloqueado);
+		
+		int tiempoMinutosDeSessionBDL=Integer.parseInt(this.getConfigParam("diasMinimosDeAntelacionGastosParaTransferencia"));
+		fechaMasCercana.add(Calendar.DAY_OF_MONTH, -tiempoMinutosDeSessionBDL);
+		return fechaMasCercana;
+	}
+	public String formatFirstWordUpper(String str){
+		return StringUtils.capitalize(str.toLowerCase());
+	}
+	public String formatCapitalizeAllWords(String str){
+		String ret="";
+		if (str!=null){
+			String[] arr=str.toLowerCase().split(" ");
+			for (int i=0;i<arr.length;i++){
+				ret+=StringUtils.capitalize(arr[i] + " ");
+			}
+		}
+		return ret.trim();
+	}
+	public BigDecimal getPrecioDescuento(BigDecimal precio){
+		Double porCiento = descuento/100;
+		BigDecimal ret=precio.multiply(new BigDecimal(porCiento));
+		ret=precio.subtract(ret);
+		return ret;
+	}
+	
+	public String getUnscapeText(String text){
+		String ret=this.getText(text);
+		ret=StringEscapeUtils.unescapeHtml(ret);
+		return ret;
+	}
+	public IBdlDestinations getDestination(String code, String idi) throws Exception {
+		return service.getDestination(code, idi);
+	}
+	public boolean isStaticOnServerApp(){
+		boolean ret=true;
+		String statico = this.getConfigParam("estaticoEnServerApp");
+		statico=statico==null?"":statico;
+		if (!statico.equals("true")){
+			ret=false;
+		}
+		return ret;
+	}
+	public String getTipoPaxAdulto(){
+		return this.TIPO_PAX_ADULTO;
+	}
+	public String getTipoPaxNino(){
+		return this.TIPO_PAX_NINO;
+	}
+	public String getTipoPaxBebe(){
+		return this.TIPO_PAX_BEBE;
+	}
+	public String getLogoHotel(IBDLHotel hot){
+		String ret="";
+		List<String> imgs = hot.getImagenes();
+		if (imgs!=null){
+			for(String img:imgs){
+				ret=img;
+				break;
+			}
+		}
+		
+		return ret;
+	}
+	public String getLinkCategoriaHotelan(Villa hot){
+		String ret=this.getContextPath()+"/static/crs/images/1_EST.png";
+		if (hot.getCathegoryId()!=null){
+			ret=this.getContextPath()+"/static/crs/images/"+hot.getCathegoryId()+"_EST.png";
+		}else if(hot.getDdbbHotel()!=null && hot.getDdbbHotel().getCatId()!=null){
+			ret=this.getContextPath()+"/static/crs/images/"+hot.getDdbbHotel().getCatId()+"_EST.png";
+		}
+		
+		return ret;
+	}
+	public String getLinkCategoria(IBDLHotel hot){
+		String ret;
+		ret=this.getContextPath()+"/static/crs/images/"+hot.getCategoriaCodigo()+".png";
+		return ret;
+	}
+	protected void debug(String message){
+		log.debug(message);
+	}
+	private void setLinksGrupos(ArrayList<IMenu> menusPie){
+		menusPieGrupo1=new ArrayList<IMenu>();
+		menusPieGrupo2=new ArrayList<IMenu>();
+		for (int i=0; i<menusPie.size(); i++) {
+			if (i%2==0){
+				menusPieGrupo1.add(menusPie.get(i));
+			}else{
+				menusPieGrupo2.add(menusPie.get(i));}
+		}
+	}
+
+	 
+    public ISesion getGenSesion(String idSesion) throws Exception,
+			RemoteException {
+		return service.getGenSesion(idSesion);
+	}
+	public abstract String executeHalconAction() throws Exception;
+    
+    protected void setActionNameToStack(){
+    	ValueStack stack = ActionContext.getContext().getValueStack();  
+    	ActionContext acc = ActionContext.getContext();
+    	String action= acc.getName();
+        stack.setValue(action, this);
+    }
+    public void setServletResponse(HttpServletResponse servletResponse) {
+      this.servletResponse = servletResponse;
+    }
+    
+    public void setServletRequest(HttpServletRequest servletRequest) {
+      this.servletRequest = servletRequest;
+    }
+
+    private void getCookiesMap() throws UnsupportedEncodingException{
+    	Cookie[] cookies = servletRequest.getCookies();
+    	cookiesMapGet=new HashMap<String,String>();
+    	cookiesMapPut=new HashMap<String,String>();
+    	String val;
+    	if (cookies != null) {
+    		for (Cookie cookie : cookies) {
+    			val=urlDecode(cookie.getValue());
+    			cookiesMapGet.put(cookie.getName(), val)	;
+    		}
+    	}
+    }
+
+    public String getTimeStamp(){
+    	return ((new GregorianCalendar()).getTime().toString());
+    }
+    
+	
+	
+	
+	public Map<String, String> getCookiesMapPut() {
+		return cookiesMapPut;
+	}
+
+
+	public void setCookiesMapPut(Map<String, String> cookiesMapPut) {
+		this.cookiesMapPut = cookiesMapPut;
+	}
+
+
+	public String getCookie(String cookie){
+		String ret=null;
+		if (cookie!=null){
+			ret = this.cookiesMapGet.get(cookie);
+		}
+		return ret;
+	}
+	public void setCookie(String name, String value){
+		this.cookiesMapPut.put(name, value);
+	}
+   
+	public String getHost() throws RemoteException{
+		String ret;
+		Hashtable<String,String> p =(Hashtable<String, String>) getValueFromStack("parametrosPeticion");
+		ret=p.get("host")!=null?p.get("host"):"";
+		return ret;
+	}
+	
+	public String getHostStamp() throws RemoteException{
+		String ret;
+		ret=getHost();
+		String to=this.getPropety("com.photel.appModel.WS_RENFE_ENDPOINT");
+		to=to==null?"PRO":to;
+		if(to.equalsIgnoreCase("PRO") && ret.length()>2){
+			ret=ret.substring(ret.length()-2, ret.length());
+		}else{
+			String ddbb=this.getProperty("hibernate.properties", "hibernate.connection.url");
+			ret="Host:"+ret+" DDBB:"+ddbb+" WS:"+to; 
+		}
+		return ret;
+	}
+	public boolean isPRO() throws RemoteException{
+		String to=this.getPropety("com.photel.appModel.WS_RENFE_ENDPOINT");
+		to=to==null?"PRO":to;
+		if(to.equalsIgnoreCase("PRO")){
+			return true;
+		}
+		return false;
+	}
+
+	public String getResult() {
+		return result;
+	}
+
+	public void setResult(String result) {
+		this.result = result;
+	}
+
+	public double roundTwoDecimals(double d) {
+		double dbl = d;
+		int ix = (int)(dbl * 1000.0);
+		double dbl2 = ((double)ix)/1000.0;
+    	return dbl2;
+	}
+	public String twoDecimalFormat(double d){
+		DecimalFormat df = new DecimalFormat( "######.00");
+		DecimalFormatSymbols decimal = new DecimalFormatSymbols();
+		decimal.setDecimalSeparator(',');
+		df.setDecimalFormatSymbols(decimal);
+		String n = df.format(d);
+		return df.format(d);
+	}
+
+	public String twoDecimalFormat(BigDecimal d){
+		DecimalFormat df = new DecimalFormat( "######.00");
+		DecimalFormatSymbols decimal = new DecimalFormatSymbols();
+		decimal.setDecimalSeparator(',');
+		df.setDecimalFormatSymbols(decimal);
+		String n = df.format(d);
+		return df.format(d);
+	}
+	public String oneDecimalFormat(double d){
+		DecimalFormat df = new DecimalFormat( "######.0");
+		DecimalFormatSymbols decimal = new DecimalFormatSymbols();
+		decimal.setDecimalSeparator(',');
+		df.setDecimalFormatSymbols(decimal);
+		String n = df.format(d);
+		return df.format(d);
+	}
+	public String twoDecimalFormatFromString(String d){
+		Double dNumber = Double.parseDouble(d);
+		DecimalFormat df = new DecimalFormat( "######.00");
+		DecimalFormatSymbols decimal = new DecimalFormatSymbols();
+		decimal.setDecimalSeparator('.');
+		df.setDecimalFormatSymbols(decimal);
+		String n = df.format(dNumber);
+		return df.format(dNumber);
+	}
+	
+	
+	
+    protected Object getValueFromStack(String param){
+		ValueStack stack = ActionContext.getContext().getValueStack();    
+		Object obj = stack.findValue(param);
+		return obj;
+    }
+    protected void setValueFromStack(String param,Object obj){
+		ValueStack stack = ActionContext.getContext().getValueStack();    
+		stack.set(param, obj);
+    }
+    protected Hashtable<String,String> getParametrosPeticion() throws RemoteException{
+    	Hashtable<String,String> valoresPet=new Hashtable<String,String>();
+    	Object obj = getValueFromStack(this.getPropety("com.photel.struts.interceptors.datosPeticion"));
+		if (obj!=null){
+			valoresPet=(Hashtable<String,String>) obj;
+		}
+		return valoresPet;
+    }
+    
+	protected Calendar getCalendar(String data, String hora){
+		String anyo=data.substring(0,4);
+		String mes=data.substring(4,6);
+		String dia=data.substring(6,8);
+		String h=hora.substring(0,2);
+		String min=hora.substring(2,4);
+
+		Calendar cal=new GregorianCalendar();
+		cal.set(Calendar.DAY_OF_MONTH,Integer.parseInt(dia));
+		cal.set(Calendar.MONTH, Integer.parseInt(mes)-1);
+		cal.set(Calendar.YEAR, Integer.parseInt(anyo));
+		cal.set(Calendar.HOUR_OF_DAY,Integer.parseInt(h));
+		cal.set(Calendar.MINUTE,Integer.parseInt(min));
+		cal.set(Calendar.MILLISECOND, 0);
+		return cal;
+	}
+
+	public String fechaLlegada(String horaDeLlegada,String horaDeSalida, String fecha){
+		Calendar salida = getCalendar(formatDate(fecha),horaDeSalida);
+		Calendar llegada = getCalendar(formatDate(fecha),horaDeLlegada);
+		
+		if (Integer.parseInt(horaDeLlegada)<Integer.parseInt(horaDeSalida)){
+			llegada.add(Calendar.DAY_OF_MONTH, 1);}
+		String dia=String.valueOf(llegada.get(Calendar.DAY_OF_MONTH));
+		String mes=String.valueOf(llegada.get(Calendar.MONTH)+1);
+		String anyo=String.valueOf(llegada.get(Calendar.YEAR));
+		if (dia.length()==1){dia="0"+dia;}
+		if (mes.length()==1){mes="0"+mes;}
+		return dia+"/"+mes+"/"+anyo;
+	}
+	
+	public String getFormatedHour(String hora){
+		String h=hora.substring(0,2);
+		String min=hora.substring(2,4);
+		return h+":"+min;
+	}
+	public String formatDate(String date){
+		String ret=null;
+        if (date==null){
+        	return ret;}
+		DateFormat df = new SimpleDateFormat("dd/MM/yyyy"); 
+        try { 
+        	Date fecha = df.parse(date);
+        	Calendar cal=new GregorianCalendar ();
+        	cal.setTime(fecha);
+        	String month = String.valueOf(cal.get(Calendar.MONTH)+1);
+        	String day = String.valueOf(cal.get(Calendar.DAY_OF_MONTH));
+        	if (month.length()==1){month="0"+month;}
+        	if (day.length()==1){day="0"+day;}
+        	ret= String.valueOf(cal.get(Calendar.YEAR)) + month + day;  
+        } catch (ParseException e) { 
+            return null;} 
+		return ret;
+	}
+	public String formatDate(GregorianCalendar date){
+		String ret=null;
+        try { 
+        	String month = String.valueOf(date.get(Calendar.MONTH)+1);
+        	String day = String.valueOf(date.get(Calendar.DAY_OF_MONTH));
+        	if (month.length()==1){month="0"+month;}
+        	if (day.length()==1){day="0"+day;}
+        	ret= day+"/"+month+"/"+String.valueOf(date.get(Calendar.YEAR));
+        } catch (Exception e) { 
+            return null;} 
+		return ret;
+	}
+
+     protected  Hashtable<String, String> loadParams() throws RemoteException{
+    	return service.getGenConfig();
+      }
+
+    
+    protected String now() {
+        Calendar cal = Calendar.getInstance();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        return sdf.format(cal.getTime());
+      }
+    protected String formatCalendar(Calendar cal) {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
+        return sdf.format(cal.getTime());
+      }
+    protected long getElapsetTimeMinutes(Calendar cal1,Calendar cal2) {
+    	if (cal1!=null && cal1!=null){
+	    	try{
+    		long milis1 = cal1.getTimeInMillis(); 
+	        long milis2 = cal2.getTimeInMillis(); 
+	        long diff = Math.abs(milis2 - milis1); 
+	        long diffMinutes = diff / (60 * 1000); 
+	        long diffHours = diff / (60 * 60 * 1000); 
+	        long diffDays = diff / (24 * 60 * 60 * 1000); 
+	        return diffMinutes;
+	    	} catch (Exception e){
+	    		return 0;
+	    	}
+    	}
+    	return 0;
+      }
+
+    protected long getElapsetTimeDays(Calendar cal1,Calendar cal2) {
+    	if (cal1!=null && cal1!=null){
+	    	try{
+    		long milis1 = cal1.getTimeInMillis(); 
+	        long milis2 = cal2.getTimeInMillis(); 
+	        long diff = Math.abs(milis2 - milis1); 
+	        long diffMinutes = diff / (60 * 1000); 
+	        long diffHours = diff / (60 * 60 * 1000); 
+	        long diffDays = diff / (24 * 60 * 60 * 1000); 
+	        return diffDays;
+	    	} catch (Exception e){
+	    		return 0;
+	    	}
+    	}
+    	return 0;
+      }
+    protected int getAge(String date) {
+    	Calendar cal =  getCalendar(date, "0000");
+        Calendar now = new GregorianCalendar();
+        int res = now.get(Calendar.YEAR) - cal.get(Calendar.YEAR);
+        if((cal.get(Calendar.MONTH) > now.get(Calendar.MONTH))
+          || (cal.get(Calendar.MONTH) == now.get(Calendar.MONTH)
+          && cal.get(Calendar.DAY_OF_MONTH) > now.get(Calendar.DAY_OF_MONTH)))
+        {
+           res--;
+        }
+        return res;
+      }
+
+    protected String getConfigParam(String key){
+    	try{
+    		return this.config.get(key);
+    	}catch (Exception e){
+    		return null;
+    	}
+    }
+    public String getHttpsDomain(){
+		String domain=null;
+		try {
+			domain = this.getPropety("com.photel.web.httpsDomain");
+		} catch (RemoteException e) {}
+		if (domain==null){
+			domain=getConfigParam("https");
+		}
+		if (domain==null){
+			domain="";
+		}
+		return domain;
+    }
+
+    
+  
+	public void setSession(Map<String, Object> paramMap) {
+		this.paramMap=paramMap;
+		
+	}
+	public Map<String, Object> getSession() {
+		return this.paramMap;
+		
+	}
+
+
+
+	public String getContextPath() {
+		if (this.servletRequest!=null){
+			return this.servletRequest.getContextPath();
+		}else{
+			return "";
+		}
+		
+	}
+	public String getContextPathStatic() {
+		if (this.servletRequest!=null && isStaticOnServerApp()){
+			return this.servletRequest.getContextPath();
+		}else{
+			return "";
+		}
+		
+	}
+	
+
+
+
+	/**
+	 * @return
+	 * @throws Exception
+	 * @throws SQLException
+	 * @throws RemoteException
+	 * @see com.photel.interfaces.model.ModelInterface#getGenStyles()
+	 */
+	public ArrayList<IGenStyles> getGenStyles() throws Exception, SQLException,
+			RemoteException {
+		return service.getGenStyles();
+	}
+
+	/**
+	 * @return
+	 * @throws Exception
+	 * @throws SQLException
+	 * @throws RemoteException
+	 * @see com.photel.interfaces.model.ModelInterface#getGenScripts()
+	 */
+	public ArrayList<IGenScripts> getGenScripts() throws Exception,
+			SQLException, RemoteException {
+		return service.getGenScripts();
+	}
+
+
+
+	/**
+	 * @return
+	 * @throws Exception
+	 * @throws SQLException
+	 * @throws RemoteException
+	 * @see com.photel.interfaces.model.ModelInterface#getGenImages()
+	 */
+	public ArrayList<IGenImages> getGenImages() throws Exception, SQLException,
+			RemoteException {
+		return service.getGenImages();
+	}
+
+	/**
+	 * @return
+	 * @throws Exception
+	 * @throws SQLException
+	 * @throws RemoteException
+	 * @see com.photel.interfaces.model.ModelInterface#getGenMetas()
+	 */
+	public ArrayList<IGenMetas> getGenMetas() throws Exception, SQLException,
+			RemoteException {
+		return service.getGenMetas();
+	}
+
+	public ArrayList<IMenu> getMenus(String arg0, String arg1)
+			throws RemoteException {
+		ArrayList<IMenu> menus = service.getMenus(arg0, arg1);
+		
+		return menus;
+	}
+
+	public String getPropety(String arg0) throws RemoteException {
+		return service.getProperty(arg0);
+	}
+
+
+	public String getProperty(String param) throws RemoteException {
+		return service.getProperty(param);
+	}
+	public String urlDecode(String str) throws UnsupportedEncodingException{
+		URLDecoder dec = new URLDecoder(); 
+		String ret=dec.decode(str, "UTF-8");
+		return ret;
+	}
+
+
+	
+	public ArrayList<IMenu> getMenus() {
+		return menus;
+	}
+	public void setMenus(ArrayList<IMenu> menus) {
+		this.menus = menus;
+	}
+	public ArrayList<IMenu> getMenusPieGrupo1() {
+		return menusPieGrupo1;
+	}
+	public void setMenusPieGrupo1(ArrayList<IMenu> menusPieGrupo1) {
+		this.menusPieGrupo1 = menusPieGrupo1;
+	}
+	public ArrayList<IMenu> getMenusPieGrupo2() {
+		return menusPieGrupo2;
+	}
+	public void setMenusPieGrupo2(ArrayList<IMenu> menusPieGrupo2) {
+		this.menusPieGrupo2 = menusPieGrupo2;
+	}
+	public ArrayList<IGenMetas> getMetas() {
+		return metas;
+	}
+	public void setMetas(ArrayList<IGenMetas> metas) {
+		this.metas = metas;
+	}
+	public ArrayList<IGenScripts> getScripts() {
+		return scripts;
+	}
+	public void setScripts(ArrayList<IGenScripts> scripts) {
+		this.scripts = scripts;
+	}
+	public ArrayList<IGenStyles> getStyles() {
+		return styles;
+	}
+	public void setStyles(ArrayList<IGenStyles> styles) {
+		this.styles = styles;
+	}
+	public IGenImages getLogo() {
+		return logo;
+	}
+	public void setLogo(IGenImages logo) {
+		this.logo = logo;
+	}
+	public String getContenidoCargandoInicial() {
+		return contenidoCargandoInicial;
+	}
+	public void setContenidoCargandoInicial(String contenidoCargandoInicial) {
+		this.contenidoCargandoInicial = contenidoCargandoInicial;
+	}
+	public String getProperty(String file, String param) throws RemoteException {
+		return service.getProperty(file, param);
+	}
+	public IBDLDisponibilidad getDisponibilidad(
+			List<List<String>> distribuciones, List<String> roomCount, Calendar fechaIni,
+			Calendar fechaFin, String idSesion, String numero_pagina,
+			String codIdioma, String codZgeSup, boolean multihilo,
+			String codigosDeHotel, //2347##2380##4254
+			String sessionId)
+			throws Exception, RemoteException {
+		return service.getDisponibilidad(distribuciones, roomCount, fechaIni, fechaFin,
+				idSesion, numero_pagina, codIdioma, codZgeSup, multihilo,codigosDeHotel, sessionId);
+	}
+	
+	public IrqVillaAvailablePriceResponse getDisponibilidadHotelan(
+			String idioma,
+			String hotelId, String destinationId, String zoneId,
+			Calendar arrival, Integer nights, Integer adults, Integer children,
+			Integer infants,String sessionId
+			)
+			throws Exception, RemoteException {
+		return service.getVillaAvailableRich(idioma, hotelId, destinationId, zoneId, arrival, nights, adults, children, infants,sessionId);
+	}
+	public String getPaxesString(String adultos, String childs, String infants){
+		String ret="";
+		int adt;
+		int chd;
+		int inf;
+		try {adt=Integer.parseInt(adultos);} catch (Exception e) {adt=0;}
+		try {chd=Integer.parseInt(childs.split("-")[0]);} catch (Exception e) {chd=0;}
+		try {inf=Integer.parseInt(infants);} catch (Exception e) {inf=0;}
+		
+		if (adt==1){
+			ret+=adt+" "+this.getText("lang.gen.glo.Adulto");
+		}else{
+			ret+=adt+" "+this.getText("lang.gen.glo.Adultos");
+		}
+		if (chd==1){
+			ret+=" "+chd+" "+this.getText("lang.gen.glo.nino");
+		}else if (chd>1){
+			ret+=" "+chd+" "+this.getText("lang.gen.glo.ninos");
+		}
+		if (inf==1){
+			ret+=" "+inf+" "+this.getText("lang.gen.glo.bebe");
+		}else if (inf>1){
+			ret+=" "+inf+" "+this.getText("llang.gen.glo.bebes");
+		}
+		return ret;
+	}
+	public IBDLHotel bloquearReserva(IBDLHotel hotel,Calendar fechaEntrada,
+			Calendar fechaSalida, List<List<String>> distribuciones, int ofi,
+			String nombreContrato, String idi, String codigoHotel,
+			String codigoZona, String codigoClasificacion,
+			List<String> seleccion, String tokenDeDispo) throws Exception {
+		return service.bloquearReserva(hotel,fechaEntrada, fechaSalida,
+				distribuciones, ofi, nombreContrato, idi, codigoHotel,
+				codigoZona, codigoClasificacion, seleccion, tokenDeDispo);
+	}
+	public IBDLHotel confirmarReserva(String idi, String idReserva,
+			List<List<String>> distribuciones, IBDLHotel pHotel)
+			throws Exception {
+		return service.confirmarReserva(idi, idReserva, distribuciones, pHotel);
+	}
+	public IBdlReservas getReserva(int idReserva) throws Exception {
+		return service.getReserva(idReserva);
+	}
+	public IBdlReservas setReserva(IBdlReservas res) throws Exception {
+		return service.setReserva(res);
+	}
+	
+	
+	public String getRamdomString(int car){
+		SecureRandom s= new SecureRandom();
+		BigInteger r = new BigInteger(512,s);
+		String result = r.toString(16);
+		return result.substring(0,car);
+	}
+	public String sendVoucher(String idi, String numCuenta, int IdReserva)
+			throws Exception {
+		return service.sendVoucher(idi, numCuenta, IdReserva);
+	}
+	public String sendCancelVoucher(String idi, String numCuenta, int IdReserva)
+			throws Exception {
+		return service.sendCancelVoucher(idi, numCuenta, IdReserva);
+	}
+	public String reSendVoucher(String idi, String numCuenta, int IdReserva)
+			throws Exception {
+		return service.reSendVoucher(idi, numCuenta, IdReserva);
+	}
+	public String getVoucher(String idi, String numCuenta, int IdReserva) throws Exception {
+		return service.getVoucher(idi, numCuenta, IdReserva);
+	}
+	public IBdlReservas getUltimaFactura() throws Exception {
+		return service.getUltimaFactura();
+	}
+	public ArrayList<IGenBanners01> getBanners01(String idi) throws SQLException, Exception {
+		return service.getBanners01(idi);
+	}
+	public ArrayList<IGenBanners01> getLeftBanners() {
+		return leftBanners;
+	}
+	public IBDLHotel getHotelDetails(IBDLHotel hotel, String languageCode)
+			throws Exception {
+		return service.getHotelDetails(hotel, languageCode);
+	}
+	public IBDLHotel cancelValuation(IBDLHotel hotel, String language,
+			String locata, int officeCode) throws Exception {
+		return service.cancelValuation(hotel, language, locata, officeCode);
+	}
+	public IBDLHotel cancelConfirm(IBDLHotel hotel, String language,
+			String locata, int officeCode) throws Exception {
+		return service.cancelConfirm(hotel, language, locata, officeCode);
+	}
+	public IBDLHotel getHDetailFacilitesGrouped(IBDLHotel hotel,
+			String LanguageCode) throws Exception {
+		return service.getHDetailFacilitesGrouped(hotel, LanguageCode);
+	}
+	public IBDLHotel getHotelImages(IBDLHotel hotel, String languageCode)
+			throws Exception {
+		return service.getHotelImages(hotel, languageCode);
+	}
+	public IBDLHotel getHDetailImagesGrouped(IBDLHotel hotel,
+			String LanguageCode) throws Exception {
+		return service.getHDetailImagesGrouped(hotel, LanguageCode);
+	}
+	public IBDLHotel getHotel(String code, String languageCode) throws Exception {
+		return service.getHotel(code, languageCode);
+	}
+	public ArrayList<IBdlDestinations> getDestinations(String languageCode)
+			throws Exception {
+		return service.getDestinations(languageCode);
+	}
+	public ArrayList<IBDLHotel> getDestinationHotels(String destination)
+			throws Exception {
+		return service.getDestinationHotels(destination);
+	}
+	
+	
+	
+}

@@ -1,0 +1,21 @@
+<link rel="stylesheet" type="text/css" href="../style.css"/>
+<head>
+<title>Tables contents</title>
+</head>
+<body>
+<h1>Tables contents</h1>
+<h2>Differences between Basic and Extended users</h2>
+<br>
+Product Update basic users will have empty fields in some of the tables.  Only extended users can get this information.
+<br><br>
+<strong>HOTEL_DESCRIPTIONS</strong>
+<ul>
+<li>HOTELLOCATIONDESCRIPTION</li>
+<li>HOTELROOMDESCRIPTION</li>
+<li>HOTELSPORTDESCRIPTION</li>
+<li>HOTELMEALSDESCRIPTION</li>
+<li>HOTELPAYMENTMETHODS</li>
+</ul>
+<br><br>
+<center><a href="index.html">Back</a></center>
+</body>

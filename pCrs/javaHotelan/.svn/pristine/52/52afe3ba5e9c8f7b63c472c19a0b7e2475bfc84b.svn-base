@@ -1,0 +1,410 @@
+package com.photel.data.hotelan.ddbb;
+
+
+
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.log4j.Logger;
+import org.hibernate.Query;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import org.hibernate.transform.Transformers;
+
+import com.photel.commonServices.util.AppModelProperties;
+import com.photel.data.hotelan.ddbb.hibernate.HibernateSessionFactory;
+import com.photel.data.hotelan.ddbb.hibernate.pojo.HibernateCathegories;
+import com.photel.data.hotelan.ddbb.hibernate.pojo.HibernateDestinations;
+import com.photel.data.hotelan.ddbb.hibernate.pojo.HibernateHotel;
+import com.photel.data.hotelan.ddbb.hibernate.pojo.HibernateHotelImage;
+import com.photel.data.hotelan.ddbb.hibernate.pojo.HibernateIdLangPK;
+import com.photel.data.hotelan.ddbb.hibernate.pojo.HibernateRoomTypes;
+import com.photel.data.hotelan.ddbb.hibernate.pojo.HibernateZones;
+import com.photel.hotelan.client.IrqCathegoryList.Cathegory;
+import com.photel.hotelan.client.IrqDestinationList.Destination;
+import com.photel.hotelan.client.IrqHotelDetailsList.Hotel;
+import com.photel.hotelan.client.IrqRoomTypesList.Room;
+import com.photel.hotelan.client.IrqZoneList.Zone;
+
+
+public class HelperHibernateDDBBHotelan<C> {
+    private AppModelProperties properties;	
+	private Logger  log = Logger.getRootLogger();
+	private Map hotelsImages;
+	
+
+	
+	
+	
+	
+	public HelperHibernateDDBBHotelan() throws IOException {
+		super();
+		properties = new AppModelProperties();
+		hotelsImages=new HashMap<String, String>();
+	}
+	
+	
+
+	protected void finalize() throws Throwable {
+		HibernateSessionFactory.closeSession();
+		super.finalize();
+	}
+	public void clearSession(){
+		Session ses = getSession();
+		ses.clear();
+		ses.flush();
+	}
+
+	public void closeSession(){
+		HibernateSessionFactory.closeSession();
+	}
+
+	private Object copyClass(Object oFrom, Object oTo) throws IllegalArgumentException, IllegalAccessException, InvocationTargetException{
+		
+		if (!oFrom.getClass().getName().equals(oTo.getClass().getName())){
+			return null;
+		}
+		
+	    Method[] allMethodsFrom;
+	    Method[] allMethodsTo;
+	    String mnameF;
+	    String mnameIni;
+	    String mnameSetter;
+	    String mnameT;
+	    allMethodsFrom = oFrom.getClass().getMethods();
+	    allMethodsTo = oTo.getClass().getMethods();
+	    for (Method mf : allMethodsFrom) {
+	    	mnameF = mf.getName();
+	    	mnameIni=mnameF.substring(0, 3);
+	    	if (mnameIni.equals("get")){
+	    		for (Method mt : allMethodsTo) {
+	    			mnameT = mt.getName();
+	    			mnameSetter="set"+mnameF.substring(3, mnameF.length());
+	    	    	if (mnameSetter.equals(mnameT)){
+	    	    		Object r1 = mf.invoke(oFrom);
+	    	    		mt.invoke(oTo, r1);
+	    	    	}
+	    	    	
+	     		}
+	    	}
+	    	
+ 		}
+	   
+		
+		return oTo; 
+	}
+	
+	public Object getInstance(String classe) throws ClassNotFoundException, InstantiationException, IllegalAccessException{
+		Object ret=null;
+		Class<Object> fc = (Class<Object>) Class.forName("com.globalia.data.gen.ddbb.hibernate.pojo."+classe);
+		ret = fc.newInstance();
+		return ret;
+	}
+	
+
+	
+	private Session getSession(){
+		return HibernateSessionFactory.getSession();
+	}
+	
+	
+	public static void init(){
+		try{
+		
+		HibernateSessionFactory.getSession().clear();
+		
+		
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+	}
+	public Map<String,Map<String,String>> getBoards(){
+		Map<String,Map<String,String>> boards=new HashMap<String,Map<String,String>>();
+		String sql;
+		sql="select * from boardTypes";
+		List<Map<String,String>> boardsDDBB = HibernateSessionFactory.getSession().createSQLQuery(sql).setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP).list();
+		for (Map<String,String> b:boardsDDBB){
+			String lang=b.get("lang");
+			if (lang!=null && !boards.containsKey(lang)){
+				boards.put(lang, new HashMap<String,String>());
+			}
+			boards.get(lang).put(b.get("id"), b.get("description"));
+		}
+		return boards;
+	}
+	public Map<String,Map<String,String>> getZones(){
+		Map<String,Map<String,String>> ret=new HashMap<String,Map<String,String>>();
+		String sql;
+		sql="select * from zones";
+		ArrayList<HibernateZones> objs = (ArrayList<HibernateZones>) HibernateSessionFactory.getSession().createSQLQuery(sql).addEntity(HibernateZones.class).list();
+		for (HibernateZones obj:objs){
+			String lang=obj.getLang();
+			if (lang!=null && !ret.containsKey(lang)){
+				ret.put(lang, new HashMap<String,String>());
+			}
+			ret.get(lang).put(String.valueOf(obj.getId()), obj.getDescription());
+		}
+		return ret;
+	}
+	public Map<String,Map<String,String>> getDestinations(){
+		Map<String,Map<String,String>> ret=new HashMap<String,Map<String,String>>();
+		String sql;
+		sql="select * from destinations";
+		ArrayList<HibernateDestinations> objs = (ArrayList<HibernateDestinations>) HibernateSessionFactory.getSession().createSQLQuery(sql).addEntity(HibernateDestinations.class).list();
+		for (HibernateDestinations obj:objs){
+			String lang=obj.getLang();
+			if (lang!=null && !ret.containsKey(lang)){
+				ret.put(lang, new HashMap<String,String>());
+			}
+			ret.get(lang).put(String.valueOf(obj.getId()), obj.getDescription());
+		}
+		return ret;
+	}
+	public Map<String,Map<String,String>> getCathegories(){
+		Map<String,Map<String,String>> ret=new HashMap<String,Map<String,String>>();
+		String sql;
+		sql="select * from cathegories";
+		ArrayList<HibernateCathegories> objs = (ArrayList<HibernateCathegories>) HibernateSessionFactory.getSession().createSQLQuery(sql).addEntity(HibernateCathegories.class).list();
+		for (HibernateCathegories obj:objs){
+			String lang=obj.getLang();
+			if (lang!=null && !ret.containsKey(lang)){
+				ret.put(lang, new HashMap<String,String>());
+			}
+			ret.get(lang).put(String.valueOf(obj.getId()), obj.getDescription());
+		}
+		return ret;
+	}
+	public Map<String,Map<String,String>> getRoomTypes(){
+		Map<String,Map<String,String>> ret=new HashMap<String,Map<String,String>>();
+		String sql;
+		sql="select * from roomtypes";
+		ArrayList<HibernateRoomTypes> objs = (ArrayList<HibernateRoomTypes>) HibernateSessionFactory.getSession().createSQLQuery(sql).addEntity(HibernateRoomTypes.class).list();
+		for (HibernateRoomTypes obj:objs){
+			String lang=obj.getLang();
+			if (lang!=null && !ret.containsKey(lang)){
+				ret.put(lang, new HashMap<String,String>());
+			}
+			ret.get(lang).put(String.valueOf(obj.getId()), obj.getDescription());
+		}
+		return ret;
+	}
+	public List<HibernateHotel> setHotels(List<Hotel> hotels,String lang) throws SQLException, Exception{
+		List<HibernateHotel> ret=null;
+		if(hotels!=null && hotels.size()>0){
+			ret=new ArrayList<HibernateHotel>();
+			deleteHotels(lang);
+			for(Hotel hotel:hotels){
+				ret.add(this.setHotel(hotel,lang));
+				this.setHotelImages(hotel);
+			}
+		}
+		return ret;
+	}
+	public List<HibernateZones> setZones(List<Zone> objArr,String lang) throws SQLException, Exception{
+		List<HibernateZones> ret=null;
+		if(objArr!=null && objArr.size()>0){
+			ret=new ArrayList<HibernateZones>();
+			deleteZones(lang);
+			for(Zone obj:objArr){
+				ret.add(this.setZone(obj,lang));
+			}
+		}
+		return ret;
+	}
+	public List<HibernateCathegories> setCathegories(List<Cathegory> objArr,String lang) throws SQLException, Exception{
+		List<HibernateCathegories> ret=null;
+		if(objArr!=null && objArr.size()>0){
+			ret=new ArrayList<HibernateCathegories>();
+			deleteCathegories(lang);
+			for(Cathegory obj:objArr){
+				ret.add(this.setCathegory(obj,lang));
+			}
+		}
+		return ret;
+	}
+	public List<HibernateDestinations> setDestinations(List<Destination> objArr,String lang) throws SQLException, Exception{
+		List<HibernateDestinations> ret=null;
+		if(objArr!=null && objArr.size()>0){
+			ret=new ArrayList<HibernateDestinations>();
+			deleteDestinations(lang);
+			for(Destination obj:objArr){
+				ret.add(this.setDestination(obj,lang));
+			}
+		}
+		return ret;
+	}
+	public List<HibernateRoomTypes> setRoomTypes(List<Room> objArr,String lang) throws SQLException, Exception{
+		List<HibernateRoomTypes> ret=null;
+		if(objArr!=null && objArr.size()>0){
+			ret=new ArrayList<HibernateRoomTypes>();
+			deleteRoomTypes(lang);
+			for(Room obj:objArr){
+				ret.add(this.setRoomType(obj,lang));
+			}
+		}
+		return ret;
+	}
+	public void setHotelImages(Hotel hotel) throws SQLException, Exception{
+		if (!hotelsImages.containsKey(hotel.getId())){
+			if (hotel.getImages()!=null && hotel.getImages().getImage()!=null && hotel.getImages().getImage().size()>0){
+				hotelsImages.put(hotel.getId(),hotel.getId());
+				int hotelId = Integer.parseInt(hotel.getType().getId());
+				Transaction tx = getSession().beginTransaction();
+				tx.begin();
+				for (String image:hotel.getImages().getImage()){
+					HibernateHotelImage himage = new  HibernateHotelImage();
+					himage.setHotelId(hotelId);
+					himage.setImage(image);
+			    	
+			    	
+			    	getSession().save(himage);
+			    	
+				}
+				tx.commit();
+			}
+		}
+	}
+	public HibernateHotel setHotel(Hotel hotel,String lang) throws SQLException, Exception{
+		
+		HibernateIdLangPK pk=new HibernateIdLangPK();
+		pk.setId(Integer.parseInt(hotel.getId()));
+		pk.setLang(lang);
+		HibernateHotel hhotel = new  HibernateHotel(pk);
+		hhotel.setName(hotel.getName());
+		hhotel.setTypeId(Integer.parseInt(hotel.getType().getId()));
+		hhotel.setTypeDes(hotel.getType().getDescription());
+		hhotel.setCatId(Integer.parseInt(hotel.getCategory().getId()));
+		hhotel.setCatDes(hotel.getCategory().getDescription());
+		hhotel.setDestinationId(Integer.parseInt(hotel.getDestination().getId()));
+		hhotel.setDestinationDes(hotel.getDestination().getDescription());
+		hhotel.setZoneId(Integer.parseInt(hotel.getZone().getId()));
+		hhotel.setZoneDes(hotel.getZone().getDescription());
+		hhotel.setAddress(hotel.getAddress());
+		hhotel.setZipCode(hotel.getZipCode());
+		hhotel.setRegion(hotel.getRegion().toString());
+		hhotel.setCountry(hotel.getCountry());
+		hhotel.setTelephone(hotel.getTelephone());
+		hhotel.setFax(hotel.getFax().toString());
+		hhotel.setWeb(hotel.getWeb());
+		hhotel.setEmail(hotel.getEmail());
+		hhotel.setActive(Integer.parseInt(hotel.getActive()));
+		hhotel.setAcces(hotel.getAcces());
+		hhotel.setDetails(hotel.getDetails());
+    	Transaction tx = getSession().beginTransaction();
+    	tx.begin();
+    	
+    	getSession().save(hhotel);
+    	tx.commit();
+		return hhotel;
+	}
+	public HibernateZones setZone(Zone obj,String lang) throws SQLException, Exception{
+		HibernateIdLangPK pk=new HibernateIdLangPK();
+		pk.setId(Integer.parseInt(obj.getId()));
+		pk.setLang(lang);
+		HibernateZones hi=new HibernateZones(pk);
+		hi.setLang(lang);
+		hi.setDescription(obj.getDescription());
+    	Transaction tx = getSession().beginTransaction();
+    	tx.begin();
+    	getSession().save(hi);
+    	tx.commit();
+		return hi;
+	}
+	public HibernateCathegories setCathegory(Cathegory  obj,String lang) throws SQLException, Exception{
+		HibernateIdLangPK pk=new HibernateIdLangPK();
+		pk.setId(Integer.parseInt(obj.getId()));
+		pk.setLang(lang);
+		HibernateCathegories hi=new HibernateCathegories(pk);
+		hi.setLang(lang);
+		hi.setDescription(obj.getDescription());
+    	Transaction tx = getSession().beginTransaction();
+    	tx.begin();
+    	getSession().save(hi);
+    	tx.commit();
+		return hi;
+	}
+	public HibernateDestinations setDestination(Destination  obj,String lang) throws SQLException, Exception{
+		HibernateIdLangPK pk=new HibernateIdLangPK();
+		pk.setId(Integer.parseInt(obj.getId()));
+		pk.setLang(lang);
+		HibernateDestinations hi=new HibernateDestinations(pk);
+		hi.setLang(lang);
+		hi.setDescription(obj.getDescription());
+    	Transaction tx = getSession().beginTransaction();
+    	tx.begin();
+    	getSession().save(hi);
+    	tx.commit();
+		return hi;
+	}
+	public HibernateRoomTypes setRoomType(Room obj,String lang) throws SQLException, Exception{
+		HibernateIdLangPK pk=new HibernateIdLangPK();
+		pk.setId(Integer.parseInt(obj.getId()));
+		pk.setLang(lang);
+		HibernateRoomTypes hi=new HibernateRoomTypes(pk);
+		hi.setLang(lang);
+		hi.setDescription(obj.getDescription());
+    	Transaction tx = getSession().beginTransaction();
+    	tx.begin();
+    	getSession().save(hi);
+    	tx.commit();
+		return hi;
+	}
+	public int deleteImages() throws SQLException, Exception{
+		String sql="delete from hotelsimages";
+		Transaction tx = getSession().beginTransaction();
+    	tx.begin();
+		Session s = getSession(); 
+	    int rowsAffected = 0; 
+	    Query q = s.createSQLQuery( sql ); 
+	    rowsAffected = q.executeUpdate();
+	    tx.commit();
+	    return rowsAffected; 
+	}
+	public int initImagesAutoIncrement() throws SQLException, Exception{
+		String sql="ALTER TABLE hotelsimages AUTO_INCREMENT = 1";
+		Transaction tx = getSession().beginTransaction();
+    	tx.begin();
+		Session s = getSession(); 
+	    int rowsAffected = 0; 
+	    Query q = s.createSQLQuery( sql ); 
+	    rowsAffected = q.executeUpdate();
+	    tx.commit();
+	    return rowsAffected; 
+	}
+	public int deleteObjects(String sql) throws SQLException, Exception{
+		Transaction tx = getSession().beginTransaction();
+    	tx.begin();
+		Session s = getSession(); 
+	    int rowsAffected = 0; 
+	    Query q = s.createSQLQuery( sql ); 
+	    rowsAffected = q.executeUpdate();
+	    tx.commit();
+	    return rowsAffected; 
+	}	
+	public int deleteHotels(String lang) throws SQLException, Exception{
+		String sql="delete from hotels where lang='"+lang+"'";
+	    return deleteObjects(sql); 
+	}			
+	public int deleteZones(String lang) throws SQLException, Exception{
+		String sql="delete from zones where lang='"+lang+"'";
+		return deleteObjects(sql); 
+	}	
+	public int deleteCathegories(String lang) throws SQLException, Exception{
+		String sql="delete from cathegories where lang='"+lang+"'";
+		return deleteObjects(sql); 
+	}	
+	public int deleteDestinations(String lang) throws SQLException, Exception{
+		String sql="delete from destinations where lang='"+lang+"'";
+		return deleteObjects(sql); 
+	}	
+	public int deleteRoomTypes(String lang) throws SQLException, Exception{
+		String sql="delete from roomtypes where lang='"+lang+"'";
+		return deleteObjects(sql); 
+	}	
+}

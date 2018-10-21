@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<LANGUAGES>
+  <LANGUAGE NAME="Español" DEFAULT="TRUE">
+  <FILE>spanish.xml</FILE>
+  <LICENSE>spanish</LICENSE>
+ </LANGUAGE>
+ <LANGUAGE NAME="English" DEFAULT="FALSE">
+  <FILE>english.xml</FILE>
+  <LICENSE>english</LICENSE>
+ </LANGUAGE>
+ <!--LANGUAGE NAME="Francaise" DEFAULT="FALSE">
+  <FILE>french.xml</FILE>
+  <LICENSE>french</LICENSE>
+ </LANGUAGE-->
+</LANGUAGES>

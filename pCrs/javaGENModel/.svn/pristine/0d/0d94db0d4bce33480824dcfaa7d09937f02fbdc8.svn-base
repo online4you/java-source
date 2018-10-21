@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.photel.mail.data.ddbb.hibernate.pojo">
+	<class
+		name="GenMailTemplatesAtt"
+		table="GEN_MAIL_TEMPLATES_ATT"
+	>
+		<meta attribute="sync-DAO">false</meta>
+	<composite-id name="Id" class="GenMailTemplatesAttPK">
+			<key-property
+				name="GmaLang"
+				column="GMA_LANG"
+				type="string"
+				length="2"
+			/>
+			<key-property
+				name="GmaTitle"
+				column="GMA_TITLE"
+				type="string"
+				length="32"
+			/>
+			<key-property
+				name="GmaFilename"
+				column="GMA_FILENAME"
+				type="string"
+				length="32"
+			/>
+		</composite-id>
+		<property
+			name="GmaContentType"
+			column="GMA_CONTENTTYPE"
+			type="string"
+			not-null="false"
+		/>
+		<property
+			name="GmaAttahment"
+			column="GMA_ATTACHMENT"
+			type="binary"
+			not-null="false"
+		/>
+		<property
+			name="GmaVal"
+			column="GMA_VAL"
+			type="string"
+			not-null="false"
+			length="1"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

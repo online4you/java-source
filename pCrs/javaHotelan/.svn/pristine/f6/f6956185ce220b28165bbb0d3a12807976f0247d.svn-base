@@ -1,0 +1,29 @@
+package com.photel.data.hotelan.ddbb.hibernate.pojo;
+
+public class HibernateCathegories {
+	private Integer id;
+	private String lang;
+	private String description;
+	public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getLang() {
+		return lang;
+	}
+	public void setLang(String lang) {
+		this.lang = lang;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	
+	
+	
+	
+}

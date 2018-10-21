@@ -1,0 +1,2 @@
+SET CLASSPATH=.;C:/dev/Java/workspace/javaBDLPersistence/bin;C:/dev/Java/workspace/javaBDLPersistence/lib/javaCommonServices.jar;C:/dev/Java/workspace/javaBDLPersistence/lib/javaCommons.jar;C:/dev/Java/workspace/javaBDLPersistence/lib/javaLibreriasExternas.jar
+java com.photel.data.BDL.BdlMain

@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">
+
+<tiles-definitions>
+	<!--  Definició genèrica -->
+	<definition name="LayoutBDL" template="/common/jsp/templates/flujoBDL/plantilla.jsp">
+	     	<put-attribute name="head" value="/common/jsp/templates/flujoBDL/head.jsp"/>
+	     	<put-attribute name="header" value="/common/jsp/templates/flujoBDL/header.jsp"/>
+			<put-attribute name="content" value="LayoutBDL.dispo.content" />
+		   	<put-attribute name="footer" value="/common/jsp/templates/flujoBDL/footer.jsp"/>
+	</definition>
+	
+	<!--  Definició contenido -->
+	<definition name="LayoutBDL.dispo.content" template="/common/jsp/templates/flujoBDL/disponibilidad.jsp">
+			<put-attribute name="telefono" value="/apps/crs/flujoBDL/telefono.jsp"/>
+			<put-attribute name="datosReserva" value="/apps/crs/flujoBDL/datosReserva.jsp"/>
+			<put-attribute name="filtro" value="/apps/crs/flujoBDL/filtro.jsp"/>
+			<!-- provisional -->
+			<put-attribute name="newsLetters" value="/apps/crs/flujoBDL/newsLetters.jsp"/>
+			<put-attribute name="banners" value="/apps/crs/flujoBDL/banners.jsp"/>
+			<!--  -->
+			<put-attribute name="listadoHoteles" value="/apps/crs/flujoBDL/listadoHoteles.jsp"/>
+	</definition>
+	<definition name="LayoutBDL.datosPasajeros.content" template="/common/jsp/templates/flujoBDL/datosPasajeros.jsp">
+			<put-attribute name="telefono" value="/apps/crs/flujoBDL/telefono.jsp"/>
+			<put-attribute name="reserveSuHotel" value="/apps/crs/flujoBDL/reserveSuHotel.jsp"/>
+			<put-attribute name="datosReserva" value="/apps/crs/flujoBDL/datosReserva.jsp"/>
+			<put-attribute name="newsLetters" value="/apps/crs/flujoBDL/newsLetters.jsp"/>
+			<put-attribute name="banners" value="/apps/crs/flujoBDL/banners.jsp"/>
+			<put-attribute name="datos" value="/apps/crs/flujoBDL/datosDeLosPasajeros.jsp"/>
+	</definition>
+	<definition name="LayoutBDL.detalleHotel.content" template="/common/jsp/templates/flujoBDL/detalleHotel.jsp">
+			<put-attribute name="telefono" value="/apps/crs/flujoBDL/telefono.jsp"/>
+			<put-attribute name="reserveSuHotel" value="/apps/crs/flujoBDL/reserveSuHotel.jsp"/>
+			<put-attribute name="newsLetters" value="/apps/crs/flujoBDL/newsLetters.jsp"/>
+			<put-attribute name="banners" value="/apps/crs/flujoBDL/banners.jsp"/>
+			<put-attribute name="detalleHotelContent" value="/apps/crs/flujoBDL/detalleDelHotel.jsp"/>
+	</definition>
+	<definition name="LayoutBDL.destinos.content" template="/common/jsp/templates/flujoBDL/destinos.jsp">
+			<put-attribute name="telefono" value="/apps/crs/flujoBDL/telefono.jsp"/>
+			<put-attribute name="reserveSuHotel" value="/apps/crs/flujoBDL/reserveSuHotel.jsp"/>
+			<put-attribute name="newsLetters" value="/apps/crs/flujoBDL/newsLetters.jsp"/>
+			<put-attribute name="banners" value="/apps/crs/flujoBDL/banners.jsp"/>
+			<put-attribute name="destinosContent" value="/apps/crs/flujoBDL/destinos.jsp"/>
+	</definition>
+	<definition name="LayoutBDL.hotelesDestino.content" template="/common/jsp/templates/flujoBDL/hotelesDestino.jsp">
+			<put-attribute name="telefono" value="/apps/crs/flujoBDL/telefono.jsp"/>
+			<put-attribute name="reserveSuHotel" value="/apps/crs/flujoBDL/reserveSuHotel.jsp"/>
+			<put-attribute name="newsLetters" value="/apps/crs/flujoBDL/newsLetters.jsp"/>
+			<put-attribute name="banners" value="/apps/crs/flujoBDL/banners.jsp"/>
+			<put-attribute name="hotelesDestinoContent" value="/apps/crs/flujoBDL/hotelesDestino.jsp"/>
+	</definition>
+	 
+  
+  <!--  Definició RESULT -->  
+  <definition name="disponibilidadBDL" extends="LayoutBDL">
+      <put-attribute name="content" value="LayoutBDL.dispo.content" />
+  </definition>
+  <definition name="datosPasajerosBDL" extends="LayoutBDL">
+      <put-attribute name="content" value="LayoutBDL.datosPasajeros.content" />
+  </definition>
+  <definition name="detalleHotelBDL" extends="LayoutBDL">
+      <put-attribute name="content" value="LayoutBDL.detalleHotel.content" />
+  </definition>
+  <definition name="destinosBDL" extends="LayoutBDL">
+      <put-attribute name="content" value="LayoutBDL.destinos.content" />
+  </definition>
+  <definition name="hotelesDestinoBDL" extends="LayoutBDL">
+      <put-attribute name="content" value="LayoutBDL.hotelesDestino.content" />
+  </definition>
+    
+  <!-- Resultados simples -->
+  	<definition name="genericMap" template="/common/jsp/Maps/genericMap.jsp"/>
+  	<definition name="preReservaBDL" template="/apps/crs/flujoBDL/preReserva.jsp"/>
+  	<definition name="respuestaCecaBDL" template="/apps/crs/flujoBDL/respuestaCeca.jsp"/>
+  	<definition name="pago" template="/apps/crs/flujoBDL/pago.jsp"/>
+	<definition name="notFoundMoved" template="/apps/crs/notFoundMoved.jsp"/>
+  	<definition name="pagoOK" template="/apps/crs/flujoBDL/pagoOK.jsp"/>
+  	<definition name="pagoTransfer" template="/apps/crs/flujoBDL/pagoTransfer.jsp"/>
+  	<definition name="cancelaImprimeEnvia" template="/apps/crs/flujoBDL/cancelaImprimeEnvia.jsp">
+  		<put-attribute name="head" value="/common/jsp/templates/flujoBDL/head.jsp"/>
+  	</definition>
+  	<definition name="pagoKO" template="/apps/crs/flujoBDL/pagoKO.jsp"/>
+  	<definition name="showMessage" template="/apps/crs/flujoBDL/showMessage.jsp"/>
+
+
+ <!-- Templates Hotelan -->
+  <definition name="LayoutHotelan" template="/common/jsp/templates/flujoHotelan/plantilla.jsp">
+	     	<put-attribute name="head" value="/common/jsp/templates/flujoHotelan/head.jsp"/>
+	     	<put-attribute name="header" value="/common/jsp/templates/flujoHotelan/header.jsp"/>
+			<put-attribute name="content" value="flujoHotelan.dispo.content" />
+		   	<put-attribute name="footer" value="/common/jsp/templates/flujoHotelan/footer.jsp"/>
+	</definition>
+  <definition name="LayoutHotelan.dispo.content" template="/common/jsp/templates/flujoHotelan/disponibilidad.jsp">
+			<put-attribute name="telefono" value="/apps/crs/flujoHotelan/telefono.jsp"/>
+			<put-attribute name="datosReserva" value="/apps/crs/flujoHotelan/datosReserva.jsp"/>
+			<put-attribute name="filtro" value="/apps/crs/flujoHotelan/filtro.jsp"/>
+			<!-- provisional -->
+			<put-attribute name="newsLetters" value="/apps/crs/flujoHotelannewsLetters.jsp"/>
+			<put-attribute name="banners" value="/apps/crs/flujoHotelan/banners.jsp"/>
+			<!--  -->
+			<put-attribute name="listadoHoteles" value="/apps/crs/flujoHotelan/listadoHoteles.jsp"/>
+	</definition>
+	
+	<!--  Definició RESULT -->  
+  <definition name="disponibilidadHotelan" extends="LayoutHotelan">
+      <put-attribute name="content" value="LayoutHotelan.dispo.content" />
+  </definition>
+	
+</tiles-definitions>

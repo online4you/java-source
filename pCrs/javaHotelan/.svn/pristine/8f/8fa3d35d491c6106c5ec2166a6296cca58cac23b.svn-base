@@ -1,0 +1,588 @@
+package com.photel.hotelan.client;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.io.StringReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Calendar;
+import java.util.Properties;
+
+import javax.xml.bind.JAXBContext;
+import javax.xml.bind.Unmarshaller;
+
+import org.apache.commons.codec.binary.Base64;
+import org.apache.log4j.Logger;
+
+import com.photel.commonServices.util.AppModelProperties;
+import com.photel.commonServices.util.SystemHelper;
+import com.photel.hotelan.client.IrqAvailability.IrqAvailabilityObjectFactory;
+import com.photel.hotelan.client.IrqAvailability.IrqAvailabilityResponse;
+import com.photel.hotelan.client.IrqCathegoryList.IrqCathegoryListObjectFactory;
+import com.photel.hotelan.client.IrqCathegoryList.IrqCathegoryListResponse;
+import com.photel.hotelan.client.IrqDestinationList.IrqDestinationListObjectFactory;
+import com.photel.hotelan.client.IrqDestinationList.IrqDestinationListResponse;
+import com.photel.hotelan.client.IrqDestinationZoneList.IrqDestinationZoneListObjectFactory;
+import com.photel.hotelan.client.IrqDestinationZoneList.IrqDestinationZoneListResponse;
+import com.photel.hotelan.client.IrqHotelAvailabilityDates.IrqHotelAvailabilityDatesObjectFactory;
+import com.photel.hotelan.client.IrqHotelAvailabilityDates.IrqHotelAvailabilityDatesResponse;
+import com.photel.hotelan.client.IrqHotelAvailablePrice.IrqHotelAvailablePriceObjectFactory;
+import com.photel.hotelan.client.IrqHotelAvailablePrice.IrqHotelAvailablePriceResponse;
+import com.photel.hotelan.client.IrqHotelBookingDates.IrqHotelBookingDatesObjectFactory;
+import com.photel.hotelan.client.IrqHotelBookingDates.IrqHotelBookingDatesResponse;
+import com.photel.hotelan.client.IrqHotelConfirmReservation.IrqHotelConfirmReservationObjectFactory;
+import com.photel.hotelan.client.IrqHotelConfirmReservation.IrqHotelConfirmReservationResponse;
+import com.photel.hotelan.client.IrqHotelDetailsList.IrqHotelDetailsListObjectFactory;
+import com.photel.hotelan.client.IrqHotelDetailsList.IrqHotelDetailsListResponse;
+import com.photel.hotelan.client.IrqHotelList.IrqHotelListObjectFactory;
+import com.photel.hotelan.client.IrqHotelList.IrqHotelListResponse;
+import com.photel.hotelan.client.IrqHotelNonAvailability.IrqHotelNonAvailabilityObjectFactory;
+import com.photel.hotelan.client.IrqHotelNonAvailability.IrqHotelNonAvailabilityResponse;
+import com.photel.hotelan.client.IrqHotelPreReservation.IrqHotelPreReservationObjectFactory;
+import com.photel.hotelan.client.IrqHotelPreReservation.IrqHotelPreReservationResponse;
+import com.photel.hotelan.client.IrqRoomTypesList.IrqRoomTypesListObjectFactory;
+import com.photel.hotelan.client.IrqRoomTypesList.IrqRoomTypesListResponse;
+import com.photel.hotelan.client.IrqVillaAvailablePrice.IrqVillaAvailablePriceObjectFactory;
+import com.photel.hotelan.client.IrqVillaAvailablePrice.IrqVillaAvailablePriceResponse;
+import com.photel.hotelan.client.IrqVillaConfirmReservation.IrqVillaConfirmReservationObjectFactory;
+import com.photel.hotelan.client.IrqVillaConfirmReservation.IrqVillaConfirmReservationResponse;
+import com.photel.hotelan.client.IrqVillaPreReservation.IrqVillaPreReservationObjectFactory;
+import com.photel.hotelan.client.IrqVillaPreReservation.IrqVillaPreReservationResponse;
+import com.photel.hotelan.client.IrqZoneList.IrqZoneListObjectFactory;
+import com.photel.hotelan.client.IrqZoneList.IrqZoneListResponse;
+
+public class HotelanClientStub {
+	private static Logger  oLog=Logger.getLogger(HotelanClientStub.class);
+	
+	public static String endpoint;
+	public static String user;
+	public static String password;
+	public static String agencia;
+	public static String urlBase;
+	public static String proxyHost;
+	public static String proxyPort;
+	public static String proxyUser;
+	public static String proxyPassword;
+	
+	
+	public HotelanClientStub(){
+		AppModelProperties prop;
+		try {
+			prop = new AppModelProperties();
+			endpoint=prop.getProperty("com.photel.HotelanEndpoint");
+			user=prop.getProperty("com.photel.HotelanUser");
+			password=prop.getProperty("com.photel.HotelanPassword");
+			agencia=prop.getProperty("com.photel.HotelanIdAgencia");
+			proxyHost=null;
+			proxyPort=null;
+			if (prop.containsKey("com.photel.proxyHost")){
+				proxyHost=prop.getProperty("com.photel.proxyHost");
+			}
+			if (prop.containsKey("com.photel.proxyPort")){
+				proxyPort=prop.getProperty("com.photel.proxyPort");
+			}
+			if (prop.containsKey("com.photel.proxyUser")){
+				proxyUser=prop.getProperty("com.photel.proxyUser");
+			}
+			if (prop.containsKey("com.photel.proxyPassword")){
+				proxyPassword=prop.getProperty("com.photel.proxyPassword");
+			}
+			urlBase=endpoint+"?"+"us="+user+"&pw="+password+"&id_agencia="+agencia;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	/*Idioma:
+	‘es’ = Español ***
+	‘en’ = Inglés
+	‘de’ = Alemán
+	*/
+	
+	
+	private String doCall(String urlQueryString) throws Exception {
+		oLog.info("Ini About to Query:\n"+urlBase+urlQueryString);
+		URL url = new URL(urlBase+urlQueryString);
+		HttpURLConnection huc = (HttpURLConnection)url.openConnection();
+		huc.setDoOutput(true);
+		huc.setDoInput(true);
+		huc.setRequestMethod("GET");
+		huc.setConnectTimeout(120000);
+		if (proxyHost!=null && proxyPort!=null){
+			Properties systemProperties = System.getProperties();
+			systemProperties.setProperty("http.proxyHost",proxyHost);
+			systemProperties.setProperty("http.proxyPort",proxyPort);
+			if (user!=null && password!=null){
+				String encoded = new String(Base64.encodeBase64(new String(proxyUser+":"+proxyPassword).getBytes()));
+				huc.setRequestProperty("Proxy-Authorization", "Basic " + encoded);
+			}
+		}
+		
+		OutputStream out = huc.getOutputStream();
+		out.flush();
+		//Read the response
+		BufferedReader in = new BufferedReader( new InputStreamReader(huc.getInputStream()));
+		String ret="";
+		while (true) {
+			String line = in.readLine();
+			if (line == null) break;
+			ret += line;
+		}
+		
+		in.close();
+		out.close();
+		huc.disconnect();
+		oLog.info("End");
+		return ret;
+}
+	public IrqAvailabilityResponse getIrqAvailability(String hotelid, String year) throws Exception{
+		String pet="&peticion=IrqAvailability";
+		pet=hotelid!=null?pet+"&hotelid="+hotelid:pet;
+		pet=year!=null?pet+"&year="+year:pet;
+		String res = doCall(pet);
+		
+		IrqAvailabilityObjectFactory factory=new IrqAvailabilityObjectFactory();
+		JAXBContext jaxbContext = JAXBContext.newInstance(IrqAvailabilityResponse.class);
+		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+		StringReader reader = new StringReader(res);
+		IrqAvailabilityResponse ret = (IrqAvailabilityResponse) jaxbUnmarshaller.unmarshal(reader);
+		
+		return ret;
+		
+	}
+	public IrqHotelBookingDatesResponse getIrqHotelBookingDates(String hotelid, Boolean myInfo, Calendar dateBegin, Calendar dateEnd) throws Exception{
+		String pet="&peticion=IrqHotelBookingDates";
+		pet=hotelid!=null?pet+"&hotelid="+hotelid:pet;
+		pet=myInfo!=null?pet+"&myInfo="+(myInfo?1:0):pet;
+		pet=dateBegin!=null?pet+"&dateBegin="+SystemHelper.getCalendarTo_YYYY_MM_dd(dateBegin):pet;
+		pet=dateEnd!=null?pet+"&dateEnd="+SystemHelper.getCalendarTo_YYYY_MM_dd(dateEnd):pet;
+		String res = doCall(pet);
+		
+		IrqHotelBookingDatesObjectFactory factory=new IrqHotelBookingDatesObjectFactory();
+		JAXBContext jaxbContext = JAXBContext.newInstance(IrqHotelBookingDatesResponse.class);
+		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+		StringReader reader = new StringReader(res);
+		IrqHotelBookingDatesResponse ret = (IrqHotelBookingDatesResponse) jaxbUnmarshaller.unmarshal(reader);
+		
+		return ret;
+	}
+	public IrqHotelAvailabilityDatesResponse getIrqHotelAvailabilityDates(String hotelid, Boolean myInfo, Calendar dateBegin, Calendar dateEnd) throws Exception{
+		String pet="&peticion=IrqHotelAvailabilityDates";
+		pet=hotelid!=null?pet+"&hotelid="+hotelid:pet;
+		pet=myInfo!=null?pet+"&myInfo="+(myInfo?1:0):pet;
+		pet=dateBegin!=null?pet+"&dateBegin="+SystemHelper.getCalendarTo_YYYY_MM_dd(dateBegin):pet;
+		pet=dateEnd!=null?pet+"&dateEnd="+SystemHelper.getCalendarTo_YYYY_MM_dd(dateEnd):pet;
+		String res = doCall(pet);
+		
+		IrqHotelAvailabilityDatesObjectFactory factory=new IrqHotelAvailabilityDatesObjectFactory();
+		JAXBContext jaxbContext = JAXBContext.newInstance(IrqHotelAvailabilityDatesResponse.class);
+		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+		StringReader reader = new StringReader(res);
+		IrqHotelAvailabilityDatesResponse ret = (IrqHotelAvailabilityDatesResponse) jaxbUnmarshaller.unmarshal(reader);
+		
+		return ret;
+	}
+	
+	public IrqHotelNonAvailabilityResponse getIrqHotelNonAvailability(String hotelid, String year) throws Exception{
+		String pet="&peticion=IrqHotelNonAvailability";
+		pet=hotelid!=null?pet+"&hotelid="+hotelid:pet;
+		pet=year!=null?pet+"&year="+year:pet;
+		String res = doCall(pet);
+		
+		IrqHotelNonAvailabilityObjectFactory factory=new IrqHotelNonAvailabilityObjectFactory();
+		JAXBContext jaxbContext = JAXBContext.newInstance(IrqHotelNonAvailabilityResponse.class);
+		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+		StringReader reader = new StringReader(res);
+		IrqHotelNonAvailabilityResponse ret = (IrqHotelNonAvailabilityResponse) jaxbUnmarshaller.unmarshal(reader);
+		
+		return ret;
+		
+	}
+	
+	public IrqDestinationListResponse getIrqDestinationList(String idioma) throws Exception{
+		String pet="&peticion=IrqDestinationList";
+		pet=idioma!=null?pet+"&le="+idioma:pet;
+		String res = doCall(pet);
+		
+		IrqDestinationListObjectFactory factory=new IrqDestinationListObjectFactory();
+		JAXBContext jaxbContext = JAXBContext.newInstance(IrqDestinationListResponse.class);
+		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+		StringReader reader = new StringReader(res);
+		IrqDestinationListResponse ret = (IrqDestinationListResponse) jaxbUnmarshaller.unmarshal(reader);
+		
+		return ret;
+		
+	}
+	public IrqZoneListResponse getIrqZoneList(String idioma) throws Exception{
+		String pet="&peticion=IrqZoneList";
+		pet=idioma!=null?pet+"&le="+idioma:pet;
+		String res = doCall(pet);
+		
+		IrqZoneListObjectFactory factory=new IrqZoneListObjectFactory();
+		JAXBContext jaxbContext = JAXBContext.newInstance(IrqZoneListResponse.class);
+		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+		StringReader reader = new StringReader(res);
+		IrqZoneListResponse ret = (IrqZoneListResponse) jaxbUnmarshaller.unmarshal(reader);
+		
+		return ret;
+		
+	}
+	
+	public IrqDestinationZoneListResponse getIrqDestinationZoneList(String idioma, String destinationId) throws Exception{
+		String pet="&peticion=IrqDestinationZoneList";
+		pet=idioma!=null?pet+"&le="+idioma:pet;
+		pet=destinationId!=null?pet+"&destinationId="+destinationId:pet;
+		String res = doCall(pet);
+		
+		IrqDestinationZoneListObjectFactory factory=new IrqDestinationZoneListObjectFactory();
+		JAXBContext jaxbContext = JAXBContext.newInstance(IrqDestinationZoneListResponse.class);
+		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+		StringReader reader = new StringReader(res);
+		IrqDestinationZoneListResponse ret = (IrqDestinationZoneListResponse) jaxbUnmarshaller.unmarshal(reader);
+		
+		return ret;
+		
+	}
+	
+	public IrqRoomTypesListResponse getIrqRoomTypesList(String idioma) throws Exception{
+		String pet="&peticion=IrqRoomTypesList";
+		pet=idioma!=null?pet+"&le="+idioma:pet;
+		String res = doCall(pet);
+		
+		IrqRoomTypesListObjectFactory factory=new IrqRoomTypesListObjectFactory();
+		JAXBContext jaxbContext = JAXBContext.newInstance(IrqRoomTypesListResponse.class);
+		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+		StringReader reader = new StringReader(res);
+		IrqRoomTypesListResponse ret = (IrqRoomTypesListResponse) jaxbUnmarshaller.unmarshal(reader);
+		
+		return ret;
+		
+	}
+	public IrqCathegoryListResponse getIrqCathegoryList(String idioma) throws Exception{
+		String pet="&peticion=IrqCathegoryList";
+		pet=idioma!=null?pet+"&le="+idioma:pet;
+		String res = doCall(pet);
+		
+		IrqCathegoryListObjectFactory factory=new IrqCathegoryListObjectFactory();
+		JAXBContext jaxbContext = JAXBContext.newInstance(IrqCathegoryListResponse.class);
+		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+		StringReader reader = new StringReader(res);
+		IrqCathegoryListResponse ret = (IrqCathegoryListResponse) jaxbUnmarshaller.unmarshal(reader);
+		
+		return ret;
+		
+	}
+	public IrqHotelListResponse getIrqHotelList(String destinationId, String zoneId) throws Exception{
+		String pet="&peticion=IrqHotelList";
+		pet=destinationId!=null?pet+"&destinationId="+destinationId:pet;
+		pet=zoneId!=null?pet+"&zoneId="+zoneId:pet;
+		String res = doCall(pet);
+		
+		IrqHotelListObjectFactory factory=new IrqHotelListObjectFactory();
+		JAXBContext jaxbContext = JAXBContext.newInstance(IrqHotelListResponse.class);
+		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+		StringReader reader = new StringReader(res);
+		IrqHotelListResponse ret = (IrqHotelListResponse) jaxbUnmarshaller.unmarshal(reader);
+		
+		return ret;
+		
+	}
+	public IrqHotelDetailsListResponse getIrqHotelDetailsList(String idioma, String hotelId,String destinationId, String zoneId) throws Exception{
+		String pet="&peticion=IrqHotelDetailsList";
+		pet=idioma!=null?pet+"&le="+idioma:pet;
+		pet=hotelId!=null?pet+"&hotelId="+hotelId:pet;
+		pet=destinationId!=null?pet+"&destinationId="+destinationId:pet;
+		pet=zoneId!=null?pet+"&zoneId="+zoneId:pet;
+		String res = doCall(pet);
+		
+		IrqHotelDetailsListObjectFactory factory=new IrqHotelDetailsListObjectFactory();
+		JAXBContext jaxbContext = JAXBContext.newInstance(IrqHotelDetailsListResponse.class);
+		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+		StringReader reader = new StringReader(res);
+		IrqHotelDetailsListResponse ret = (IrqHotelDetailsListResponse) jaxbUnmarshaller.unmarshal(reader);
+		
+		return ret;
+		
+	}
+	
+	public IrqVillaAvailablePriceResponse getIrqVillaAvailablePrice(
+			String idioma, 
+			String hotelId,
+			String destinationId, 
+			String zoneId,
+			Calendar arrival,
+			Integer nights,
+			Integer adults,
+			Integer children,
+			Integer infants,
+			Boolean details) throws Exception{
+		String pet="&peticion=IrqVillaAvailablePrice";
+		pet=idioma!=null?pet+"&le="+idioma:pet;
+		pet=hotelId!=null?pet+"&hotelId="+hotelId:pet;
+		pet=destinationId!=null?pet+"&destinationId="+destinationId:pet;
+		pet=arrival!=null?pet+"&arrival="+SystemHelper.getCalendarTo_YYYY_MM_dd(arrival):pet;
+		pet=nights!=null?pet+"&nights="+nights:pet;
+		pet=adults!=null?pet+"&adults="+adults:pet;
+		pet=children!=null?pet+"&children="+children:pet;
+		pet=infants!=null?pet+"&infants="+infants:pet;
+		pet=details!=null?pet+"&details="+details:pet;
+		String res = doCall(pet);
+		
+		IrqVillaAvailablePriceObjectFactory factory=new IrqVillaAvailablePriceObjectFactory();
+		JAXBContext jaxbContext = JAXBContext.newInstance(IrqVillaAvailablePriceResponse.class);
+		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+		StringReader reader = new StringReader(res);
+		IrqVillaAvailablePriceResponse ret = (IrqVillaAvailablePriceResponse) jaxbUnmarshaller.unmarshal(reader);
+		
+		return ret;
+		
+	}
+	
+	public IrqVillaPreReservationResponse getIrqVillaPreReservation(
+			String idioma, 
+			String hotelId,
+			Calendar arrival,
+			Integer nights,
+			Integer roomId,
+			Integer boardId,
+			Integer adults,
+			Integer children,
+			Integer infants,
+			String clientName,
+			String clientSurname,
+			String clientDocument,
+			String clientAddress,
+			String clientZipCode,
+			String clientCity,
+			String clientRegion,
+			String clientCountry,
+			String clientEmail,
+			String clientTelephone,
+			String remarks
+			) throws Exception{
+		String pet="&peticion=IrqVillaPreReservation";
+		pet=idioma!=null?pet+"&le="+idioma:pet;
+		pet=hotelId!=null?pet+"&hotelId="+hotelId:pet;
+		pet=arrival!=null?pet+"&arrival="+SystemHelper.getCalendarTo_YYYY_MM_dd(arrival):pet;
+		pet=nights!=null?pet+"&nights="+nights:pet;
+		pet=roomId!=null?pet+"&roomId="+roomId:pet;
+		pet=boardId!=null?pet+"&boardId="+boardId:pet;
+		pet=adults!=null?pet+"&adults="+adults:pet;
+		pet=children!=null?pet+"&children="+children:pet;
+		pet=infants!=null?pet+"&infants="+infants:pet;
+		pet=clientName!=null?pet+"&clientName="+clientName:pet;
+		pet=clientSurname!=null?pet+"&clientSurname="+clientSurname:pet;
+		pet=clientDocument!=null?pet+"&clientDocument="+clientDocument:pet;
+		pet=clientAddress!=null?pet+"&clientAddress="+clientAddress:pet;
+		pet=clientZipCode!=null?pet+"&clientZipCode="+clientZipCode:pet;
+		pet=clientCity!=null?pet+"&clientCity="+clientCity:pet;
+		pet=clientRegion!=null?pet+"&clientRegion="+clientRegion:pet;
+		pet=clientCountry!=null?pet+"&clientCountry="+clientCountry:pet;
+		pet=clientEmail!=null?pet+"&clientEmail="+clientEmail:pet;
+		pet=clientTelephone!=null?pet+"&clientTelephone="+clientTelephone:pet;
+		pet=remarks!=null?pet+"&remarks="+remarks:pet;
+		
+		
+		String res = doCall(pet);
+		
+		IrqVillaPreReservationObjectFactory factory=new IrqVillaPreReservationObjectFactory();
+		JAXBContext jaxbContext = JAXBContext.newInstance(IrqVillaPreReservationResponse.class);
+		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+		StringReader reader = new StringReader(res);
+		IrqVillaPreReservationResponse ret = (IrqVillaPreReservationResponse) jaxbUnmarshaller.unmarshal(reader);
+		
+		return ret;
+		
+	}
+	public IrqVillaConfirmReservationResponse getIrqVillaConfirmReservation(String hotelId,	String year,String countryId) throws Exception{
+		String pet="&peticion=IrqVillaConfirmReservation";
+		pet=hotelId!=null?pet+"&hotelId="+hotelId:pet;
+		pet=year!=null?pet+"&year="+year:pet;
+		pet=countryId!=null?pet+"&countryId="+countryId:pet;
+		
+		String res = doCall(pet);
+		
+		IrqVillaConfirmReservationObjectFactory factory=new IrqVillaConfirmReservationObjectFactory();
+		JAXBContext jaxbContext = JAXBContext.newInstance(IrqVillaConfirmReservationResponse.class);
+		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+		StringReader reader = new StringReader(res);
+		IrqVillaConfirmReservationResponse ret = (IrqVillaConfirmReservationResponse) jaxbUnmarshaller.unmarshal(reader);
+		
+		return ret;
+		
+	}
+	
+	public IrqHotelAvailablePriceResponse getIrqHotelAvailablePrice(
+			String idioma, 
+			String hotelId,
+			String destinationId, 
+			String zoneId,
+			Calendar arrival,
+			Integer nights,
+			Integer adults1,
+			Integer children1,
+			Integer infants1,
+			Integer adults2,
+			Integer children2,
+			Integer infants2,
+			Integer adults3,
+			Integer children3,
+			Integer infants3,
+			Integer adults4,
+			Integer children4,
+			Integer infants4,
+			Integer adults5,
+			Integer children5,
+			Integer infants5) throws Exception{
+		String pet="&peticion=IrqHotelAvailablePrice";
+		pet=idioma!=null?pet+"&le="+idioma:pet;
+		pet=hotelId!=null?pet+"&hotelId="+hotelId:pet;
+		pet=destinationId!=null?pet+"&destinationId="+destinationId:pet;
+		pet=arrival!=null?pet+"&arrival="+SystemHelper.getCalendarTo_YYYY_MM_dd(arrival):pet;
+		pet=nights!=null?pet+"&nights="+nights:pet;
+		pet=adults1!=null?pet+"&adults1="+adults1:pet;
+		pet=children1!=null?pet+"&children1="+children1:pet;
+		pet=infants1!=null?pet+"&infants1="+infants1:pet;
+		pet=adults2!=null?pet+"&adults2="+adults2:pet;
+		pet=children2!=null?pet+"&children2="+children2:pet;
+		pet=infants2!=null?pet+"&infants2="+infants2:pet;
+		pet=adults3!=null?pet+"&adults3="+adults3:pet;
+		pet=children3!=null?pet+"&children3="+children3:pet;
+		pet=infants3!=null?pet+"&infants3="+infants3:pet;
+		pet=adults4!=null?pet+"&adults4="+adults4:pet;
+		pet=children4!=null?pet+"&children4="+children4:pet;
+		pet=infants4!=null?pet+"&infants4="+infants4:pet;
+		pet=adults5!=null?pet+"&adults5="+adults5:pet;
+		pet=children5!=null?pet+"&children5="+children5:pet;
+		pet=infants5!=null?pet+"&infants5="+infants5:pet;
+		String res = doCall(pet);
+		
+		IrqHotelAvailablePriceObjectFactory factory=new IrqHotelAvailablePriceObjectFactory();
+		JAXBContext jaxbContext = JAXBContext.newInstance(IrqHotelAvailablePriceResponse.class);
+		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+		StringReader reader = new StringReader(res);
+		IrqHotelAvailablePriceResponse ret = (IrqHotelAvailablePriceResponse) jaxbUnmarshaller.unmarshal(reader);
+		
+		return ret;
+		
+	}
+	
+	public IrqHotelPreReservationResponse getIrqHotelPreReservation(
+			String idioma, 
+			String hotelId,
+			Calendar arrival,
+			Integer nights,
+			Integer rooms,
+			Integer roomId1,
+			Integer boardId1,
+			Integer roomId2,
+			Integer boardId2,
+			Integer roomId3,
+			Integer boardId3,
+			Integer roomId4,
+			Integer boardId4,
+			Integer roomId5,
+			Integer boardId5,
+			Integer adults1,
+			Integer children1,
+			Integer infants1,
+			Integer adults2,
+			Integer children2,
+			Integer infants2,
+			Integer adults3,
+			Integer children3,
+			Integer infants3,
+			Integer adults4,
+			Integer children4,
+			Integer infants4,
+			Integer adults5,
+			Integer children5,
+			Integer infants5,
+			String clientName,
+			String clientSurname,
+			String clientDocument,
+			String clientAddress,
+			String clientZipCode,
+			String clientCity,
+			String clientRegion,
+			String clientCountry,
+			String clientEmail,
+			String clientTelephone,
+			String Notes
+			) throws Exception{
+		String pet="&peticion=IrqHotelPreReservation";
+		pet=idioma!=null?pet+"&le="+idioma:pet;
+		pet=hotelId!=null?pet+"&hotelId="+hotelId:pet;
+		pet=arrival!=null?pet+"&arrival="+SystemHelper.getCalendarTo_YYYY_MM_dd(arrival):pet;
+		pet=nights!=null?pet+"&nights="+nights:pet;
+		pet=rooms!=null?pet+"&rooms="+rooms:pet;
+		pet=roomId1!=null?pet+"&roomId1="+roomId1:pet;
+		pet=boardId1!=null?pet+"&boardId1="+boardId1:pet;
+		pet=roomId2!=null?pet+"&roomId2="+roomId2:pet;
+		pet=boardId2!=null?pet+"&boardId2="+boardId2:pet;
+		pet=roomId3!=null?pet+"&roomId3="+roomId3:pet;
+		pet=boardId3!=null?pet+"&boardId3="+boardId3:pet;
+		pet=roomId4!=null?pet+"&roomId4="+roomId4:pet;
+		pet=boardId4!=null?pet+"&boardId4="+boardId4:pet;
+		pet=roomId5!=null?pet+"&roomId5="+roomId5:pet;
+		pet=boardId5!=null?pet+"&boardId5="+boardId5:pet;
+		pet=adults1!=null?pet+"&adults1="+adults1:pet;
+		pet=children1!=null?pet+"&children1="+children1:pet;
+		pet=infants1!=null?pet+"&infants1="+infants1:pet;
+		pet=adults2!=null?pet+"&adults2="+adults2:pet;
+		pet=children2!=null?pet+"&children2="+children2:pet;
+		pet=infants2!=null?pet+"&infants2="+infants2:pet;
+		pet=adults3!=null?pet+"&adults3="+adults3:pet;
+		pet=children3!=null?pet+"&children3="+children3:pet;
+		pet=infants3!=null?pet+"&infants3="+infants3:pet;
+		pet=adults4!=null?pet+"&adults4="+adults4:pet;
+		pet=children4!=null?pet+"&children4="+children4:pet;
+		pet=infants4!=null?pet+"&infants4="+infants4:pet;
+		pet=adults5!=null?pet+"&adults5="+adults5:pet;
+		pet=children5!=null?pet+"&children5="+children5:pet;
+		pet=infants5!=null?pet+"&infants5="+infants5:pet;
+		pet=clientName!=null?pet+"&clientName="+clientName:pet;
+		pet=clientSurname!=null?pet+"&clientSurname="+clientSurname:pet;
+		pet=clientDocument!=null?pet+"&clientDocument="+clientDocument:pet;
+		pet=clientAddress!=null?pet+"&clientAddress="+clientAddress:pet;
+		pet=clientZipCode!=null?pet+"&clientZipCode="+clientZipCode:pet;
+		pet=clientCity!=null?pet+"&clientCity="+clientCity:pet;
+		pet=clientRegion!=null?pet+"&clientRegion="+clientRegion:pet;
+		pet=clientCountry!=null?pet+"&clientCountry="+clientCountry:pet;
+		pet=clientEmail!=null?pet+"&clientEmail="+clientEmail:pet;
+		pet=clientTelephone!=null?pet+"&clientTelephone="+clientTelephone:pet;
+		pet=Notes!=null?pet+"&Notes="+Notes:pet;
+		
+		
+		String res = doCall(pet);
+		
+		IrqHotelPreReservationObjectFactory factory=new IrqHotelPreReservationObjectFactory();
+		JAXBContext jaxbContext = JAXBContext.newInstance(IrqHotelPreReservationResponse.class);
+		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+		StringReader reader = new StringReader(res);
+		IrqHotelPreReservationResponse ret = (IrqHotelPreReservationResponse) jaxbUnmarshaller.unmarshal(reader);
+		
+		return ret;
+		
+	}
+	
+	public IrqHotelConfirmReservationResponse getIrqHotelConfirmReservation(String reserveId,	String cs) throws Exception{
+		String pet="&peticion=IrqHotelConfirmReservation";
+		pet=reserveId!=null?pet+"&reserveId="+reserveId:pet;
+		pet=cs!=null?pet+"&cs="+cs:pet;
+		
+		String res = doCall(pet);
+		
+		IrqHotelConfirmReservationObjectFactory factory=new IrqHotelConfirmReservationObjectFactory();
+		JAXBContext jaxbContext = JAXBContext.newInstance(IrqHotelConfirmReservationResponse.class);
+		Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
+		StringReader reader = new StringReader(res);
+		IrqHotelConfirmReservationResponse ret = (IrqHotelConfirmReservationResponse) jaxbUnmarshaller.unmarshal(reader);
+		
+		return ret;
+		
+	}
+}

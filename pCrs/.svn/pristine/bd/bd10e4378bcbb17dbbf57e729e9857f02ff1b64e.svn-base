@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping package="com.photel.data.gen.ddbb.hibernate.pojo">
+	<class
+		name="GenTrackingLevel"
+		table="GEN_TRACKING_LEVEL"
+	>
+		<meta attribute="sync-DAO">false</meta>
+
+		<id
+			name="GtlNivel"
+			column="GTL_NIVEL"
+			type="string"
+		/>
+		<property
+			name="GtlOrder"
+			column="GTL_ORDER"
+			type="integer"
+			not-null="false"
+			length="22"
+		/>
+
+
+	</class>	
+</hibernate-mapping>

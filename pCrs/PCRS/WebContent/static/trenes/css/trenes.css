@@ -1,0 +1,122 @@
+/*
+ * $Id: styles.css 722375 2008-12-02 05:19:57Z wesw $
+ *
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *  http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+.bloque-destinos_lnk:link,.bloque-destinos_lnk:visited,.bloque-destinos_lnk:active{color:#000 ; text-decoration :none}
+.bloque-destinos_lnk:hover{color:#FFBB00}
+.wwFormTable {}
+.label {font-style:italic; }
+.errorLabel {font-style:italic; color:red; }
+.errorMessage {font-weight:bold; color:red; }
+.checkboxLabel {}
+.checkboxErrorLabel {color:red; }
+.required {color:red;}
+.tdLabel {text-align:right; vertical-align:top; }
+
+.dojoComboBox2 {
+    border-right-width: 1px !important;
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+    width: 200px;
+}
+
+.dojoComboBoxDestinosDestino {
+    border-right-width: 1px !important;
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+    width: 200px;
+}
+.comboEstaciones {
+    border-right-width: 1px !important;
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+    width: 200px;
+}
+.comboProvincias{
+	border-right-width: 1px !important;
+    margin-right: 0 !important;
+    padding-right: 0 !important;
+    width: 200px;
+}
+.textoFecha{
+    width: 100px;
+}
+.divSoloIda{
+	float:right;
+}
+.DynarchCalendar-title div {
+  margin-left: 40px;
+}
+.sombraInicio{
+	display:none;
+	position:fixed;
+	top:0%;left:0%;
+	width:100%;
+	height:100%;
+	background-color:#fff;
+	z-index:1001;
+	/*-moz-opacity:0.8;
+	opacity:.80;
+	filter:alpha(opacity=80);*/
+}
+
+.campo-buscadorTrenesComboSelect{
+float: right;
+}
+.campo-buscadorTrenes{
+width: 209px;
+border: 1px solid #E1E5E8;
+/*margin-top: 2px;*/
+}
+
+.autocomplete-w1 { position:absolute; top:0px; left:0px; margin:6px 0 0 6px; /* IE6 fix: */ _background:none; _margin:1px 0 0 0; }
+.autocomplete { border:1px solid #999; background:#FFF; cursor:default; text-align:left; max-height:350px; overflow:auto; margin:-6px 6px 6px -6px; /* IE6 specific: */ _height:350px;  _margin:0; _overflow-x:hidden; }
+.autocomplete .selected { background:#F0F0F0; }
+.autocomplete div { padding:0px 5px; white-space:nowrap; overflow:hidden; }
+.autocomplete strong { font-weight:bold; color:#000000; text-decoration: underline; }
+.autocomplete provincia { font-weight:bold; color:#000000; font-size:11px; }
+.autocomplete provinciaMini {margin:5px; color:#000000; font-size:12px;}
+.autocomplete destino {margin:10px;color:#000000; font-size:12px;}
+.grupo-formulario-4 label.error{color: red;display: block;float: none;width:100%;padding-left: 10px;text-align:center}  
+.grupo-formulario-1-1{float: left;padding-right: 0;width: 195px;}
+.grupo-formulario-1-2{float: left;width: 130px;}
+.paginacionInferior{
+margin-bottom: 65px;
+margin-top: -35px;	
+}
+.tablaBotonera{
+	border-collapse: separate;
+	border-spacing: 10px;
+	}
+.ocultaPaginacion{padding-top:55px;position:absolute;background-color:#FFF;width:45%;top:0px;right:0px;z-index:100;opacity:0.6; filter: alpha(opacity = 50);}
+
+.agrupa-datos-12 .dato2-1-5 {
+    float: left;
+    font-size: 0.9em;
+    padding-right: 5px;
+    text-align: center;
+    width: 47px;
+}
+.agrupa-datos-12 .dato2-1-6 {
+    color: #697B7B;
+    float: left;
+    padding-right: 5px;
+    text-align: center;
+    width: 50px;
+}

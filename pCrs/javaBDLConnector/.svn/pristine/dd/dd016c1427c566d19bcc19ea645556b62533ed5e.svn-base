@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.hotelbeds.com/schemas/2005/06/messages" targetNamespace="http://www.hotelbeds.com/schemas/2005/06/messages" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="HotelbedsCommonTypes.xsd"/>
+	<xs:element name="PurchaseListRQ">
+		<xs:annotation>
+			<xs:documentation>Request data to obtain a list of purchases according to the requested parameters.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CoreRequest">
+					<xs:sequence>
+						<xs:annotation>
+							<xs:documentation>Filtering options.</xs:documentation>
+						</xs:annotation>
+						<xs:element name="PaginationData" type="PaginationRequestData">
+							<xs:annotation>
+								<xs:documentation>Pagination data.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="IncomingOffice" type="IncomingOffice" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Incoming office filter.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Destination" type="Destination" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Destination filter.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="Reference" type="Reference" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Purchase reference filter.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="AgencyReference" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Agency reference filter.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:minLength value="1"/>
+									<xs:maxLength value="20"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="DateFrom" type="DateTime" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Date from filter.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="DateTo" type="DateTime" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Date to filter.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="IncludeCancelled" type="YesNo" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Indicates whether the response sholud include the cancelled purchases.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="FilterType" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Date type filter. 'C' Search purchases by creation date. 'E' Search purchases by Check-in date.</xs:documentation>
+							</xs:annotation>
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:minLength value="1"/>
+									<xs:maxLength value="1"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:element>
+						<xs:element name="Holder" type="Customer" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Holder filter.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+					<xs:attribute name="sessionId" use="required">
+						<xs:annotation>
+							<xs:documentation>Unique session identifier by user. For each new request you must generate a different session id. If you are using pagination and retrieving next pages from a previous initial search you must use the same session id, because the list results are cached using the session id. This is also applicable when changing sort criteria.</xs:documentation>
+						</xs:annotation>
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:minLength value="1"/>
+								<xs:maxLength value="25"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

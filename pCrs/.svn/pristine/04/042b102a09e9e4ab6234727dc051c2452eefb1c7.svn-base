@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns="http://www.hotelbeds.com/schemas/2005/06/messages" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.hotelbeds.com/schemas/2005/06/messages" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:include schemaLocation="HotelbedsCommonTypes.xsd"/>
+	<xs:element name="CarInfoSetRS">
+		<xs:annotation>
+			<xs:documentation>Response containing the car offices, car groups and car special equipment available at a specific destination.</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:complexContent>
+				<xs:extension base="CoreResponse">
+					<xs:sequence minOccurs="0">
+						<xs:element name="CarOfficeList" type="ProductCarOfficeList">
+							<xs:annotation>
+								<xs:documentation>Office list in the provided destination.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="CarGroupList" type="ProductCarGroupList">
+							<xs:annotation>
+								<xs:documentation>Car group list available in the provided destination.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="SpecialEquipmentList" type="ServiceCarSpecialEquipList" minOccurs="0">
+							<xs:annotation>
+								<xs:documentation>Special equipment list available in the provided destination.</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
